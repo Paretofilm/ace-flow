@@ -1,0 +1,189 @@
+{
+  "solution_library_template": {
+    "solution_id": "unique_identifier",
+    "name": "human_readable_name",
+    "description": "detailed_description",
+    "category": "permission_fix | configuration_change | dependency_update | workaround | optimization",
+    "applicable_errors": [
+      "error_type_1",
+      "error_type_2"
+    ],
+    "success_metrics": {
+      "success_rate": "0-1_decimal",
+      "average_resolution_time_minutes": "integer",
+      "user_satisfaction_avg": "1-5_rating",
+      "effectiveness_trend": "improving | stable | declining",
+      "last_updated": "ISO_8601_date",
+      "usage_count": "integer",
+      "auto_fix_success_rate": "0-1_decimal"
+    },
+    "solution_steps": [
+      {
+        "step_number": "integer",
+        "action": "detailed_action_description",
+        "expected_result": "what_should_happen",
+        "validation_method": "how_to_verify",
+        "common_issues": ["potential_issue_1", "potential_issue_2"],
+        "automation_potential": "0-1_score",
+        "technical_complexity": "low | medium | high"
+      }
+    ],
+    "prerequisites": {
+      "required_permissions": ["permission_1", "permission_2"],
+      "required_tools": ["tool_1", "tool_2"],
+      "environment_requirements": ["requirement_1", "requirement_2"],
+      "knowledge_requirements": ["knowledge_1", "knowledge_2"]
+    },
+    "prevention_integration": {
+      "command_updates": [
+        {
+          "file": "command_file_name",
+          "section": "section_to_update",
+          "enhancement": "description_of_enhancement",
+          "enhancement_type": "prerequisite_check | warning | auto_fix | documentation"
+        }
+      ],
+      "proactive_checks": [
+        {
+          "check_command": "command_to_run",
+          "expected_output": "expected_result",
+          "failure_action": "what_to_do_if_check_fails"
+        }
+      ]
+    },
+    "related_solutions": ["solution_id_1", "solution_id_2"],
+    "deprecation_info": {
+      "is_deprecated": "boolean",
+      "deprecation_date": "ISO_8601_date",
+      "replacement_solution": "new_solution_id",
+      "deprecation_reason": "why_deprecated"
+    }
+  },
+  
+  "example_solution": {
+    "solution_id": "sol_dynamodb_permissions_v2",
+    "name": "DynamoDB Permission Fix for New AWS Accounts",
+    "description": "Resolves DynamoDB access denied errors by ensuring proper IAM permissions are configured for Amplify Gen 2 deployments",
+    "category": "permission_fix",
+    "applicable_errors": [
+      "amplify_deployment_failure",
+      "dynamodb_access_denied",
+      "cloudformation_insufficient_permissions"
+    ],
+    "success_metrics": {
+      "success_rate": 0.94,
+      "average_resolution_time_minutes": 12,
+      "user_satisfaction_avg": 4.6,
+      "effectiveness_trend": "improving",
+      "last_updated": "2024-01-20T00:00:00Z",
+      "usage_count": 47,
+      "auto_fix_success_rate": 0.78
+    },
+    "solution_steps": [
+      {
+        "step_number": 1,
+        "action": "Check current IAM permissions for DynamoDB",
+        "expected_result": "List of attached policies should include DynamoDB access",
+        "validation_method": "aws iam list-attached-user-policies --user-name [username]",
+        "common_issues": [
+          "Policy attached to group but not user",
+          "Conditional policy restrictions"
+        ],
+        "automation_potential": 0.9,
+        "technical_complexity": "low"
+      },
+      {
+        "step_number": 2,
+        "action": "Attach DynamoDBFullAccess policy if missing",
+        "expected_result": "Policy successfully attached to user/role",
+        "validation_method": "aws iam attach-user-policy --user-name [user] --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+        "common_issues": [
+          "Insufficient permissions to attach policies",
+          "Using IAM role instead of user"
+        ],
+        "automation_potential": 0.7,
+        "technical_complexity": "medium"
+      },
+      {
+        "step_number": 3,
+        "action": "Verify CloudFormation permissions",
+        "expected_result": "Can create and manage CloudFormation stacks",
+        "validation_method": "aws cloudformation describe-stacks",
+        "common_issues": [
+          "Regional permission restrictions",
+          "Service-linked role missing"
+        ],
+        "automation_potential": 0.85,
+        "technical_complexity": "medium"
+      },
+      {
+        "step_number": 4,
+        "action": "Clear AWS credential cache and retry deployment",
+        "expected_result": "Amplify deployment proceeds successfully",
+        "validation_method": "npx amplify sandbox --stream-function-logs",
+        "common_issues": [
+          "Cached credentials with old permissions",
+          "Session token expiration"
+        ],
+        "automation_potential": 0.95,
+        "technical_complexity": "low"
+      }
+    ],
+    "prerequisites": {
+      "required_permissions": [
+        "IAM policy management permissions",
+        "CloudFormation access"
+      ],
+      "required_tools": [
+        "AWS CLI",
+        "Amplify CLI"
+      ],
+      "environment_requirements": [
+        "Valid AWS credentials configured",
+        "Node.js 18+ environment"
+      ],
+      "knowledge_requirements": [
+        "Basic AWS IAM understanding",
+        "Amplify Gen 2 concepts"
+      ]
+    },
+    "prevention_integration": {
+      "command_updates": [
+        {
+          "file": "ace-genesis.md",
+          "section": "Prerequisites Check",
+          "enhancement": "Automated AWS permission validation before deployment",
+          "enhancement_type": "prerequisite_check"
+        },
+        {
+          "file": "CLAUDE.md",
+          "section": "AWS Permissions",
+          "enhancement": "Comprehensive DynamoDB permission requirements",
+          "enhancement_type": "documentation"
+        }
+      ],
+      "proactive_checks": [
+        {
+          "check_command": "aws iam list-attached-user-policies --user-name $(aws sts get-caller-identity --query User.UserName --output text)",
+          "expected_output": "Policy list including DynamoDB access",
+          "failure_action": "Guide user through permission setup"
+        },
+        {
+          "check_command": "aws dynamodb describe-limits",
+          "expected_output": "Account limits information",
+          "failure_action": "Request DynamoDB permission setup"
+        }
+      ]
+    },
+    "related_solutions": [
+      "sol_cloudformation_permissions_001",
+      "sol_aws_credentials_setup_002"
+    ],
+    "deprecation_info": {
+      "is_deprecated": false,
+      "deprecation_date": null,
+      "replacement_solution": null,
+      "deprecation_reason": null
+    }
+  }
+}

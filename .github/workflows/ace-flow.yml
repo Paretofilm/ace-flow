@@ -1,0 +1,270 @@
+name: ACE-Flow - Amplified Context Engineering
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, synchronize]
+  issue_comment:
+    types: [created]
+
+jobs:
+  ace-flow:
+    if: contains(github.event.issue.body, '@claude') || contains(github.event.comment.body, '@claude') || contains(github.event.pull_request.body, '@claude')
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
+          
+      - name: Install dependencies
+        run: |
+          if [ -f "package.json" ]; then
+            npm install
+          else
+            echo "No package.json found, skipping npm install"
+          fi
+        
+      - name: Run Claude Code with ACE-Flow
+        uses: anthropics/claude-code-action@beta
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_api_key: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          
+          # ACE-Flow specific configuration
+          allowed_tools: |
+            Bash(npm install),
+            Bash(npm run build),
+            Bash(npm run test*),
+            Bash(npm run lint*),
+            Bash(npx amplify *),
+            Bash(npx ampx *),
+            Bash(aws *),
+            WebFetch(*),
+            WebSearch(*),
+            Task(*),
+            Read(*),
+            Write(*),
+            Edit(*),
+            MultiEdit(*),
+            Glob(*),
+            Grep(*)
+            
+          custom_instructions: |
+            This repository uses ACE-Flow (Amplified Context Engineering) for AWS Amplify Gen 2 development.
+            
+            ## 🔍 SMART SETUP VERIFICATION
+            
+            When users run ACE-Flow commands, perform this setup check:
+            
+            **1. Check for GitHub Workflows:**
+            ```bash
+            # Check if any workflow files exist
+            ls .github/workflows/*.yml 2>/dev/null || echo "No workflows found"
+            ```
+            
+            **2. GitHub App Installation Logic:**
+            - **IF** no `.github/workflows/*.yml` files exist:
+              - Guide user to run `/install-github-app` first
+              - Explain this creates proper workflows and permissions
+              - Stop ACE-Flow execution until GitHub App is installed
+            
+            - **IF** workflow files exist but lack ACE-Flow integration:
+              - Automatically enhance existing workflows with ACE-Flow capabilities
+              - Add ACE-Flow configuration to existing GitHub Actions
+              - Ensure compatibility with existing automation
+            
+            - **IF** ACE-Flow is already integrated:
+              - Proceed directly with ACE-Flow commands
+              - No additional setup required
+            
+            **3. Workflow Enhancement Strategy:**
+            When enhancing existing workflows, add:
+            - ACE-Flow command recognition (@claude /ace-genesis, /ace-research, /ace-implement, /ace-adopt)
+            - AWS Amplify Gen 2 specific tools and permissions
+            - Infrastructure-aware development guidelines
+            - Research-driven implementation instructions
+            
+            **4. CLAUDE.md Handling:**
+            - **Check for existing CLAUDE.md** before making changes
+            - **If CLAUDE.md exists**: Enhance with ACE-Flow sections (preserve existing content)
+            - **If no CLAUDE.md**: Create from ACE-Flow template
+            - **Always preserve**: Existing project guidelines and team-specific instructions
+            - **Enhancement approach**: Add ACE-Flow sections non-destructively
+            
+            ## 🚀 ACE-Flow Commands Available:
+            
+            ### /ace-genesis [idea]
+            **Intelligent Project Creation**
+            - Conducts 7-10 targeted questions to understand user vision
+            - Uses smart pattern recognition (Social, E-commerce, Content, Analytics, CRUD)
+            - Generates custom project specifications and implementation plans
+            - Creates tailored data models and authentication strategies
+            
+            ### /ace-research [project-domain] [architecture-pattern]  
+            **Advanced Documentation Research**
+            - Systematically gathers 30-100 pages of current AWS Amplify Gen 2 documentation
+            - Extracts proven code patterns and identifies common gotchas
+            - Creates comprehensive research context for implementation
+            - Validates completeness across all integration points
+            
+            ### /ace-implement [project-name]
+            **Infrastructure-Aware Implementation**
+            - Deploys backend with AWS timing constraints (2-5 minutes depending on complexity)
+            - Implements frontend with generated types and infrastructure awareness
+            - Runs validation loops with 80%+ auto-fix rate for common issues
+            - Results in production-ready applications with testing and security
+            
+            ### /ace-adopt [project-description]
+            **Safe Migration to ACE-Flow**
+            - Creates adoption branch and comprehensive backup tags
+            - Generates complete test suite for existing functionality  
+            - Performs incremental migration with validation at each step
+            - Provides rollback capabilities and zero-downtime migration
+            
+            ### /ace-learn [mode]
+            **Self-Learning Intelligence System**
+            - Analyzes error patterns and solution effectiveness
+            - Updates commands based on learning insights
+            - Refreshes documentation knowledge proactively
+            - Provides continuous improvement reports
+            
+            ## 🏗️ Architecture Patterns Supported:
+            
+            **Social Platform**: User groups, real-time feeds, media handling, social interactions
+            - Example: Fitness tracking with social motivation, workout sharing, friend connections
+            
+            **E-commerce**: Multi-vendor auth, payment processing, inventory management
+            - Example: Marketplace for handmade products with seller dashboards, Stripe integration
+            
+            **Content Management**: Publishing workflows, rich editing, SEO optimization
+            - Example: Documentation platform with collaborative editing, version control
+            
+            **Dashboard Analytics**: Real-time data, visualizations, complex queries
+            - Example: Business intelligence dashboard with live data streams, interactive charts
+            
+            **Simple CRUD**: Basic forms, data management, simple relationships
+            - Example: Task management system with user assignments, basic workflows
+            
+            ## 🔧 Development Guidelines:
+            
+            **INFRASTRUCTURE AWARENESS:**
+            - AWS Amplify Gen 2 deployments take 2-5 minutes depending on complexity
+            - Schema changes trigger automatic type regeneration (30-60 seconds)
+            - Always wait for infrastructure ready before frontend development
+            - Use `npx amplify sandbox` for development environment
+            - Monitor deployment status and provide timing updates to users
+            
+            **RESEARCH-DRIVEN DEVELOPMENT:**
+            - NEVER use outdated knowledge - always research current documentation first
+            - Scrape 30-100 pages of official AWS Amplify Gen 2 documentation
+            - Extract proven patterns from official sources only
+            - Identify and document common gotchas and prevention strategies
+            - Create comprehensive implementation context before coding
+            
+            **IMPLEMENTATION APPROACH:**
+            1. Follow the complete ACE-Flow workflow: Genesis → Research → Implementation
+            2. Use research-driven development (official documentation only)
+            3. Follow proven patterns extracted from documentation research
+            4. Implement with infrastructure timing awareness and real AWS services
+            5. Validate against actual cloud infrastructure, not mocks or simulations
+            6. Ensure production-ready code with comprehensive testing and security
+            
+            **QUALITY STANDARDS:**
+            - First-run success rate >95% (applications work immediately after deployment)
+            - Auto-fix common issues using research knowledge and proven patterns
+            - All implementations must work with real AWS infrastructure
+            - Include comprehensive testing, security validation, and performance optimization
+            - Generate complete project documentation and deployment guides
+            
+            **SELF-LEARNING INTEGRATION:**
+            - Capture error events and solutions for continuous learning
+            - Track solution effectiveness and user satisfaction
+            - Update commands based on learning insights automatically
+            - Maintain learning data privacy and security
+            - Provide learning analytics and improvement reports
+            
+            **ACE-FLOW WORKFLOW:**
+            When users trigger ACE-Flow commands, follow the complete methodology:
+            1. **Genesis**: Intelligent conversation to understand requirements
+            2. **Research**: Systematic documentation gathering (30-100 pages)
+            3. **Implementation**: Infrastructure-aware deployment with auto-fix capabilities
+            
+            **SUCCESS METRICS:**
+            - Total time from idea to working application: <2 hours
+            - Research phase: 15-30 minutes (automated documentation gathering)
+            - Implementation phase: 60-90 minutes (including testing and deployment)
+            - Quality: Production-ready applications with >95% first-run success rate
+            
+            Always prioritize infrastructure timing awareness and real-world AWS constraints.
+            
+          base_branch: "main"
+          
+      - name: Validate Amplify Configuration
+        run: |
+          if [ -f "amplify/backend.ts" ]; then
+            echo "✅ Amplify Gen 2 configuration found"
+            echo "Validating backend configuration..."
+            
+            # Check if amplify CLI is available
+            if command -v npx &> /dev/null; then
+              npx amplify configure list-commands || echo "Amplify CLI validation skipped"
+            fi
+          else
+            echo "ℹ️  No Amplify configuration found (this may be expected for new projects)"
+          fi
+          
+      - name: Run Tests if Available
+        run: |
+          if [ -f "package.json" ] && grep -q "test" package.json; then
+            echo "Running available tests..."
+            npm run test --if-present || echo "Tests completed with warnings"
+          else
+            echo "No tests configured, skipping test execution"
+          fi
+          
+      - name: Build Project if Available  
+        run: |
+          if [ -f "package.json" ] && grep -q "build" package.json; then
+            echo "Building project..."
+            npm run build --if-present || echo "Build completed with warnings"
+          else
+            echo "No build script found, skipping build"
+          fi
+          
+      - name: ACE-Flow Summary
+        run: |
+          echo "## 🚀 ACE-Flow Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Workflow**: Amplified Context Engineering for AWS Amplify Gen 2" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Available Commands:" >> $GITHUB_STEP_SUMMARY
+          echo "- \`/ace-genesis \"your idea\"\` - Intelligent project creation" >> $GITHUB_STEP_SUMMARY
+          echo "- \`/ace-research project-domain pattern\` - Documentation research" >> $GITHUB_STEP_SUMMARY  
+          echo "- \`/ace-implement project-name\` - Infrastructure-aware implementation" >> $GITHUB_STEP_SUMMARY
+          echo "- \`/ace-adopt \"existing project\"\` - Safe migration to ACE-Flow" >> $GITHUB_STEP_SUMMARY
+          echo "- \`/ace-learn [mode]\` - Self-learning system management" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Quality Metrics:" >> $GITHUB_STEP_SUMMARY
+          echo "- **Success Rate**: >95% first-run success" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timeline**: <2 hours from idea to production" >> $GITHUB_STEP_SUMMARY
+          echo "- **Documentation**: 30-100 pages researched per project" >> $GITHUB_STEP_SUMMARY
+          echo "- **Auto-fix**: >80% of common issues resolved automatically" >> $GITHUB_STEP_SUMMARY

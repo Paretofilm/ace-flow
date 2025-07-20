@@ -1,0 +1,139 @@
+{
+  "error_entry_template": {
+    "id": "err_YYYY_MM_DD_XXX",
+    "timestamp": "ISO 8601 format",
+    "command": "/ace-genesis | /ace-research | /ace-implement | /ace-adopt",
+    "phase": "setup | conversation | research | implementation | validation",
+    "error_type": "categorized_error_type",
+    "severity": "low | medium | high | critical",
+    "context": {
+      "project_type": "social_platform | e_commerce | content_management | dashboard_analytics | simple_crud",
+      "architecture_pattern": "pattern_name",
+      "aws_region": "region_code",
+      "environment": {
+        "node_version": "version_string",
+        "amplify_cli_version": "version_string",
+        "os": "operating_system",
+        "ci_environment": "boolean"
+      },
+      "user_experience_level": "beginner | intermediate | advanced",
+      "project_size": "small | medium | large"
+    },
+    "error_details": {
+      "message": "full_error_message",
+      "error_code": "service_specific_error_code",
+      "aws_service": "affected_aws_service",
+      "suggested_cause": "likely_root_cause",
+      "stack_trace": "technical_stack_trace",
+      "user_actions_before_error": ["action1", "action2"],
+      "environment_factors": {
+        "first_time_setup": "boolean",
+        "existing_aws_resources": "boolean",
+        "network_restrictions": "boolean"
+      }
+    },
+    "attempted_solutions": [
+      {
+        "solution_id": "unique_solution_identifier",
+        "description": "human_readable_description",
+        "solution_type": "permission_fix | configuration_change | dependency_update | workaround",
+        "steps": [
+          "step_1_description",
+          "step_2_description"
+        ],
+        "success": "boolean",
+        "time_to_resolve_minutes": "integer",
+        "validation_method": "how_success_was_verified",
+        "user_satisfaction": "1-5_rating",
+        "automation_potential": "0-1_score",
+        "reusability": "project_specific | pattern_specific | universal"
+      }
+    ],
+    "resolution": {
+      "resolved": "boolean",
+      "final_solution": "solution_id_that_worked",
+      "prevention_added": "boolean",
+      "command_updates": ["list_of_updated_files"],
+      "learning_confidence": "0-1_score",
+      "community_sharing_approved": "boolean"
+    },
+    "impact_assessment": {
+      "user_productivity_impact": "low | medium | high",
+      "learning_opportunity": "0-1_score",
+      "pattern_significance": "isolated | recurring | systemic",
+      "documentation_gap_identified": "boolean"
+    }
+  },
+  
+  "example_error_entry": {
+    "id": "err_2024_01_15_001",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "command": "/ace-genesis",
+    "phase": "implementation",
+    "error_type": "amplify_deployment_failure",
+    "severity": "high",
+    "context": {
+      "project_type": "social_platform",
+      "architecture_pattern": "social_platform",
+      "aws_region": "us-east-1",
+      "environment": {
+        "node_version": "18.17.0",
+        "amplify_cli_version": "2.15.0", 
+        "os": "ubuntu-latest",
+        "ci_environment": true
+      },
+      "user_experience_level": "intermediate",
+      "project_size": "medium"
+    },
+    "error_details": {
+      "message": "DynamoDB table creation failed: User is not authorized to perform: dynamodb:CreateTable",
+      "error_code": "AccessDeniedException",
+      "aws_service": "dynamodb",
+      "suggested_cause": "Insufficient IAM permissions for DynamoDB operations",
+      "stack_trace": "CloudFormation stack creation failed...",
+      "user_actions_before_error": [
+        "Ran /ace-genesis with social platform idea",
+        "Completed conversation flow",
+        "Started backend implementation"
+      ],
+      "environment_factors": {
+        "first_time_setup": true,
+        "existing_aws_resources": false,
+        "network_restrictions": false
+      }
+    },
+    "attempted_solutions": [
+      {
+        "solution_id": "sol_dynamodb_permissions_001",
+        "description": "Add DynamoDB permissions to IAM user/role",
+        "solution_type": "permission_fix",
+        "steps": [
+          "Attach DynamoDBFullAccess policy to IAM user",
+          "Verify CloudFormation permissions are present",
+          "Clear any cached AWS credentials",
+          "Restart amplify sandbox deployment"
+        ],
+        "success": true,
+        "time_to_resolve_minutes": 15,
+        "validation_method": "Successful deployment completion",
+        "user_satisfaction": 4,
+        "automation_potential": 0.8,
+        "reusability": "universal"
+      }
+    ],
+    "resolution": {
+      "resolved": true,
+      "final_solution": "sol_dynamodb_permissions_001",
+      "prevention_added": true,
+      "command_updates": ["ace-genesis.md", "CLAUDE.md"],
+      "learning_confidence": 0.95,
+      "community_sharing_approved": true
+    },
+    "impact_assessment": {
+      "user_productivity_impact": "high",
+      "learning_opportunity": 0.9,
+      "pattern_significance": "recurring",
+      "documentation_gap_identified": true
+    }
+  }
+}

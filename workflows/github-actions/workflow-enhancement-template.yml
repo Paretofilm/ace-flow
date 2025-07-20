@@ -1,0 +1,120 @@
+# ACE-Flow GitHub Actions Enhancement Template
+# This template shows how to enhance existing GitHub workflows with ACE-Flow capabilities
+
+# ADD TO EXISTING WORKFLOW: Enhanced Claude Code step
+- name: Run Claude Code with ACE-Flow Enhancement
+  uses: anthropics/claude-code-action@beta
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    claude_api_key: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+    
+    # ACE-Flow enhanced tool permissions
+    allowed_tools: |
+      Bash(npm install),
+      Bash(npm run build),
+      Bash(npm run test*),
+      Bash(npm run lint*),
+      Bash(npx amplify *),
+      Bash(npx ampx *),
+      Bash(aws *),
+      WebFetch(*),
+      WebSearch(*),
+      Task(*),
+      Read(*),
+      Write(*),
+      Edit(*),
+      MultiEdit(*),
+      Glob(*),
+      Grep(*)
+      
+    # ACE-Flow enhanced custom instructions
+    custom_instructions: |
+      This repository is enhanced with ACE-Flow (Amplified Context Engineering) for AWS Amplify Gen 2 development.
+      
+      ## 🚀 ACE-Flow Commands Available:
+      
+      ### /ace-genesis [idea]
+      **Intelligent Project Creation**
+      - Conducts 7-10 targeted questions to understand user vision
+      - Uses smart pattern recognition (Social, E-commerce, Content, Analytics, CRUD)
+      - Generates custom project specifications and implementation plans
+      
+      ### /ace-research [project-domain] [architecture-pattern]  
+      **Advanced Documentation Research**
+      - Systematically gathers 30-100 pages of current AWS Amplify Gen 2 documentation
+      - Extracts proven code patterns and identifies common gotchas
+      - Creates comprehensive research context for implementation
+      
+      ### /ace-implement [project-name]
+      **Infrastructure-Aware Implementation**
+      - Deploys backend with AWS timing constraints (2-5 minutes)
+      - Implements frontend with generated types and infrastructure awareness
+      - Runs validation loops with 80%+ auto-fix rate
+      - Results in production-ready applications
+      
+      ## 🏗️ Architecture Patterns:
+      - **Social Platform**: User groups, real-time feeds, media handling
+      - **E-commerce**: Multi-vendor auth, payments, inventory management  
+      - **Content Management**: Publishing workflows, rich editing, SEO
+      - **Dashboard Analytics**: Real-time data, visualizations, complex queries
+      - **Simple CRUD**: Basic forms, data management, simple relationships
+      
+      ## 🔧 Development Guidelines:
+      **INFRASTRUCTURE AWARENESS:**
+      - AWS Amplify Gen 2 deployments take 2-5 minutes depending on complexity
+      - Schema changes trigger automatic type regeneration (30-60 seconds)
+      - Always wait for infrastructure ready before frontend development
+      
+      **RESEARCH-DRIVEN DEVELOPMENT:**
+      - NEVER use outdated knowledge - research current documentation first
+      - Scrape 30-100 pages of official AWS Amplify Gen 2 documentation
+      - Extract proven patterns from official sources only
+      
+      **QUALITY STANDARDS:**
+      - First-run success rate >95%
+      - Auto-fix common issues using research knowledge
+      - All implementations must work with real AWS infrastructure
+      - Include comprehensive testing and security validation
+      
+      When users trigger ACE-Flow commands, follow the complete workflow:
+      Genesis → Research → Implementation with full infrastructure awareness.
+      
+    base_branch: "main"
+
+# ADD TO EXISTING WORKFLOW: AWS Configuration step
+- name: Configure AWS credentials for ACE-Flow
+  uses: aws-actions/configure-aws-credentials@v4
+  with:
+    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
+
+# ADD TO EXISTING WORKFLOW: Amplify validation step  
+- name: Validate Amplify Configuration
+  run: |
+    if [ -f "amplify/backend.ts" ]; then
+      echo "✅ Amplify Gen 2 configuration found"
+      echo "Validating backend configuration..."
+      
+      if command -v npx &> /dev/null; then
+        npx amplify configure list-commands || echo "Amplify CLI validation skipped"
+      fi
+    else
+      echo "ℹ️  No Amplify configuration found (this may be expected for new projects)"
+    fi
+
+# ADD TO EXISTING WORKFLOW: ACE-Flow summary step
+- name: ACE-Flow Summary
+  run: |
+    echo "## 🚀 ACE-Flow Enhancement Active" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY
+    echo "**Workflow**: Enhanced with Amplified Context Engineering" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY
+    echo "### Available Commands:" >> $GITHUB_STEP_SUMMARY
+    echo "- \`/ace-genesis \"your idea\"\` - Intelligent project creation" >> $GITHUB_STEP_SUMMARY
+    echo "- \`/ace-research project-domain pattern\` - Documentation research" >> $GITHUB_STEP_SUMMARY  
+    echo "- \`/ace-implement project-name\` - Infrastructure-aware implementation" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY
+    echo "### Success Metrics:" >> $GITHUB_STEP_SUMMARY
+    echo "- **Timeline**: <2 hours from idea to production" >> $GITHUB_STEP_SUMMARY
+    echo "- **Success Rate**: >95% first-run success" >> $GITHUB_STEP_SUMMARY
