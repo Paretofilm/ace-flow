@@ -9,7 +9,7 @@
 ```
 
 Examples:
-- `/ace-adopt "e-commerce site with React and Express API"`
+- `/ace-adopt "e_commerce site with React and Express API"`
 - `/ace-adopt "Next.js blog with Supabase backend"`
 - `/ace-adopt` (auto-detects project type)
 
@@ -220,7 +220,7 @@ npm run test:uat
 
 ### Example 1: Next.js + Supabase → Amplify Gen 2
 ```bash
-/ace-adopt "Next.js e-commerce site with Supabase backend"
+/ace-adopt "Next.js e_commerce site with Supabase backend"
 
 Analysis:
 - Detected: Next.js 13, Supabase, Stripe, Tailwind

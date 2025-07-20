@@ -13,13 +13,14 @@ This project uses **ACE-Flow (Amplified Context Engineering)** - an intelligent 
 - **`/ace-research [domain] [pattern]`** - Advanced documentation research (30-100 pages)
 - **`/ace-implement [project-name]`** - Infrastructure-aware implementation
 - **`/ace-adopt [description]`** - Safe migration of existing projects
+- **`/ace-status`** - Real-time progress tracking for long operations
 
 #### Architecture Patterns Supported
-- **Social Platform**: User groups, real-time feeds, media handling
-- **E-commerce**: Multi-vendor auth, payments, inventory management
-- **Content Management**: Publishing workflows, rich editing, SEO
-- **Dashboard Analytics**: Real-time data, visualizations, complex queries
-- **Simple CRUD**: Basic forms, data management, simple relationships
+- **social_platform**: User groups, real-time feeds, media handling
+- **e_commerce**: Multi-vendor auth, payments, inventory management
+- **content_management**: Publishing workflows, rich editing, SEO
+- **dashboard_analytics**: Real-time data, visualizations, complex queries
+- **simple_crud**: Basic forms, data management, simple relationships
 
 ## 🏗️ Development Guidelines
 

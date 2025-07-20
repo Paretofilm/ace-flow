@@ -32,7 +32,13 @@ Examples:
    - **Dashboard Analytics**: For data visualization, reporting, metrics
    - **Simple CRUD**: For basic data management, task tracking
 
-3. **Custom Project Generation**: Creates tailored architecture and implementation plan:
+3. **Solution Preview & Validation**: Shows you the tailored solution before building:
+   - Explains why the chosen architecture fits your needs
+   - Lists key features with reasoning
+   - Provides implementation timeline estimate
+   - Allows quick modifications if needed
+
+4. **Custom Project Generation**: Creates tailored architecture and implementation plan:
    - Custom data models for your specific domain
    - Appropriate authentication strategy (basic, social, multi-role)
    - Optimal storage and real-time configuration
@@ -99,13 +105,48 @@ The system automatically identifies your project type based on conversation:
 - **Generated**: Basic forms, data management, simple relationships
 - **Example Output**: Task management system with user assignments
 
+## Solution Preview Examples
+
+### Fitness App Example
+```
+## 🎯 Your Tailored Solution Preview
+
+Based on our conversation, I've designed a **Social Platform** for you:
+
+### 🏗️ Architecture: Social Fitness Platform
+**Why this pattern?** You mentioned users sharing workouts and social motivation - 
+this requires user profiles, content sharing, and real-time social interactions.
+
+### ⚡ Key Features:
+• User profiles with workout history - Essential for progress tracking
+• Social feed with workout sharing - Drives the motivation you wanted
+• Real-time progress updates - Keeps users engaged and competing
+• Mobile-optimized interface - Critical for gym/outdoor use
+
+### ⏱️ Implementation Timeline:
+• **Research Phase**: ~20 minutes
+• **Deployment**: ~4 minutes  
+• **Total**: Working app in ~90 minutes
+
+### 🚀 Ready to proceed?
+**'yes'** - Let's build this! (automatic research → implementation)
+**'modify [aspect]'** - Quick adjustment (e.g., 'modify auth to include social login')
+**'explain [feature]'** - Tell me more about a specific feature
+```
+
+### Common Modifications
+- `modify auth to include social login` → Adds Google/Apple sign-in
+- `modify to focus more on mobile` → Adjusts UI for mobile-first design  
+- `modify to be simpler` → May shift to Simple CRUD pattern
+- `modify to add payments` → Adds premium features with Stripe
+
 ## Expected Outcome
 
-After completing the ACE-Genesis conversation:
+After validation and confirmation:
 
-✅ **Project Specification**: Complete architecture document
+✅ **Project Specification**: Complete architecture document with user approval
 ✅ **Custom Data Models**: Tailored to your specific domain  
-✅ **Authentication Strategy**: Appropriate for your user types
+✅ **Authentication Strategy**: Validated and appropriate for your user types
 ✅ **Implementation Plan**: Step-by-step development roadmap
 ✅ **Research Requirements**: Automated documentation gathering
 ✅ **Deployment Strategy**: Production-ready AWS Amplify Gen 2 setup

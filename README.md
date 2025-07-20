@@ -11,6 +11,8 @@ ACE-Flow transforms how developers build cloud applications by combining:
 
 ## ⚡ Core Workflow
 
+> 📊 **[Visual Flow Diagram](./docs/ACE-FLOW-VISUAL-GUIDE.md)** - See the complete workflow visualization
+
 ### 1. 🧠 Intelligent Genesis
 ```bash
 /ace-genesis "I want to build a social fitness app"
@@ -25,7 +27,7 @@ ACE-Flow transforms how developers build cloud applications by combining:
 
 ### 2. 🔬 Advanced Research
 ```bash
-/ace-research social-fitness-app social_platform
+/ace-research social_fitness_app social_platform
 ```
 
 **What happens:**
@@ -37,7 +39,7 @@ ACE-Flow transforms how developers build cloud applications by combining:
 
 ### 3. 🚀 Infrastructure-Aware Implementation
 ```bash
-/ace-implement fit-flow-social
+/ace-implement fit_flow_social
 ```
 
 **What happens:**
@@ -49,7 +51,7 @@ ACE-Flow transforms how developers build cloud applications by combining:
 
 ### 4. 🔄 Safe Migration for Existing Projects
 ```bash
-/ace-adopt "existing e-commerce site with React and Express"
+/ace-adopt "existing e_commerce site with React and Express"
 ```
 
 **What happens:**
@@ -75,27 +77,27 @@ ACE-Flow transforms how developers build cloud applications by combining:
 
 ACE-Flow includes intelligent pattern recognition for:
 
-### Social Platform Pattern
+### social_platform Pattern
 - **Use Cases**: Fitness apps, social networks, collaboration tools
 - **Features**: User groups, real-time feeds, media handling, social interactions
 - **Complexity**: High (3-4 minute deployment)
 
-### E-commerce Platform Pattern  
+### e_commerce Platform Pattern  
 - **Use Cases**: Online stores, marketplaces, subscription services
 - **Features**: Multi-vendor auth, payment processing, inventory management
 - **Complexity**: High (4-5 minute deployment)
 
-### Content Management Pattern
+### content_management Pattern
 - **Use Cases**: Blogs, documentation sites, educational platforms
 - **Features**: Rich content editing, publishing workflows, SEO optimization
 - **Complexity**: Medium (2-3 minute deployment)
 
-### Dashboard Analytics Pattern
+### dashboard_analytics Pattern
 - **Use Cases**: Business dashboards, monitoring tools, data visualization
 - **Features**: Real-time data streams, complex visualizations, aggregations
 - **Complexity**: High (3-4 minute deployment)
 
-### Simple CRUD Pattern
+### simple_crud Pattern
 - **Use Cases**: Task managers, inventory systems, basic databases
 - **Features**: Basic forms, data management, simple relationships
 - **Complexity**: Low (1-2 minute deployment)
@@ -151,9 +153,9 @@ ace-flow/
 │   ├── knowledge/              # Documentation freshness monitoring
 │   └── analytics/              # Learning metrics and trends
 ├── examples/                    # Real project examples
-│   ├── social-fitness-app/     # Complete social platform example
-│   ├── craft-marketplace/      # E-commerce marketplace example
-│   └── content-hub/           # Content management example
+│   ├── social_fitness_app/     # Complete social platform example
+│   ├── craft_marketplace/      # E-commerce marketplace example
+│   └── content_hub/            # Content management example
 └── docs/                       # Methodology documentation
     ├── infrastructure-intelligence.md
     ├── pattern-recognition.md
@@ -221,26 +223,26 @@ Generated applications include testing, security, performance optimization, and 
 
 ### Example Projects You Can Build
 - **Social Fitness Platform**: User profiles, workout tracking, social features, real-time updates
-- **E-commerce Marketplace**: Multi-vendor stores, payment processing, inventory management
-- **Content Management Hub**: Rich editing, publishing workflows, SEO optimization
+- **e_commerce Marketplace**: Multi-vendor stores, payment processing, inventory management
+- **content_management Hub**: Rich editing, publishing workflows, SEO optimization
 - **Analytics Dashboard**: Real-time data visualization, complex queries, interactive charts
 - **Team Collaboration Tool**: Real-time messaging, file sharing, project management
 
 ## 🏆 Real-World Examples
 
-### FitFlow Social (Social Platform)
+### FitFlow Social (social_platform)
 ```bash
 /ace-genesis "fitness tracking app with social motivation features"
 ```
 **Generated**: User authentication with groups, workout logging, progress photos with S3, real-time activity feeds, social following/sharing, mobile-optimized UI with camera integration.
 
-### CraftMarket (E-commerce)  
+### CraftMarket (e_commerce)  
 ```bash
 /ace-genesis "online marketplace for handmade products"
 ```
 **Generated**: Multi-vendor authentication, Stripe Connect integration, product catalog with search, inventory management, order processing, seller dashboards, buyer protection.
 
-### ContentHub (Content Management)
+### ContentHub (content_management)
 ```bash
 /ace-genesis "documentation platform with collaborative editing"
 ```

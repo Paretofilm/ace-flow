@@ -22,22 +22,15 @@ Your AWS user/role needs permissions for:
 
 ## 🎯 Quick Start (5 Minutes)
 
-### 1. Copy ACE-Flow to Your Project
+### 1. Clone and Initialize Your Project
 ```bash
-# For a new project
-mkdir my-awesome-app
+# Clone ACE-Flow and rename to your project
+git clone https://github.com/Paretofilm/ace-flow.git my-awesome-app
 cd my-awesome-app
+
+# Remove git history for fresh start
+rm -rf .git
 git init
-
-# Copy the complete ACE-Flow system
-cp -r /path/to/ace-flow ./ace-flow
-
-# Copy the Claude and GitHub configurations
-cp -r ace-flow/.claude ./
-cp -r ace-flow/.github ./
-
-# Copy CLAUDE.md template (will be customized by ACE-Flow commands)
-cp ace-flow/CLAUDE.md ./CLAUDE.md
 
 # Initialize AWS Amplify Gen 2 project
 npm create amplify@latest
@@ -45,23 +38,88 @@ npm create amplify@latest
 
 ### 2. Configure GitHub Repository
 ```bash
-# Create GitHub repository
-gh repo create my-awesome-app --public --clone
+# Create GitHub repository (without cloning since we already have the directory)
+gh repo create my-awesome-app --public
 
-# Push ACE-Flow system
+# Add remote and push ACE-Flow system
+git remote add origin https://github.com/[your-username]/my-awesome-app.git
 git add .
 git commit -m "Initial commit with ACE-Flow system"
-git push origin main
+git push -u origin main
 ```
 
-### 3. Set Up GitHub Secrets
-In your GitHub repository settings, add these secrets:
+### 3. Set Up AWS Pipeline & GitHub Secrets
+
+**Choose your preferred setup method:**
+
+#### Option A: Automated Setup (Recommended)
+**One command creates all AWS resources and configures GitHub secrets:**
+```bash
+# Run the automated setup script
+chmod +x scripts/setup-aws-pipeline.sh
+./scripts/setup-aws-pipeline.sh
+
+# Follow interactive prompts:
+# - Project name: [your-project-name]
+# - AWS region: [us-east-1]
+# - GitHub repo: [username/repo-name]
+# - Confirm: y
+
+# ✅ Script automatically creates:
+# - IAM user with proper permissions
+# - AWS Amplify app with GitHub integration  
+# - All GitHub repository secrets
+# - Complete setup summary document
+```
+
+#### Option B: ACE-Flow Command
+**Use ACE-Flow's built-in automation:**
+```bash
+# Create GitHub issue to trigger automated setup
+gh issue create --title "Setup Pipeline" --body "@claude /ace-setup-pipeline"
+
+# Monitor GitHub Actions for automated AWS resource creation
+gh run list
+```
+
+#### Option C: CloudFormation Template
+**Infrastructure as Code approach:**
+```bash
+# Deploy via CloudFormation
+aws cloudformation create-stack \
+  --stack-name "ace-flow-[project-name]" \
+  --template-body file://cloudformation/ace-flow-pipeline-setup.yml \
+  --parameters \
+    ParameterKey=ProjectName,ParameterValue=[project-name] \
+    ParameterKey=GitHubRepository,ParameterValue=[username/repo] \
+    ParameterKey=GitHubToken,ParameterValue=$(gh auth token) \
+  --capabilities CAPABILITY_NAMED_IAM
+
+# Set GitHub secrets from CloudFormation outputs
+```
+
+#### Option D: Manual Setup (Traditional)
+**If you prefer manual configuration:**
+
+In your GitHub repository settings → Secrets and variables → Actions, add:
 ```bash
 CLAUDE_CODE_OAUTH_TOKEN=your-claude-api-key
 AWS_ACCESS_KEY_ID=your-aws-access-key  
 AWS_SECRET_ACCESS_KEY=your-aws-secret-key
-AWS_REGION=us-east-1  # or your preferred region
+AWS_REGION=us-east-1
+AMPLIFY_APP_ID=your-amplify-app-id
+AMPLIFY_WEBHOOK_URL=your-webhook-url
 ```
+
+#### Organization-Level Secrets (Enterprise)
+For multiple ACE-Flow projects in an organization:
+1. Go to organization settings → Secrets and variables → Actions
+2. Add secrets at organization level with "Selected repositories" access
+3. This allows sharing secrets across multiple projects
+
+**📋 Detailed Instructions:** See [AWS_PIPELINE_SETUP_GUIDE.md](./AWS_PIPELINE_SETUP_GUIDE.md) for complete setup documentation with troubleshooting.
+
+**Why these secrets?** GitHub's security model isolates secrets per repository. The automated setup creates least-privilege IAM users specifically for your ACE-Flow project.
 
 ### 4. GitHub Actions Setup (Automatic)
 ACE-Flow automatically handles GitHub Actions setup:
@@ -158,7 +216,7 @@ Create a new GitHub issue with:
 
 ## 🏗️ Architecture Pattern Examples
 
-### Social Platform (3-4 minute deployment)
+### social_platform (3-4 minute deployment)
 ```bash
 /ace-genesis "fitness tracking app where users share workouts and motivate each other"
 ```
@@ -169,7 +227,7 @@ Create a new GitHub issue with:
 - Social features: profiles, following, workout sharing
 - Mobile-optimized UI with camera integration
 
-### E-commerce Platform (4-5 minute deployment)
+### e_commerce (4-5 minute deployment)
 ```bash
 /ace-genesis "online marketplace where artists sell handmade jewelry"
 ```
@@ -180,7 +238,7 @@ Create a new GitHub issue with:
 - Order processing and seller dashboard
 - Buyer protection and review system
 
-### Content Management (2-3 minute deployment)
+### content_management (2-3 minute deployment)
 ```bash
 /ace-genesis "documentation platform for collaborative technical writing"
 ```
@@ -191,7 +249,7 @@ Create a new GitHub issue with:
 - SEO optimization and media library
 - Real-time collaborative editing
 
-### Dashboard Analytics (3-4 minute deployment)
+### dashboard_analytics (3-4 minute deployment)
 ```bash
 /ace-genesis "business intelligence dashboard for sales analytics"
 ```
@@ -202,7 +260,7 @@ Create a new GitHub issue with:
 - User permission-based data access
 - Export capabilities and scheduled reports
 
-### Simple CRUD (1-2 minute deployment)
+### simple_crud (1-2 minute deployment)
 ```bash
 /ace-genesis "task management system for team collaboration"
 ```
@@ -218,34 +276,39 @@ Create a new GitHub issue with:
 After ACE-Flow completion:
 ```
 my-awesome-app/
-├── .claude/                    # Claude Code commands
+├── .claude/                    # ACE-Flow commands
 │   ├── ace-genesis.md
 │   ├── ace-research.md
 │   ├── ace-implement.md
-│   └── ace-adopt.md
+│   ├── ace-adopt.md
+│   └── ace-learn.md
 ├── .github/                    # GitHub Actions automation
 │   └── workflows/
 │       └── ace-flow.yml
+├── .learning/                  # Self-learning system
+│   ├── errors/
+│   └── solutions/
+├── genesis/                    # Project creation patterns
+│   ├── architecture-patterns/
+│   ├── conversation-flows/
+│   └── prototype-templates/
+├── workflows/                  # Advanced ACE-Flow workflows
 ├── CLAUDE.md                   # ACE-Flow enhanced project guidance
-├── ace-flow/                   # Complete ACE-Flow system
-│   ├── README.md
-│   ├── SETUP.md               # This file
-│   ├── CLAUDE.md              # Template for new projects
-│   ├── commands/              # Command documentation
-│   ├── genesis/               # Project creation system
-│   └── workflows/             # Advanced workflows
-├── amplify/                   # AWS backend configuration
+├── README.md                   # ACE-Flow documentation
+├── SETUP.md                    # Setup instructions
+├── QUICKSTART.md               # Quick start guide
+├── LICENSE                     # MIT license
+├── amplify/                    # AWS backend (created by npm create amplify)
 │   ├── backend.ts
 │   ├── auth/resource.ts
 │   ├── data/resource.ts
 │   └── storage/resource.ts
-├── src/                       # Frontend application
-│   ├── app/                   # Next.js App Router
-│   ├── components/            # Custom UI components
-│   └── lib/                   # Utilities and types
-├── tests/                     # Comprehensive test suite
-├── docs/                      # Generated documentation
-└── package.json               # Project dependencies
+├── src/                        # Frontend application (created by npm create amplify)
+│   ├── app/                    # Next.js App Router
+│   ├── components/             # Custom UI components
+│   └── lib/                    # Utilities and types
+├── tests/                      # Comprehensive test suite
+└── package.json                # Project dependencies
 ```
 
 ## 📝 CLAUDE.md Smart Handling
@@ -253,7 +316,7 @@ my-awesome-app/
 ACE-Flow intelligently handles CLAUDE.md files:
 
 ### For New Projects
-- **Template Provided**: `ace-flow/CLAUDE.md` serves as baseline
+- **Template Provided**: Existing `CLAUDE.md` serves as baseline
 - **Auto-Customization**: `/ace-genesis` customizes with project-specific information
 - **Architecture Integration**: Adds relevant patterns and guidelines
 
@@ -294,6 +357,19 @@ aws sts get-caller-identity
 aws amplify list-apps
 ```
 
+#### Claude Code Token Issues
+**Missing or invalid `CLAUDE_CODE_OAUTH_TOKEN`:**
+```bash
+# Check if secret is set (in GitHub repo settings → Secrets)
+# Should show CLAUDE_CODE_OAUTH_TOKEN in the list
+```
+
+**Common token problems:**
+1. **Token not set**: Add `CLAUDE_CODE_OAUTH_TOKEN` to repository secrets
+2. **Wrong token**: Ensure you're using your Claude API key, not GitHub token
+3. **Organization setup**: If using org-level secrets, verify repo has access
+4. **Expired token**: Regenerate Claude API key if authentication fails
+
 #### GitHub App Not Responding
 **First, ensure GitHub App is installed:**
 ```bash
@@ -306,8 +382,9 @@ aws amplify list-apps
 2. Verify Claude Code app is installed and has permissions
 3. Check that workflow files exist in `.github/workflows/`
 4. Verify permissions for issues and PRs are granted
+5. **Check secrets**: Ensure `CLAUDE_CODE_OAUTH_TOKEN` is properly set
 
-**Note**: Many issues are caused by skipping the `/install-github-app` step!
+**Note**: Many issues are caused by skipping the `/install-github-app` step or missing token setup!
 
 #### Build Failures
 ```bash
@@ -331,21 +408,21 @@ npx amplify init
 
 ### Getting Help
 
-1. **Check ACE-Flow Documentation**: Review `ace-flow/README.md` and command documentation
+1. **Check ACE-Flow Documentation**: Review `README.md` and command documentation
 2. **GitHub Issues**: Create issue with `@claude` mention for automated assistance
 3. **AWS Documentation**: ACE-Flow research phase creates comprehensive documentation links
-4. **Community Support**: Reference the context engineering methodology in `ace-flow/workflows/`
+4. **Community Support**: Reference the context engineering methodology in `workflows/`
 
 ## 🎉 Advanced Usage
 
 ### Custom Architecture Patterns
-Add your own patterns to `ace-flow/genesis/architecture-patterns/pattern-library.md`
+Add your own patterns to `genesis/architecture-patterns/pattern-library.md`
 
 ### Research Methodology
-Customize research approach in `ace-flow/workflows/ace-research.md`
+Customize research approach in `workflows/ace-research.md`
 
 ### Deployment Strategies
-Modify deployment configuration in `ace-flow/.github/workflows/ace-flow.yml`
+Modify deployment configuration in `.github/workflows/ace-flow.yml`
 
 ## 📚 Learning More
 
