@@ -39,8 +39,8 @@ cp -r ace-flow/.github ./
 # Copy CLAUDE.md template (will be customized by ACE-Flow commands)
 cp ace-flow/CLAUDE.md ./CLAUDE.md
 
-# Initialize package.json for Node.js project
-npm init -y
+# Initialize AWS Amplify Gen 2 project
+npm create amplify@latest
 ```
 
 ### 2. Configure GitHub Repository
