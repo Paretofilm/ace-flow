@@ -20,6 +20,22 @@ Examples:
 ✅ **AWS Configured**: AWS CLI with appropriate permissions
 ✅ **Environment Ready**: Node.js 18+, project directory prepared
 
+## 📊 Progress Tracking
+
+Real-time progress updates during implementation:
+```
+🚀 Starting ACE-Implement for fit_flow_social...
+[30s] ☁️ Deploying backend infrastructure... (creating DynamoDB tables)
+[120s] ☁️ Backend deployment... (setting up Auth resources)
+[240s] ✅ Backend deployed successfully!
+[250s] 📝 Generating TypeScript types...
+[300s] 💻 Building frontend components... (12/20 complete)
+[450s] 🧪 Running validation tests... (8/15 passed)
+[600s] ✅ Implementation complete! App ready at: https://...
+```
+
+Use `/ace-status --detailed` for comprehensive progress breakdown.
+
 ## Infrastructure-Aware Implementation Process
 
 ### Phase 1: Backend Infrastructure Deployment (2-5 minutes)
