@@ -68,18 +68,21 @@ See [SUBMODULE_SETUP.md](./docs/SUBMODULE_SETUP.md) for detailed instructions.
 - **First-Run Success**: >95% of implementations work immediately
 - **Production Ready**: Include testing, security, performance optimization
 - **Real AWS Integration**: Work with actual cloud infrastructure, not mocks
-- **Auto-Fix Capability**: Resolve 80%+ of common issues using research knowledge
+- **Auto-Fix Capability**: Resolve 85%+ of common issues using smart hooks and research knowledge
 - **Enhanced Error Handling**: Error codes with direct solution links
-- **Visual Progress Tracking**: Rich progress indicators and real-time updates
+- **Visual Progress Tracking**: Rich progress indicators with specification tracking
+- **Smart Automation**: Event-driven hooks for AWS Amplify workflows
 - **Cost Transparency**: Pre-deployment cost estimation for all resources
 - **Safe Recovery**: Comprehensive rollback system with checkpoints
 
 ### Implementation Approach
 1. Follow complete ACE-Flow workflow: Genesis → Research → Implementation
-2. Use research-driven development (official documentation only)
-3. Implement with infrastructure timing awareness
-4. Validate against real AWS services
-5. Ensure production-ready code with comprehensive testing
+2. **Structured Specifications**: Auto-generate 3-phase specs (Requirements → Design → Implementation)
+3. Use research-driven development (official documentation only)
+4. **Smart Hook Integration**: Automated AWS Amplify workflow triggers
+5. Implement with infrastructure timing awareness
+6. Validate against real AWS services
+7. Ensure production-ready code with comprehensive testing
 
 ## 🔧 Project-Specific Configuration
 
@@ -96,21 +99,23 @@ Add project-specific guidelines, constraints, and requirements below.
 ```bash
 # Quick start with ACE-Flow
 /ah                    # Get help on any command
-/ag "your app idea"    # Start new project
-/as                    # Check progress
+/ag "your app idea"    # Start new project with auto-spec generation
+/as                    # Check progress with visual indicators
+/as --specs            # View project specifications
+/as --hooks            # Show smart hook activity
 /av                    # Validate before deployment
 /ac                    # Estimate costs
 
 # Standard Amplify Gen 2 commands
 npm install
-npx amplify sandbox
-npx amplify generate
+npx amplify sandbox    # Smart hooks auto-activate
+npx amplify generate   # Auto-triggered by schema hooks
 npx amplify sandbox delete
 
-# Testing and validation
-npm run test
-npm run build
-npm run lint
+# Testing and validation (with hook automation)
+npm run test           # Auto-triggered by pre-deploy hooks
+npm run build          # Auto-validation hooks active
+npm run lint           # Auto-triggered on file save hooks
 ```
 
 ### Code Style and Conventions

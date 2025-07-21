@@ -16,11 +16,17 @@ The `/ace-status` command provides visibility into the progress of ACE-Flow oper
 /ace-status --operation=research
 /ace-status --operation=implement
 
-# Get detailed progress breakdown
+# Get detailed progress breakdown with specifications
 /ace-status --detailed
+
+# View project specifications from genesis
+/ace-status --specs
 
 # Monitor in real-time (updates every 30 seconds)
 /ace-status --monitor
+
+# Show smart hook activity
+/ace-status --hooks
 ```
 
 ## 📊 Progress Indicators
@@ -70,12 +76,15 @@ ACE-Flow now includes rich visual progress indicators with animated elements and
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ 💬 Interview Progress     ████████████████▒░░░  80% ⏳ Question 8/10   ┃
 ┃ 🏗️  Pattern Analysis      ████████████░░░░░░░░  60% 🔄 Processing...   ┃
-┃ 📋 Architecture Design    ██░░░░░░░░░░░░░░░░░░  10% ⏸️  Awaiting data  ┃
+┃ 📋 Spec Generation        ████████████████████ 100% ✅ Requirements    ┃
+┃ 📐 Architecture Design    ████████████████▒░░░  80% ⏳ Design Phase    ┃
+┃ 🛠️  Implementation Plan   ██░░░░░░░░░░░░░░░░░░  10% ⏸️  Awaiting data  ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-⏱️  Elapsed: 3m 45s | Est. Remaining: 1m 15s | Avg Response: 28s
+⏱️  Elapsed: 3m 45s | Est. Remaining: 2m 15s | Avg Response: 28s
 📊 Overall Progress: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░ 75% Complete
 
+📋 Generated: 5 user stories, 8 acceptance criteria, architecture diagram
 💭 Current Question: "What are your performance and scalability requirements?"
 📝 Previous: Authentication method preference
 🎯 Architecture Match: 87% confidence → Social Platform pattern
@@ -84,15 +93,18 @@ ACE-Flow now includes rich visual progress indicators with animated elements and
 ✅ Complete  ⏳ In Progress  🔄 Processing  ⏸️  Pending  ❌ Failed  🔧 Fixing
 ```
 
-### Real-time Activity Stream
+### Smart Hook Activity Stream
 ```
-📡 Live Activity Stream
+🔗 Smart Hook Activity
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ [14:52:34] 🔍 Scanning authentication documentation...                 ┃
-┃ [14:52:31] ✅ Pattern extracted: Social login with MFA               ┃
-┃ [14:52:28] 📚 Loading AWS Cognito best practices...                  ┃
-┃ [14:52:25] 🔄 Analyzing 15 similar implementations...                ┃
-┃ [14:52:22] 💡 Found optimization: Token caching strategy             ┃
+┃ [14:53:45] 🪝 Schema Save Hook → Auto-triggered type generation       ┃
+┃ [14:53:42] 🪝 Pre-Deploy Hook → Validated AWS permissions             ┃
+┃ [14:53:39] 🪝 Image Add Hook → Auto-compressed profile-pic.jpg        ┃
+┃ [14:53:34] 🔍 Scanning authentication documentation...                 ┃
+┃ [14:53:31] ✅ Pattern extracted: Social login with MFA               ┃
+┃ [14:53:28] 📚 Loading AWS Cognito best practices...                  ┃
+┃ [14:53:25] 🔄 Analyzing 15 similar implementations...                ┃
+┃ [14:53:22] 💡 Found optimization: Token caching strategy             ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
 
@@ -148,18 +160,42 @@ Current_Task: "Building frontend components"
 Estimated_Completion: "2025-07-20 15:51:00"
 ```
 
-### Detailed Status
+### Detailed Status with Specifications
 ```yaml
+Project_Specifications:
+  requirements_phase:
+    user_stories: 5
+    acceptance_criteria: 15
+    completion: "100%"
+    
+  design_phase:
+    architecture_diagrams: 3
+    data_models: 8
+    completion: "85%"
+    
+  implementation_phase:
+    total_tasks: 24
+    completed_tasks: 15
+    completion: "62%"
+
+Smart_Hooks_Status:
+  active_hooks: 8
+  triggered_today: 23
+  success_rate: "96%"
+  last_trigger: "schema_save_hook"
+  
 Operation_Breakdown:
   backend_deployment:
     status: "completed"
     duration: "4m 32s"
     result: "success"
+    hooks_triggered: ["pre_deploy", "post_deploy"]
     
   type_generation:
     status: "completed"
     duration: "1m 15s"
     files_generated: 12
+    auto_triggered: true
     
   frontend_implementation:
     status: "in_progress"
@@ -167,16 +203,19 @@ Operation_Breakdown:
     components_completed: 12
     components_remaining: 8
     current_component: "UserAuthForm"
+    hooks_active: ["format_on_save", "lint_check"]
     
   testing:
     status: "pending"
     estimated_start: "15m"
     test_suites: 20
+    auto_validation_hooks: ["pre_test", "coverage_check"]
     
 Recent_Activities:
   - "14:45:32 - Completed UserProfile component"
-  - "14:48:15 - Started UserAuthForm component"
+  - "14:48:15 - Started UserAuthForm component" 
   - "14:50:00 - Generated form validation schema"
+  - "14:51:12 - Hook: Auto-optimized component imports"
 ```
 
 ## 🎯 Progress Tracking Implementation
@@ -227,12 +266,13 @@ Progress is tracked in `.ace-flow/progress/` directory:
 ## 🔄 Integration with Other Commands
 
 ### Automatic Progress Updates
-All ACE-Flow commands automatically integrate with the status system:
+All ACE-Flow commands automatically integrate with the enhanced status system:
 
-- `/ace-genesis` - Tracks interview and analysis progress
+- `/ace-genesis` - Tracks interview, specification generation, and analysis progress
 - `/ace-research` - Tracks documentation and pattern extraction
-- `/ace-implement` - Tracks deployment and build progress
+- `/ace-implement` - Tracks deployment, smart hook activation, and build progress
 - `/ace-adopt` - Tracks migration and testing progress
+- **Smart Hooks** - Track all automated triggers and their success rates
 
 ### Progress-Aware Execution
 Commands check for in-progress operations:

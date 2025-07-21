@@ -1,0 +1,36 @@
+{
+  "name": "ace-flow",
+  "version": "1.1.0",
+  "description": "ACE-Flow (Amplified Context Engineering) - Intelligent workflow system for AWS Amplify Gen 2 development",
+  "main": "scripts/ace-review.sh",
+  "scripts": {
+    "test": "bash scripts/ace-review.sh --quick",
+    "build": "echo 'ACE-Flow is a documentation and script-based system - no build required'",
+    "lint": "bash scripts/ace-review.sh --syntax-only",
+    "quality-check": "bash scripts/ace-review.sh",
+    "quality-report": "bash scripts/ace-review.sh --area=all",
+    "generate-report": "bash scripts/ace-review.sh --generate-prompt"
+  },
+  "keywords": [
+    "aws",
+    "amplify",
+    "gen2",
+    "ace-flow",
+    "amplified-context-engineering",
+    "intelligent-workflow",
+    "documentation",
+    "automation"
+  ],
+  "author": "ACE-Flow Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Paretofilm/ace-flow.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "private": true
+}
