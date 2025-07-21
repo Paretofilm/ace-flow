@@ -15,7 +15,7 @@ Examples:
 
 ## Prerequisites
 
-✅ **Genesis Complete**: `/ace-genesis` conversation finished
+✅ **Genesis Complete**: `/ace-genesis` conversation finished with structured specifications
 ✅ **Research Complete**: `/ace-research` documentation gathered (30-100 pages)
 ✅ **AWS Configured**: AWS CLI with appropriate permissions
 ✅ **Environment Ready**: Node.js 18+, project directory prepared
@@ -71,7 +71,13 @@ Expected_Deployment_Times:
   Dashboard_Analytics: "3-4 minutes"
 ```
 
-### Phase 2: Type Generation and Validation (30-60 seconds)
+### Phase 2: Smart Hook Activation & Type Generation (30-60 seconds)
+
+**Smart AWS Amplify Hooks**:
+- **Schema Change Detection**: Auto-triggers type regeneration on GraphQL changes
+- **Build Validation**: Auto-runs validation tests before deployment
+- **Cost Monitoring**: Auto-alerts on resource usage thresholds
+- **Security Scanning**: Auto-checks for exposed secrets or misconfigurations
 
 **Automatic Type Safety**:
 - Waits for GraphQL schema deployment completion
@@ -107,7 +113,13 @@ Expected_Deployment_Times:
 - **Complex Queries**: Optimized data fetching with caching strategies
 - **User Experience**: Responsive dashboards with filtering and drill-down capabilities
 
-### Phase 4: Validation and Auto-Fix System (15-30 minutes)
+### Phase 4: Validation, Auto-Fix & Hook Integration (15-30 minutes)
+
+**Smart Hook Integration**:
+- **File Change Hooks**: Auto-format code on save, run linting checks
+- **Deployment Hooks**: Auto-backup before deployment, run pre-flight checks  
+- **Error Hooks**: Auto-apply research-based fixes for common AWS issues
+- **Performance Hooks**: Auto-optimize images, check bundle size
 
 **Multi-Level Validation**:
 
@@ -129,19 +141,34 @@ Expected_Deployment_Times:
 - Performance metrics and Core Web Vitals validation
 - Accessibility compliance checking
 
-**Auto-Fix Capabilities (80%+ success rate)**:
+**Auto-Fix Capabilities with Smart Hooks (85%+ success rate)**:
 
 ```python
-# Auto-fix examples based on research knowledge
-def auto_fix_amplify_integration_issues():
-    common_fixes = {
-        "auth_configuration_mismatch": "Update amplify_outputs.json references",
-        "graphql_type_errors": "Regenerate types after schema changes", 
-        "s3_permission_denied": "Update IAM policies for bucket access",
-        "subscription_connection_failed": "Configure WebSocket authentication",
-        "stripe_webhook_verification": "Add proper endpoint validation"
+# Auto-fix examples with intelligent hook triggers
+def smart_hook_auto_fixes():
+    hook_enhanced_fixes = {
+        "auth_configuration_mismatch": {
+            "fix": "Update amplify_outputs.json references",
+            "hook": "auto_trigger_on_amplify_config_change"
+        },
+        "graphql_type_errors": {
+            "fix": "Regenerate types after schema changes",
+            "hook": "auto_trigger_on_schema_save"
+        }, 
+        "s3_permission_denied": {
+            "fix": "Update IAM policies for bucket access",
+            "hook": "auto_validate_permissions_on_deploy"
+        },
+        "subscription_connection_failed": {
+            "fix": "Configure WebSocket authentication", 
+            "hook": "auto_test_websocket_on_build"
+        },
+        "performance_degradation": {
+            "fix": "Optimize images and bundle size",
+            "hook": "auto_compress_on_asset_add"
+        }
     }
-    return apply_research_based_fixes(common_fixes)
+    return apply_hook_enhanced_fixes(hook_enhanced_fixes)
 ```
 
 ## Expected Project Structure After Implementation

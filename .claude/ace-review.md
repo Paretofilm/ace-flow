@@ -1,54 +1,124 @@
-# ACE-Review: Comprehensive Quality Assurance Command
+# ACE-Review: Comprehensive ACE-Flow Validation & Optimization
 
-**Systematic quality review and validation system for ACE-Flow to ensure all components work as expected and documentation aligns with current best practices.**
+**Reviews and validates ACE-Flow implementations, ensuring quality, performance, and adherence to best practices with intelligent feedback and optimization suggestions.**
 
-## 🎯 **Command Overview**
+## 🎯 Purpose
 
-The `/ace-review` command provides comprehensive quality assurance for the ACE-Flow system, validating documentation accuracy, command consistency, and user experience flows. It generates detailed reports and AI-ready prompts for thorough system validation.
+The `/ace-review` command provides comprehensive analysis of ACE-Flow projects, validating everything from specifications to deployed infrastructure, with smart recommendations for optimization. It also ensures system-level quality assurance for the ACE-Flow workflow itself.
 
-## 📋 **Usage**
+## 📋 Usage
 
-### **Basic Commands**
 ```bash
-# Complete system review
+# Comprehensive project review
 /ace-review
 
-# Review specific areas
-/ace-review --area=docs
-/ace-review --area=commands  
-/ace-review --area=patterns
-/ace-review --area=integrations
+# Review specific components
+/ace-review --component=specs          # Review specifications quality
+/ace-review --component=architecture   # Review architecture decisions
+/ace-review --component=implementation # Review code and infrastructure
+/ace-review --component=hooks         # Review smart hook configuration
 
-# Generate AI review prompts
-/ace-review --generate-prompt
-/ace-review --generate-prompt --area=docs
-
-# Quick validation checks
-/ace-review --quick
-/ace-review --syntax-only
-```
-
-### **Advanced Options**
-```bash
 # Review with specific focus
-/ace-review --focus="amplify-gen2-alignment"
-/ace-review --focus="command-consistency"
-/ace-review --focus="user-experience"
+/ace-review --focus=performance       # Performance optimization review
+/ace-review --focus=security         # Security compliance review
+/ace-review --focus=cost             # Cost optimization review
+/ace-review --focus=scalability      # Scalability assessment
 
-# Output formats
-/ace-review --format=detailed
-/ace-review --format=summary
-/ace-review --format=checklist
+# Generate improvement plan
+/ace-review --generate-plan          # Create actionable improvement roadmap
 
-# Severity filtering
-/ace-review --severity=critical
-/ace-review --severity=high
-/ace-review --include-suggestions
+# Validate against pattern standards
+/ace-review --pattern=social_platform
+/ace-review --pattern=e_commerce
+/ace-review --pattern=content_management
+
+# System-level ACE-Flow validation
+/ace-review --system                 # Review ACE-Flow commands and docs
+/ace-review --system --area=docs     # Review documentation accuracy
+/ace-review --system --area=commands # Review command consistency
 ```
 
-## 🔍 **Review Areas**
+## 🔍 Project Review Categories
 
-### **1. Documentation Consistency (`--area=docs`)**
+### 1. Specification Quality Review
+```
+📋 Specification Review Results
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Requirements Phase    ████████████████████  95% ✅ Excellent       ┃
+┃ • User Stories       ████████████████████ 100% ✅ 5/5 complete     ┃
+┃ • Acceptance Criteria ████████████████▒░░  85% ⚠️  3 need detail  ┃
+┃ • Business Value     ████████████████████ 100% ✅ Clear ROI        ┃
+┃                                                                    ┃
+┃ Design Phase         ████████████████▒░░░  80% ⚠️  Improvements    ┃
+┃ • Architecture       ████████████████████  95% ✅ Well structured  ┃
+┃ • Data Models        ████████████████░░░░  75% ⚠️  Missing indexes ┃
+┃ • API Design         ████████████████▒░░░  80% ⚠️  Rate limiting   ┃
+┃                                                                    ┃
+┃ Implementation Phase ████████████████████  90% ✅ Good planning    ┃
+┃ • Task Breakdown     ████████████████████  95% ✅ Clear steps      ┃
+┃ • Timeline Estimates ████████████████▒░░░  85% ⚠️  Buffer needed   ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+🎯 Overall Specification Quality: 88/100 (Very Good)
+
+📝 Key Recommendations:
+• Add performance requirements to 3 user stories
+• Define database indexes for search functionality  
+• Include API rate limiting specifications
+• Add 20% buffer to timeline estimates
+```
+
+### 2. Architecture & Infrastructure Review
+```
+🏗️ Architecture Review Results
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Pattern Adherence    ████████████████████  96% ✅ Excellent        ┃
+┃ • Social Platform    ████████████████████ 100% ✅ Perfect match    ┃
+┃ • AWS Integration    ████████████████▒░░░  85% ⚠️  Minor issues    ┃
+┃                                                                    ┃
+┃ Infrastructure       ████████████████▒░░░  82% ⚠️  Optimizations   ┃
+┃ • Cognito Setup      ████████████████████  95% ✅ Well configured  ┃
+┃ • DynamoDB Design    ████████████████░░░░  75% ⚠️  Index missing   ┃
+┃ • S3 Configuration   ████████████████████  90% ✅ Good policies    ┃
+┃ • AppSync GraphQL    ████████████████▒░░░  80% ⚠️  Caching needed  ┃
+┃                                                                    ┃
+┃ Smart Hooks          ████████████████████  94% ✅ Excellent        ┃
+┃ • Hook Coverage      ████████████████████  98% ✅ Comprehensive    ┃
+┃ • Trigger Accuracy   ████████████████▒░░░  85% ✅ Well targeted    ┃
+┃ • Error Handling     ████████████████████  95% ✅ Robust           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+⚡ Performance Score: 78/100 (Good - Optimization Needed)
+🔒 Security Score: 92/100 (Excellent)
+💰 Cost Efficiency: 85/100 (Very Good)
+```
+
+### 3. Smart Hook Performance Review
+```
+🪝 Smart Hook Analysis
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Hook Effectiveness   ████████████████████  91% ✅ Excellent        ┃
+┃ • Schema Hooks       ████████████████████ 100% ✅ Perfect          ┃
+┃ • Deploy Hooks       ████████████████▒░░░  85% ⚠️  Timeout issues  ┃
+┃ • File Save Hooks    ████████████████████  95% ✅ Fast triggers    ┃
+┃ • Performance Hooks  ████████████████▒░░░  80% ⚠️  Bundle size     ┃
+┃                                                                    ┃
+┃ Success Metrics      ████████████████████  89% ✅ Very Good        ┃
+┃ • Trigger Accuracy   ████████████████████  94% ✅ Precise          ┃
+┃ • Execution Speed    ████████████████▒░░░  85% ✅ Good response    ┃
+┃ • Error Recovery     ████████████████████  88% ✅ Robust           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+📊 Hook Statistics (Last 7 Days):
+• Total Triggers: 247
+• Success Rate: 89.1%
+• Avg Response Time: 1.2s
+• Failed Triggers: 27 (mostly timeout on large deployments)
+```
+
+## 🛠️ System Review Areas
+
+### **1. Documentation Consistency (`--system --area=docs`)**
 **Purpose**: Ensure all documentation uses current patterns and accurate information
 
 #### **Validation Checks**

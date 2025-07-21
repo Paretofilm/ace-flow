@@ -44,6 +44,11 @@ Examples:
    - Optimal storage and real-time configuration
    - Production-ready deployment setup
 
+5. **Structured Specification Generation**: Automatically creates comprehensive project specs:
+   - **Requirements Phase**: User stories with acceptance criteria
+   - **Design Phase**: Technical architecture with sequence diagrams
+   - **Implementation Phase**: Step-by-step development roadmap with progress tracking
+
 ## Implementation Process
 
 ACE-Genesis automatically handles setup verification and workflow enhancement:
@@ -64,14 +69,20 @@ ACE-Genesis automatically handles setup verification and workflow enhancement:
 # 1. Genesis conversation (this command)
 /ace-genesis "your idea"
 
-# 2. Automatic research phase (triggered automatically)
+# 2. Automatic structured specification generation
+# - Requirements: User stories with acceptance criteria
+# - Design: Technical architecture and data models
+# - Implementation: Step-by-step roadmap with checkpoints
+
+# 3. Automatic research phase (triggered automatically)
 # - Scrapes 30-100 pages of current AWS Amplify Gen 2 documentation
 # - Extracts proven patterns and identifies gotchas
 # - Creates comprehensive implementation context
 
-# 3. Implementation with infrastructure awareness
+# 4. Implementation with infrastructure awareness and smart hooks
 # - Deploys backend with timing awareness (2-5 minutes)
-# - Generates types and implements frontend
+# - Auto-triggers type generation on schema changes
+# - Implements frontend with progress tracking
 # - Runs validation loops with auto-fix
 # - Results in production-ready application
 ```
@@ -128,10 +139,16 @@ this requires user profiles, content sharing, and real-time social interactions.
 • **Deployment**: ~4 minutes  
 • **Total**: Working app in ~90 minutes
 
+### 📋 Specification Preview:
+**Requirements**: 5 user stories with acceptance criteria
+**Design**: Technical architecture with data flow diagrams  
+**Implementation**: 12-step roadmap with automated checkpoints
+
 ### 🚀 Ready to proceed?
-**'yes'** - Let's build this! (automatic research → implementation)
+**'yes'** - Let's build this! (auto-generate specs → research → implementation)
 **'modify [aspect]'** - Quick adjustment (e.g., 'modify auth to include social login')
 **'explain [feature]'** - Tell me more about a specific feature
+**'show specs'** - View detailed specifications before proceeding
 ```
 
 ### Common Modifications
@@ -144,10 +161,12 @@ this requires user profiles, content sharing, and real-time social interactions.
 
 After validation and confirmation:
 
+✅ **Structured Specifications**: 3-phase specs with user stories and acceptance criteria
 ✅ **Project Specification**: Complete architecture document with user approval
 ✅ **Custom Data Models**: Tailored to your specific domain  
 ✅ **Authentication Strategy**: Validated and appropriate for your user types
-✅ **Implementation Plan**: Step-by-step development roadmap
+✅ **Implementation Plan**: Step-by-step development roadmap with progress tracking
+✅ **Smart Hook Configuration**: Automated AWS Amplify workflow triggers
 ✅ **Research Requirements**: Automated documentation gathering
 ✅ **Deployment Strategy**: Production-ready AWS Amplify Gen 2 setup
 
