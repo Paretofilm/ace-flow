@@ -8,12 +8,16 @@ This project uses **ACE-Flow (Amplified Context Engineering)** - an intelligent 
 
 ### Available Commands
 
-#### Primary ACE-Flow Commands
-- **`/ace-genesis [idea]`** - Intelligent project creation through conversation
-- **`/ace-research [domain] [pattern]`** - Advanced documentation research (30-100 pages)
-- **`/ace-implement [project-name]`** - Infrastructure-aware implementation
-- **`/ace-adopt [description]`** - Safe migration of existing projects
-- **`/ace-status`** - Real-time progress tracking for long operations
+#### Primary ACE-Flow Commands (with aliases)
+- **`/ace-genesis [idea]`** or **`/ag`** - Intelligent project creation through conversation
+- **`/ace-research [domain] [pattern]`** or **`/ar`** - Advanced documentation research (30-100 pages)
+- **`/ace-implement [project-name]`** or **`/ai`** - Infrastructure-aware implementation
+- **`/ace-adopt [description]`** or **`/aa`** - Safe migration of existing projects
+- **`/ace-status`** or **`/as`** - Real-time progress tracking with visual indicators
+- **`/ace-help [command]`** or **`/ah`** - Comprehensive command documentation
+- **`/ace-validate`** or **`/av`** - Pre-implementation validation checks
+- **`/ace-rollback`** or **`/arb`** - Safe recovery and restore system
+- **`/ace-cost`** or **`/ac`** - AWS resource cost estimation
 
 #### Architecture Patterns Supported
 - **social_platform**: User groups, real-time feeds, media handling
@@ -41,6 +45,10 @@ This project uses **ACE-Flow (Amplified Context Engineering)** - an intelligent 
 - **Production Ready**: Include testing, security, performance optimization
 - **Real AWS Integration**: Work with actual cloud infrastructure, not mocks
 - **Auto-Fix Capability**: Resolve 80%+ of common issues using research knowledge
+- **Enhanced Error Handling**: Error codes with direct solution links
+- **Visual Progress Tracking**: Rich progress indicators and real-time updates
+- **Cost Transparency**: Pre-deployment cost estimation for all resources
+- **Safe Recovery**: Comprehensive rollback system with checkpoints
 
 ### Implementation Approach
 1. Follow complete ACE-Flow workflow: Genesis → Research → Implementation
@@ -62,6 +70,13 @@ Add project-specific guidelines, constraints, and requirements below.
 
 ### Development Commands
 ```bash
+# Quick start with ACE-Flow
+/ah                    # Get help on any command
+/ag "your app idea"    # Start new project
+/as                    # Check progress
+/av                    # Validate before deployment
+/ac                    # Estimate costs
+
 # Standard Amplify Gen 2 commands
 npm install
 npx amplify sandbox
