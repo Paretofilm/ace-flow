@@ -8,6 +8,7 @@
     "build": "echo 'ACE-Flow is a documentation and script-based system - no build required'",
     "lint": "bash scripts/ace-review.sh --syntax-only",
     "quality-check": "bash scripts/ace-review.sh",
+    "quality-report": "bash scripts/ace-review.sh --area=all",
     "generate-report": "bash scripts/ace-review.sh --generate-prompt"
   },
   "keywords": [
