@@ -189,34 +189,329 @@ Date         From    To      Reason           Result
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## State Management
+## Automated Backup System Implementation
 
-### Checkpoint System
+### Checkpoint Creation Process
+
+When you invoke `/ace-rollback`, ACE-Flow automatically executes this backup system:
+
+```bash
+#!/bin/bash
+# Automated checkpoint creation with validation
+
+create_checkpoint() {
+    local description="${1:-Auto-checkpoint before operation}"
+    local timestamp=$(date +"%Y%m%d-%H%M%S")
+    local checkpoint_dir=".ace-flow/checkpoints/checkpoint-$timestamp"
+    
+    echo "🔄 Creating checkpoint: $checkpoint_dir"
+    
+    # Create checkpoint directory
+    mkdir -p "$checkpoint_dir"
+    
+    # Backup critical project files
+    backup_project_files() {
+        echo "📦 Backing up project configuration..."
+        
+        # Amplify backend configuration
+        if [[ -d "amplify" ]]; then
+            cp -r amplify/ "$checkpoint_dir/amplify/" 2>/dev/null || echo "⚠️ amplify/ not found"
+        fi
+        
+        # Package files
+        [[ -f "package.json" ]] && cp package.json "$checkpoint_dir/"
+        [[ -f "package-lock.json" ]] && cp package-lock.json "$checkpoint_dir/"
+        [[ -f "yarn.lock" ]] && cp yarn.lock "$checkpoint_dir/"
+        
+        # Amplify outputs
+        [[ -f "amplify_outputs.json" ]] && cp amplify_outputs.json "$checkpoint_dir/"
+        
+        # Environment files (excluding secrets)
+        find . -name ".env.example" -o -name ".env.local.example" | head -10 | while read envfile; do
+            cp "$envfile" "$checkpoint_dir/"
+        done
+        
+        # ACE-Flow configuration
+        if [[ -d ".claude" ]]; then
+            cp -r .claude/ "$checkpoint_dir/claude-config/" 2>/dev/null || true
+        fi
+        [[ -f "CLAUDE.md" ]] && cp CLAUDE.md "$checkpoint_dir/"
+        
+        # Critical source files (limit to prevent huge backups)
+        if [[ -d "src" ]]; then
+            find src -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | head -50 | while read srcfile; do
+                mkdir -p "$checkpoint_dir/$(dirname $srcfile)"
+                cp "$srcfile" "$checkpoint_dir/$srcfile"
+            done
+        fi
+    }
+    
+    # Execute backup
+    backup_project_files
+    
+    # Create detailed metadata
+    create_checkpoint_metadata "$checkpoint_dir" "$description" "$timestamp"
+    
+    # Validate checkpoint integrity
+    if validate_checkpoint "$checkpoint_dir"; then
+        echo "✅ Checkpoint created successfully: checkpoint-$timestamp"
+        echo "📊 Files backed up: $(find "$checkpoint_dir" -type f | wc -l)"
+        return 0
+    else
+        echo "❌ Checkpoint validation failed, removing invalid checkpoint"
+        rm -rf "$checkpoint_dir"
+        return 1
+    fi
+}
+
+create_checkpoint_metadata() {
+    local checkpoint_dir=$1
+    local description=$2
+    local timestamp=$3
+    
+    cat > "$checkpoint_dir/metadata.json" << EOF
+{
+  "timestamp": "$timestamp",
+  "iso_timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "description": "$description",
+  "checkpoint_version": "1.0",
+  "git_info": {
+    "commit": "$(git rev-parse HEAD 2>/dev/null || echo 'unknown')",
+    "branch": "$(git branch --show-current 2>/dev/null || echo 'unknown')",
+    "status": "$(git status --porcelain 2>/dev/null | wc -l) files modified"
+  },
+  "system_info": {
+    "user": "$(whoami)",
+    "hostname": "$(hostname)",
+    "working_directory": "$(pwd)",
+    "node_version": "$(node --version 2>/dev/null || echo 'unknown')",
+    "npm_version": "$(npm --version 2>/dev/null || echo 'unknown')"
+  },
+  "project_state": {
+    "has_amplify": $(test -d amplify && echo 'true' || echo 'false'),
+    "has_package_json": $(test -f package.json && echo 'true' || echo 'false'),
+    "has_amplify_outputs": $(test -f amplify_outputs.json && echo 'true' || echo 'false'),
+    "source_files_backed_up": $(find "$checkpoint_dir" -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" 2>/dev/null | wc -l)
+  },
+  "backup_stats": {
+    "total_files": $(find "$checkpoint_dir" -type f | wc -l),
+    "total_size_bytes": $(du -sb "$checkpoint_dir" 2>/dev/null | cut -f1),
+    "created_by": "ace-rollback automated system"
+  }
+}
+EOF
+}
+```
+
+### Backup Validation System
+
+```bash
+validate_checkpoint() {
+    local checkpoint_dir=$1
+    
+    echo "🔍 Validating checkpoint integrity..."
+    
+    # Check if checkpoint directory exists
+    if [[ ! -d "$checkpoint_dir" ]]; then
+        echo "❌ Checkpoint directory not found: $checkpoint_dir"
+        return 1
+    fi
+    
+    # Validate metadata file
+    local metadata_file="$checkpoint_dir/metadata.json"
+    if [[ ! -f "$metadata_file" ]]; then
+        echo "❌ Missing metadata.json"
+        return 1
+    fi
+    
+    # Validate JSON syntax
+    if ! jq empty "$metadata_file" 2>/dev/null; then
+        echo "❌ Invalid JSON in metadata.json"
+        return 1
+    fi
+    
+    # Check required metadata fields
+    local required_fields=("timestamp" "description" "checkpoint_version")
+    for field in "${required_fields[@]}"; do
+        if [[ $(jq -r ".$field // empty" "$metadata_file") == "" ]]; then
+            echo "❌ Missing required field: $field"
+            return 1
+        fi
+    done
+    
+    # Validate file count
+    local file_count=$(find "$checkpoint_dir" -type f | wc -l)
+    if [[ $file_count -lt 2 ]]; then  # At least metadata.json + 1 other file
+        echo "⚠️ Warning: Very few files in checkpoint ($file_count files)"
+    fi
+    
+    # Check for empty files
+    local empty_files=$(find "$checkpoint_dir" -type f -empty | wc -l)
+    if [[ $empty_files -gt 0 ]]; then
+        echo "⚠️ Warning: $empty_files empty files found"
+    fi
+    
+    echo "✅ Checkpoint validation passed"
+    echo "📊 Validation summary: $file_count files, $(du -sh "$checkpoint_dir" 2>/dev/null | cut -f1) total size"
+    
+    return 0
+}
+```
+
+### Automatic Cleanup System
+
+```bash
+cleanup_old_checkpoints() {
+    local max_checkpoints=10
+    local checkpoints_dir=".ace-flow/checkpoints"
+    
+    echo "🧹 Cleaning up old checkpoints (keeping last $max_checkpoints)..."
+    
+    if [[ ! -d "$checkpoints_dir" ]]; then
+        echo "📁 No checkpoints directory found, nothing to clean up"
+        return 0
+    fi
+    
+    # Get all checkpoint directories sorted by modification time (oldest first)
+    local checkpoints=($(find "$checkpoints_dir" -type d -name "checkpoint-*" -printf '%T@ %p\n' | sort -n | cut -d' ' -f2-))
+    local total_checkpoints=${#checkpoints[@]}
+    
+    echo "📊 Found $total_checkpoints checkpoints"
+    
+    if [[ $total_checkpoints -le $max_checkpoints ]]; then
+        echo "✅ No cleanup needed (within limit of $max_checkpoints)"
+        return 0
+    fi
+    
+    local to_delete=$((total_checkpoints - max_checkpoints))
+    echo "🗑️ Will delete $to_delete oldest checkpoints"
+    
+    # Delete oldest checkpoints
+    for ((i=0; i<to_delete; i++)); do
+        local checkpoint_to_delete="${checkpoints[$i]}"
+        local checkpoint_name=$(basename "$checkpoint_to_delete")
+        
+        # Show info about checkpoint being deleted
+        if [[ -f "$checkpoint_to_delete/metadata.json" ]]; then
+            local timestamp=$(jq -r '.timestamp // "unknown"' "$checkpoint_to_delete/metadata.json" 2>/dev/null)
+            local description=$(jq -r '.description // "No description"' "$checkpoint_to_delete/metadata.json" 2>/dev/null)
+            echo "🗑️ Deleting: $checkpoint_name ($timestamp - $description)"
+        else
+            echo "🗑️ Deleting: $checkpoint_name (no metadata)"
+        fi
+        
+        rm -rf "$checkpoint_to_delete"
+    done
+    
+    echo "✅ Cleanup completed: kept $max_checkpoints most recent checkpoints"
+}
+```
+
+### Smart Hook Integration for Timeouts
+
+Enhanced hook system to address the 15% timeout issue:
+
+```bash
+execute_with_smart_timeout() {
+    local operation="$1"
+    local base_timeout=30
+    local max_attempts=3
+    
+    # Dynamic timeout based on operation complexity
+    local timeout_seconds=$base_timeout
+    case "$operation" in
+        *"large-deployment"*|*"infrastructure"*)
+            timeout_seconds=180  # 3 minutes for complex operations
+            ;;
+        *"schema"*|*"migration"*)
+            timeout_seconds=120  # 2 minutes for schema changes
+            ;;
+        *"backup"*|*"checkpoint"*)
+            timeout_seconds=60   # 1 minute for backup operations
+            ;;
+    esac
+    
+    echo "⏱️ Using $timeout_seconds second timeout for: $operation"
+    
+    for attempt in $(seq 1 $max_attempts); do
+        echo "🔄 Attempt $attempt/$max_attempts..."
+        
+        if timeout "$timeout_seconds" bash -c "$operation"; then
+            echo "✅ Operation completed successfully on attempt $attempt"
+            return 0
+        else
+            local exit_code=$?
+            if [[ $exit_code -eq 124 ]]; then
+                echo "⏰ Operation timed out after $timeout_seconds seconds"
+                if [[ $attempt -lt $max_attempts ]]; then
+                    timeout_seconds=$((timeout_seconds + 30))  # Increase timeout
+                    echo "📈 Increasing timeout to $timeout_seconds seconds for next attempt"
+                fi
+            else
+                echo "❌ Operation failed with exit code $exit_code"
+            fi
+        fi
+        
+        if [[ $attempt -lt $max_attempts ]]; then
+            echo "⏳ Waiting 5 seconds before retry..."
+            sleep 5
+        fi
+    done
+    
+    echo "❌ Operation failed after $max_attempts attempts"
+    return 1
+}
+```
+
+### State Management
+
+#### Checkpoint Directory Structure
 ```
 .ace-flow/
-└── checkpoints/
-    ├── auto-2024-01-20-143000/
-    │   ├── amplify-backup/
-    │   ├── src-backup/
-    │   └── metadata.json
-    ├── manual-before-payments/
-    └── stable-v2.2.0/
+├── checkpoints/
+│   ├── checkpoint-20250721-143052/
+│   │   ├── amplify/           # Full Amplify backend config
+│   │   ├── claude-config/     # ACE-Flow command configuration
+│   │   ├── src/              # Critical source files (limited)
+│   │   ├── package.json      # Dependencies
+│   │   ├── amplify_outputs.json
+│   │   ├── CLAUDE.md
+│   │   └── metadata.json     # Comprehensive checkpoint info
+│   ├── checkpoint-20250721-142015/
+│   └── checkpoint-20250721-140830/
+└── .gitkeep
 ```
 
-### Metadata Tracking
+#### Enhanced Metadata Structure
 ```json
 {
-  "timestamp": "2024-01-20T14:30:00Z",
-  "version": "2.3.0",
-  "trigger": "auto-pre-deployment",
-  "components": {
-    "backend": "stable",
-    "frontend": "stable",
-    "schema": "modified",
-    "auth": "stable"
+  "timestamp": "20250721-143052",
+  "iso_timestamp": "2025-07-21T14:30:52Z",
+  "description": "Auto-checkpoint before schema migration",
+  "checkpoint_version": "1.0",
+  "git_info": {
+    "commit": "a1b2c3d4e5f6",
+    "branch": "feature/payment-system",
+    "status": "3 files modified"
   },
-  "git_commit": "a1b2c3d4",
-  "deployment_id": "amp-deploy-123"
+  "system_info": {
+    "user": "developer",
+    "hostname": "dev-machine",
+    "working_directory": "/path/to/project",
+    "node_version": "v18.17.0",
+    "npm_version": "9.6.7"
+  },
+  "project_state": {
+    "has_amplify": true,
+    "has_package_json": true,
+    "has_amplify_outputs": true,
+    "source_files_backed_up": 23
+  },
+  "backup_stats": {
+    "total_files": 45,
+    "total_size_bytes": 892456,
+    "created_by": "ace-rollback automated system"
+  }
 }
 ```
 
