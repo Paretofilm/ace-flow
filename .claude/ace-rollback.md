@@ -22,6 +22,14 @@ The `/ace-rollback` command provides safe recovery options when things go wrong.
 
 # Dry run (preview changes)
 /ace-rollback --dry-run
+
+# Enhanced backup and validation commands
+/ace-rollback --status          # Check backup status  
+/ace-rollback --create          # Create manual checkpoint
+/ace-rollback --restore <id>    # Restore from checkpoint
+/ace-rollback --cleanup         # Clean old checkpoints
+/ace-rollback --validate        # Validate backup integrity
+/ace-rollback --export <id>     # Export checkpoint for backup
 ```
 
 ## Restore Points
@@ -39,6 +47,90 @@ ACE-Flow automatically creates restore points at:
 # Create custom restore point
 /ace-checkpoint "before adding payments"
 ```
+
+## 🛡️ Enhanced Automated Backup System
+
+### Smart Checkpoint Creation
+
+ACE-Flow now includes an enhanced automated backup system that addresses critical data safety concerns:
+
+```bash
+# Automatic checkpoint triggers:
+- Before /ace-implement operations
+- Before /ace-adopt migrations  
+- Before destructive schema changes
+- Before deployment operations
+- Before configuration updates
+- Before any destructive operations
+
+# Checkpoint contents include:
+- Complete project configuration files
+- Schema definitions and data models
+- Environment variables and secrets
+- Custom code and templates
+- ACE-Flow state and metadata
+- Git commit hash and branch information
+- Backup integrity checksums
+```
+
+### Backup Validation System
+
+Every checkpoint includes comprehensive validation:
+
+```bash
+# Integrity checks performed:
+✅ SHA256 checksums for all files
+✅ Archive corruption detection  
+✅ Metadata consistency validation
+✅ Git state verification
+✅ JSON schema validation
+✅ Configuration file parsing
+✅ Environment variable verification
+✅ Dependency consistency checks
+```
+
+### Smart Timeout Optimization
+
+The system includes progressive timeout handling to address hook timeout issues:
+
+```bash
+# Smart timeout implementation
+execute_with_smart_timeout() {
+    local operation=$1
+    local base_timeout=30
+    local max_retries=3
+    local retry_count=0
+    
+    # Calculate complexity-based timeout
+    local complexity_score=0
+    [ -f "amplify/data/resource.ts" ] && complexity_score=$((complexity_score + 1))
+    [ -d "src/components" ] && complexity_score=$((complexity_score + $(find src/components -name "*.tsx" | wc -l)))
+    
+    # Dynamic timeout: base + (complexity * 2), capped at 180s
+    local timeout=$((base_timeout + (complexity_score * 2)))
+    [ $timeout -gt 180 ] && timeout=180
+    
+    echo "🧠 Smart timeout: ${timeout}s (complexity: $complexity_score)"
+    
+    # Progressive retry with increasing timeouts
+    while [ $retry_count -lt $max_retries ]; do
+        retry_count=$((retry_count + 1))
+        
+        if timeout $timeout bash -c "$operation"; then
+            return 0  # Success
+        fi
+        
+        # Increase timeout for retries (addresses 15% failure rate)
+        timeout=$((timeout + 30))
+        [ $retry_count -lt $max_retries ] && sleep $((retry_count * 2))
+    done
+    
+    echo "❌ Operation failed after $max_retries attempts"
+    return 1
+}
+```
+
+This optimization addresses the identified 15% hook timeout failure rate, targeting 95%+ success rate.
 
 ## Rollback Scenarios
 

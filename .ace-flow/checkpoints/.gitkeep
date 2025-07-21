@@ -1,0 +1,13 @@
+# ACE-Flow Checkpoint Directory
+# 
+# This directory stores automated checkpoints and backup metadata
+# for the Enhanced Automated Backup System.
+#
+# Structure:
+# - checkpoint.json - Checkpoint metadata and restoration info
+# - project_state.json - Project state snapshots  
+# - backups/ - Compressed backup archives with SHA256 validation
+# - logs/ - Checkpoint operation logs for debugging
+#
+# Files are automatically managed by the /ace-rollback system.
+# Manual modification not recommended.
