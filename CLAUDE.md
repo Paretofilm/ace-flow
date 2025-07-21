@@ -18,6 +18,30 @@ This project uses **ACE-Flow (Amplified Context Engineering)** - an intelligent 
 - **`/ace-validate`** or **`/av`** - Pre-implementation validation checks
 - **`/ace-rollback`** or **`/arb`** - Safe recovery and restore system
 - **`/ace-cost`** or **`/ac`** - AWS resource cost estimation
+- **`/ace-flow-install`** - Install or update command aliases
+
+#### Using ACE-Flow as a Submodule
+
+For better version control and contribution workflow:
+
+```bash
+# Add ACE-Flow as a submodule
+git submodule add https://github.com/YourFork/ace-flow.git .ace-flow
+
+# Install command aliases for easy access
+bash .ace-flow/scripts/install-ace-flow-aliases.sh
+
+# Now use short commands from .claude/
+/ag "your app idea"
+/ar domain pattern
+/ai project-name
+
+# Update ACE-Flow and refresh aliases
+cd .ace-flow && git pull origin main && cd ..
+/ace-flow-install --update
+```
+
+See [SUBMODULE_SETUP.md](./docs/SUBMODULE_SETUP.md) for detailed instructions.
 
 #### Architecture Patterns Supported
 - **social_platform**: User groups, real-time feeds, media handling
@@ -112,3 +136,30 @@ npm run lint
 ---
 
 **This CLAUDE.md is enhanced with ACE-Flow capabilities. Run `/ace-genesis` or `/ace-adopt` to customize for your specific project.**
+## Available ACE-Flow Commands
+
+### Full Commands (in .claude/)
+- `/ace-genesis` - Intelligent project creation through conversation
+- `/ace-research` - Advanced documentation research (30-100 pages)
+- `/ace-implement` - Infrastructure-aware implementation
+- `/ace-adopt` - Safe migration of existing projects
+- `/ace-status` - Real-time progress tracking
+- `/ace-help` - Comprehensive command documentation
+- `/ace-validate` - Pre-implementation validation checks
+- `/ace-rollback` - Safe recovery and restore system
+- `/ace-cost` - AWS resource cost estimation
+- `/ace-flow-install` - Install or update command aliases
+
+### Short Aliases (also in .claude/)
+- `/ag` → `/ace-genesis`
+- `/ar` → `/ace-research`
+- `/ai` → `/ace-implement`
+- `/aa` → `/ace-adopt`
+- `/as` → `/ace-status`
+- `/ah` → `/ace-help`
+- `/av` → `/ace-validate`
+- `/arb` → `/ace-rollback`
+- `/ac` → `/ace-cost`
+
+All commands are linked to the ACE-Flow system. Run `/ace-flow-install --update` after updating the ACE-Flow submodule.
+
