@@ -13,61 +13,76 @@ cd my-project
 rm -rf .git && git init
 npm create amplify@latest
 
-# 2. Set up GitHub repository
+# 2. Install ACE-Flow commands (if needed - already present in cloned repo)
+bash scripts/install-ace-flow.sh --preserve
+
+# 3. Set up GitHub repository  
 gh repo create my-project --public
 git remote add origin https://github.com/[your-username]/my-project.git
 git add . && git commit -m "Initial commit with ACE-Flow"
 git push -u origin main
 
-# 3. Automated AWS pipeline setup (one command!)
+# 4. Automated AWS pipeline setup (one command!)
 chmod +x scripts/setup-aws-pipeline.sh
 ./scripts/setup-aws-pipeline.sh
 # Follow prompts: project name, AWS region, confirm setup
 # ✅ Script automatically creates all AWS resources and GitHub secrets
 
-# 4. Start building immediately!
+# 5. Start building immediately!
 # Create GitHub issue with: @claude /ace-genesis "your amazing idea"
 ```
 
 ### Option B: Adding ACE-Flow to an Existing Project
 
+**Recommended: Use Integration Branch for Safety**
 ```bash
-# 1. Add ACE-Flow as a submodule to your existing project
+# 1. Create integration branch for safety
 cd your-existing-project
+git checkout -b feature/ace-flow-integration
+
+# 2. Add ACE-Flow as a submodule
 git submodule add https://github.com/Paretofilm/ace-flow.git .ace-flow
 
-# 2. Copy ACE-Flow commands and configuration
-cp -r .ace-flow/.claude ./
-cp -r .ace-flow/.github ./
-cp .ace-flow/CLAUDE.md ./CLAUDE.md
+# 3. Install ACE-Flow completely in one command!
+bash .ace-flow/scripts/install-ace-flow.sh
 
-# 3. Install command aliases for easy access
-bash .ace-flow/scripts/install-ace-flow-aliases.sh
+# 4. Commit and test
+git add .
+git commit -m "feat: Add ACE-Flow intelligent automation"
 
-# 4. Set up AWS pipeline (if not already configured)
-chmod +x .ace-flow/scripts/setup-aws-pipeline.sh
+# 5. Set up AWS pipeline (if needed)
 ./.ace-flow/scripts/setup-aws-pipeline.sh
-# Follow prompts to configure AWS and GitHub secrets
 
-# 5. Start migrating your existing project!
-# Create GitHub issue with: @claude /ace-adopt "describe your existing project architecture"
+# 6. Start migrating your existing project!
+# Create GitHub issue with: @claude /ace-adopt "describe your existing project"
 ```
 
-**Quick Existing Project Setup (if you already have AWS configured):**
+**Advanced Installation Options:**
 ```bash
-# Fast track - copy ACE-Flow commands directly
+# Install with GitHub Actions workflows
+bash .ace-flow/scripts/install-ace-flow.sh --github-actions
+
+# Preserve existing CLAUDE.md and custom commands
+bash .ace-flow/scripts/install-ace-flow.sh --preserve
+
+# Install only commands, skip CLAUDE.md
+bash .ace-flow/scripts/install-ace-flow.sh --no-claude-md
+
+# See all options
+bash .ace-flow/scripts/install-ace-flow.sh --help
+```
+
+**Quick Setup (Alternative Method):**
+```bash
+# If you prefer direct copying without submodule
 cd your-existing-project
 git clone https://github.com/Paretofilm/ace-flow.git temp-ace-flow
-cp -r temp-ace-flow/.claude ./
-cp temp-ace-flow/CLAUDE.md ./
+bash temp-ace-flow/scripts/install-ace-flow.sh
 rm -rf temp-ace-flow
 
 # Commit and start using
-git add .claude CLAUDE.md
-git commit -m "Add ACE-Flow intelligent automation"
-git push
-
-# Start migration with: @claude /ace-adopt "your existing project description"
+git add .
+git commit -m "feat: Add ACE-Flow intelligent automation"
 ```
 
 ### Alternative: Manual Setup
