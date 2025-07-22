@@ -4,6 +4,8 @@
 
 ## 🚀 2-Minute Setup
 
+### Option A: Starting a New Project from Scratch
+
 ```bash
 # 1. Clone and initialize your project
 git clone https://github.com/Paretofilm/ace-flow.git my-project
@@ -25,6 +27,47 @@ chmod +x scripts/setup-aws-pipeline.sh
 
 # 4. Start building immediately!
 # Create GitHub issue with: @claude /ace-genesis "your amazing idea"
+```
+
+### Option B: Adding ACE-Flow to an Existing Project
+
+```bash
+# 1. Add ACE-Flow as a submodule to your existing project
+cd your-existing-project
+git submodule add https://github.com/Paretofilm/ace-flow.git .ace-flow
+
+# 2. Copy ACE-Flow commands and configuration
+cp -r .ace-flow/.claude ./
+cp -r .ace-flow/.github ./
+cp .ace-flow/CLAUDE.md ./CLAUDE.md
+
+# 3. Install command aliases for easy access
+bash .ace-flow/scripts/install-ace-flow-aliases.sh
+
+# 4. Set up AWS pipeline (if not already configured)
+chmod +x .ace-flow/scripts/setup-aws-pipeline.sh
+./.ace-flow/scripts/setup-aws-pipeline.sh
+# Follow prompts to configure AWS and GitHub secrets
+
+# 5. Start migrating your existing project!
+# Create GitHub issue with: @claude /ace-adopt "describe your existing project architecture"
+```
+
+**Quick Existing Project Setup (if you already have AWS configured):**
+```bash
+# Fast track - copy ACE-Flow commands directly
+cd your-existing-project
+git clone https://github.com/Paretofilm/ace-flow.git temp-ace-flow
+cp -r temp-ace-flow/.claude ./
+cp temp-ace-flow/CLAUDE.md ./
+rm -rf temp-ace-flow
+
+# Commit and start using
+git add .claude CLAUDE.md
+git commit -m "Add ACE-Flow intelligent automation"
+git push
+
+# Start migration with: @claude /ace-adopt "your existing project description"
 ```
 
 ### Alternative: Manual Setup
@@ -79,11 +122,22 @@ AMPLIFY_WEBHOOK_URL=your-webhook-url
 ```
 **Result**: Safe migration with tests, branch isolation, incremental updates, rollback capabilities
 
+### More Existing Project Examples
+```
+@claude /ace-adopt "Django REST API with PostgreSQL that needs to move to serverless"
+```
+**Result**: API Gateway + Lambda migration, DynamoDB data modeling, zero-downtime transition
+
+```
+@claude /ace-adopt "Legacy jQuery app with PHP backend that needs modern React UI"
+```
+**Result**: Incremental React migration, API modernization, component-by-component updates
+
 ## 🔄 ACE-Flow Process Options
 
 > 📊 **[Visual Workflow Guide](./docs/ACE-FLOW-VISUAL-GUIDE.md)** - See the complete command flow visualization
 
-### New Projects: 3-Step Process
+### Path 1: New Projects (3-Step Process)
 
 #### 1. 🧠 Genesis (2-5 minutes)
 **Command**: `/ace-genesis "your idea"`
@@ -103,14 +157,27 @@ AMPLIFY_WEBHOOK_URL=your-webhook-url
 - Implements frontend with your pattern
 - Production-ready with tests and security
 
-### Existing Projects: Safe Migration
+### Path 2: Existing Projects (Safe Migration)
 
-#### 🔄 Adoption (30-120 minutes)
+#### 1. 🔄 Adoption Analysis (5-10 minutes)
 **Command**: `/ace-adopt "existing project description"`
+- Analyzes current architecture and dependencies
+- Identifies migration risks and opportunities
 - Creates safe adoption branch with backups
-- Generates comprehensive test suite
-- Incremental migration with validation
-- Zero-downtime upgrade with rollback capabilities
+- Generates migration roadmap
+
+#### 2. 🧪 Test Generation (15-30 minutes, automatic)
+**Command**: Automatically triggered by adopt
+- Generates comprehensive test suite for existing code
+- Creates baseline performance benchmarks
+- Sets up monitoring for migration validation
+
+#### 3. 🚀 Incremental Migration (30-90 minutes)
+**Command**: Continues from adopt process
+- Component-by-component migration
+- Zero-downtime deployment strategy
+- Rollback capabilities at each step
+- Production validation after each phase
 
 ## 📈 Success Metrics
 
