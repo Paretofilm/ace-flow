@@ -830,6 +830,448 @@ export function usePagination<T>(
 }
 ```
 
+## 🔐 Security
+
+### Data Protection & Validation
+
+#### Input Validation & Sanitization
+```typescript
+// Input validation service
+export class ValidationService {
+  static validateTask(taskData: Partial<Task>): ValidationResult {
+    const errors: string[] = [];
+
+    // Required field validation
+    if (!taskData.title?.trim()) {
+      errors.push('Title is required');
+    }
+
+    // Input sanitization
+    if (taskData.title && taskData.title.length > 200) {
+      errors.push('Title must be less than 200 characters');
+    }
+
+    // Sanitize HTML content
+    if (taskData.description) {
+      taskData.description = this.sanitizeHtml(taskData.description);
+    }
+
+    // Date validation
+    if (taskData.dueDate && new Date(taskData.dueDate) < new Date()) {
+      errors.push('Due date cannot be in the past');
+    }
+
+    return {
+      isValid: errors.length === 0,
+      errors,
+      sanitizedData: taskData
+    };
+  }
+
+  private static sanitizeHtml(input: string): string {
+    // Remove potentially dangerous HTML tags and scripts
+    return input
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+      .replace(/javascript:/gi, '')
+      .replace(/on\w+="[^"]*"/gi, '');
+  }
+}
+```
+
+#### SQL Injection Prevention
+```typescript
+// Safe query patterns with Amplify GraphQL
+export class SecureDataService {
+  // ✅ Safe: Using Amplify's parameterized queries
+  async getTasksByUser(userId: string): Promise<Task[]> {
+    const result = await client.models.Task.list({
+      filter: {
+        owner: { eq: userId } // Amplify handles parameterization
+      }
+    });
+    return result.data;
+  }
+
+  // ✅ Safe: Input validation before queries
+  async searchTasks(searchTerm: string): Promise<Task[]> {
+    // Validate and sanitize search input
+    const sanitizedTerm = searchTerm
+      .replace(/[^\w\s-]/g, '') // Only allow alphanumeric, spaces, hyphens
+      .trim()
+      .substring(0, 100); // Limit length
+
+    if (!sanitizedTerm) {
+      return [];
+    }
+
+    const result = await client.models.Task.list({
+      filter: {
+        title: { contains: sanitizedTerm }
+      }
+    });
+    return result.data;
+  }
+}
+```
+
+### Authentication & Session Security
+
+#### Secure Authentication Flow
+```typescript
+// Secure auth implementation
+export class SecureAuthService {
+  // Multi-factor authentication setup
+  async enableMFA(userId: string): Promise<void> {
+    try {
+      await updateUserAttributes({
+        userAttributes: {
+          phone_number: '+1234567890', // User's verified phone
+        }
+      });
+
+      // Enable TOTP MFA
+      await setUpTOTP();
+    } catch (error) {
+      console.error('MFA setup failed:', error);
+      throw new Error('Unable to enable MFA');
+    }
+  }
+
+  // Secure password requirements
+  validatePassword(password: string): ValidationResult {
+    const requirements = {
+      minLength: password.length >= 12,
+      hasUppercase: /[A-Z]/.test(password),
+      hasLowercase: /[a-z]/.test(password),
+      hasNumbers: /\d/.test(password),
+      hasSpecialChars: /[!@#$%^&*(),.?":{}|<>]/.test(password),
+      notCommon: !this.isCommonPassword(password)
+    };
+
+    const passed = Object.values(requirements).every(req => req);
+    
+    return {
+      isValid: passed,
+      requirements,
+      errors: passed ? [] : ['Password does not meet security requirements']
+    };
+  }
+
+  // Session timeout handling
+  setupSessionTimeout(): void {
+    const TIMEOUT_MINUTES = 30;
+    let timeoutId: NodeJS.Timeout;
+
+    const resetTimeout = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        this.handleSessionTimeout();
+      }, TIMEOUT_MINUTES * 60 * 1000);
+    };
+
+    // Reset timeout on user activity
+    ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+      document.addEventListener(event, resetTimeout, true);
+    });
+
+    resetTimeout();
+  }
+
+  private async handleSessionTimeout(): Promise<void> {
+    await signOut();
+    window.location.href = '/login?reason=timeout';
+  }
+}
+```
+
+### Data Security & Encryption
+
+#### Client-Side Data Protection
+```typescript
+// Sensitive data handling
+export class DataSecurityService {
+  // Encrypt sensitive data before storage
+  async encryptSensitiveData(data: string, keyId: string): Promise<string> {
+    const key = await this.getEncryptionKey(keyId);
+    const encrypted = await crypto.subtle.encrypt(
+      { name: 'AES-GCM', iv: crypto.getRandomValues(new Uint8Array(12)) },
+      key,
+      new TextEncoder().encode(data)
+    );
+    return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
+  }
+
+  // Secure local storage handling
+  setSecureItem(key: string, value: any): void {
+    const encrypted = this.encrypt(JSON.stringify(value));
+    sessionStorage.setItem(key, encrypted); // Use sessionStorage for sensitive data
+  }
+
+  getSecureItem(key: string): any {
+    const encrypted = sessionStorage.getItem(key);
+    if (!encrypted) return null;
+    
+    try {
+      const decrypted = this.decrypt(encrypted);
+      return JSON.parse(decrypted);
+    } catch {
+      // Remove corrupted data
+      sessionStorage.removeItem(key);
+      return null;
+    }
+  }
+
+  // Clear sensitive data on logout
+  clearSensitiveData(): void {
+    const sensitiveKeys = ['userPreferences', 'tempFormData', 'searchHistory'];
+    sensitiveKeys.forEach(key => {
+      sessionStorage.removeItem(key);
+      localStorage.removeItem(key);
+    });
+  }
+}
+```
+
+### Authorization & Access Control
+
+#### Role-Based Access Control (RBAC)
+```typescript
+// Enhanced authorization rules
+const securitySchema = a.schema({
+  Task: a
+    .model({
+      title: a.string().required(),
+      description: a.string(),
+      status: a.enum(['todo', 'in-progress', 'completed']),
+      priority: a.enum(['low', 'medium', 'high']),
+      isPublic: a.boolean().default(false),
+      // Add security fields
+      classification: a.enum(['public', 'internal', 'confidential']).default('internal'),
+      lastAccessedAt: a.datetime(),
+      accessCount: a.integer().default(0),
+    })
+    .authorization(allow => [
+      // Owner can do everything with their tasks
+      allow.owner().to(['create', 'read', 'update', 'delete']),
+      
+      // Authenticated users can only read public tasks
+      allow.authenticated().to(['read']).where(task => 
+        task.isPublic === true && task.classification === 'public'
+      ),
+      
+      // Admins can read all but not delete
+      allow.groups(['admin']).to(['read', 'update']),
+      
+      // Moderators can read and update inappropriate content
+      allow.groups(['moderator']).to(['read', 'update']).where(task =>
+        task.classification !== 'confidential'
+      ),
+    ]),
+
+  // Audit log for security monitoring
+  AccessLog: a
+    .model({
+      userId: a.id().required(),
+      action: a.enum(['create', 'read', 'update', 'delete']).required(),
+      resourceType: a.string().required(),
+      resourceId: a.id().required(),
+      ipAddress: a.string(),
+      userAgent: a.string(),
+      success: a.boolean().required(),
+      errorMessage: a.string(),
+    })
+    .authorization(allow => [
+      // Only system can create audit logs
+      allow.resource(accessLog => accessLog).to(['create']),
+      // Admins can read audit logs
+      allow.groups(['admin']).to(['read']),
+    ]),
+});
+```
+
+#### Permission Validation
+```typescript
+// Runtime permission checking
+export class PermissionService {
+  async canUserAccessTask(userId: string, taskId: string, action: string): Promise<boolean> {
+    try {
+      // Get task with owner info
+      const task = await client.models.Task.get({ id: taskId });
+      if (!task.data) return false;
+
+      // Get user groups
+      const user = await getCurrentUser();
+      const groups = user.signInUserSession?.accessToken?.payload['cognito:groups'] || [];
+
+      // Check ownership
+      if (task.data.owner === userId) {
+        return true;
+      }
+
+      // Check admin/moderator permissions
+      if (groups.includes('admin')) {
+        return ['read', 'update'].includes(action);
+      }
+
+      if (groups.includes('moderator')) {
+        return ['read', 'update'].includes(action) && 
+               task.data.classification !== 'confidential';
+      }
+
+      // Check public access for read operations
+      if (action === 'read' && task.data.isPublic && task.data.classification === 'public') {
+        return true;
+      }
+
+      return false;
+    } catch (error) {
+      // Log security event
+      await this.logSecurityEvent(userId, 'permission_check_failed', { taskId, action, error });
+      return false;
+    }
+  }
+
+  private async logSecurityEvent(userId: string, event: string, metadata: any): Promise<void> {
+    try {
+      await client.models.AccessLog.create({
+        userId,
+        action: 'security_event',
+        resourceType: 'permission',
+        resourceId: event,
+        success: false,
+        errorMessage: JSON.stringify(metadata),
+      });
+    } catch (error) {
+      // Fallback logging to console if audit log fails
+      console.error('Security event logging failed:', { userId, event, metadata, error });
+    }
+  }
+}
+```
+
+### Security Monitoring & Compliance
+
+#### Security Headers & CSP
+```typescript
+// Content Security Policy configuration
+export const securityHeaders = {
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' https://cognito-idp.*.amazonaws.com",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https:",
+    "connect-src 'self' https://*.amazonaws.com wss://*.amazonaws.com",
+    "font-src 'self'",
+    "object-src 'none'",
+    "media-src 'self'",
+    "frame-src 'none'"
+  ].join('; '),
+  
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'geolocation=(), microphone=(), camera=()'
+};
+```
+
+#### Security Event Monitoring
+```typescript
+// Security monitoring service
+export class SecurityMonitor {
+  private failedAttempts = new Map<string, number>();
+  private readonly MAX_FAILED_ATTEMPTS = 5;
+  private readonly LOCKOUT_DURATION = 15 * 60 * 1000; // 15 minutes
+
+  async trackFailedLogin(identifier: string): Promise<boolean> {
+    const attempts = this.failedAttempts.get(identifier) || 0;
+    const newAttempts = attempts + 1;
+    
+    this.failedAttempts.set(identifier, newAttempts);
+    
+    // Auto-lockout after max attempts
+    if (newAttempts >= this.MAX_FAILED_ATTEMPTS) {
+      await this.lockoutUser(identifier);
+      return true; // Account locked
+    }
+    
+    return false; // Not locked yet
+  }
+
+  async isAccountLocked(identifier: string): Promise<boolean> {
+    // Check if account is currently locked
+    const lockoutData = await this.getLockoutData(identifier);
+    if (lockoutData && Date.now() < lockoutData.unlockTime) {
+      return true;
+    }
+    
+    // Clear expired lockout
+    if (lockoutData) {
+      await this.clearLockout(identifier);
+    }
+    
+    return false;
+  }
+
+  private async lockoutUser(identifier: string): Promise<void> {
+    const unlockTime = Date.now() + this.LOCKOUT_DURATION;
+    
+    // Store lockout info (in production, use database)
+    await this.storeLockoutData(identifier, unlockTime);
+    
+    // Notify administrators of security event
+    await this.notifySecurityTeam('account_lockout', { identifier, unlockTime });
+  }
+
+  // Detect suspicious patterns
+  async detectAnomalies(userId: string, action: string): Promise<void> {
+    const recentActions = await this.getRecentActions(userId, 1000 * 60 * 10); // 10 minutes
+    
+    // Detect rapid-fire requests
+    if (recentActions.length > 100) {
+      await this.flagSuspiciousActivity(userId, 'rapid_requests', { count: recentActions.length });
+    }
+    
+    // Detect unusual access patterns
+    const actionsByType = recentActions.reduce((acc, action) => {
+      acc[action.type] = (acc[action.type] || 0) + 1;
+      return acc;
+    }, {});
+    
+    if (actionsByType.delete > 10) {
+      await this.flagSuspiciousActivity(userId, 'mass_deletion', actionsByType);
+    }
+  }
+}
+```
+
+### Security Best Practices Checklist
+
+#### Development Security
+- [ ] **Input Validation**: All user inputs validated and sanitized
+- [ ] **Output Encoding**: All dynamic content properly encoded
+- [ ] **SQL Injection**: Using parameterized queries only
+- [ ] **XSS Prevention**: Content Security Policy implemented
+- [ ] **CSRF Protection**: Anti-CSRF tokens on state-changing operations
+- [ ] **Authentication**: Strong password policies and MFA enabled
+- [ ] **Authorization**: Proper access controls on all resources
+- [ ] **Session Security**: Secure session handling and timeout
+- [ ] **Data Encryption**: Sensitive data encrypted in transit and at rest
+- [ ] **Error Handling**: No sensitive information in error messages
+- [ ] **Logging**: Security events logged and monitored
+- [ ] **Dependencies**: Regular security updates for all dependencies
+
+#### Production Security
+- [ ] **HTTPS**: TLS 1.3 enforced for all connections
+- [ ] **Security Headers**: All security headers properly configured
+- [ ] **Rate Limiting**: API rate limiting implemented
+- [ ] **Monitoring**: Real-time security monitoring active
+- [ ] **Backup**: Regular security-tested backups
+- [ ] **Incident Response**: Security incident response plan ready
+- [ ] **Penetration Testing**: Regular security assessments conducted
+- [ ] **Compliance**: GDPR/CCPA compliance measures implemented
+
 ## 📱 Responsive Design
 
 ### Mobile-First Approach

@@ -296,6 +296,273 @@ Date         From    To      Reason           Result
 - ACE-Flow Issues: [GitHub link]
 ```
 
+## Examples
+
+### Simple Rollback After Failed Deployment
+```bash
+# Quick rollback to previous working state
+/ace-rollback
+
+🔄 ACE-Rollback Analysis
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Current State: v2.1.0 (failed deployment)
+Target State: v2.0.0 (last stable)
+Estimated Downtime: 3 minutes
+
+Proceed with rollback? [Y/n]: Y
+
+🔄 Rolling back...
+✅ Database restored
+✅ Functions reverted  
+✅ Frontend updated
+✅ CDN invalidated
+
+🎉 Rollback completed successfully!
+Your app is back online and working properly.
+```
+
+### Rolling Back Specific Components
+```bash
+# Rollback only the backend while keeping frontend
+/ace-rollback --component=backend
+
+🔄 Selective Rollback
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Components to rollback:
+✅ Backend API (GraphQL schema)
+✅ Lambda functions
+✅ Database tables
+❌ Frontend (will remain current)
+❌ CDN content (will remain current)
+
+This will revert your API to the previous version
+while keeping the current frontend.
+
+Continue? [Y/n]: Y
+
+🔄 Rolling back backend...
+✅ GraphQL schema restored
+✅ Lambda functions reverted
+✅ Database schema rolled back
+✅ API Gateway updated
+
+Backend rollback complete!
+Frontend remains on current version.
+```
+
+### Rollback to Specific Point in Time
+```bash
+# Rollback to a specific checkpoint
+/ace-rollback --to="before-auth-update"
+
+🔄 Checkpoint Rollback
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Target Checkpoint: "before-auth-update"
+Created: 2024-01-20T14:30:00Z (2 hours ago)
+Changes to revert: Auth configuration, user schema
+
+Components affected:
+- Cognito User Pool settings
+- Auth-related Lambda functions  
+- User model schema changes
+- Authentication frontend components
+
+Proceed? [Y/n]: Y
+
+🔄 Rolling back to checkpoint...
+✅ Auth configuration restored
+✅ User pool settings reverted
+✅ Schema changes undone
+✅ Frontend auth components updated
+
+Rollback to "before-auth-update" complete!
+```
+
+### Dry Run Rollback Preview
+```bash
+# Preview rollback changes without executing
+/ace-rollback --dry-run
+
+🔍 Rollback Preview (Dry Run)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This is what would happen:
+
+Files to be changed: 23
+- amplify/data/resource.ts (schema changes)
+- src/components/auth/ (5 files)
+- package.json (dependency versions)
+- 16 other files
+
+Database changes:
+- 3 tables would be restored
+- No data loss expected
+
+Lambda functions:
+- 2 functions would be reverted
+- Custom code would be restored
+
+Estimated rollback time: 4 minutes
+Risk level: Low
+
+To execute: /ace-rollback
+```
+
+### Emergency Production Rollback
+```bash
+# Critical production issue requiring immediate rollback
+/ace-rollback --emergency
+
+🚨 EMERGENCY ROLLBACK MODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Production system issues detected!
+Users affected: ~1,200
+Downtime: 8 minutes and counting
+
+Immediate rollback to last stable state:
+- Skip confirmations
+- Prioritize speed over safety checks
+- Restore service ASAP
+
+WARNING: This bypasses normal safety checks.
+Only use in genuine emergencies.
+
+Execute emergency rollback? [Y/n]: Y
+
+🚨 EMERGENCY ROLLBACK IN PROGRESS...
+⚡ Bypassing safety checks...
+⚡ Restoring database (no backup)...
+⚡ Reverting functions immediately...
+⚡ Updating frontend...
+
+🎉 EMERGENCY ROLLBACK COMPLETE!
+Service restored in 2.3 minutes
+Users can now access the application
+```
+
+### Rollback with Custom Reason
+```bash
+# Document why rollback was needed
+/ace-rollback --reason="API rate limits causing timeouts"
+
+🔄 Rollback with Documentation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Rollback reason: "API rate limits causing timeouts"
+This will be logged for team review.
+
+Target: Previous stable state (v1.8.0)
+Estimated time: 5 minutes
+
+The rollback reason will be saved to help:
+- Identify recurring issues
+- Improve future deployments
+- Document lessons learned
+
+Proceed? [Y/n]: Y
+
+🔄 Rolling back...
+📝 Logging rollback reason
+✅ Rollback completed
+📊 Issue documented for review
+```
+
+### Partial Rollback for Database Issues  
+```bash
+# Rollback only database schema changes
+/ace-rollback --component=schema
+
+🔄 Schema Rollback
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Database schema changes detected:
+- Added 2 new tables
+- Modified 3 existing tables  
+- Added 5 new indexes
+- 1 relationship change
+
+⚠️  Data Migration Required
+Current data will be backed up before schema rollback.
+Migration script will be generated automatically.
+
+Schema rollback options:
+1. Safe rollback (with data migration)
+2. Fast rollback (may lose recent data)
+
+Choose option [1/2]: 1
+
+🔄 Safe schema rollback in progress...
+💾 Backing up current data...
+🔄 Reverting schema changes...
+📊 Generating migration script...
+✅ Schema rollback complete with data preserved!
+```
+
+### Monitoring Rollback Status
+```bash
+# Check rollback progress
+/ace-rollback --status
+
+🔄 Rollback Status
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Active Rollback: In Progress
+Started: 2 minutes ago
+Progress: 65%
+
+Current Phase: Frontend Update
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ ☁️  Backend      ██████████ 100%  ┃
+┃ 📊 Database     ██████████ 100%  ┃
+┃ ⚡ Functions    ██████████ 100%  ┃
+┃ 💻 Frontend     ██████░░░░ 70%   ┃
+┃ 🌐 CDN          ░░░░░░░░░░ 0%    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+ETA: 2 minutes remaining
+Next: CDN cache invalidation
+```
+
+### Rollback History and Recovery
+```bash
+# View recent rollback history
+/ace-rollback --history
+
+📜 Rollback History
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Date         Version    Reason                Result
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2024-01-20   v2.1→v2.0  Deploy failed        ✅ Success
+2024-01-18   v2.0→v1.9  Schema error         ✅ Success  
+2024-01-15   v1.8→v1.7  Performance issues   ✅ Success
+2024-01-10   v1.6→v1.5  Auth problems        ✅ Success
+
+Success Rate: 100% (4/4 rollbacks)
+Average Recovery Time: 3.2 minutes
+Most Common Issue: Schema-related problems
+```
+
+### Smart Rollback with Issue Detection
+```bash
+# ACE-Flow detects issues and suggests rollback
+/ace-rollback --smart
+
+🤖 Smart Rollback Analysis
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Issue Detection: Active
+Current Status: Performance degradation detected
+
+Anomalies Found:
+- API response time: 3.2s (normal: 0.4s) 
+- Error rate: 15% (normal: <1%)
+- User complaints: 8 reports in 10 minutes
+
+Probable Cause: Recent deployment (12 minutes ago)
+Confidence: 87%
+
+Recommendation: Rollback to stable state
+Auto-rollback in 45 seconds... [Cancel with Ctrl+C]
+
+🔄 Auto-rollback initiated...
+✅ Performance restored to normal levels
+```
+
 ---
 
 *ACE-Rollback: Your safety net for confident development! 🛟*

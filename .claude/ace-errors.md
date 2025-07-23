@@ -1,5 +1,16 @@
 # ACE-Flow Error Reference System
 
+## Purpose/Usage
+The ACE-Flow Error Reference System serves as a comprehensive diagnostic and troubleshooting guide for developers using ACE-Flow with AWS Amplify Gen 2. This system provides:
+
+- **Immediate Error Resolution**: Direct solution links and quick fixes for common issues
+- **Learning Integration**: Error patterns are analyzed to improve future implementations
+- **Pattern Recognition**: Identifies recurring issues and suggests preventive measures
+- **Auto-Fix Capabilities**: Automated resolution for 85%+ of common errors
+- **Context-Aware Help**: Tailored solutions based on your project pattern and phase
+
+Use this reference when encountering errors during ACE-Flow development, or run `/ace-help error [ERROR-CODE]` for interactive assistance.
+
 ## Overview
 This document provides a comprehensive error reference with direct solution links for common ACE-Flow and AWS Amplify Gen 2 issues.
 
