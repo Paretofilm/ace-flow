@@ -16,7 +16,9 @@ NC='\033[0m' # No Color
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-DOCS_DIR="$PROJECT_ROOT/docs"
+# Documentation directory - updated to use ace-system/ instead of docs/
+# This contains patterns/, integrations/, frameworks/, and other documentation
+DOCS_DIR="$PROJECT_ROOT/ace-system"
 CLAUDE_DIR="$PROJECT_ROOT/.claude"
 REVIEW_OUTPUT_DIR="$PROJECT_ROOT/quality-reports"
 
@@ -62,7 +64,7 @@ show_usage() {
 Usage: $0 [OPTIONS]
 
 OPTIONS:
-  --area=AREA           Review specific area (docs|commands|patterns|integrations|all)
+  --area=AREA           Review specific area (ace-system|commands|patterns|integrations|all)
   --format=FORMAT       Output format (detailed|summary|checklist)
   --severity=LEVEL      Filter by severity (critical|high|medium|low)
   --claude-opus         Run Claude Opus review directly (recommended)
@@ -74,7 +76,7 @@ OPTIONS:
 EXAMPLES:
   $0                   Full system review with local checks
   $0 --claude-opus     Run comprehensive Claude Opus quality review
-  $0 --area=docs       Review documentation only
+  $0 --area=ace-system Review documentation only
   $0 --generate-prompt Generate AI review prompt file
   $0 --quick           Quick validation
 
@@ -160,7 +162,7 @@ ACE-Flow eliminates the common problem of AI generating outdated Amplify Gen 1 c
 ## 📚 **System Architecture Overview**
 
 ### **Core Components**
-1. **Local Documentation Library** (\`docs/\` directory)
+1. **Local Documentation Library** (\`ace-system/\` directory)
    - AWS Amplify Gen 2 documentation (getting-started, data-modeling, authentication)
    - Next.js 14+ App Router documentation (app-router, data-fetching)
    - Architecture patterns (social-platform, e-commerce, content-management, dashboard-analytics, simple-crud)
@@ -224,9 +226,9 @@ await uploadData({ key: 'key', data: file });
 \`\`\`
 
 #### **Specific Files to Check:**
-- \`docs/frameworks/amplify-gen2/*.md\` - All Amplify examples
-- \`docs/patterns/*.md\` - All architecture pattern implementations
-- \`docs/integrations/*.md\` - All integration code examples
+- \`ace-system/frameworks/amplify-gen2/*.md\` - All Amplify examples
+- \`ace-system/patterns/*.md\` - All architecture pattern implementations
+- \`ace-system/integrations/*.md\` - All integration code examples
 - \`.claude/*.md\` - All command documentation examples
 
 #### **Validation Checklist:**
@@ -240,7 +242,7 @@ await uploadData({ key: 'key', data: file });
 ### **2. Documentation Accuracy and Completeness**
 
 #### **Framework Documentation Review:**
-**Location**: \`docs/frameworks/\`
+**Location**: \`ace-system/frameworks/\`
 
 **Check Each File For:**
 - **Version alignment**: Framework versions match latest stable releases
@@ -988,7 +990,7 @@ main() {
     
     # Run checks based on area
     case "$AREA" in
-        "docs"|"all")
+        "ace-system"|"docs"|"all")
             check_amplify_gen2_compliance
             check_gen2_patterns
             check_links
