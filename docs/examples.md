@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Examples
+---
+
 # ACE-Flow Examples
 
 This page showcases real-world examples of applications built with ACE-Flow.

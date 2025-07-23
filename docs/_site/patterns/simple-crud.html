@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Simple CRUD Pattern | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Simple CRUD Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/patterns/simple-crud.html" />
+<meta property="og:url" content="http://localhost:4000/patterns/simple-crud.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Simple CRUD Pattern" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Simple CRUD Pattern","url":"http://localhost:4000/patterns/simple-crud.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link active">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="simple-crud-pattern">Simple CRUD Pattern</h1>
+
+<p>The Simple CRUD pattern provides a straightforward foundation for basic data management applications that need standard create, read, update, and delete operations.</p>
+
+<h2 id="when-to-use">When to Use</h2>
+
+<ul>
+  <li>Basic business applications</li>
+  <li>Form-based data entry systems</li>
+  <li>Simple inventory management</li>
+  <li>Contact management systems</li>
+  <li>Task and project tracking tools</li>
+</ul>
+
+<h2 id="core-features">Core Features</h2>
+
+<h3 id="data-management">Data Management</h3>
+<ul>
+  <li><strong>Create Records</strong>: Form-based data entry with validation</li>
+  <li><strong>Read Records</strong>: List views with search and filtering</li>
+  <li><strong>Update Records</strong>: Edit functionality with change tracking</li>
+  <li><strong>Delete Records</strong>: Safe deletion with confirmation</li>
+</ul>
+
+<h3 id="user-interface">User Interface</h3>
+<ul>
+  <li><strong>Form Generation</strong>: Auto-generated forms from schema</li>
+  <li><strong>Data Tables</strong>: Sortable, filterable data displays</li>
+  <li><strong>Search &amp; Filter</strong>: Basic query capabilities</li>
+  <li><strong>Pagination</strong>: Efficient large dataset handling</li>
+</ul>
+
+<h3 id="basic-features">Basic Features</h3>
+<ul>
+  <li><strong>User Authentication</strong>: Simple login/registration</li>
+  <li><strong>Data Validation</strong>: Client and server-side validation</li>
+  <li><strong>Export/Import</strong>: CSV and basic file operations</li>
+  <li><strong>Basic Reporting</strong>: Simple data summaries</li>
+</ul>
+
+<h2 id="data-schema">Data Schema</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">User</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">email</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">role</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">user</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">user</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="c1">// Example: Task Management</span>
+  <span class="na">Task</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">status</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">todo</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">in_progress</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">completed</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">todo</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">priority</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">low</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">assignedTo</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">assignedToId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">createdBy</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">createdById</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">dueDate</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">date</span><span class="p">(),</span>
+    <span class="na">completedAt</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+    <span class="na">tags</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="c1">// Example: Contact Management</span>
+  <span class="na">Contact</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">firstName</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">lastName</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">email</span><span class="p">(),</span>
+    <span class="na">phone</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">phone</span><span class="p">(),</span>
+    <span class="na">company</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">jobTitle</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">address</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span> <span class="c1">// { street, city, state, zip }</span>
+    <span class="na">notes</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">createdBy</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">createdById</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">tags</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="c1">// Example: Product Inventory</span>
+  <span class="na">Product</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">sku</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">category</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">price</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">(),</span>
+    <span class="na">cost</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">(),</span>
+    <span class="na">quantity</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="na">minQuantity</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="c1">// Reorder threshold</span>
+    <span class="na">supplier</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="form-components">Form Components</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Auto-generated forms with validation</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useForm</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-hook-form</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">zodResolver</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@hookform/resolvers/zod</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">TaskForm</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">task</span><span class="p">,</span> <span class="nx">onSubmit</span><span class="p">,</span> <span class="nx">onCancel</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span>
+    <span class="nx">register</span><span class="p">,</span>
+    <span class="nx">handleSubmit</span><span class="p">,</span>
+    <span class="na">formState</span><span class="p">:</span> <span class="p">{</span> <span class="nx">errors</span><span class="p">,</span> <span class="nx">isSubmitting</span> <span class="p">}</span>
+  <span class="p">}</span> <span class="o">=</span> <span class="nx">useForm</span><span class="p">({</span>
+    <span class="na">defaultValues</span><span class="p">:</span> <span class="nx">task</span> <span class="o">||</span> <span class="p">{},</span>
+    <span class="na">resolver</span><span class="p">:</span> <span class="nx">zodResolver</span><span class="p">(</span><span class="nx">taskSchema</span><span class="p">)</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">onSubmit</span><span class="p">)}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">space-y-4</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Title</span> <span class="o">*&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">input</span>
+          <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">)}</span>
+          <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span>
+          <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-input</span><span class="dl">"</span>
+          <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Enter task title</span><span class="dl">"</span>
+        <span class="o">/&gt;</span>
+        <span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">title</span> <span class="o">&amp;&amp;</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">title</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>        <span class="p">)}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Description</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">textarea</span>
+          <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">description</span><span class="dl">'</span><span class="p">)}</span>
+          <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-textarea</span><span class="dl">"</span>
+          <span class="nx">rows</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span>
+          <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Enter task description</span><span class="dl">"</span>
+        <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">grid grid-cols-2 gap-4</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Status</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="nx">select</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">status</span><span class="dl">'</span><span class="p">)}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-select</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">todo</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">To</span> <span class="nx">Do</span><span class="o">&lt;</span><span class="sr">/option</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">in_progress</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">In</span> <span class="nx">Progress</span><span class="o">&lt;</span><span class="sr">/option</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">completed</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Completed</span><span class="o">&lt;</span><span class="sr">/option</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/select</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="dl">"</span><span class="s2">priority</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Priority</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="nx">select</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">priority</span><span class="dl">'</span><span class="p">)}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-select</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Low</span><span class="o">&lt;</span><span class="sr">/option</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">medium</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Medium</span><span class="o">&lt;</span><span class="sr">/option</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">option</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">High</span><span class="o">&lt;</span><span class="sr">/option</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/select</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="dl">"</span><span class="s2">dueDate</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Due</span> <span class="nb">Date</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">input</span>
+          <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">dueDate</span><span class="dl">'</span><span class="p">)}</span>
+          <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">date</span><span class="dl">"</span>
+          <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-input</span><span class="dl">"</span>
+        <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">flex justify-end space-x-2</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">button</span>
+          <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span>
+          <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onCancel</span><span class="p">}</span>
+          <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-secondary</span><span class="dl">"</span>
+        <span class="o">&gt;</span>
+          <span class="nx">Cancel</span>
+        <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">button</span>
+          <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span>
+          <span class="nx">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">isSubmitting</span><span class="p">}</span>
+          <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-primary</span><span class="dl">"</span>
+        <span class="o">&gt;</span>
+          <span class="p">{</span><span class="nx">isSubmitting</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">Saving...</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Save Task</span><span class="dl">'</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="data-table-components">Data Table Components</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Reusable data table with sorting and filtering</span>
+<span class="kd">const</span> <span class="nx">DataTable</span> <span class="o">=</span> <span class="p">({</span> 
+  <span class="nx">data</span><span class="p">,</span> 
+  <span class="nx">columns</span><span class="p">,</span> 
+  <span class="nx">onEdit</span><span class="p">,</span> 
+  <span class="nx">onDelete</span><span class="p">,</span> 
+  <span class="nx">onSort</span><span class="p">,</span> 
+  <span class="nx">sortField</span><span class="p">,</span> 
+  <span class="nx">sortDirection</span> 
+<span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">filters</span><span class="p">,</span> <span class="nx">setFilters</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({});</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">currentPage</span><span class="p">,</span> <span class="nx">setCurrentPage</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">itemsPerPage</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">filteredData</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">filters</span><span class="p">).</span><span class="nx">every</span><span class="p">(([</span><span class="nx">field</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">item</span><span class="p">[</span><span class="nx">field</span><span class="p">]?.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">filters</span><span class="p">]);</span>
+
+  <span class="kd">const</span> <span class="nx">paginatedData</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">startIndex</span> <span class="o">=</span> <span class="p">(</span><span class="nx">currentPage</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nx">itemsPerPage</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">filteredData</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">startIndex</span><span class="p">,</span> <span class="nx">startIndex</span> <span class="o">+</span> <span class="nx">itemsPerPage</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">filteredData</span><span class="p">,</span> <span class="nx">currentPage</span><span class="p">]);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">data-table</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="p">{</span><span class="cm">/* Filters */</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">filters mb-4</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">columns</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">col</span> <span class="o">=&gt;</span> <span class="nx">col</span><span class="p">.</span><span class="nx">filterable</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">column</span> <span class="o">=&gt;</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">filter-group</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">label</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">input</span>
+              <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span>
+              <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="s2">`Filter by </span><span class="p">${</span><span class="nx">column</span><span class="p">.</span><span class="nx">label</span><span class="p">}</span><span class="s2">`</span><span class="p">}</span>
+              <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">filters</span><span class="p">[</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">]</span> <span class="o">||</span> <span class="dl">''</span><span class="p">}</span>
+              <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">setFilters</span><span class="p">(</span><span class="nx">prev</span> <span class="o">=&gt;</span> <span class="p">({</span>
+                <span class="p">...</span><span class="nx">prev</span><span class="p">,</span>
+                <span class="p">[</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">]:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span>
+              <span class="p">}))}</span>
+              <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">filter-input</span><span class="dl">"</span>
+            <span class="o">/&gt;</span>
+          <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">))}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="p">{</span><span class="cm">/* Table */</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="nx">table</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">table</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">thead</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="nx">columns</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">column</span> <span class="o">=&gt;</span> <span class="p">(</span>
+              <span class="o">&lt;</span><span class="nx">th</span> 
+                <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">}</span>
+                <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">sortable</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">sortable</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">''</span><span class="p">}</span>
+                <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">column</span><span class="p">.</span><span class="nx">sortable</span> <span class="o">&amp;&amp;</span> <span class="nx">onSort</span><span class="p">(</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">)}</span>
+              <span class="o">&gt;</span>
+                <span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">label</span><span class="p">}</span>
+                <span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">sortable</span> <span class="o">&amp;&amp;</span> <span class="nx">sortField</span> <span class="o">===</span> <span class="nx">column</span><span class="p">.</span><span class="nx">field</span> <span class="o">&amp;&amp;</span> <span class="p">(</span>
+                  <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">sort-indicator</span><span class="dl">"</span><span class="o">&gt;</span>
+                    <span class="p">{</span><span class="nx">sortDirection</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">asc</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">↑</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">↓</span><span class="dl">'</span><span class="p">}</span>
+                  <span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                <span class="p">)}</span>
+              <span class="o">&lt;</span><span class="sr">/th</span><span class="err">&gt;
+</span>            <span class="p">))}</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Actions</span><span class="o">&lt;</span><span class="sr">/th</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/tr</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/thead</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">tbody</span><span class="o">&gt;</span>
+          <span class="p">{</span><span class="nx">paginatedData</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">tr</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+              <span class="p">{</span><span class="nx">columns</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">column</span> <span class="o">=&gt;</span> <span class="p">(</span>
+                <span class="o">&lt;</span><span class="nx">td</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">}</span><span class="o">&gt;</span>
+                  <span class="p">{</span><span class="nx">column</span><span class="p">.</span><span class="nx">render</span> 
+                    <span class="p">?</span> <span class="nx">column</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">item</span><span class="p">[</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">],</span> <span class="nx">item</span><span class="p">)</span>
+                    <span class="p">:</span> <span class="nx">item</span><span class="p">[</span><span class="nx">column</span><span class="p">.</span><span class="nx">field</span><span class="p">]</span>
+                  <span class="p">}</span>
+                <span class="o">&lt;</span><span class="sr">/td</span><span class="err">&gt;
+</span>              <span class="p">))}</span>
+              <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">action-buttons</span><span class="dl">"</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">button</span>
+                    <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">onEdit</span><span class="p">(</span><span class="nx">item</span><span class="p">)}</span>
+                    <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-sm btn-outline</span><span class="dl">"</span>
+                  <span class="o">&gt;</span>
+                    <span class="nx">Edit</span>
+                  <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>                  <span class="o">&lt;</span><span class="nx">button</span>
+                    <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">onDelete</span><span class="p">(</span><span class="nx">item</span><span class="p">)}</span>
+                    <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-sm btn-danger</span><span class="dl">"</span>
+                  <span class="o">&gt;</span>
+                    <span class="nx">Delete</span>
+                  <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>              <span class="o">&lt;</span><span class="sr">/td</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/tr</span><span class="err">&gt;
+</span>          <span class="p">))}</span>
+        <span class="o">&lt;</span><span class="sr">/tbody</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/table</span><span class="err">&gt;
+</span>
+      <span class="p">{</span><span class="cm">/* Pagination */</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="nx">Pagination</span>
+        <span class="nx">currentPage</span><span class="o">=</span><span class="p">{</span><span class="nx">currentPage</span><span class="p">}</span>
+        <span class="nx">totalItems</span><span class="o">=</span><span class="p">{</span><span class="nx">filteredData</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span>
+        <span class="nx">itemsPerPage</span><span class="o">=</span><span class="p">{</span><span class="nx">itemsPerPage</span><span class="p">}</span>
+        <span class="nx">onPageChange</span><span class="o">=</span><span class="p">{</span><span class="nx">setCurrentPage</span><span class="p">}</span>
+      <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="crud-operations">CRUD Operations</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Standard CRUD operations</span>
+<span class="kd">const</span> <span class="nx">useCRUD</span> <span class="o">=</span> <span class="p">(</span><span class="nx">modelName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">items</span><span class="p">,</span> <span class="nx">setItems</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">loading</span><span class="p">,</span> <span class="nx">setLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">error</span><span class="p">,</span> <span class="nx">setError</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="c1">// Read - List all items</span>
+  <span class="kd">const</span> <span class="nx">fetchItems</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">filters</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="nx">list</span><span class="p">({</span>
+        <span class="na">filter</span><span class="p">:</span> <span class="nx">filters</span><span class="p">,</span>
+        <span class="na">limit</span><span class="p">:</span> <span class="mi">100</span>
+      <span class="p">});</span>
+      <span class="nx">setItems</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      <span class="nx">setError</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">setError</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+      <span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Create - Add new item</span>
+  <span class="kd">const</span> <span class="nx">createItem</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="nx">setItems</span><span class="p">(</span><span class="nx">prev</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span> <span class="p">...</span><span class="nx">prev</span><span class="p">]);</span>
+      <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">setError</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Update - Edit existing item</span>
+  <span class="kd">const</span> <span class="nx">updateItem</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="nx">update</span><span class="p">({</span>
+        <span class="nx">id</span><span class="p">,</span>
+        <span class="p">...</span><span class="nx">data</span>
+      <span class="p">});</span>
+      <span class="nx">setItems</span><span class="p">(</span><span class="nx">prev</span> <span class="o">=&gt;</span> <span class="nx">prev</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> 
+        <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">id</span> <span class="p">?</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span> <span class="p">:</span> <span class="nx">item</span>
+      <span class="p">));</span>
+      <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">setError</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Delete - Remove item</span>
+  <span class="kd">const</span> <span class="nx">deleteItem</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="k">delete</span><span class="p">({</span> <span class="nx">id</span> <span class="p">});</span>
+      <span class="nx">setItems</span><span class="p">(</span><span class="nx">prev</span> <span class="o">=&gt;</span> <span class="nx">prev</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">id</span><span class="p">));</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">setError</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">items</span><span class="p">,</span>
+    <span class="nx">loading</span><span class="p">,</span>
+    <span class="nx">error</span><span class="p">,</span>
+    <span class="nx">fetchItems</span><span class="p">,</span>
+    <span class="nx">createItem</span><span class="p">,</span>
+    <span class="nx">updateItem</span><span class="p">,</span>
+    <span class="nx">deleteItem</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="search-and-filtering">Search and Filtering</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Advanced search functionality</span>
+<span class="kd">const</span> <span class="nx">useSearch</span> <span class="o">=</span> <span class="p">(</span><span class="nx">items</span><span class="p">,</span> <span class="nx">searchFields</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">searchTerm</span><span class="p">,</span> <span class="nx">setSearchTerm</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">filters</span><span class="p">,</span> <span class="nx">setFilters</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({});</span>
+
+  <span class="kd">const</span> <span class="nx">filteredItems</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">filtered</span> <span class="o">=</span> <span class="nx">items</span><span class="p">;</span>
+
+    <span class="c1">// Apply text search</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">searchTerm</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">filtered</span> <span class="o">=</span> <span class="nx">filtered</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span>
+        <span class="nx">searchFields</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">field</span> <span class="o">=&gt;</span>
+          <span class="nx">item</span><span class="p">[</span><span class="nx">field</span><span class="p">]?.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">searchTerm</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Apply filters</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">filters</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(([</span><span class="nx">field</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">filtered</span> <span class="o">=</span> <span class="nx">filtered</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">value</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">item</span><span class="p">[</span><span class="nx">field</span><span class="p">]);</span>
+          <span class="p">}</span>
+          <span class="k">return</span> <span class="nx">item</span><span class="p">[</span><span class="nx">field</span><span class="p">]</span> <span class="o">===</span> <span class="nx">value</span><span class="p">;</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">filtered</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">items</span><span class="p">,</span> <span class="nx">searchTerm</span><span class="p">,</span> <span class="nx">filters</span><span class="p">,</span> <span class="nx">searchFields</span><span class="p">]);</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">searchTerm</span><span class="p">,</span>
+    <span class="nx">setSearchTerm</span><span class="p">,</span>
+    <span class="nx">filters</span><span class="p">,</span>
+    <span class="nx">setFilters</span><span class="p">,</span>
+    <span class="nx">filteredItems</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="exportimport-features">Export/Import Features</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// CSV export functionality</span>
+<span class="kd">const</span> <span class="nx">exportToCSV</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="kd">const</span> <span class="nx">csvContent</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">headers</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">,</span><span class="dl">'</span><span class="p">),</span>
+    <span class="p">...</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">row</span> <span class="o">=&gt;</span> 
+      <span class="nx">headers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">header</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">row</span><span class="p">[</span><span class="nx">header</span><span class="p">];</span>
+        <span class="c1">// Handle commas and quotes in data</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">,</span><span class="dl">'</span><span class="p">)</span> <span class="o">||</span> <span class="nx">value</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)))</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="s2">`"</span><span class="p">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">""</span><span class="dl">'</span><span class="p">)}</span><span class="s2">"`</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+      <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">,</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="se">\\</span><span class="s1">n</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nx">csvContent</span><span class="p">],</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text/csv</span><span class="dl">'</span> <span class="p">});</span>
+  <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">link</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">link</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+  <span class="nx">link</span><span class="p">.</span><span class="nx">download</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">filename</span><span class="p">}</span><span class="s2">.csv`</span><span class="p">;</span>
+  <span class="nx">link</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+  <span class="nx">URL</span><span class="p">.</span><span class="nx">revokeObjectURL</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// CSV import functionality</span>
+<span class="kd">const</span> <span class="nx">importFromCSV</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">modelName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">();</span>
+    
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">csv</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">csv</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="se">\\</span><span class="s1">n</span><span class="dl">'</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="nx">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">,</span><span class="dl">'</span><span class="p">);</span>
+        
+        <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">lines</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">line</span> <span class="o">=&gt;</span> <span class="nx">line</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>
+          <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">line</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">line</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">,</span><span class="dl">'</span><span class="p">);</span>
+            <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="p">{};</span>
+            <span class="nx">headers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">header</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+              <span class="nx">item</span><span class="p">[</span><span class="nx">header</span><span class="p">.</span><span class="nx">trim</span><span class="p">()]</span> <span class="o">=</span> <span class="nx">values</span><span class="p">[</span><span class="nx">index</span><span class="p">]?.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">||</span> <span class="dl">''</span><span class="p">;</span>
+            <span class="p">});</span>
+            <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+          <span class="p">});</span>
+
+        <span class="c1">// Validate and import each record</span>
+        <span class="kd">const</span> <span class="nx">imported</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">try</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="nx">create</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+            <span class="nx">imported</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+          <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">`Failed to import row:`</span><span class="p">,</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="nx">resolve</span><span class="p">(</span><span class="nx">imported</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">File read error</span><span class="dl">'</span><span class="p">));</span>
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">readAsText</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="example-implementations">Example Implementations</h2>
+
+<h3 id="task-management-app">Task Management App</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-genesis <span class="s2">"simple task management app for small teams"</span>
+
+<span class="c"># Features generated:</span>
+<span class="c"># - Task creation and assignment</span>
+<span class="c"># - Status tracking (todo, in progress, completed)</span>
+<span class="c"># - Due date management</span>
+<span class="c"># - Basic team collaboration</span>
+<span class="c"># - Simple reporting dashboard</span>
+</code></pre></div></div>
+
+<h3 id="contact-management-system">Contact Management System</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-genesis <span class="s2">"contact management system for sales teams"</span>
+
+<span class="c"># Features generated:</span>
+<span class="c"># - Contact information storage</span>
+<span class="c"># - Company and lead tracking</span>
+<span class="c"># - Search and filtering</span>
+<span class="c"># - Import/export capabilities</span>
+<span class="c"># - Basic interaction history</span>
+</code></pre></div></div>
+
+<h3 id="inventory-management">Inventory Management</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-genesis <span class="s2">"basic inventory management for small business"</span>
+
+<span class="c"># Features generated:</span>
+<span class="c"># - Product catalog management</span>
+<span class="c"># - Stock level tracking</span>
+<span class="c"># - Low inventory alerts</span>
+<span class="c"># - Simple purchase orders</span>
+<span class="c"># - Basic reporting</span>
+</code></pre></div></div>
+
+<h2 id="performance-considerations">Performance Considerations</h2>
+
+<h3 id="database-optimization">Database Optimization</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Efficient pagination with cursor-based pagination</span>
+<span class="kd">const</span> <span class="nx">paginatedFetch</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">modelName</span><span class="p">,</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">limit</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">limit</span> <span class="p">};</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">cursor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">params</span><span class="p">.</span><span class="nx">nextToken</span> <span class="o">=</span> <span class="nx">cursor</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="nx">list</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">items</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span>
+    <span class="na">nextCursor</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">nextToken</span><span class="p">,</span>
+    <span class="na">hasMore</span><span class="p">:</span> <span class="o">!!</span><span class="nx">response</span><span class="p">.</span><span class="nx">nextToken</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="c1">// Batch operations for performance</span>
+<span class="kd">const</span> <span class="nx">batchDelete</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">modelName</span><span class="p">,</span> <span class="nx">ids</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">promises</span> <span class="o">=</span> <span class="nx">ids</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">id</span> <span class="o">=&gt;</span> 
+    <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="k">delete</span><span class="p">({</span> <span class="nx">id</span> <span class="p">})</span>
+  <span class="p">);</span>
+  
+  <span class="k">return</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">allSettled</span><span class="p">(</span><span class="nx">promises</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="caching-strategy">Caching Strategy</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Simple client-side caching</span>
+<span class="kd">const</span> <span class="nx">useCache</span> <span class="o">=</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">fetcher</span><span class="p">,</span> <span class="nx">ttl</span> <span class="o">=</span> <span class="mi">300000</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// 5 minutes default</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">setData</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">loading</span><span class="p">,</span> <span class="nx">setLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">cached</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cached</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="na">data</span><span class="p">:</span> <span class="nx">cachedData</span><span class="p">,</span> <span class="nx">timestamp</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cached</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">timestamp</span> <span class="o">&lt;</span> <span class="nx">ttl</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setData</span><span class="p">(</span><span class="nx">cachedData</span><span class="p">);</span>
+        <span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">fetcher</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">setData</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="na">data</span><span class="p">:</span> <span class="nx">result</span><span class="p">,</span>
+        <span class="na">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+      <span class="p">}));</span>
+      <span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">loading</span> <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="cost-estimates">Cost Estimates</h2>
+
+<p>For a simple CRUD app with 50 users and moderate usage:</p>
+
+<ul>
+  <li><strong>DynamoDB</strong>: ~$5-15/month</li>
+  <li><strong>Lambda Functions</strong>: ~$5-10/month</li>
+  <li><strong>S3 Storage</strong>: ~$1-5/month</li>
+  <li><strong>CloudFront CDN</strong>: ~$1-5/month</li>
+  <li><strong>Authentication</strong>: ~$0-10/month (Cognito free tier)</li>
+</ul>
+
+<p><strong>Total estimated cost</strong>: $12-45/month</p>
+
+<h2 id="security-features">Security Features</h2>
+
+<ul>
+  <li><strong>Input Validation</strong>: Server-side validation for all inputs</li>
+  <li><strong>SQL Injection Prevention</strong>: Parameterized queries</li>
+  <li><strong>Access Control</strong>: User-based permissions</li>
+  <li><strong>Audit Logging</strong>: Track all data changes</li>
+  <li><strong>Data Backup</strong>: Regular automated backups</li>
+</ul>
+
+<h2 id="common-patterns">Common Patterns</h2>
+
+<h3 id="master-detail-views">Master-Detail Views</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">MasterDetailView</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">selectedItem</span><span class="p">,</span> <span class="nx">setSelectedItem</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">items</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useCRUD</span><span class="p">(</span><span class="dl">'</span><span class="s1">Task</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">master-detail</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">master-panel</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ItemList</span> 
+          <span class="nx">items</span><span class="o">=</span><span class="p">{</span><span class="nx">items</span><span class="p">}</span>
+          <span class="nx">onSelect</span><span class="o">=</span><span class="p">{</span><span class="nx">setSelectedItem</span><span class="p">}</span>
+          <span class="nx">selectedId</span><span class="o">=</span><span class="p">{</span><span class="nx">selectedItem</span><span class="p">?.</span><span class="nx">id</span><span class="p">}</span>
+        <span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">detail-panel</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">selectedItem</span> <span class="p">?</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">ItemDetail</span> <span class="nx">item</span><span class="o">=</span><span class="p">{</span><span class="nx">selectedItem</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Select</span> <span class="nx">an</span> <span class="nx">item</span> <span class="nx">to</span> <span class="nx">view</span> <span class="nx">details</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="p">)}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="modal-forms">Modal Forms</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ModalForm</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">isOpen</span><span class="p">,</span> <span class="nx">onClose</span><span class="p">,</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">onSave</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isOpen</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">modal-overlay</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">modal-content</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">modal-header</span><span class="dl">"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">item</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">Edit</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Create</span><span class="dl">'</span><span class="p">}</span> <span class="nx">Item</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onClose</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">close-button</span><span class="dl">"</span><span class="o">&gt;</span><span class="err">×</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">modal-body</span><span class="dl">"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">ItemForm</span> 
+            <span class="nx">item</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">}</span>
+            <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">onSave</span><span class="p">}</span>
+            <span class="nx">onCancel</span><span class="o">=</span><span class="p">{</span><span class="nx">onClose</span><span class="p">}</span>
+          <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">/ace-genesis</code> with your basic app idea</li>
+  <li>Describe the main data entities you need to manage</li>
+  <li>Specify any special validation or business rules</li>
+  <li>Review the generated forms and tables</li>
+  <li>Deploy and start managing your data!</li>
+</ol>
+
+<p>The Simple CRUD pattern is perfect for getting started quickly with basic business applications and can be extended as your needs grow.</p>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/patterns/dashboard-analytics.html">← Dashboard Analytics</a></td>
+      <td><a href="/patterns/">Back to Patterns</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

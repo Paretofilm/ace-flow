@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Dashboard Analytics Pattern
+---
+
 # Dashboard Analytics Pattern
 
 The Dashboard Analytics pattern is designed for building business intelligence dashboards, monitoring systems, and data visualization applications.

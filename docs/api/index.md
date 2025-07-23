@@ -1,3 +1,8 @@
+---
+layout: docs
+title: API Reference
+---
+
 # API Reference
 
 Complete documentation for all ACE-Flow commands, configuration options, and extension points.

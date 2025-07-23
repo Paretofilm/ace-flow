@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>API Reference | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="API Reference" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/api/" />
+<meta property="og:url" content="http://localhost:4000/api/" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="API Reference" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"API Reference","url":"http://localhost:4000/api/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="api-reference">API Reference</h1>
+
+<p>Complete documentation for all ACE-Flow commands, configuration options, and extension points.</p>
+
+<h2 id="command-reference">Command Reference</h2>
+
+<h3 id="core-commands">Core Commands</h3>
+
+<h4 id="ace-genesis"><a href="commands/ace-genesis.md">/ace-genesis</a></h4>
+<p>Intelligent project creation through conversational interface</p>
+<ul>
+  <li>Interactive project specification</li>
+  <li>Automatic pattern selection</li>
+  <li>Custom architecture generation</li>
+</ul>
+
+<h4 id="ace-research"><a href="commands/ace-research.md">/ace-research</a></h4>
+<p>Advanced documentation research system</p>
+<ul>
+  <li>Multi-source documentation analysis</li>
+  <li>Pattern extraction and validation</li>
+  <li>Best practice identification</li>
+</ul>
+
+<h4 id="ace-implement"><a href="commands/ace-implement.md">/ace-implement</a></h4>
+<p>Infrastructure-aware implementation system</p>
+<ul>
+  <li>Schema-first development</li>
+  <li>Component generation</li>
+  <li>Deployment automation</li>
+</ul>
+
+<h4 id="ace-adopt"><a href="commands/ace-adopt.md">/ace-adopt</a></h4>
+<p>Safe migration of existing projects</p>
+<ul>
+  <li>Project analysis and assessment</li>
+  <li>Incremental migration strategies</li>
+  <li>Risk mitigation</li>
+</ul>
+
+<h3 id="management-commands">Management Commands</h3>
+
+<h4 id="ace-status"><a href="commands/ace-status.md">/ace-status</a></h4>
+<p>Real-time progress tracking and project health</p>
+<ul>
+  <li>Visual progress indicators</li>
+  <li>Resource utilization monitoring</li>
+  <li>Issue detection and reporting</li>
+</ul>
+
+<h4 id="ace-validate"><a href="commands/ace-validate.md">/ace-validate</a></h4>
+<p>Pre-implementation validation system</p>
+<ul>
+  <li>Configuration validation</li>
+  <li>Dependency checking</li>
+  <li>Deployment readiness assessment</li>
+</ul>
+
+<h4 id="ace-rollback"><a href="commands/ace-rollback.md">/ace-rollback</a></h4>
+<p>Safe recovery and restore system</p>
+<ul>
+  <li>Automatic backup creation</li>
+  <li>Selective component rollback</li>
+  <li>Emergency recovery procedures</li>
+</ul>
+
+<h3 id="utility-commands">Utility Commands</h3>
+
+<h4 id="ace-cost"><a href="commands/ace-cost.md">/ace-cost</a></h4>
+<p>AWS resource cost estimation</p>
+<ul>
+  <li>Real-time cost calculations</li>
+  <li>Resource optimization suggestions</li>
+  <li>Budget monitoring</li>
+</ul>
+
+<h4 id="ace-help"><a href="commands/ace-help.md">/ace-help</a></h4>
+<p>Comprehensive help system</p>
+<ul>
+  <li>Context-aware documentation</li>
+  <li>Interactive tutorials</li>
+  <li>Best practice guidance</li>
+</ul>
+
+<h2 id="configuration-reference">Configuration Reference</h2>
+
+<h3 id="project-configuration"><a href="configuration/project.md">Project Configuration</a></h3>
+<p>Core project settings and customization options:</p>
+<ul>
+  <li>Architecture pattern selection</li>
+  <li>Feature toggles and customization</li>
+  <li>Environment-specific configurations</li>
+</ul>
+
+<h3 id="schema-configuration"><a href="configuration/schema.md">Schema Configuration</a></h3>
+<p>Data model and API configuration:</p>
+<ul>
+  <li>Model definitions and relationships</li>
+  <li>Validation rules and constraints</li>
+  <li>Index optimization settings</li>
+</ul>
+
+<h3 id="authentication-configuration"><a href="configuration/auth.md">Authentication Configuration</a></h3>
+<p>User authentication and authorization:</p>
+<ul>
+  <li>Provider configuration (Cognito, Social)</li>
+  <li>User attribute management</li>
+  <li>Permission and role systems</li>
+</ul>
+
+<h3 id="storage-configuration"><a href="configuration/storage.md">Storage Configuration</a></h3>
+<p>File storage and media handling:</p>
+<ul>
+  <li>S3 bucket configuration</li>
+  <li>Access control policies</li>
+  <li>Media processing pipelines</li>
+</ul>
+
+<h3 id="function-configuration"><a href="configuration/functions.md">Function Configuration</a></h3>
+<p>Lambda function settings:</p>
+<ul>
+  <li>Runtime and memory allocation</li>
+  <li>Environment variables</li>
+  <li>Trigger configuration</li>
+</ul>
+
+<h2 id="hooks-and-extensions">Hooks and Extensions</h2>
+
+<h3 id="prepost-hooks"><a href="hooks/lifecycle.md">Pre/Post Hooks</a></h3>
+<p>Customize behavior at key lifecycle points:</p>
+<ul>
+  <li>Pre-deployment validation</li>
+  <li>Post-deployment actions</li>
+  <li>Custom workflow integration</li>
+</ul>
+
+<h3 id="validation-hooks"><a href="hooks/validation.md">Validation Hooks</a></h3>
+<p>Custom validation rules and checks:</p>
+<ul>
+  <li>Schema validation extensions</li>
+  <li>Business rule enforcement</li>
+  <li>Data quality checks</li>
+</ul>
+
+<h3 id="integration-hooks"><a href="hooks/integration.md">Integration Hooks</a></h3>
+<p>Third-party service integration:</p>
+<ul>
+  <li>Webhook configuration</li>
+  <li>API integration patterns</li>
+  <li>Event processing</li>
+</ul>
+
+<h2 id="api-endpoints">API Endpoints</h2>
+
+<h3 id="management-api"><a href="endpoints/management.md">Management API</a></h3>
+<p>Programmatic access to ACE-Flow functionality:</p>
+<ul>
+  <li>Project management endpoints</li>
+  <li>Status and monitoring APIs</li>
+  <li>Configuration management</li>
+</ul>
+
+<h3 id="webhook-api"><a href="endpoints/webhooks.md">Webhook API</a></h3>
+<p>Event-driven integrations:</p>
+<ul>
+  <li>Deployment event notifications</li>
+  <li>Custom trigger endpoints</li>
+  <li>Third-party service integration</li>
+</ul>
+
+<h2 id="error-codes-and-troubleshooting">Error Codes and Troubleshooting</h2>
+
+<h3 id="error-code-reference"><a href="errors/codes.md">Error Code Reference</a></h3>
+<p>Complete list of ACE-Flow error codes:</p>
+<ul>
+  <li>Common error scenarios</li>
+  <li>Resolution steps</li>
+  <li>Prevention strategies</li>
+</ul>
+
+<h3 id="debugging-guide"><a href="errors/debugging.md">Debugging Guide</a></h3>
+<p>Systematic approach to troubleshooting:</p>
+<ul>
+  <li>Log analysis techniques</li>
+  <li>Performance profiling</li>
+  <li>Issue isolation methods</li>
+</ul>
+
+<h2 id="sdk-and-libraries">SDK and Libraries</h2>
+
+<h3 id="javascript-sdk"><a href="sdk/javascript.md">JavaScript SDK</a></h3>
+<p>Client-side integration library:</p>
+<ul>
+  <li>Installation and setup</li>
+  <li>API client configuration</li>
+  <li>Usage examples</li>
+</ul>
+
+<h3 id="python-sdk"><a href="sdk/python.md">Python SDK</a></h3>
+<p>Server-side automation library:</p>
+<ul>
+  <li>Programmatic project management</li>
+  <li>Batch operations</li>
+  <li>Custom workflow automation</li>
+</ul>
+
+<h3 id="cli-tool"><a href="sdk/cli.md">CLI Tool</a></h3>
+<p>Command-line interface:</p>
+<ul>
+  <li>Installation and configuration</li>
+  <li>Scripting and automation</li>
+  <li>CI/CD integration</li>
+</ul>
+
+<h2 id="examples-and-tutorials">Examples and Tutorials</h2>
+
+<h3 id="quick-start-examples"><a href="examples/quickstart.md">Quick Start Examples</a></h3>
+<p>Get up and running quickly:</p>
+<ul>
+  <li>Basic project setup</li>
+  <li>Common patterns</li>
+  <li>Best practices</li>
+</ul>
+
+<h3 id="advanced-examples"><a href="examples/advanced.md">Advanced Examples</a></h3>
+<p>Complex use cases and patterns:</p>
+<ul>
+  <li>Multi-environment setup</li>
+  <li>Custom integrations</li>
+  <li>Performance optimization</li>
+</ul>
+
+<h3 id="integration-examples"><a href="examples/integrations.md">Integration Examples</a></h3>
+<p>Real-world integration scenarios:</p>
+<ul>
+  <li>CI/CD pipeline integration</li>
+  <li>Monitoring system setup</li>
+  <li>Third-party service connections</li>
+</ul>
+
+<h2 id="version-history-and-compatibility">Version History and Compatibility</h2>
+
+<h3 id="changelog"><a href="changelog.md">Changelog</a></h3>
+<p>Complete version history and changes:</p>
+<ul>
+  <li>New features and improvements</li>
+  <li>Breaking changes and migrations</li>
+  <li>Bug fixes and patches</li>
+</ul>
+
+<h3 id="migration-guides"><a href="migration/">Migration Guides</a></h3>
+<p>Version-specific migration instructions:</p>
+<ul>
+  <li>Upgrade procedures</li>
+  <li>Compatibility matrices</li>
+  <li>Breaking change handling</li>
+</ul>
+
+<hr />
+
+<p><em>Complete API reference for ACE-Flow. For interactive help, use <code class="language-plaintext highlighter-rouge">/ace-help [command]</code> from within your project.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Social Platform Pattern
+---
+
 # Social Platform Pattern
 
 The Social Platform pattern is designed for applications that center around user interactions, content sharing, and community building.

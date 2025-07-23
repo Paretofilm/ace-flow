@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Architecture Patterns | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Architecture Patterns" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/patterns/" />
+<meta property="og:url" content="http://localhost:4000/patterns/" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Architecture Patterns" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Architecture Patterns","url":"http://localhost:4000/patterns/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="architecture-patterns">Architecture Patterns</h1>
+
+<p>ACE-Flow provides five pre-built architecture patterns optimized for AWS Amplify Gen 2 development. Each pattern includes complete backend schema, authentication, storage, and frontend components.</p>
+
+<h2 id="available-patterns">Available Patterns</h2>
+
+<h3 id="social-platform-pattern"><a href="/patterns/social-platform.html">Social Platform Pattern</a></h3>
+<p><strong>Best for</strong>: Social media apps, community platforms, collaboration tools</p>
+<ul>
+  <li>User profiles and relationships</li>
+  <li>Real-time feeds and notifications</li>
+  <li>Media upload and sharing</li>
+  <li>Social interactions (likes, comments, follows)</li>
+</ul>
+
+<h3 id="e-commerce-pattern"><a href="/patterns/e-commerce.html">E-commerce Pattern</a></h3>
+<p><strong>Best for</strong>: Online stores, marketplaces, subscription services</p>
+<ul>
+  <li>Product catalog and inventory</li>
+  <li>Shopping cart and checkout</li>
+  <li>Payment processing (Stripe integration)</li>
+  <li>Order management and fulfillment</li>
+</ul>
+
+<h3 id="content-management-pattern"><a href="/patterns/content-management.html">Content Management Pattern</a></h3>
+<p><strong>Best for</strong>: Blogs, documentation sites, publishing platforms</p>
+<ul>
+  <li>Rich content creation and editing</li>
+  <li>Multi-author workflows</li>
+  <li>SEO optimization</li>
+  <li>Content categorization and search</li>
+</ul>
+
+<h3 id="dashboard-analytics-pattern"><a href="/patterns/dashboard-analytics.html">Dashboard Analytics Pattern</a></h3>
+<p><strong>Best for</strong>: Business intelligence, monitoring dashboards, reporting tools</p>
+<ul>
+  <li>Real-time data visualization</li>
+  <li>Custom dashboard layouts</li>
+  <li>Data aggregation and analysis</li>
+  <li>Alert and notification systems</li>
+</ul>
+
+<h3 id="simple-crud-pattern"><a href="/patterns/simple-crud.html">Simple CRUD Pattern</a></h3>
+<p><strong>Best for</strong>: Basic data management apps, forms, simple business tools</p>
+<ul>
+  <li>Standard create, read, update, delete operations</li>
+  <li>Form handling and validation</li>
+  <li>Basic user management</li>
+  <li>Simple reporting features</li>
+</ul>
+
+<h2 id="choosing-the-right-pattern">Choosing the Right Pattern</h2>
+
+<p>When running <code class="language-plaintext highlighter-rouge">/ace-genesis</code>, ACE-Flow will automatically suggest the best pattern based on your description. However, you can also specify a pattern directly:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Let ACE-Flow choose automatically</span>
+/ace-genesis <span class="s2">"fitness tracking app with social features"</span>
+
+<span class="c"># Specify a pattern explicitly</span>
+/ace-genesis <span class="s2">"fitness tracking app"</span> <span class="nt">--pattern</span><span class="o">=</span>social_platform
+</code></pre></div></div>
+
+<h2 id="pattern-features-comparison">Pattern Features Comparison</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Social Platform</th>
+      <th>E-commerce</th>
+      <th>Content Mgmt</th>
+      <th>Dashboard</th>
+      <th>Simple CRUD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>User Auth</td>
+      <td>✅ Full social</td>
+      <td>✅ Customer/Admin</td>
+      <td>✅ Multi-role</td>
+      <td>✅ Organization</td>
+      <td>✅ Basic</td>
+    </tr>
+    <tr>
+      <td>Real-time</td>
+      <td>✅ Subscriptions</td>
+      <td>⚠️ Order updates</td>
+      <td>⚠️ Comments</td>
+      <td>✅ Live data</td>
+      <td>❌ Not needed</td>
+    </tr>
+    <tr>
+      <td>File Storage</td>
+      <td>✅ Media heavy</td>
+      <td>⚠️ Product images</td>
+      <td>✅ Rich content</td>
+      <td>⚠️ Reports only</td>
+      <td>⚠️ Basic files</td>
+    </tr>
+    <tr>
+      <td>Payments</td>
+      <td>❌ Usually free</td>
+      <td>✅ Core feature</td>
+      <td>⚠️ Subscriptions</td>
+      <td>❌ Not needed</td>
+      <td>❌ Not needed</td>
+    </tr>
+    <tr>
+      <td>Search</td>
+      <td>✅ Users/content</td>
+      <td>✅ Products</td>
+      <td>✅ Full-text</td>
+      <td>✅ Data queries</td>
+      <td>⚠️ Basic filter</td>
+    </tr>
+    <tr>
+      <td>Analytics</td>
+      <td>⚠️ Basic metrics</td>
+      <td>✅ Sales data</td>
+      <td>⚠️ Content stats</td>
+      <td>✅ Advanced</td>
+      <td>⚠️ Simple reports</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="implementation-time-estimates">Implementation Time Estimates</h2>
+
+<ul>
+  <li><strong>Simple CRUD</strong>: 30-60 minutes</li>
+  <li><strong>Content Management</strong>: 1-2 hours</li>
+  <li><strong>Social Platform</strong>: 1.5-2.5 hours</li>
+  <li><strong>E-commerce</strong>: 2-3 hours</li>
+  <li><strong>Dashboard Analytics</strong>: 2.5-4 hours</li>
+</ul>
+
+<p><em>Times include complete backend + frontend implementation with AWS deployment</em></p>
+
+<h2 id="custom-patterns">Custom Patterns</h2>
+
+<p>Need something different? ACE-Flow can create custom patterns by combining elements from existing ones:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-genesis <span class="s2">"marketplace with social features and analytics dashboard"</span>
+<span class="c"># Will combine e-commerce + social + dashboard patterns</span>
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li><strong>Describe your app</strong> to <code class="language-plaintext highlighter-rouge">/ace-genesis</code></li>
+  <li><strong>Review the suggested pattern</strong> and architecture</li>
+  <li><strong>Customize</strong> through ACE-Flow’s interview process</li>
+  <li><strong>Deploy</strong> your production-ready application</li>
+</ol>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/getting-started.html">← Back to Getting Started</a></td>
+      <td><a href="/examples.html">View Examples →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

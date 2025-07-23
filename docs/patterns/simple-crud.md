@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Simple CRUD Pattern
+---
+
 # Simple CRUD Pattern
 
 The Simple CRUD pattern provides a straightforward foundation for basic data management applications that need standard create, read, update, and delete operations.

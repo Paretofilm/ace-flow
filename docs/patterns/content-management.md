@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Content Management Pattern
+---
+
 # Content Management Pattern
 
 The Content Management pattern provides a complete foundation for building blogs, documentation sites, publishing platforms, and content-driven applications.

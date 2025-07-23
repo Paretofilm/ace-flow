@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Content Management Pattern | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Content Management Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/patterns/content-management.html" />
+<meta property="og:url" content="http://localhost:4000/patterns/content-management.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Content Management Pattern" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Content Management Pattern","url":"http://localhost:4000/patterns/content-management.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link active">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="content-management-pattern">Content Management Pattern</h1>
+
+<p>The Content Management pattern provides a complete foundation for building blogs, documentation sites, publishing platforms, and content-driven applications.</p>
+
+<h2 id="when-to-use">When to Use</h2>
+
+<ul>
+  <li>Corporate blogs and news sites</li>
+  <li>Documentation platforms</li>
+  <li>Publishing and editorial platforms</li>
+  <li>Knowledge bases and wikis</li>
+  <li>Portfolio and showcase sites</li>
+</ul>
+
+<h2 id="core-features">Core Features</h2>
+
+<h3 id="content-creation">Content Creation</h3>
+<ul>
+  <li><strong>Rich Text Editor</strong>: WYSIWYG editing with markdown support</li>
+  <li><strong>Media Management</strong>: Image/video upload and optimization</li>
+  <li><strong>SEO Optimization</strong>: Meta tags, structured data, sitemaps</li>
+  <li><strong>Content Scheduling</strong>: Publish dates and content calendar</li>
+</ul>
+
+<h3 id="editorial-workflow">Editorial Workflow</h3>
+<ul>
+  <li><strong>Multi-author Support</strong>: Author profiles and permissions</li>
+  <li><strong>Content States</strong>: Draft, review, published, archived</li>
+  <li><strong>Editorial Review</strong>: Comment and approval system</li>
+  <li><strong>Version Control</strong>: Content history and rollbacks</li>
+</ul>
+
+<h3 id="content-organization">Content Organization</h3>
+<ul>
+  <li><strong>Categories &amp; Tags</strong>: Flexible content taxonomy</li>
+  <li><strong>Content Series</strong>: Related content grouping</li>
+  <li><strong>Featured Content</strong>: Highlight important posts</li>
+  <li><strong>Content Search</strong>: Full-text search capabilities</li>
+</ul>
+
+<h3 id="user-engagement">User Engagement</h3>
+<ul>
+  <li><strong>Comments System</strong>: Moderated user comments</li>
+  <li><strong>Social Sharing</strong>: Share to social platforms</li>
+  <li><strong>Newsletter</strong>: Email subscription management</li>
+  <li><strong>Analytics</strong>: Content performance metrics</li>
+</ul>
+
+<h2 id="data-schema">Data Schema</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">Author</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">email</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">bio</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">avatar</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span> <span class="c1">// S3 key</span>
+    <span class="na">socialLinks</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span> <span class="c1">// Twitter, LinkedIn, etc.</span>
+    <span class="na">articles</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Article</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">role</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">editor</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">author</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">author</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Category</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">slug</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">color</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span> <span class="c1">// Hex color for UI theme</span>
+    <span class="na">articles</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Article</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">categoryId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">parent</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Category</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">children</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Category</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Article</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">slug</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">excerpt</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">content</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// Rich content JSON</span>
+    <span class="na">featuredImage</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span> <span class="c1">// S3 key</span>
+    <span class="na">author</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Author</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">category</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Category</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">categoryId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">tags</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">ArticleTag</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">articleId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">comments</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Comment</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">articleId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">status</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">draft</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">review</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">published</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">archived</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">draft</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">publishedAt</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+    <span class="na">scheduledFor</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+    <span class="na">seoTitle</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">seoDescription</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">readingTime</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">(),</span> <span class="c1">// Estimated minutes</span>
+    <span class="na">viewCount</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Tag</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">slug</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">articles</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">ArticleTag</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tagId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">ArticleTag</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">article</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Article</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">articleId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">tag</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Tag</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tagId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Comment</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">content</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">author</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// Can be anonymous</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">email</span><span class="p">(),</span>
+    <span class="na">website</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">article</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Article</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">articleId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">parent</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Comment</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">replies</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Comment</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">status</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">pending</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">approved</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">spam</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">pending</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">ipAddress</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">userAgent</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="na">Media</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">originalName</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">mimeType</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">size</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">s3Key</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">alt</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">caption</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">uploadedBy</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Author</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="rich-content-editor">Rich Content Editor</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Rich text editor with image upload</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Editor</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@tinymce/tinymce-react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">uploadToS3</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../storage/s3-upload</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">ContentEditor</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">onChange</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">handleImageUpload</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">s3Key</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">uploadToS3</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="dl">'</span><span class="s1">content-images/</span><span class="dl">'</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">imageUrl</span> <span class="o">=</span> <span class="s2">`https://your-bucket.s3.amazonaws.com/</span><span class="p">${</span><span class="nx">s3Key</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">imageUrl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Image upload failed:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Editor</span>
+      <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">content</span><span class="p">}</span>
+      <span class="nx">onEditorChange</span><span class="o">=</span><span class="p">{</span><span class="nx">onChange</span><span class="p">}</span>
+      <span class="nx">init</span><span class="o">=</span><span class="p">{{</span>
+        <span class="na">height</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="na">menubar</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+          <span class="dl">'</span><span class="s1">advlist</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">autolink</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">lists</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">link</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">image</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">charmap</span><span class="dl">'</span><span class="p">,</span>
+          <span class="dl">'</span><span class="s1">anchor</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">searchreplace</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">visualblocks</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">code</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">fullscreen</span><span class="dl">'</span><span class="p">,</span>
+          <span class="dl">'</span><span class="s1">insertdatetime</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">media</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">table</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">preview</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">help</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">wordcount</span><span class="dl">'</span>
+        <span class="p">],</span>
+        <span class="na">toolbar</span><span class="p">:</span> <span class="dl">'</span><span class="s1">undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">images_upload_handler</span><span class="p">:</span> <span class="nx">handleImageUpload</span>
+      <span class="p">}}</span>
+    <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="seo-integration">SEO Integration</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Auto-generate SEO metadata</span>
+<span class="kd">const</span> <span class="nx">generateSEOMetadata</span> <span class="o">=</span> <span class="p">(</span><span class="nx">article</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">seoTitle</span> <span class="o">||</span> <span class="nx">article</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">seoDescription</span> <span class="o">||</span> <span class="nx">article</span><span class="p">.</span><span class="nx">excerpt</span><span class="p">,</span>
+    <span class="na">canonical</span><span class="p">:</span> <span class="s2">`https://yoursite.com/articles/</span><span class="p">${</span><span class="nx">article</span><span class="p">.</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="na">openGraph</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">title</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+      <span class="na">description</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">excerpt</span><span class="p">,</span>
+      <span class="na">image</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">featuredImage</span><span class="p">,</span>
+      <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">article</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">publishedTime</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">publishedAt</span><span class="p">,</span>
+      <span class="na">author</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">name</span>
+    <span class="p">},</span>
+    <span class="na">structuredData</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">@type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Article</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">headline</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+      <span class="na">author</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">@type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Person</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">name</span>
+      <span class="p">},</span>
+      <span class="na">datePublished</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">publishedAt</span><span class="p">,</span>
+      <span class="na">image</span><span class="p">:</span> <span class="nx">article</span><span class="p">.</span><span class="nx">featuredImage</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="editorial-workflow-1">Editorial Workflow</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Content approval workflow</span>
+<span class="kd">const</span> <span class="nx">submitForReview</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">articleId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Article</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">articleId</span><span class="p">,</span>
+    <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">review</span><span class="dl">'</span>
+  <span class="p">});</span>
+  
+  <span class="c1">// Notify editors</span>
+  <span class="k">await</span> <span class="nx">sendNotification</span><span class="p">({</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">article_review</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">articleId</span><span class="p">,</span>
+    <span class="na">recipients</span><span class="p">:</span> <span class="k">await</span> <span class="nx">getEditors</span><span class="p">()</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">approveArticle</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">articleId</span><span class="p">,</span> <span class="nx">publishDate</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Article</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">articleId</span><span class="p">,</span>
+    <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">published</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">publishedAt</span><span class="p">:</span> <span class="nx">publishDate</span> <span class="o">||</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+  <span class="p">});</span>
+  
+  <span class="c1">// Update sitemap and clear cache</span>
+  <span class="k">await</span> <span class="nx">updateSitemap</span><span class="p">();</span>
+  <span class="k">await</span> <span class="nx">clearContentCache</span><span class="p">(</span><span class="nx">articleId</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="frontend-components">Frontend Components</h2>
+
+<h3 id="content-components">Content Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ArticleEditor /&gt;</code> - Rich content creation interface</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ArticleList /&gt;</code> - Paginated article listing</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ArticleCard /&gt;</code> - Article preview with metadata</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ArticleReader /&gt;</code> - Optimized reading experience</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;TableOfContents /&gt;</code> - Auto-generated article navigation</li>
+</ul>
+
+<h3 id="editorial-components">Editorial Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;EditorialDashboard /&gt;</code> - Content management interface</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;WorkflowStatus /&gt;</code> - Article status and progress</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;CommentModeration /&gt;</code> - Comment approval system</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ContentCalendar /&gt;</code> - Publishing schedule view</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;SEOPreview /&gt;</code> - Search result preview</li>
+</ul>
+
+<h3 id="reader-components">Reader Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;CommentSection /&gt;</code> - Threaded comment display</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;SocialShare /&gt;</code> - Social media sharing</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;RelatedArticles /&gt;</code> - Content recommendations</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;NewsletterSignup /&gt;</code> - Email subscription form</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;SearchResults /&gt;</code> - Content search interface</li>
+</ul>
+
+<h2 id="example-implementation">Example Implementation</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create company blog platform</span>
+/ace-genesis <span class="s2">"company blog with multiple authors and content approval workflow"</span>
+
+<span class="c"># ACE-Flow will:</span>
+<span class="c"># 1. Interview about editorial workflow and author roles</span>
+<span class="c"># 2. Research content management best practices</span>
+<span class="c"># 3. Generate schema with editorial workflow states</span>
+<span class="c"># 4. Create rich text editor with media upload</span>
+<span class="c"># 5. Set up comment moderation system</span>
+<span class="c"># 6. Configure SEO optimization features</span>
+<span class="c"># 7. Deploy complete CMS to AWS</span>
+</code></pre></div></div>
+
+<h2 id="advanced-features">Advanced Features</h2>
+
+<h3 id="content-versioning">Content Versioning</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">saveContentVersion</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">articleId</span><span class="p">,</span> <span class="nx">content</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Save version history</span>
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">ArticleVersion</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">articleId</span><span class="p">,</span>
+    <span class="nx">content</span><span class="p">,</span>
+    <span class="na">version</span><span class="p">:</span> <span class="k">await</span> <span class="nx">getNextVersionNumber</span><span class="p">(</span><span class="nx">articleId</span><span class="p">),</span>
+    <span class="na">createdBy</span><span class="p">:</span> <span class="nx">getCurrentUser</span><span class="p">().</span><span class="nx">id</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">rollbackToVersion</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">articleId</span><span class="p">,</span> <span class="nx">versionNumber</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">version</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">ArticleVersion</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span>
+    <span class="nx">articleId</span><span class="p">,</span>
+    <span class="na">version</span><span class="p">:</span> <span class="nx">versionNumber</span>
+  <span class="p">});</span>
+  
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Article</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">articleId</span><span class="p">,</span>
+    <span class="na">content</span><span class="p">:</span> <span class="nx">version</span><span class="p">.</span><span class="nx">content</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="full-text-search">Full-Text Search</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OpenSearch integration for content search</span>
+<span class="kd">const</span> <span class="nx">searchContent</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="nx">filters</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">searchParams</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">index</span><span class="p">:</span> <span class="dl">'</span><span class="s1">articles</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">query</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">bool</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">must</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="na">multi_match</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nx">query</span><span class="p">,</span>
+                <span class="na">fields</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">title^3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">content</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">excerpt^2</span><span class="dl">'</span><span class="p">]</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="na">filter</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="na">term</span><span class="p">:</span> <span class="p">{</span> <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">published</span><span class="dl">'</span> <span class="p">}</span> <span class="p">},</span>
+            <span class="p">...</span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">filters</span><span class="p">).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">term</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="nx">key</span><span class="p">]:</span> <span class="nx">value</span> <span class="p">}</span> <span class="p">}))</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="na">highlight</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">fields</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">title</span><span class="p">:</span> <span class="p">{},</span>
+          <span class="na">content</span><span class="p">:</span> <span class="p">{</span> <span class="na">fragment_size</span><span class="p">:</span> <span class="mi">150</span> <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  
+  <span class="k">return</span> <span class="k">await</span> <span class="nx">opensearch</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">searchParams</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="performance-optimizations">Performance Optimizations</h2>
+
+<h3 id="content-caching">Content Caching</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Multi-layer caching strategy</span>
+<span class="kd">const</span> <span class="nx">getCachedArticle</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">slug</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 1. Check memory cache</span>
+  <span class="kd">let</span> <span class="nx">article</span> <span class="o">=</span> <span class="nx">memoryCache</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">`article:</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">article</span><span class="p">)</span> <span class="k">return</span> <span class="nx">article</span><span class="p">;</span>
+  
+  <span class="c1">// 2. Check Redis cache</span>
+  <span class="nx">article</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">redisCache</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">`article:</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">article</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">memoryCache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">`article:</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span> <span class="c1">// 5 min</span>
+    <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">article</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// 3. Fetch from database</span>
+  <span class="nx">article</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Article</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="nx">slug</span> <span class="p">});</span>
+  
+  <span class="c1">// Cache at both levels</span>
+  <span class="k">await</span> <span class="nx">redisCache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">`article:</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">article</span><span class="p">),</span> <span class="mi">3600</span><span class="p">);</span> <span class="c1">// 1 hour</span>
+  <span class="nx">memoryCache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">`article:</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="nx">article</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="static-site-generation">Static Site Generation</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Pre-build static pages for better performance</span>
+<span class="kd">const</span> <span class="nx">generateStaticPages</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">articles</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Article</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+    <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">status</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="dl">'</span><span class="s1">published</span><span class="dl">'</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">});</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">article</span> <span class="k">of</span> <span class="nx">articles</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nx">generateStaticPage</span><span class="p">(</span><span class="nx">article</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Generate sitemap</span>
+  <span class="k">await</span> <span class="nx">generateSitemap</span><span class="p">(</span><span class="nx">articles</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="cost-estimates">Cost Estimates</h2>
+
+<p>For a content site with 10,000 monthly readers:</p>
+
+<ul>
+  <li><strong>DynamoDB</strong>: ~$10-20/month</li>
+  <li><strong>S3 Storage</strong>: ~$5-15/month (images and assets)</li>
+  <li><strong>Lambda Functions</strong>: ~$5-15/month</li>
+  <li><strong>CloudFront CDN</strong>: ~$5-10/month</li>
+  <li><strong>OpenSearch</strong>: ~$15-30/month (if using search)</li>
+</ul>
+
+<p><strong>Total estimated cost</strong>: $40-90/month</p>
+
+<h2 id="security-features">Security Features</h2>
+
+<ul>
+  <li><strong>Content Sanitization</strong>: XSS prevention in rich text</li>
+  <li><strong>Comment Moderation</strong>: Spam detection and filtering</li>
+  <li><strong>Access Control</strong>: Role-based content permissions</li>
+  <li><strong>Audit Logging</strong>: Track all content changes</li>
+  <li><strong>Backup Strategy</strong>: Regular content backups</li>
+</ul>
+
+<h2 id="multi-language-support">Multi-language Support</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Extend schema for internationalization</span>
+<span class="nx">ArticleTranslation</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+  <span class="na">article</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Article</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">articleId</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">language</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// 'en', 'es', 'fr', etc.</span>
+  <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">content</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">excerpt</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+  <span class="na">seoTitle</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+  <span class="na">seoDescription</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">()</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">/ace-genesis</code> with your content platform idea</li>
+  <li>Specify author roles and editorial workflow needs</li>
+  <li>Choose content types and organization structure</li>
+  <li>Review generated CMS architecture</li>
+  <li>Deploy and start publishing!</li>
+</ol>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/patterns/e-commerce.html">← E-commerce Pattern</a></td>
+      <td><a href="/patterns/dashboard-analytics.html">Dashboard Analytics →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

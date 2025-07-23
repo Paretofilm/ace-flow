@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dashboard Analytics Pattern | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Dashboard Analytics Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/patterns/dashboard-analytics.html" />
+<meta property="og:url" content="http://localhost:4000/patterns/dashboard-analytics.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dashboard Analytics Pattern" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Dashboard Analytics Pattern","url":"http://localhost:4000/patterns/dashboard-analytics.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link active">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="dashboard-analytics-pattern">Dashboard Analytics Pattern</h1>
+
+<p>The Dashboard Analytics pattern is designed for building business intelligence dashboards, monitoring systems, and data visualization applications.</p>
+
+<h2 id="when-to-use">When to Use</h2>
+
+<ul>
+  <li>Business intelligence dashboards</li>
+  <li>Real-time monitoring systems</li>
+  <li>Analytics and reporting platforms</li>
+  <li>IoT device dashboards</li>
+  <li>Performance monitoring tools</li>
+</ul>
+
+<h2 id="core-features">Core Features</h2>
+
+<h3 id="data-visualization">Data Visualization</h3>
+<ul>
+  <li><strong>Interactive Charts</strong>: Real-time graphs and visualizations</li>
+  <li><strong>Custom Widgets</strong>: Drag-and-drop dashboard builder</li>
+  <li><strong>Multi-format Export</strong>: PDF, Excel, PNG export options</li>
+  <li><strong>Responsive Design</strong>: Mobile-optimized dashboards</li>
+</ul>
+
+<h3 id="real-time-analytics">Real-time Analytics</h3>
+<ul>
+  <li><strong>Live Data Streams</strong>: WebSocket-based real-time updates</li>
+  <li><strong>Event Processing</strong>: Stream processing for high-volume data</li>
+  <li><strong>Alert System</strong>: Threshold-based notifications</li>
+  <li><strong>Performance Metrics</strong>: System and application monitoring</li>
+</ul>
+
+<h3 id="data-management">Data Management</h3>
+<ul>
+  <li><strong>Multiple Data Sources</strong>: APIs, databases, file uploads</li>
+  <li><strong>Data Transformation</strong>: ETL pipelines for data processing</li>
+  <li><strong>Historical Data</strong>: Time-series data storage and querying</li>
+  <li><strong>Data Quality</strong>: Validation and cleansing workflows</li>
+</ul>
+
+<h3 id="user-experience">User Experience</h3>
+<ul>
+  <li><strong>Custom Dashboards</strong>: User-specific dashboard layouts</li>
+  <li><strong>Drill-down Analysis</strong>: Interactive data exploration</li>
+  <li><strong>Collaborative Features</strong>: Dashboard sharing and comments</li>
+  <li><strong>Role-based Access</strong>: Granular permission controls</li>
+</ul>
+
+<h2 id="data-schema">Data Schema</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">Organization</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">domain</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">users</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">organizationId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">dashboards</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Dashboard</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">organizationId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">dataSources</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">DataSource</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">organizationId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">User</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">email</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">role</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">analyst</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">viewer</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">viewer</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">organization</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Organization</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">organizationId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">dashboards</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">UserDashboard</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">userId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">permissions</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span> <span class="c1">// Custom permissions</span>
+  <span class="p">}),</span>
+
+  <span class="na">Dashboard</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">layout</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// Widget positions and sizes</span>
+    <span class="na">organization</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Organization</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">organizationId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">createdBy</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">createdById</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">widgets</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Widget</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dashboardId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">isPublic</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">false</span><span class="p">),</span>
+    <span class="na">refreshInterval</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="c1">// seconds</span>
+    <span class="na">tags</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="na">Widget</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">type</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">chart</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">metric</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">table</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">map</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">text</span><span class="dl">'</span><span class="p">]).</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">config</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// Widget-specific configuration</span>
+    <span class="na">dataSource</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">DataSource</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dataSourceId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">dashboard</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Dashboard</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dashboardId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">position</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span> <span class="c1">// { x, y, width, height }</span>
+    <span class="na">queryConfig</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span> <span class="c1">// Filters, aggregations, etc.</span>
+    <span class="na">refreshInterval</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">DataSource</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">type</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">api</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">database</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">stream</span><span class="dl">'</span><span class="p">]).</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">connection</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// Connection parameters</span>
+    <span class="na">organization</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Organization</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">organizationId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">widgets</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Widget</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dataSourceId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">schema</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span> <span class="c1">// Data structure definition</span>
+    <span class="na">lastSync</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Event</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">timestamp</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">source</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">eventType</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">userId</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">sessionId</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">metadata</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="na">Alert</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">condition</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// Alert conditions</span>
+    <span class="na">widget</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Widget</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">widgetId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">recipients</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">(),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+    <span class="na">lastTriggered</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+    <span class="na">severity</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">low</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="real-time-data-processing">Real-time Data Processing</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// WebSocket connection for real-time updates</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">io</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">socket.io-client</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">DashboardSocket</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">connect</span><span class="p">:</span> <span class="p">(</span><span class="nx">dashboardId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="dl">'</span><span class="s1">/dashboard</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">query</span><span class="p">:</span> <span class="p">{</span> <span class="nx">dashboardId</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data-update</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">,</span> <span class="nx">newData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">updateWidgetData</span><span class="p">(</span><span class="nx">widgetId</span><span class="p">,</span> <span class="nx">newData</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">alert-triggered</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">alert</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">showNotification</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">socket</span><span class="p">;</span>
+  <span class="p">},</span>
+
+  <span class="na">subscribeToWidget</span><span class="p">:</span> <span class="p">(</span><span class="nx">socket</span><span class="p">,</span> <span class="nx">widgetId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">subscribe-widget</span><span class="dl">'</span><span class="p">,</span> <span class="nx">widgetId</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Stream processing for high-volume data</span>
+<span class="kd">const</span> <span class="nx">processEventStream</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">processedEvents</span> <span class="o">=</span> <span class="nx">events</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="p">...</span><span class="nx">event</span><span class="p">,</span>
+    <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">),</span>
+    <span class="na">processed</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}));</span>
+
+  <span class="c1">// Batch insert for performance</span>
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Event</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">processedEvents</span><span class="p">);</span>
+
+  <span class="c1">// Trigger real-time updates</span>
+  <span class="nx">broadcastToSubscribers</span><span class="p">(</span><span class="nx">processedEvents</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="chart-components">Chart Components</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Reusable chart components with real-time updates</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Line</span><span class="p">,</span> <span class="nx">Bar</span><span class="p">,</span> <span class="nx">Pie</span><span class="p">,</span> <span class="nx">Scatter</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-chartjs-2</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">DynamicChart</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">widgetConfig</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">isRealTime</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">chartData</span><span class="p">,</span> <span class="nx">setChartData</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isRealTime</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">DashboardSocket</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">`widget-</span><span class="p">${</span><span class="nx">widgetConfig</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">(</span><span class="nx">newData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">setChartData</span><span class="p">(</span><span class="nx">prevData</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="p">...</span><span class="nx">prevData</span><span class="p">,</span>
+        <span class="na">datasets</span><span class="p">:</span> <span class="nx">prevData</span><span class="p">.</span><span class="nx">datasets</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">dataset</span> <span class="o">=&gt;</span> <span class="p">({</span>
+          <span class="p">...</span><span class="nx">dataset</span><span class="p">,</span>
+          <span class="na">data</span><span class="p">:</span> <span class="p">[...</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="p">...</span><span class="nx">newData</span><span class="p">]</span> <span class="c1">// Keep last 50 points</span>
+        <span class="p">}))</span>
+      <span class="p">}));</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">widgetConfig</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">isRealTime</span><span class="p">]);</span>
+
+  <span class="kd">const</span> <span class="nx">ChartComponent</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">line</span><span class="p">:</span> <span class="nx">Line</span><span class="p">,</span>
+    <span class="na">bar</span><span class="p">:</span> <span class="nx">Bar</span><span class="p">,</span>
+    <span class="na">pie</span><span class="p">:</span> <span class="nx">Pie</span><span class="p">,</span>
+    <span class="na">scatter</span><span class="p">:</span> <span class="nx">Scatter</span>
+  <span class="p">}[</span><span class="nx">widgetConfig</span><span class="p">.</span><span class="nx">chartType</span><span class="p">];</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">ChartComponent</span>
+      <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">chartData</span><span class="p">}</span>
+      <span class="nx">options</span><span class="o">=</span><span class="p">{{</span>
+        <span class="na">responsive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">animation</span><span class="p">:</span> <span class="nx">isRealTime</span> <span class="p">?</span> <span class="kc">false</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">scales</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">x</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">time</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">time</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">displayFormats</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">minute</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HH:mm</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">hour</span><span class="p">:</span> <span class="dl">'</span><span class="s1">MMM DD HH:mm</span><span class="dl">'</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}}</span>
+    <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="data-source-integration">Data Source Integration</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Generic data source connector</span>
+<span class="kd">class</span> <span class="nx">DataSourceConnector</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">connect</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">dataSource</span><span class="p">.</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">api</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">APIConnector</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">connection</span><span class="p">);</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">database</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">DatabaseConnector</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">connection</span><span class="p">);</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">FileConnector</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">connection</span><span class="p">);</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">stream</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">StreamConnector</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">connection</span><span class="p">);</span>
+      <span class="nl">default</span><span class="p">:</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Unsupported data source type: </span><span class="p">${</span><span class="nx">dataSource</span><span class="p">.</span><span class="kd">type</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nx">fetchData</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">connector</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">dataSource</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">connector</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="nx">query</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// API data source example</span>
+<span class="kd">class</span> <span class="nx">APIConnector</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">headers</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">authentication</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nx">query</span><span class="p">(</span><span class="nx">queryConfig</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}${</span><span class="nx">queryConfig</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">method</span><span class="p">:</span> <span class="nx">queryConfig</span><span class="p">.</span><span class="nx">method</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">headers</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">token</span><span class="p">}</span><span class="s2">`</span>
+      <span class="p">},</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">queryConfig</span><span class="p">.</span><span class="nx">body</span> <span class="p">?</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">queryConfig</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span> <span class="p">:</span> <span class="kc">undefined</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="alert-system">Alert System</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Alert monitoring and notification system</span>
+<span class="kd">const</span> <span class="nx">AlertManager</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">evaluateAlerts</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">,</span> <span class="nx">newData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">alerts</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Alert</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+      <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">widgetId</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="nx">widgetId</span> <span class="p">},</span> <span class="na">isActive</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">alert</span> <span class="k">of</span> <span class="nx">alerts</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">shouldTrigger</span> <span class="o">=</span> <span class="nx">evaluateCondition</span><span class="p">(</span><span class="nx">alert</span><span class="p">.</span><span class="nx">condition</span><span class="p">,</span> <span class="nx">newData</span><span class="p">);</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">shouldTrigger</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nx">triggerAlert</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="na">triggerAlert</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">alert</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Update alert record</span>
+    <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Alert</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">alert</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">lastTriggered</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Send notifications</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">recipient</span> <span class="k">of</span> <span class="nx">alert</span><span class="p">.</span><span class="nx">recipients</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="nx">sendNotification</span><span class="p">({</span>
+        <span class="na">to</span><span class="p">:</span> <span class="nx">recipient</span><span class="p">,</span>
+        <span class="na">subject</span><span class="p">:</span> <span class="s2">`Alert: </span><span class="p">${</span><span class="nx">alert</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="nx">alert</span><span class="p">.</span><span class="nx">description</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="nx">alert</span><span class="p">.</span><span class="nx">severity</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Broadcast to dashboard users</span>
+    <span class="nx">broadcastAlert</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">evaluateCondition</span> <span class="o">=</span> <span class="p">(</span><span class="nx">condition</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Support for various condition types</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">condition</span><span class="p">.</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">'</span><span class="s1">threshold</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="nx">condition</span><span class="p">.</span><span class="nx">threshold</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">change</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">condition</span><span class="p">.</span><span class="nx">changeThreshold</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">'</span><span class="s1">pattern</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="nx">condition</span><span class="p">.</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="frontend-components">Frontend Components</h2>
+
+<h3 id="dashboard-components">Dashboard Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;DashboardBuilder /&gt;</code> - Drag-and-drop dashboard creator</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;WidgetLibrary /&gt;</code> - Available widget types and templates</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;DashboardGrid /&gt;</code> - Responsive grid layout system</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;DashboardFilters /&gt;</code> - Global dashboard filters</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ExportDashboard /&gt;</code> - Export functionality</li>
+</ul>
+
+<h3 id="widget-components">Widget Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;MetricWidget /&gt;</code> - KPI and single-value displays</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ChartWidget /&gt;</code> - Various chart types with real-time updates</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;TableWidget /&gt;</code> - Data tables with sorting and filtering</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;MapWidget /&gt;</code> - Geographic data visualization</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;TextWidget /&gt;</code> - Rich text and markdown content</li>
+</ul>
+
+<h3 id="data-components">Data Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;DataSourceManager /&gt;</code> - Data source configuration</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;QueryBuilder /&gt;</code> - Visual query construction</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;DataPreview /&gt;</code> - Data sampling and validation</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;AlertManager /&gt;</code> - Alert configuration and monitoring</li>
+</ul>
+
+<h2 id="example-implementation">Example Implementation</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create business intelligence dashboard</span>
+/ace-genesis <span class="s2">"business dashboard showing sales metrics, customer analytics, and real-time KPIs"</span>
+
+<span class="c"># ACE-Flow will:</span>
+<span class="c"># 1. Interview about data sources and key metrics</span>
+<span class="c"># 2. Research dashboard and analytics best practices</span>
+<span class="c"># 3. Generate schema for multi-tenant dashboard system</span>
+<span class="c"># 4. Create real-time data processing pipeline</span>
+<span class="c"># 5. Build interactive chart components</span>
+<span class="c"># 6. Set up alert and notification system</span>
+<span class="c"># 7. Deploy complete analytics platform to AWS</span>
+</code></pre></div></div>
+
+<h2 id="advanced-features">Advanced Features</h2>
+
+<h3 id="custom-widget-development">Custom Widget Development</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Framework for creating custom widgets</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">CustomWidget</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">register</span><span class="p">:</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">component</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">widgetRegistry</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">component</span><span class="p">,</span>
+      <span class="na">configSchema</span><span class="p">:</span> <span class="nx">component</span><span class="p">.</span><span class="nx">configSchema</span><span class="p">,</span>
+      <span class="na">defaultConfig</span><span class="p">:</span> <span class="nx">component</span><span class="p">.</span><span class="nx">defaultConfig</span>
+    <span class="p">};</span>
+  <span class="p">},</span>
+
+  <span class="na">create</span><span class="p">:</span> <span class="p">(</span><span class="kd">type</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">Widget</span> <span class="o">=</span> <span class="nx">widgetRegistry</span><span class="p">[</span><span class="kd">type</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Widget</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Widget type </span><span class="p">${</span><span class="kd">type</span><span class="p">}</span><span class="s2"> not found`</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">component</span><span class="p">,</span> <span class="p">{</span> <span class="nx">config</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Example custom widget</span>
+<span class="kd">const</span> <span class="nx">SalesGaugeWidget</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">configSchema</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">required</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+    <span class="na">current</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="na">required</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+    <span class="na">unit</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">,</span> <span class="na">default</span><span class="p">:</span> <span class="dl">'</span><span class="s1">$</span><span class="dl">'</span> <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="na">defaultConfig</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">target</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+    <span class="na">unit</span><span class="p">:</span> <span class="dl">'</span><span class="s1">$</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">colorScheme</span><span class="p">:</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span>
+  <span class="p">},</span>
+
+  <span class="na">component</span><span class="p">:</span> <span class="p">({</span> <span class="nx">config</span><span class="p">,</span> <span class="nx">data</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">gauge-widget</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">GaugeChart</span>
+        <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">current</span><span class="p">}</span>
+        <span class="nx">max</span><span class="o">=</span><span class="p">{</span><span class="nx">config</span><span class="p">.</span><span class="nx">target</span><span class="p">}</span>
+        <span class="nx">unit</span><span class="o">=</span><span class="p">{</span><span class="nx">config</span><span class="p">.</span><span class="nx">unit</span><span class="p">}</span>
+        <span class="nx">colors</span><span class="o">=</span><span class="p">{</span><span class="nx">getColorScheme</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">colorScheme</span><span class="p">)}</span>
+      <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">)</span>
+<span class="p">};</span>
+
+<span class="nx">CustomWidget</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">sales-gauge</span><span class="dl">'</span><span class="p">,</span> <span class="nx">SalesGaugeWidget</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="machine-learning-integration">Machine Learning Integration</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Predictive analytics and anomaly detection</span>
+<span class="kd">const</span> <span class="nx">MLAnalytics</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">detectAnomalies</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">,</span> <span class="nx">timeSeriesData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/ml/anomaly-detection</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="nx">widgetId</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="nx">timeSeriesData</span><span class="p">,</span>
+        <span class="na">algorithm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">isolation-forest</span><span class="dl">'</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="kd">const</span> <span class="nx">anomalies</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    
+    <span class="c1">// Highlight anomalies on chart</span>
+    <span class="k">return</span> <span class="nx">anomalies</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">point</span> <span class="o">=&gt;</span> <span class="p">({</span>
+      <span class="p">...</span><span class="nx">point</span><span class="p">,</span>
+      <span class="na">isAnomaly</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">confidence</span><span class="p">:</span> <span class="nx">point</span><span class="p">.</span><span class="nx">anomalyScore</span>
+    <span class="p">}));</span>
+  <span class="p">},</span>
+
+  <span class="na">generateForecast</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">,</span> <span class="nx">historicalData</span><span class="p">,</span> <span class="nx">periods</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/ml/forecast</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="nx">widgetId</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="nx">historicalData</span><span class="p">,</span>
+        <span class="nx">periods</span><span class="p">,</span>
+        <span class="na">model</span><span class="p">:</span> <span class="dl">'</span><span class="s1">arima</span><span class="dl">'</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="performance-optimizations">Performance Optimizations</h2>
+
+<h3 id="data-aggregation">Data Aggregation</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Pre-compute aggregations for fast dashboard loading</span>
+<span class="kd">const</span> <span class="nx">DataAggregator</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">scheduleAggregation</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">,</span> <span class="nx">interval</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">aggregationJob</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">widgetId</span><span class="p">,</span>
+      <span class="nx">interval</span><span class="p">,</span>
+      <span class="na">lastRun</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="na">nextRun</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="nx">interval</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="p">};</span>
+
+    <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">AggregationJob</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">aggregationJob</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="na">runAggregation</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">widget</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">widgetId</span> <span class="p">});</span>
+    <span class="kd">const</span> <span class="nx">rawData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchRawData</span><span class="p">(</span><span class="nx">widget</span><span class="p">.</span><span class="nx">dataSource</span><span class="p">,</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">queryConfig</span><span class="p">);</span>
+    
+    <span class="kd">const</span> <span class="nx">aggregatedData</span> <span class="o">=</span> <span class="nx">aggregateData</span><span class="p">(</span><span class="nx">rawData</span><span class="p">,</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">aggregation</span><span class="p">);</span>
+    
+    <span class="c1">// Store aggregated data for fast retrieval</span>
+    <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">AggregatedData</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">widgetId</span><span class="p">,</span>
+      <span class="na">data</span><span class="p">:</span> <span class="nx">aggregatedData</span><span class="p">,</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="caching-strategy">Caching Strategy</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Multi-level caching for dashboard performance</span>
+<span class="kd">const</span> <span class="nx">DashboardCache</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">getWidgetData</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">widgetId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 1. Check browser cache</span>
+    <span class="kd">const</span> <span class="nx">cached</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">`widget-</span><span class="p">${</span><span class="nx">widgetId</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cached</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">isExpired</span><span class="p">(</span><span class="nx">cached</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cached</span><span class="p">).</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 2. Check Redis cache</span>
+    <span class="kd">const</span> <span class="nx">redisData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">redis</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">`widget:</span><span class="p">${</span><span class="nx">widgetId</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">redisData</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">`widget-</span><span class="p">${</span><span class="nx">widgetId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="nx">redisData</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">redisData</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 3. Fetch from database</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetchWidgetData</span><span class="p">(</span><span class="nx">widgetId</span><span class="p">);</span>
+    
+    <span class="c1">// Cache at both levels</span>
+    <span class="k">await</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">setex</span><span class="p">(</span><span class="s2">`widget:</span><span class="p">${</span><span class="nx">widgetId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">`widget-</span><span class="p">${</span><span class="nx">widgetId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+      <span class="nx">data</span><span class="p">,</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+      <span class="na">ttl</span><span class="p">:</span> <span class="mi">300000</span>
+    <span class="p">}));</span>
+
+    <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="cost-estimates">Cost Estimates</h2>
+
+<p>For a dashboard with 100 active users and 50 widgets:</p>
+
+<ul>
+  <li><strong>DynamoDB</strong>: ~$30-60/month (high read/write volume)</li>
+  <li><strong>Lambda Functions</strong>: ~$20-40/month (real-time processing)</li>
+  <li><strong>ElastiCache</strong>: ~$15-30/month (caching layer)</li>
+  <li><strong>OpenSearch</strong>: ~$50-100/month (time-series data)</li>
+  <li><strong>Data Transfer</strong>: ~$10-20/month</li>
+</ul>
+
+<p><strong>Total estimated cost</strong>: $125-250/month</p>
+
+<h2 id="security--compliance">Security &amp; Compliance</h2>
+
+<h3 id="data-privacy">Data Privacy</h3>
+<ul>
+  <li><strong>Row-level Security</strong>: User-specific data filtering</li>
+  <li><strong>Audit Logging</strong>: All data access tracked</li>
+  <li><strong>Data Masking</strong>: Sensitive data protection</li>
+  <li><strong>Encryption</strong>: Data encrypted at rest and in transit</li>
+</ul>
+
+<h3 id="access-control">Access Control</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Role-based access control for dashboards</span>
+<span class="kd">const</span> <span class="nx">AccessControl</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">canViewDashboard</span><span class="p">:</span> <span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">dashboard</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">dashboard</span><span class="p">.</span><span class="nx">isPublic</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">dashboard</span><span class="p">.</span><span class="nx">createdById</span> <span class="o">===</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="nx">dashboard</span><span class="p">.</span><span class="nx">permissions</span><span class="p">?.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="na">canEditWidget</span><span class="p">:</span> <span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">widget</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">viewer</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">dashboard</span> <span class="o">=</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">dashboard</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">dashboard</span><span class="p">.</span><span class="nx">createdById</span> <span class="o">===</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">/ace-genesis</code> with your analytics dashboard idea</li>
+  <li>Specify data sources and key metrics to track</li>
+  <li>Choose dashboard layout and visualization types</li>
+  <li>Configure real-time update requirements</li>
+  <li>Deploy and start analyzing your data!</li>
+</ol>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/patterns/content-management.html">← Content Management</a></td>
+      <td><a href="/patterns/simple-crud.html">Simple CRUD →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

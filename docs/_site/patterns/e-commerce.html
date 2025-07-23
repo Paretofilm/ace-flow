@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>E-commerce Pattern | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="E-commerce Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/patterns/e-commerce.html" />
+<meta property="og:url" content="http://localhost:4000/patterns/e-commerce.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="E-commerce Pattern" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"E-commerce Pattern","url":"http://localhost:4000/patterns/e-commerce.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link active">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="e-commerce-pattern">E-commerce Pattern</h1>
+
+<p>The E-commerce pattern provides a complete foundation for building online stores, marketplaces, and subscription-based services with integrated payment processing.</p>
+
+<h2 id="when-to-use">When to Use</h2>
+
+<ul>
+  <li>Online retail stores</li>
+  <li>Multi-vendor marketplaces</li>
+  <li>Subscription services</li>
+  <li>Digital product stores</li>
+  <li>B2B commerce platforms</li>
+</ul>
+
+<h2 id="core-features">Core Features</h2>
+
+<h3 id="product-management">Product Management</h3>
+<ul>
+  <li><strong>Product Catalog</strong>: Rich product information with variants</li>
+  <li><strong>Inventory Tracking</strong>: Real-time stock management</li>
+  <li><strong>Categories &amp; Tags</strong>: Flexible product organization</li>
+  <li><strong>Pricing Rules</strong>: Dynamic pricing, discounts, promotions</li>
+</ul>
+
+<h3 id="shopping-experience">Shopping Experience</h3>
+<ul>
+  <li><strong>Shopping Cart</strong>: Persistent cart across sessions</li>
+  <li><strong>Checkout Flow</strong>: Streamlined purchase process</li>
+  <li><strong>Order Management</strong>: Complete order lifecycle</li>
+  <li><strong>User Accounts</strong>: Purchase history, wishlists, addresses</li>
+</ul>
+
+<h3 id="payment-processing">Payment Processing</h3>
+<ul>
+  <li><strong>Stripe Integration</strong>: Secure payment processing</li>
+  <li><strong>Multiple Payment Methods</strong>: Cards, digital wallets, BNPL</li>
+  <li><strong>Subscription Billing</strong>: Recurring payments</li>
+  <li><strong>Tax Calculation</strong>: Automated tax handling</li>
+</ul>
+
+<h3 id="vendor-management">Vendor Management</h3>
+<ul>
+  <li><strong>Multi-vendor Support</strong>: Vendor onboarding and management</li>
+  <li><strong>Commission Tracking</strong>: Automated vendor payouts</li>
+  <li><strong>Vendor Analytics</strong>: Sales and performance metrics</li>
+  <li><strong>Product Approval</strong>: Vendor product moderation</li>
+</ul>
+
+<h2 id="data-schema">Data Schema</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">Product</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">price</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">compareAtPrice</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">(),</span> <span class="c1">// For showing discounts</span>
+    <span class="na">sku</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">inventory</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="na">vendor</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Vendor</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">vendorId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">category</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Category</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">categoryId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">images</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">(),</span>
+    <span class="na">variants</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">ProductVariant</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">productId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">ProductVariant</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">product</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Product</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">productId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span> <span class="c1">// e.g., "Red Large"</span>
+    <span class="na">sku</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">price</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">(),</span>
+    <span class="na">inventory</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="na">attributes</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span> <span class="c1">// { color: "red", size: "large" }</span>
+  <span class="p">}),</span>
+
+  <span class="na">Category</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">slug</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">parent</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Category</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">children</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Category</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">products</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Product</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">categoryId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Cart</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">user</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">userId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">items</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">CartItem</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cartId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">total</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="na">currency</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">USD</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">CartItem</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">cart</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Cart</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cartId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">product</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Product</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">productId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">variant</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">ProductVariant</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">variantId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">quantity</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">unitPrice</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">totalPrice</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="na">Order</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">orderNumber</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">customer</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">customerId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">items</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">OrderItem</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">orderId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">status</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">pending</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">processing</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">shipped</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">delivered</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cancelled</span><span class="dl">'</span><span class="p">]),</span>
+    <span class="na">subtotal</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">tax</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="na">shipping</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="na">total</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">shippingAddress</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span>
+    <span class="na">billingAddress</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span>
+    <span class="na">paymentIntentId</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">()</span> <span class="c1">// Stripe payment intent</span>
+  <span class="p">}),</span>
+
+  <span class="na">OrderItem</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">order</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Order</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">orderId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">product</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Product</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">productId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">variant</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">ProductVariant</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">variantId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">quantity</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">unitPrice</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">totalPrice</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="nx">required</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="na">Vendor</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">email</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">logo</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span> <span class="c1">// S3 key</span>
+    <span class="na">commissionRate</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">float</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mf">0.15</span><span class="p">),</span> <span class="c1">// 15% default</span>
+    <span class="na">products</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Product</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">vendorId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="payment-integration">Payment Integration</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Stripe payment processing</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">createPaymentIntent</span><span class="p">,</span> <span class="nx">confirmPayment</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./payments</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Create payment intent when order is placed</span>
+<span class="kd">const</span> <span class="nx">handleCheckout</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">orderData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// Create order in database</span>
+    <span class="kd">const</span> <span class="nx">order</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Order</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">orderData</span><span class="p">);</span>
+    
+    <span class="c1">// Create Stripe payment intent</span>
+    <span class="kd">const</span> <span class="nx">paymentIntent</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">createPaymentIntent</span><span class="p">({</span>
+      <span class="na">amount</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">total</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="c1">// Convert to cents</span>
+      <span class="na">currency</span><span class="p">:</span> <span class="dl">'</span><span class="s1">usd</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">metadata</span><span class="p">:</span> <span class="p">{</span> <span class="na">orderId</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">id</span> <span class="p">}</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Update order with payment intent ID</span>
+    <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Order</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">paymentIntentId</span><span class="p">:</span> <span class="nx">paymentIntent</span><span class="p">.</span><span class="nx">id</span>
+    <span class="p">});</span>
+    
+    <span class="k">return</span> <span class="p">{</span> <span class="na">clientSecret</span><span class="p">:</span> <span class="nx">paymentIntent</span><span class="p">.</span><span class="nx">client_secret</span> <span class="p">};</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Checkout error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="inventory-management">Inventory Management</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Real-time inventory updates</span>
+<span class="kd">const</span> <span class="nx">updateInventory</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">productId</span><span class="p">,</span> <span class="nx">variantId</span><span class="p">,</span> <span class="nx">quantity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Check current inventory</span>
+  <span class="kd">const</span> <span class="nx">variant</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">ProductVariant</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">variantId</span> <span class="p">});</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">inventory</span> <span class="o">&lt;</span> <span class="nx">quantity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Insufficient inventory</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Update inventory atomically</span>
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">ProductVariant</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">variantId</span><span class="p">,</span>
+    <span class="na">inventory</span><span class="p">:</span> <span class="nx">variant</span><span class="p">.</span><span class="nx">inventory</span> <span class="o">-</span> <span class="nx">quantity</span>
+  <span class="p">});</span>
+  
+  <span class="c1">// Trigger low inventory alerts if needed</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">inventory</span> <span class="o">-</span> <span class="nx">quantity</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nx">sendLowInventoryAlert</span><span class="p">(</span><span class="nx">productId</span><span class="p">,</span> <span class="nx">variantId</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="frontend-components">Frontend Components</h2>
+
+<h3 id="product-components">Product Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ProductGrid /&gt;</code> - Product listing with filtering</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ProductCard /&gt;</code> - Individual product display</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ProductDetails /&gt;</code> - Detailed product page</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ProductImages /&gt;</code> - Image gallery with zoom</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;VariantSelector /&gt;</code> - Size/color/option selection</li>
+</ul>
+
+<h3 id="shopping-components">Shopping Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;AddToCartButton /&gt;</code> - Add to cart functionality</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;CartSidebar /&gt;</code> - Shopping cart overlay</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;CheckoutForm /&gt;</code> - Multi-step checkout process</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;PaymentForm /&gt;</code> - Stripe payment integration</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;OrderSummary /&gt;</code> - Order confirmation</li>
+</ul>
+
+<h3 id="vendor-components">Vendor Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;VendorDashboard /&gt;</code> - Vendor management interface</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ProductManager /&gt;</code> - Product creation and editing</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;OrderFulfillment /&gt;</code> - Order processing for vendors</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;AnalyticsDashboard /&gt;</code> - Sales metrics and reporting</li>
+</ul>
+
+<h2 id="example-implementation">Example Implementation</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create online marketplace</span>
+/ace-genesis <span class="s2">"marketplace where local artisans can sell handmade products"</span>
+
+<span class="c"># ACE-Flow will:</span>
+<span class="c"># 1. Interview about marketplace features (multi-vendor, categories, etc.)</span>
+<span class="c"># 2. Research e-commerce best practices and AWS Amplify patterns</span>
+<span class="c"># 3. Generate schema with vendor management and commission tracking</span>
+<span class="c"># 4. Set up Stripe integration with marketplace payments</span>
+<span class="c"># 5. Create admin dashboard for marketplace management</span>
+<span class="c"># 6. Configure S3 for product images with CDN</span>
+<span class="c"># 7. Deploy complete marketplace to AWS</span>
+</code></pre></div></div>
+
+<h2 id="advanced-features">Advanced Features</h2>
+
+<h3 id="search--filtering">Search &amp; Filtering</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Elasticsearch integration for product search</span>
+<span class="kd">const</span> <span class="nx">searchProducts</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="nx">filters</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">searchParams</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">index</span><span class="p">:</span> <span class="dl">'</span><span class="s1">products</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">query</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">bool</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">must</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="na">match</span><span class="p">:</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="nx">query</span> <span class="p">}</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="na">match</span><span class="p">:</span> <span class="p">{</span> <span class="na">description</span><span class="p">:</span> <span class="nx">query</span> <span class="p">}</span> <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="na">filter</span><span class="p">:</span> <span class="nx">filters</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="na">sort</span><span class="p">:</span> <span class="p">[{</span> <span class="na">createdAt</span><span class="p">:</span> <span class="dl">'</span><span class="s1">desc</span><span class="dl">'</span> <span class="p">}],</span>
+      <span class="na">size</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  
+  <span class="k">return</span> <span class="k">await</span> <span class="nx">elasticsearch</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">searchParams</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="recommendation-engine">Recommendation Engine</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Product recommendations based on purchase history</span>
+<span class="kd">const</span> <span class="nx">getRecommendations</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">userId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Get user's purchase history</span>
+  <span class="kd">const</span> <span class="nx">orders</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Order</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+    <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">customerId</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="nx">userId</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">});</span>
+  
+  <span class="c1">// Use ML to find similar products</span>
+  <span class="kd">const</span> <span class="nx">recommendations</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">mlRecommendationService</span><span class="p">({</span>
+    <span class="nx">userId</span><span class="p">,</span>
+    <span class="na">purchaseHistory</span><span class="p">:</span> <span class="nx">orders</span><span class="p">.</span><span class="nx">data</span>
+  <span class="p">});</span>
+  
+  <span class="k">return</span> <span class="nx">recommendations</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="performance-optimizations">Performance Optimizations</h2>
+
+<h3 id="caching-strategy">Caching Strategy</h3>
+<ul>
+  <li><strong>Product data</strong>: Cache at CDN edge for fast loading</li>
+  <li><strong>Category navigation</strong>: Redis caching for menu structure</li>
+  <li><strong>Search results</strong>: Cache popular search queries</li>
+  <li><strong>Shopping cart</strong>: Session-based caching</li>
+</ul>
+
+<h3 id="database-optimization">Database Optimization</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Optimized indexes for e-commerce queries</span>
+<span class="nx">Product</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+  <span class="c1">// ... fields</span>
+<span class="p">}).</span><span class="nx">secondaryIndexes</span><span class="p">(</span><span class="nx">index</span> <span class="o">=&gt;</span> <span class="p">[</span>
+  <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">categoryId</span><span class="dl">'</span><span class="p">).</span><span class="nx">sortKeys</span><span class="p">([</span><span class="dl">'</span><span class="s1">price</span><span class="dl">'</span><span class="p">]).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byCategoryAndPrice</span><span class="dl">'</span><span class="p">),</span>
+  <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">vendorId</span><span class="dl">'</span><span class="p">).</span><span class="nx">sortKeys</span><span class="p">([</span><span class="dl">'</span><span class="s1">createdAt</span><span class="dl">'</span><span class="p">]).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byVendor</span><span class="dl">'</span><span class="p">),</span>
+  <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">isActive</span><span class="dl">'</span><span class="p">).</span><span class="nx">sortKeys</span><span class="p">([</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byActiveStatus</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<h2 id="cost-estimates">Cost Estimates</h2>
+
+<p>For an e-commerce store with 1,000 orders/month:</p>
+
+<ul>
+  <li><strong>DynamoDB</strong>: ~$20-40/month</li>
+  <li><strong>S3 Storage</strong>: ~$15-30/month (product images)</li>
+  <li><strong>Lambda Functions</strong>: ~$10-25/month</li>
+  <li><strong>Stripe Processing</strong>: ~2.9% + $0.30 per transaction</li>
+  <li><strong>CDN &amp; Transfer</strong>: ~$10-20/month</li>
+  <li><strong>Search (OpenSearch)</strong>: ~$15-25/month</li>
+</ul>
+
+<p><strong>Total estimated cost</strong>: $70-140/month + payment processing fees</p>
+
+<h2 id="security-features">Security Features</h2>
+
+<ul>
+  <li><strong>PCI Compliance</strong>: Stripe handles sensitive payment data</li>
+  <li><strong>Fraud Detection</strong>: Built-in fraud prevention</li>
+  <li><strong>Secure Checkout</strong>: SSL encryption for all transactions</li>
+  <li><strong>Data Protection</strong>: Customer data encryption at rest</li>
+  <li><strong>Access Control</strong>: Role-based permissions for vendors/admins</li>
+</ul>
+
+<h2 id="multi-vendor-features">Multi-vendor Features</h2>
+
+<h3 id="vendor-onboarding">Vendor Onboarding</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">onboardVendor</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">vendorData</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Create vendor account</span>
+  <span class="kd">const</span> <span class="nx">vendor</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Vendor</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">vendorData</span><span class="p">);</span>
+  
+  <span class="c1">// Set up Stripe Connect account for payouts</span>
+  <span class="kd">const</span> <span class="nx">stripeAccount</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">stripe</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">country</span><span class="p">:</span> <span class="nx">vendorData</span><span class="p">.</span><span class="nx">country</span><span class="p">,</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nx">vendorData</span><span class="p">.</span><span class="nx">email</span>
+  <span class="p">});</span>
+  
+  <span class="c1">// Update vendor with Stripe account ID</span>
+  <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Vendor</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">vendor</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+    <span class="na">stripeAccountId</span><span class="p">:</span> <span class="nx">stripeAccount</span><span class="p">.</span><span class="nx">id</span>
+  <span class="p">});</span>
+  
+  <span class="k">return</span> <span class="nx">vendor</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="commission-tracking">Commission Tracking</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">calculateCommissions</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">orderId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">order</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Order</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">orderId</span> <span class="p">});</span>
+  <span class="kd">const</span> <span class="nx">orderItems</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">OrderItem</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+    <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">orderId</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="nx">orderId</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">});</span>
+  
+  <span class="c1">// Calculate commission for each vendor</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">orderItems</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Product</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">productId</span> <span class="p">});</span>
+    <span class="kd">const</span> <span class="nx">vendor</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Vendor</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="nx">product</span><span class="p">.</span><span class="nx">vendorId</span> <span class="p">});</span>
+    
+    <span class="kd">const</span> <span class="nx">commission</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">totalPrice</span> <span class="o">*</span> <span class="nx">vendor</span><span class="p">.</span><span class="nx">commissionRate</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">vendorEarnings</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">totalPrice</span> <span class="o">-</span> <span class="nx">commission</span><span class="p">;</span>
+    
+    <span class="c1">// Record commission and schedule payout</span>
+    <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Commission</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="na">vendorId</span><span class="p">:</span> <span class="nx">vendor</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">orderId</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">amount</span><span class="p">:</span> <span class="nx">commission</span><span class="p">,</span>
+      <span class="na">vendorEarnings</span><span class="p">:</span> <span class="nx">vendorEarnings</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">pending</span><span class="dl">'</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">/ace-genesis</code> with your e-commerce idea</li>
+  <li>Specify whether it’s single or multi-vendor</li>
+  <li>Choose payment methods and shipping options</li>
+  <li>Review generated architecture and customize</li>
+  <li>Deploy and start selling!</li>
+</ol>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/patterns/social-platform.html">← Social Platform</a></td>
+      <td><a href="/patterns/content-management.html">Content Management →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

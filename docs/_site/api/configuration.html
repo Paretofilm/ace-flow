@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Configuration | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Configuration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/api/configuration.html" />
+<meta property="og:url" content="http://localhost:4000/api/configuration.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Configuration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Configuration","url":"http://localhost:4000/api/configuration.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="configuration">Configuration</h1>
+
+<p>Complete guide to configuring ACE-Flow for your development environment and project needs.</p>
+
+<h2 id="configuration-hierarchy">Configuration Hierarchy</h2>
+
+<p>ACE-Flow uses a hierarchical configuration system:</p>
+
+<ol>
+  <li><strong>Global Configuration</strong> - <code class="language-plaintext highlighter-rouge">~/.ace-flow/config.yml</code></li>
+  <li><strong>Project Configuration</strong> - <code class="language-plaintext highlighter-rouge">.ace-flow/config.yml</code></li>
+  <li><strong>Environment Variables</strong> - <code class="language-plaintext highlighter-rouge">ACE_FLOW_*</code></li>
+  <li><strong>Command Line Arguments</strong> - <code class="language-plaintext highlighter-rouge">--option=value</code></li>
+</ol>
+
+<p>Higher priority items override lower priority ones.</p>
+
+<h2 id="global-configuration">Global Configuration</h2>
+
+<h3 id="location">Location</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.ace-flow/config.yml
+</code></pre></div></div>
+
+<h3 id="structure">Structure</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ACE-Flow Global Configuration</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.2.0"</span>
+<span class="na">installation_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">uuid-generated-on-install"</span>
+<span class="na">last_updated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2024-01-15T10:30:00Z"</span>
+
+<span class="c1"># Default settings</span>
+<span class="na">defaults</span><span class="pi">:</span>
+  <span class="na">aws_region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+  <span class="na">architecture_pattern</span><span class="pi">:</span> <span class="s2">"</span><span class="s">auto-detect"</span>
+  <span class="na">research_depth</span><span class="pi">:</span> <span class="s2">"</span><span class="s">standard"</span>
+  <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">telemetry_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  
+<span class="c1"># AWS Configuration</span>
+<span class="na">aws</span><span class="pi">:</span>
+  <span class="na">default_region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+  <span class="na">profile</span><span class="pi">:</span> <span class="s2">"</span><span class="s">default"</span>
+  <span class="na">credentials_file</span><span class="pi">:</span> <span class="s2">"</span><span class="s">~/.aws/credentials"</span>
+  
+<span class="c1"># Research Settings</span>
+<span class="na">research</span><span class="pi">:</span>
+  <span class="na">default_pages</span><span class="pi">:</span> <span class="m">30</span>
+  <span class="na">max_pages</span><span class="pi">:</span> <span class="m">100</span>
+  <span class="na">cache_duration</span><span class="pi">:</span> <span class="m">3600</span>  <span class="c1"># seconds</span>
+  <span class="na">preferred_sources</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">docs.amplify.aws"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">aws.amazon.com/documentation"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">github.com/aws-amplify"</span>
+  
+<span class="c1"># Implementation Settings</span>
+<span class="na">implementation</span><span class="pi">:</span>
+  <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">wait_for_ready</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">deployment_timeout</span><span class="pi">:</span> <span class="m">900</span>  <span class="c1"># 15 minutes</span>
+  <span class="na">parallel_deployments</span><span class="pi">:</span> <span class="no">false</span>
+  
+<span class="c1"># Validation Settings</span>
+<span class="na">validation</span><span class="pi">:</span>
+  <span class="na">strict_mode</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">auto_fix</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">skip_warnings</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">required_checks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">schema_validation"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">auth_configuration"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">cost_estimation"</span>
+    
+<span class="c1"># Cost Management</span>
+<span class="na">costs</span><span class="pi">:</span>
+  <span class="na">currency</span><span class="pi">:</span> <span class="s2">"</span><span class="s">USD"</span>
+  <span class="na">alert_threshold</span><span class="pi">:</span> <span class="m">100.00</span>
+  <span class="na">detailed_breakdown</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">include_free_tier</span><span class="pi">:</span> <span class="no">true</span>
+  
+<span class="c1"># User Interface</span>
+<span class="na">ui</span><span class="pi">:</span>
+  <span class="na">color_output</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">progress_indicators</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">verbose_logging</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">compact_status</span><span class="pi">:</span> <span class="no">false</span>
+  
+<span class="c1"># Telemetry and Analytics</span>
+<span class="na">telemetry</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">anonymous_usage</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">error_reporting</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">performance_metrics</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h2 id="project-configuration">Project Configuration</h2>
+
+<h3 id="location-1">Location</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.ace-flow/config.yml
+</code></pre></div></div>
+
+<h3 id="structure-1">Structure</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Project-specific ACE-Flow Configuration</span>
+<span class="na">project</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">my-awesome-app"</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">social_platform"</span>
+  <span class="na">created</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2024-01-15T10:30:00Z"</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0.0"</span>
+  
+<span class="c1"># Project Settings Override Global</span>
+<span class="na">settings</span><span class="pi">:</span>
+  <span class="na">aws_region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-west-2"</span>  <span class="c1"># Override global setting</span>
+  <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">false</span>       <span class="c1"># Override for this project</span>
+  
+<span class="c1"># Architecture Pattern Configuration</span>
+<span class="na">pattern</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">social_platform"</span>
+  <span class="na">customizations</span><span class="pi">:</span>
+    <span class="na">enable_real_time</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">include_media_storage</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">authentication_provider</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cognito"</span>
+    
+<span class="c1"># Schema Configuration</span>
+<span class="na">schema</span><span class="pi">:</span>
+  <span class="na">models</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">User"</span>
+      <span class="na">custom_fields</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">preferences"</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">json"</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Post"</span>
+      <span class="na">enable_real_time</span><span class="pi">:</span> <span class="no">true</span>
+      
+<span class="c1"># Feature Flags</span>
+<span class="na">features</span><span class="pi">:</span>
+  <span class="na">real_time_subscriptions</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">file_upload</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">push_notifications</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">analytics</span><span class="pi">:</span> <span class="no">true</span>
+  
+<span class="c1"># Environment Specific Settings</span>
+<span class="na">environments</span><span class="pi">:</span>
+  <span class="na">sandbox</span><span class="pi">:</span>
+    <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">cost_alerts</span><span class="pi">:</span> <span class="no">false</span>
+    
+  <span class="na">staging</span><span class="pi">:</span>
+    <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">require_approval</span><span class="pi">:</span> <span class="no">true</span>
+    
+  <span class="na">production</span><span class="pi">:</span>
+    <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">require_approval</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">backup_before_deploy</span><span class="pi">:</span> <span class="no">true</span>
+    
+<span class="c1"># Custom Hooks</span>
+<span class="na">hooks</span><span class="pi">:</span>
+  <span class="na">pre_generation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">validate_requirements"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">check_dependencies"</span>
+    
+  <span class="na">post_generation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">run_linting"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">generate_docs"</span>
+    
+  <span class="na">pre_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">run_tests"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">security_scan"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">cost_estimate"</span>
+    
+  <span class="na">post_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">verify_endpoints"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">run_smoke_tests"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">update_monitoring"</span>
+    
+<span class="c1"># Dependencies and Integrations</span>
+<span class="na">integrations</span><span class="pi">:</span>
+  <span class="na">github</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">auto_commit</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">branch_protection</span><span class="pi">:</span> <span class="no">true</span>
+    
+  <span class="na">slack</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">webhook_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">${SLACK_WEBHOOK_URL}"</span>
+    <span class="na">channels</span><span class="pi">:</span>
+      <span class="na">deployments</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#deployments"</span>
+      <span class="na">errors</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#alerts"</span>
+      
+  <span class="na">monitoring</span><span class="pi">:</span>
+    <span class="na">cloudwatch</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">datadog</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">newrelic</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<h2 id="environment-variables">Environment Variables</h2>
+
+<h3 id="ace-flow-specific">ACE-Flow Specific</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Core Configuration</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_CONFIG_DIR</span><span class="o">=</span><span class="s2">"/custom/config/path"</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_DEBUG</span><span class="o">=</span><span class="nb">true
+export </span><span class="nv">ACE_FLOW_VERBOSE</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="c"># AWS Configuration</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_AWS_REGION</span><span class="o">=</span><span class="s2">"us-west-2"</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_AWS_PROFILE</span><span class="o">=</span><span class="s2">"development"</span>
+
+<span class="c"># Feature Toggles</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_TELEMETRY</span><span class="o">=</span><span class="nb">false
+export </span><span class="nv">ACE_FLOW_AUTO_UPDATE</span><span class="o">=</span><span class="nb">true
+export </span><span class="nv">ACE_FLOW_PARALLEL_DEPLOY</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="c"># Research Configuration</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_RESEARCH_PAGES</span><span class="o">=</span>50
+<span class="nb">export </span><span class="nv">ACE_FLOW_RESEARCH_CACHE</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># UI Configuration</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_NO_COLOR</span><span class="o">=</span><span class="nb">false
+export </span><span class="nv">ACE_FLOW_COMPACT_OUTPUT</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div></div>
+
+<h3 id="aws-environment-variables">AWS Environment Variables</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># AWS Credentials</span>
+<span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">"your-access-key"</span>
+<span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">"your-secret-key"</span>
+<span class="nb">export </span><span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span><span class="s2">"your-session-token"</span>
+<span class="nb">export </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span><span class="s2">"us-east-1"</span>
+<span class="nb">export </span><span class="nv">AWS_PROFILE</span><span class="o">=</span><span class="s2">"your-profile"</span>
+
+<span class="c"># AWS SDK Configuration</span>
+<span class="nb">export </span><span class="nv">AWS_SDK_LOAD_CONFIG</span><span class="o">=</span>1
+<span class="nb">export </span><span class="nv">AWS_CONFIG_FILE</span><span class="o">=</span><span class="s2">"~/.aws/config"</span>
+<span class="nb">export </span><span class="nv">AWS_SHARED_CREDENTIALS_FILE</span><span class="o">=</span><span class="s2">"~/.aws/credentials"</span>
+</code></pre></div></div>
+
+<h2 id="command-line-configuration">Command Line Configuration</h2>
+
+<h3 id="global-options">Global Options</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Override any configuration setting</span>
+/ace-genesis <span class="nt">--config</span>.aws_region<span class="o">=</span>us-west-2
+/ace-implement <span class="nt">--config</span>.auto_deploy<span class="o">=</span><span class="nb">false</span>
+
+<span class="c"># Specify custom config file</span>
+/ace-status <span class="nt">--config-file</span><span class="o">=</span>/path/to/custom-config.yml
+
+<span class="c"># Environment-specific overrides</span>
+/ace-deploy <span class="nt">--env</span><span class="o">=</span>staging <span class="nt">--config</span>.require_approval<span class="o">=</span><span class="nb">false</span>
+</code></pre></div></div>
+
+<h3 id="configuration-commands">Configuration Commands</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># View current configuration</span>
+/ace-config <span class="nt">--show</span>
+
+<span class="c"># Set configuration values</span>
+/ace-config <span class="nt">--set</span> aws.region<span class="o">=</span>us-west-2
+/ace-config <span class="nt">--set</span> research.default_pages<span class="o">=</span>50
+
+<span class="c"># Reset to defaults</span>
+/ace-config <span class="nt">--reset</span>
+
+<span class="c"># Validate configuration</span>
+/ace-config <span class="nt">--validate</span>
+</code></pre></div></div>
+
+<h2 id="pattern-specific-configuration">Pattern-Specific Configuration</h2>
+
+<h3 id="social-platform-pattern">Social Platform Pattern</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">pattern</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">social_platform"</span>
+  <span class="na">settings</span><span class="pi">:</span>
+    <span class="na">max_post_length</span><span class="pi">:</span> <span class="m">280</span>
+    <span class="na">enable_stories</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">media_formats</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">image"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">video"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">gif"</span><span class="pi">]</span>
+    <span class="na">real_time_features</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">likes"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">comments"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">notifications"</span>
+    <span class="na">content_moderation</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h3 id="e-commerce-pattern">E-commerce Pattern</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">pattern</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">e_commerce"</span>
+  <span class="na">settings</span><span class="pi">:</span>
+    <span class="na">payment_providers</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">stripe"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">paypal"</span><span class="pi">]</span>
+    <span class="na">inventory_tracking</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">multi_vendor</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">shipping_integration</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">tax_calculation</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">currencies</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">USD"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">EUR"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">GBP"</span><span class="pi">]</span>
+</code></pre></div></div>
+
+<h3 id="dashboard-analytics-pattern">Dashboard Analytics Pattern</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">pattern</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dashboard_analytics"</span>
+  <span class="na">settings</span><span class="pi">:</span>
+    <span class="na">data_sources</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">api"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">database"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">files"</span><span class="pi">]</span>
+    <span class="na">visualization_types</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">charts"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">tables"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">maps"</span><span class="pi">]</span>
+    <span class="na">real_time_updates</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">export_formats</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">pdf"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">csv"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">excel"</span><span class="pi">]</span>
+    <span class="na">user_permissions</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h2 id="hook-configuration">Hook Configuration</h2>
+
+<h3 id="available-hooks">Available Hooks</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hooks</span><span class="pi">:</span>
+  <span class="c1"># Generation Phase</span>
+  <span class="na">pre_generation</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">post_generation</span><span class="pi">:</span> <span class="pi">[]</span>
+  
+  <span class="c1"># Research Phase</span>
+  <span class="na">pre_research</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">post_research</span><span class="pi">:</span> <span class="pi">[]</span>
+  
+  <span class="c1"># Deployment Phase</span>
+  <span class="na">pre_deployment</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">post_deployment</span><span class="pi">:</span> <span class="pi">[]</span>
+  
+  <span class="c1"># Validation Phase</span>
+  <span class="na">pre_validation</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">post_validation</span><span class="pi">:</span> <span class="pi">[]</span>
+  
+  <span class="c1"># Custom Lifecycle Events</span>
+  <span class="na">on_error</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">on_success</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">on_rollback</span><span class="pi">:</span> <span class="pi">[]</span>
+</code></pre></div></div>
+
+<h3 id="custom-hook-scripts">Custom Hook Scripts</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hooks</span><span class="pi">:</span>
+  <span class="na">pre_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">run_tests"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/run-tests.sh"</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="m">300</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">security_scan"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npm</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">security-check"</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="m">120</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">false</span>
+      
+  <span class="na">post_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">smoke_tests"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/smoke-tests.sh"</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="m">180</span>
+      <span class="na">retry</span><span class="pi">:</span> <span class="m">3</span>
+</code></pre></div></div>
+
+<h2 id="integration-configuration">Integration Configuration</h2>
+
+<h3 id="github-integration">GitHub Integration</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">integrations</span><span class="pi">:</span>
+  <span class="na">github</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">token</span><span class="pi">:</span> <span class="s2">"</span><span class="s">${GITHUB_TOKEN}"</span>
+    <span class="na">owner</span><span class="pi">:</span> <span class="s2">"</span><span class="s">your-username"</span>
+    <span class="na">repo</span><span class="pi">:</span> <span class="s2">"</span><span class="s">your-repo"</span>
+    <span class="na">settings</span><span class="pi">:</span>
+      <span class="na">auto_commit</span><span class="pi">:</span> <span class="no">false</span>
+      <span class="na">commit_message_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ACE-Flow:</span><span class="nv"> </span><span class="s">{action}</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">{description}"</span>
+      <span class="na">branch_prefix</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow/"</span>
+      <span class="na">create_pr</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">pr_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">.github/pull_request_template.md"</span>
+</code></pre></div></div>
+
+<h3 id="slack-integration">Slack Integration</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">integrations</span><span class="pi">:</span>
+  <span class="na">slack</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">webhook_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">${SLACK_WEBHOOK_URL}"</span>
+    <span class="na">channels</span><span class="pi">:</span>
+      <span class="na">deployments</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#deployments"</span>
+      <span class="na">errors</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#alerts"</span>
+      <span class="na">general</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#ace-flow"</span>
+    <span class="na">message_templates</span><span class="pi">:</span>
+      <span class="na">deployment_start</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🚀</span><span class="nv"> </span><span class="s">Deploying</span><span class="nv"> </span><span class="s">{project}</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">{environment}"</span>
+      <span class="na">deployment_success</span><span class="pi">:</span> <span class="s2">"</span><span class="s">✅</span><span class="nv"> </span><span class="s">{project}</span><span class="nv"> </span><span class="s">deployed</span><span class="nv"> </span><span class="s">successfully"</span>
+      <span class="na">deployment_failure</span><span class="pi">:</span> <span class="s2">"</span><span class="s">❌</span><span class="nv"> </span><span class="s">{project}</span><span class="nv"> </span><span class="s">deployment</span><span class="nv"> </span><span class="s">failed"</span>
+</code></pre></div></div>
+
+<h3 id="monitoring-integration">Monitoring Integration</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">integrations</span><span class="pi">:</span>
+  <span class="na">monitoring</span><span class="pi">:</span>
+    <span class="na">cloudwatch</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">custom_metrics</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">log_groups</span><span class="pi">:</span> <span class="no">true</span>
+      
+    <span class="na">datadog</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span> <span class="no">false</span>
+      <span class="na">api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">${DATADOG_API_KEY}"</span>
+      <span class="na">tags</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">project:{project_name}"</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">environment:{environment}"</span>
+</code></pre></div></div>
+
+<h2 id="security-configuration">Security Configuration</h2>
+
+<h3 id="secrets-management">Secrets Management</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">security</span><span class="pi">:</span>
+  <span class="na">secrets_manager</span><span class="pi">:</span> <span class="s2">"</span><span class="s">aws"</span>  <span class="c1"># aws, vault, env</span>
+  <span class="na">encryption_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">${ACE_FLOW_ENCRYPTION_KEY}"</span>
+  
+  <span class="c1"># Allowed secrets patterns</span>
+  <span class="na">allowed_secrets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">DATABASE_URL"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">API_KEY_*"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">*_SECRET"</span>
+    
+  <span class="c1"># Blocked patterns</span>
+  <span class="na">blocked_secrets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">password"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">key"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">secret"</span>
+</code></pre></div></div>
+
+<h3 id="access-control">Access Control</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">security</span><span class="pi">:</span>
+  <span class="na">access_control</span><span class="pi">:</span>
+    <span class="na">require_mfa</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">allowed_ips</span><span class="pi">:</span> <span class="pi">[]</span>
+    <span class="na">allowed_users</span><span class="pi">:</span> <span class="pi">[]</span>
+    <span class="na">admin_users</span><span class="pi">:</span> <span class="pi">[]</span>
+    
+  <span class="na">audit</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">log_commands</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">log_file</span><span class="pi">:</span> <span class="s2">"</span><span class="s">~/.ace-flow/audit.log"</span>
+</code></pre></div></div>
+
+<h2 id="performance-configuration">Performance Configuration</h2>
+
+<h3 id="caching">Caching</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">performance</span><span class="pi">:</span>
+  <span class="na">caching</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">ttl</span><span class="pi">:</span> <span class="m">3600</span>  <span class="c1"># seconds</span>
+    <span class="na">max_size</span><span class="pi">:</span> <span class="s2">"</span><span class="s">100MB"</span>
+    <span class="na">location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">~/.ace-flow/cache"</span>
+    
+  <span class="na">research_cache</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">ttl</span><span class="pi">:</span> <span class="m">86400</span>  <span class="c1"># 24 hours</span>
+    <span class="na">max_entries</span><span class="pi">:</span> <span class="m">1000</span>
+</code></pre></div></div>
+
+<h3 id="concurrency">Concurrency</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">performance</span><span class="pi">:</span>
+  <span class="na">concurrency</span><span class="pi">:</span>
+    <span class="na">max_parallel_operations</span><span class="pi">:</span> <span class="m">5</span>
+    <span class="na">research_workers</span><span class="pi">:</span> <span class="m">3</span>
+    <span class="na">deployment_timeout</span><span class="pi">:</span> <span class="m">900</span>
+    
+  <span class="na">optimization</span><span class="pi">:</span>
+    <span class="na">lazy_loading</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">compress_outputs</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">minimal_logging</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<h2 id="validation-configuration">Validation Configuration</h2>
+
+<h3 id="schema-validation">Schema Validation</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">validation</span><span class="pi">:</span>
+  <span class="na">schema</span><span class="pi">:</span>
+    <span class="na">strict_mode</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">allow_custom_fields</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">require_descriptions</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">max_model_count</span><span class="pi">:</span> <span class="m">50</span>
+    <span class="na">max_field_count</span><span class="pi">:</span> <span class="m">100</span>
+    
+  <span class="na">naming_conventions</span><span class="pi">:</span>
+    <span class="na">model_names</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PascalCase"</span>
+    <span class="na">field_names</span><span class="pi">:</span> <span class="s2">"</span><span class="s">camelCase"</span>
+    <span class="na">enum_values</span><span class="pi">:</span> <span class="s2">"</span><span class="s">UPPER_CASE"</span>
+</code></pre></div></div>
+
+<h3 id="deployment-validation">Deployment Validation</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">validation</span><span class="pi">:</span>
+  <span class="na">deployment</span><span class="pi">:</span>
+    <span class="na">check_costs</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">cost_threshold</span><span class="pi">:</span> <span class="m">100.00</span>
+    <span class="na">check_quotas</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">verify_permissions</span><span class="pi">:</span> <span class="no">true</span>
+    
+  <span class="na">pre_checks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">aws_credentials"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">service_quotas"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">network_connectivity"</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">disk_space"</span>
+</code></pre></div></div>
+
+<h2 id="configuration-templates">Configuration Templates</h2>
+
+<h3 id="development-environment">Development Environment</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/config.development.yml</span>
+<span class="na">environments</span><span class="pi">:</span>
+  <span class="na">development</span><span class="pi">:</span>
+    <span class="na">aws_region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+    <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">cost_alerts</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">validation</span><span class="pi">:</span>
+      <span class="na">strict_mode</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">features</span><span class="pi">:</span>
+      <span class="na">debug_mode</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">verbose_logging</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h3 id="production-environment">Production Environment</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/config.production.yml</span>
+<span class="na">environments</span><span class="pi">:</span>
+  <span class="na">production</span><span class="pi">:</span>
+    <span class="na">aws_region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-west-2"</span>
+    <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">require_approval</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">backup_before_deploy</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">validation</span><span class="pi">:</span>
+      <span class="na">strict_mode</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">monitoring</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">alert_threshold</span><span class="pi">:</span> <span class="m">50.00</span>
+</code></pre></div></div>
+
+<h2 id="configuration-management">Configuration Management</h2>
+
+<h3 id="version-control">Version Control</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add configuration to git</span>
+git add .ace-flow/config.yml
+
+<span class="c"># Use different configs per environment</span>
+<span class="nb">cp</span> .ace-flow/config.production.yml .ace-flow/config.yml
+</code></pre></div></div>
+
+<h3 id="configuration-validation">Configuration Validation</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Validate current configuration</span>
+/ace-config <span class="nt">--validate</span>
+
+<span class="c"># Check for configuration conflicts</span>
+/ace-config <span class="nt">--check-conflicts</span>
+
+<span class="c"># Show effective configuration</span>
+/ace-config <span class="nt">--show-effective</span>
+</code></pre></div></div>
+
+<h3 id="migration-and-updates">Migration and Updates</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Migrate old configuration format</span>
+/ace-config <span class="nt">--migrate</span>
+
+<span class="c"># Update to latest schema</span>
+/ace-config <span class="nt">--update-schema</span>
+
+<span class="c"># Backup current configuration</span>
+/ace-config <span class="nt">--backup</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em>For more advanced configuration scenarios, see our <a href="../advanced/configuration">Advanced Configuration Guide</a> or join our <a href="https://discord.gg/ace-flow">Discord community</a> for help.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

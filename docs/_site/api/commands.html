@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Command Reference | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Command Reference" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/api/commands.html" />
+<meta property="og:url" content="http://localhost:4000/api/commands.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Command Reference" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Command Reference","url":"http://localhost:4000/api/commands.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="command-reference">Command Reference</h1>
+
+<p>Complete reference for all ACE-Flow commands and their options.</p>
+
+<h2 id="core-commands">Core Commands</h2>
+
+<h3 id="ace-genesis-alias-ag"><code class="language-plaintext highlighter-rouge">/ace-genesis</code> (alias: <code class="language-plaintext highlighter-rouge">/ag</code>)</h3>
+
+<p>Intelligent project creation through conversational interface.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-genesis <span class="o">[</span>project-idea]
+/ag <span class="s2">"e-commerce platform with real-time inventory"</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--pattern &lt;pattern&gt;</code> - Use specific architecture pattern</li>
+  <li><code class="language-plaintext highlighter-rouge">--quick</code> - Skip detailed requirements gathering</li>
+  <li><code class="language-plaintext highlighter-rouge">--output &lt;path&gt;</code> - Specify output directory</li>
+  <li><code class="language-plaintext highlighter-rouge">--dry-run</code> - Generate specs without creating files</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Interactive project creation</span>
+/ace-genesis
+
+<span class="c"># Quick start with idea</span>
+/ag <span class="s2">"social media app for photographers"</span>
+
+<span class="c"># Use specific pattern</span>
+/ace-genesis <span class="nt">--pattern</span><span class="o">=</span>e_commerce <span class="s2">"marketplace for handmade goods"</span>
+
+<span class="c"># Generate specifications only</span>
+/ace-genesis <span class="nt">--dry-run</span> <span class="s2">"analytics dashboard"</span>
+</code></pre></div></div>
+
+<h3 id="ace-research-alias-ar"><code class="language-plaintext highlighter-rouge">/ace-research</code> (alias: <code class="language-plaintext highlighter-rouge">/ar</code>)</h3>
+
+<p>Advanced documentation research system.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-research &lt;domain&gt; <span class="o">[</span>search-pattern]
+/ar amplify graphql-subscriptions
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--pages &lt;number&gt;</code> - Pages to research (default: 30)</li>
+  <li><code class="language-plaintext highlighter-rouge">--depth &lt;level&gt;</code> - Research depth: surface, standard, deep</li>
+  <li><code class="language-plaintext highlighter-rouge">--format &lt;type&gt;</code> - Output format: markdown, json, yaml</li>
+  <li><code class="language-plaintext highlighter-rouge">--save &lt;path&gt;</code> - Save research to file</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Research AWS Amplify authentication</span>
+/ar amplify auth
+
+<span class="c"># Deep research with 100 pages</span>
+/ace-research <span class="nt">--pages</span><span class="o">=</span>100 <span class="nt">--depth</span><span class="o">=</span>deep amplify <span class="s2">"real-time subscriptions"</span>
+
+<span class="c"># Save research results</span>
+/ar <span class="nt">--save</span><span class="o">=</span>research/amplify-auth.md amplify authentication
+</code></pre></div></div>
+
+<h3 id="ace-implement-alias-ai"><code class="language-plaintext highlighter-rouge">/ace-implement</code> (alias: <code class="language-plaintext highlighter-rouge">/ai</code>)</h3>
+
+<p>Infrastructure-aware implementation with smart timing.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-implement <span class="o">[</span>project-name]
+/ai my-social-platform
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--skip-research</code> - Skip documentation research phase</li>
+  <li><code class="language-plaintext highlighter-rouge">--no-deploy</code> - Generate code without deploying</li>
+  <li><code class="language-plaintext highlighter-rouge">--env &lt;environment&gt;</code> - Target environment (sandbox, staging, prod)</li>
+  <li><code class="language-plaintext highlighter-rouge">--watch</code> - Monitor deployment progress</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Full implementation with research</span>
+/ace-implement
+
+<span class="c"># Quick implementation without research</span>
+/ai <span class="nt">--skip-research</span> my-dashboard
+
+<span class="c"># Generate code only (no deployment)</span>
+/ace-implement <span class="nt">--no-deploy</span> analytics-app
+</code></pre></div></div>
+
+<h3 id="ace-adopt-alias-aa"><code class="language-plaintext highlighter-rouge">/ace-adopt</code> (alias: <code class="language-plaintext highlighter-rouge">/aa</code>)</h3>
+
+<p>Safe migration of existing projects to ACE-Flow.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-adopt <span class="o">[</span>description]
+/aa <span class="s2">"React app with Express API and MySQL"</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--strategy &lt;type&gt;</code> - Migration strategy: gradual, parallel, replacement</li>
+  <li><code class="language-plaintext highlighter-rouge">--analyze &lt;path&gt;</code> - Analyze specific directory</li>
+  <li><code class="language-plaintext highlighter-rouge">--plan-only</code> - Generate migration plan without executing</li>
+  <li><code class="language-plaintext highlighter-rouge">--backup</code> - Create backup before migration</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Analyze and migrate current directory</span>
+/ace-adopt
+
+<span class="c"># Create migration plan only</span>
+/aa <span class="nt">--plan-only</span> <span class="s2">"Legacy PHP application"</span>
+
+<span class="c"># Gradual migration with backup</span>
+/ace-adopt <span class="nt">--strategy</span><span class="o">=</span>gradual <span class="nt">--backup</span> <span class="s2">"Node.js API"</span>
+</code></pre></div></div>
+
+<h2 id="status-and-monitoring">Status and Monitoring</h2>
+
+<h3 id="ace-status-alias-as"><code class="language-plaintext highlighter-rouge">/ace-status</code> (alias: <code class="language-plaintext highlighter-rouge">/as</code>)</h3>
+
+<p>Real-time progress tracking with visual indicators.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-status <span class="o">[</span>options]
+/as <span class="nt">--specs</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--brief</code> - Show condensed status</li>
+  <li><code class="language-plaintext highlighter-rouge">--specs</code> - Display project specifications</li>
+  <li><code class="language-plaintext highlighter-rouge">--hooks</code> - Show smart hook activity</li>
+  <li><code class="language-plaintext highlighter-rouge">--json</code> - Output in JSON format</li>
+  <li><code class="language-plaintext highlighter-rouge">--watch</code> - Continuous monitoring mode</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Show current status</span>
+/ace-status
+
+<span class="c"># View specifications</span>
+/as <span class="nt">--specs</span>
+
+<span class="c"># Monitor hook activity</span>
+/as <span class="nt">--hooks</span>
+
+<span class="c"># Continuous monitoring</span>
+/ace-status <span class="nt">--watch</span>
+</code></pre></div></div>
+
+<h3 id="ace-validate-alias-av"><code class="language-plaintext highlighter-rouge">/ace-validate</code> (alias: <code class="language-plaintext highlighter-rouge">/av</code>)</h3>
+
+<p>Pre-implementation validation and health checks.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-validate <span class="o">[</span>component]
+/av <span class="nt">--all</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--all</code> - Validate entire project</li>
+  <li><code class="language-plaintext highlighter-rouge">--schema</code> - Validate GraphQL schema only</li>
+  <li><code class="language-plaintext highlighter-rouge">--auth</code> - Check authentication configuration</li>
+  <li><code class="language-plaintext highlighter-rouge">--deployment</code> - Verify deployment readiness</li>
+  <li><code class="language-plaintext highlighter-rouge">--fix</code> - Auto-fix validation issues</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Validate everything</span>
+/ace-validate <span class="nt">--all</span>
+
+<span class="c"># Check schema only</span>
+/av <span class="nt">--schema</span>
+
+<span class="c"># Validate and fix issues</span>
+/ace-validate <span class="nt">--fix</span>
+</code></pre></div></div>
+
+<h2 id="utility-commands">Utility Commands</h2>
+
+<h3 id="ace-cost-alias-ac"><code class="language-plaintext highlighter-rouge">/ace-cost</code> (alias: <code class="language-plaintext highlighter-rouge">/ac</code>)</h3>
+
+<p>AWS resource cost estimation.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-cost <span class="o">[</span>options]
+/ac <span class="nt">--monthly</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--monthly</code> - Show monthly estimates</li>
+  <li><code class="language-plaintext highlighter-rouge">--yearly</code> - Show annual projections</li>
+  <li><code class="language-plaintext highlighter-rouge">--breakdown</code> - Detailed cost breakdown</li>
+  <li><code class="language-plaintext highlighter-rouge">--region &lt;region&gt;</code> - Estimate for specific region</li>
+  <li><code class="language-plaintext highlighter-rouge">--scale &lt;factor&gt;</code> - Scale estimates by usage factor</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Basic cost estimate</span>
+/ace-cost
+
+<span class="c"># Monthly breakdown</span>
+/ac <span class="nt">--monthly</span> <span class="nt">--breakdown</span>
+
+<span class="c"># Scale for high traffic</span>
+/ace-cost <span class="nt">--scale</span><span class="o">=</span>10 <span class="nt">--monthly</span>
+</code></pre></div></div>
+
+<h3 id="ace-rollback-alias-arb"><code class="language-plaintext highlighter-rouge">/ace-rollback</code> (alias: <code class="language-plaintext highlighter-rouge">/arb</code>)</h3>
+
+<p>Safe recovery and restore system.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-rollback <span class="o">[</span>checkpoint]
+/arb <span class="nt">--list</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--list</code> - Show available checkpoints</li>
+  <li><code class="language-plaintext highlighter-rouge">--create</code> - Create new checkpoint</li>
+  <li><code class="language-plaintext highlighter-rouge">--force</code> - Force rollback without confirmation</li>
+  <li><code class="language-plaintext highlighter-rouge">--partial &lt;component&gt;</code> - Rollback specific component</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List checkpoints</span>
+/ace-rollback <span class="nt">--list</span>
+
+<span class="c"># Create checkpoint</span>
+/arb <span class="nt">--create</span> <span class="s2">"before-auth-changes"</span>
+
+<span class="c"># Rollback to specific point</span>
+/ace-rollback checkpoint-20240115-143022
+</code></pre></div></div>
+
+<h3 id="ace-help-alias-ah"><code class="language-plaintext highlighter-rouge">/ace-help</code> (alias: <code class="language-plaintext highlighter-rouge">/ah</code>)</h3>
+
+<p>Comprehensive command documentation.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-help <span class="o">[</span><span class="nb">command</span><span class="o">]</span>
+/ah ace-genesis
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--examples</code> - Show usage examples</li>
+  <li><code class="language-plaintext highlighter-rouge">--verbose</code> - Detailed documentation</li>
+  <li><code class="language-plaintext highlighter-rouge">--search &lt;term&gt;</code> - Search help content</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># General help</span>
+/ace-help
+
+<span class="c"># Help for specific command</span>
+/ah ace-implement <span class="nt">--examples</span>
+
+<span class="c"># Search help content</span>
+/ace-help <span class="nt">--search</span><span class="o">=</span><span class="s2">"authentication"</span>
+</code></pre></div></div>
+
+<h2 id="specialized-commands">Specialized Commands</h2>
+
+<h3 id="ace-spec-check-alias-asc"><code class="language-plaintext highlighter-rouge">/ace-spec-check</code> (alias: <code class="language-plaintext highlighter-rouge">/asc</code>)</h3>
+
+<p>Specification compliance monitoring.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-spec-check <span class="o">[</span>component]
+/asc <span class="nt">--report</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--report</code> - Generate compliance report</li>
+  <li><code class="language-plaintext highlighter-rouge">--fix</code> - Auto-fix spec violations</li>
+  <li><code class="language-plaintext highlighter-rouge">--strict</code> - Enable strict compliance mode</li>
+  <li><code class="language-plaintext highlighter-rouge">--baseline</code> - Set current state as baseline</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check all specifications</span>
+/ace-spec-check
+
+<span class="c"># Generate detailed report</span>
+/asc <span class="nt">--report</span> <span class="nt">--strict</span>
+
+<span class="c"># Fix compliance issues</span>
+/ace-spec-check <span class="nt">--fix</span>
+</code></pre></div></div>
+
+<h3 id="ace-steering-alias-ast"><code class="language-plaintext highlighter-rouge">/ace-steering</code> (alias: <code class="language-plaintext highlighter-rouge">/ast</code>)</h3>
+
+<p>Kiro-style steering context management.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-steering <span class="o">[</span>action]
+/ast <span class="nt">--analytics</span>
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--analytics</code> - Show steering analytics</li>
+  <li><code class="language-plaintext highlighter-rouge">--export</code> - Export steering data</li>
+  <li><code class="language-plaintext highlighter-rouge">--reset</code> - Reset steering context</li>
+  <li><code class="language-plaintext highlighter-rouge">--import &lt;file&gt;</code> - Import steering configuration</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># View steering status</span>
+/ace-steering
+
+<span class="c"># Show analytics</span>
+/ast <span class="nt">--analytics</span>
+
+<span class="c"># Export steering data</span>
+/ace-steering <span class="nt">--export</span><span class="o">=</span>steering-backup.json
+</code></pre></div></div>
+
+<h3 id="ace-flow-install"><code class="language-plaintext highlighter-rouge">/ace-flow-install</code></h3>
+
+<p>Install or update command aliases.</p>
+
+<p><strong>Usage</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/ace-flow-install <span class="o">[</span>options]
+</code></pre></div></div>
+
+<p><strong>Options</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--update</code> - Update existing installation</li>
+  <li><code class="language-plaintext highlighter-rouge">--force</code> - Force reinstallation</li>
+  <li><code class="language-plaintext highlighter-rouge">--uninstall</code> - Remove ACE-Flow aliases</li>
+  <li><code class="language-plaintext highlighter-rouge">--check</code> - Verify installation</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Initial installation</span>
+/ace-flow-install
+
+<span class="c"># Update existing installation</span>
+/ace-flow-install <span class="nt">--update</span>
+
+<span class="c"># Verify installation</span>
+/ace-flow-install <span class="nt">--check</span>
+</code></pre></div></div>
+
+<h2 id="command-chaining">Command Chaining</h2>
+
+<p>Combine commands for powerful workflows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Research → Validate → Implement</span>
+/ar amplify auth <span class="o">&amp;&amp;</span> /av <span class="nt">--auth</span> <span class="o">&amp;&amp;</span> /ai auth-service
+
+<span class="c"># Create → Check → Deploy</span>
+/ag <span class="s2">"cms platform"</span> <span class="o">&amp;&amp;</span> /asc <span class="o">&amp;&amp;</span> /ai <span class="nt">--env</span><span class="o">=</span>staging
+
+<span class="c"># Backup → Implement → Validate</span>
+/arb <span class="nt">--create</span> <span class="s2">"pre-migration"</span> <span class="o">&amp;&amp;</span> /aa <span class="o">&amp;&amp;</span> /av <span class="nt">--all</span>
+</code></pre></div></div>
+
+<h2 id="global-options">Global Options</h2>
+
+<p>Available for all commands:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--verbose</code> - Enable verbose output</li>
+  <li><code class="language-plaintext highlighter-rouge">--quiet</code> - Suppress non-essential output</li>
+  <li><code class="language-plaintext highlighter-rouge">--no-color</code> - Disable colored output</li>
+  <li><code class="language-plaintext highlighter-rouge">--config &lt;file&gt;</code> - Use custom configuration</li>
+  <li><code class="language-plaintext highlighter-rouge">--log-level &lt;level&gt;</code> - Set logging level (error, warn, info, debug)</li>
+</ul>
+
+<h2 id="environment-variables">Environment Variables</h2>
+
+<p>Control ACE-Flow behavior:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enable debug mode</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_DEBUG</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># Set default AWS region</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_AWS_REGION</span><span class="o">=</span>us-west-2
+
+<span class="c"># Custom configuration directory</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_CONFIG_DIR</span><span class="o">=</span>/path/to/config
+
+<span class="c"># Disable telemetry</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_TELEMETRY</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div></div>
+
+<h2 id="exit-codes">Exit Codes</h2>
+
+<p>Standard exit codes returned by commands:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0</code> - Success</li>
+  <li><code class="language-plaintext highlighter-rouge">1</code> - General error</li>
+  <li><code class="language-plaintext highlighter-rouge">2</code> - Invalid arguments</li>
+  <li><code class="language-plaintext highlighter-rouge">3</code> - Configuration error</li>
+  <li><code class="language-plaintext highlighter-rouge">4</code> - Network/AWS error</li>
+  <li><code class="language-plaintext highlighter-rouge">5</code> - Validation failure</li>
+  <li><code class="language-plaintext highlighter-rouge">6</code> - Resource not found</li>
+  <li><code class="language-plaintext highlighter-rouge">7</code> - Permission denied</li>
+</ul>
+
+<h2 id="configuration-files">Configuration Files</h2>
+
+<p>ACE-Flow uses several configuration files:</p>
+
+<h3 id="ace-flowconfigyml"><code class="language-plaintext highlighter-rouge">.ace-flow/config.yml</code></h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Global ACE-Flow configuration</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.2.0"</span>
+<span class="na">default_region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+<span class="na">telemetry_enabled</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">auto_update</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="na">research</span><span class="pi">:</span>
+  <span class="na">default_pages</span><span class="pi">:</span> <span class="m">30</span>
+  <span class="na">default_depth</span><span class="pi">:</span> <span class="s2">"</span><span class="s">standard"</span>
+  
+<span class="na">implementation</span><span class="pi">:</span>
+  <span class="na">auto_deploy</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">wait_for_ready</span><span class="pi">:</span> <span class="no">true</span>
+  
+<span class="na">validation</span><span class="pi">:</span>
+  <span class="na">strict_mode</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">auto_fix</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h3 id="ace-flowhooksyml"><code class="language-plaintext highlighter-rouge">.ace-flow/hooks.yml</code></h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Smart hook configuration</span>
+<span class="na">hooks</span><span class="pi">:</span>
+  <span class="na">pre_deploy</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">validate_schema</span>
+    <span class="pi">-</span> <span class="s">check_costs</span>
+    <span class="pi">-</span> <span class="s">run_tests</span>
+    
+  <span class="na">post_deploy</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">verify_endpoints</span>
+    <span class="pi">-</span> <span class="s">run_integration_tests</span>
+    <span class="pi">-</span> <span class="s">update_documentation</span>
+</code></pre></div></div>
+
+<h2 id="advanced-usage">Advanced Usage</h2>
+
+<h3 id="custom-patterns">Custom Patterns</h3>
+
+<p>Register custom architecture patterns:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Register new pattern</span>
+/ace-register-pattern custom-analytics.yml
+
+<span class="c"># List available patterns</span>
+/ace-list-patterns
+
+<span class="c"># Use custom pattern</span>
+/ag <span class="nt">--pattern</span><span class="o">=</span>custom_analytics <span class="s2">"data platform"</span>
+</code></pre></div></div>
+
+<h3 id="hook-system">Hook System</h3>
+
+<p>Configure smart hooks for automation:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Setup pre-deployment hooks</span>
+/ace-setup-hooks <span class="nt">--pre-deploy</span><span class="o">=</span><span class="s2">"validate,test,estimate-cost"</span>
+
+<span class="c"># View hook activity</span>
+/as <span class="nt">--hooks</span>
+
+<span class="c"># Disable specific hooks</span>
+/ace-disable-hook cost-estimation
+</code></pre></div></div>
+
+<h3 id="multi-environment-support">Multi-Environment Support</h3>
+
+<p>Manage multiple environments:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Deploy to staging</span>
+/ai <span class="nt">--env</span><span class="o">=</span>staging
+
+<span class="c"># Promote staging to production</span>
+/ace-promote staging production
+
+<span class="c"># Environment-specific validation</span>
+/av <span class="nt">--env</span><span class="o">=</span>production
+</code></pre></div></div>
+
+<h2 id="troubleshooting-commands">Troubleshooting Commands</h2>
+
+<p>Quick diagnostic help:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># System diagnostics</span>
+/ace-doctor
+
+<span class="c"># Check permissions</span>
+/ace-check-permissions
+
+<span class="c"># Verify AWS credentials</span>
+/ace-verify-aws
+
+<span class="c"># Reset configuration</span>
+/ace-reset <span class="nt">--config-only</span>
+</code></pre></div></div>
+
+<h2 id="integration-with-cicd">Integration with CI/CD</h2>
+
+<p>Use ACE-Flow in automated pipelines:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># CI-friendly mode (non-interactive)</span>
+/ace-validate <span class="nt">--ci</span> <span class="nt">--fail-fast</span>
+
+<span class="c"># Generate deployment artifacts</span>
+/ace-build <span class="nt">--output</span><span class="o">=</span>artifacts/
+
+<span class="c"># Deploy with verification</span>
+/ace-deploy <span class="nt">--wait</span> <span class="nt">--verify</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em>For detailed examples and tutorials, see our <a href="../examples">Examples</a> section.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,14 +1,19 @@
 # GitHub Pages configuration for ACE-Flow documentation
 theme: minima
-title: "ACE-Flow Documentation"
+title: "ACE-Flow"
 description: "Amplified Context Engineering for AWS Amplify Gen 2 development"
+tagline: "AI-driven development workflows that just work"
+
+# Base URL for GitHub Pages
+baseurl: "/ace-flow"
+url: "https://paretofilm.github.io"
 
 # Navigation
 header_pages:
   - getting-started.md  
   - examples.md
   - patterns/index.md
-  - api/index.md
+  - resources.md
 
 # GitHub repository information
 github_username: paretofilm
@@ -22,6 +27,41 @@ highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections for better organization
+collections:
+  patterns:
+    output: true
+    permalink: /:collection/:name/
+  guides:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "patterns"
+    values:
+      layout: "pattern"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+
+# Custom variables
+ace_flow:
+  version: "1.2.0"
+  github_url: "https://github.com/paretofilm/ace-flow"
+  discord_url: "#"
+  twitter_url: "#"
 
 # Exclude from processing
 exclude:
@@ -33,3 +73,4 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
+  - jekyll.log

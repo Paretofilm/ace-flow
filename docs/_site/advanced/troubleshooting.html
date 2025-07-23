@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Troubleshooting | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Troubleshooting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/troubleshooting.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/troubleshooting.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Troubleshooting" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Troubleshooting","url":"http://localhost:4000/advanced/troubleshooting.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="troubleshooting">Troubleshooting</h1>
+
+<p>Common issues and solutions when working with ACE-Flow and AWS Amplify Gen 2.</p>
+
+<h2 id="quick-fixes">Quick Fixes</h2>
+
+<h3 id="installation-issues">Installation Issues</h3>
+
+<h4 id="ace-flow-commands-not-found">ACE-Flow Commands Not Found</h4>
+
+<p><strong>Problem</strong>: <code class="language-plaintext highlighter-rouge">/ace-genesis</code> or other commands return “command not found”</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Re-install ACE-Flow aliases</span>
+/ace-flow-install <span class="nt">--update</span>
+
+<span class="c"># Or manually source the aliases</span>
+<span class="nb">source</span> ~/.claude/ace-aliases.sh
+
+<span class="c"># Check if aliases are loaded</span>
+<span class="nb">alias</span> | <span class="nb">grep </span>ace
+</code></pre></div></div>
+
+<h4 id="permission-denied-errors">Permission Denied Errors</h4>
+
+<p><strong>Problem</strong>: Cannot execute ACE-Flow scripts</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make scripts executable</span>
+<span class="nb">chmod</span> +x .ace-flow/scripts/<span class="k">*</span>.sh
+<span class="nb">chmod</span> +x ~/.claude/<span class="k">*</span>.sh
+
+<span class="c"># Fix ownership if needed</span>
+<span class="nb">sudo chown</span> <span class="nt">-R</span> <span class="nv">$USER</span> ~/.claude/
+</code></pre></div></div>
+
+<h3 id="aws-amplify-issues">AWS Amplify Issues</h3>
+
+<h4 id="authentication-failures">Authentication Failures</h4>
+
+<p><strong>Problem</strong>: AWS credentials not configured or expired</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Configure AWS CLI</span>
+aws configure
+
+<span class="c"># Or use AWS SSO</span>
+aws sso login <span class="nt">--profile</span> your-profile
+
+<span class="c"># Verify credentials</span>
+aws sts get-caller-identity
+</code></pre></div></div>
+
+<h4 id="sandbox-deployment-failures">Sandbox Deployment Failures</h4>
+
+<p><strong>Problem</strong>: <code class="language-plaintext highlighter-rouge">npx amplify sandbox</code> fails to deploy</p>
+
+<p><strong>Solutions</strong>:</p>
+
+<ol>
+  <li><strong>Check AWS Region</strong>:
+```bash
+    <h1 id="verify-region-is-supported">Verify region is supported</h1>
+    <p>aws ec2 describe-regions –output table</p>
+  </li>
+</ol>
+
+<h1 id="set-region-explicitly">Set region explicitly</h1>
+<p>export AWS_DEFAULT_REGION=us-east-1</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. **Clean and Retry**:
+```bash
+# Delete existing sandbox
+npx amplify sandbox delete --yes
+
+# Clear Amplify cache
+rm -rf .amplify/
+rm -rf node_modules/.cache/
+
+# Reinstall and retry
+npm install
+npx amplify sandbox
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Check Service Quotas</strong>:
+```bash
+    <h1 id="list-dynamodb-tables-limit-256">List DynamoDB tables (limit 256)</h1>
+    <p>aws dynamodb list-tables</p>
+  </li>
+</ol>
+
+<h1 id="list-lambda-functions-limit-varies-by-region">List Lambda functions (limit varies by region)</h1>
+<p>aws lambda list-functions</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+#### Schema Generation Errors
+
+**Problem**: GraphQL schema fails to generate
+
+**Solution**:
+```bash
+# Force regeneration
+npx amplify generate graphql-client-code --force
+
+# Check for syntax errors in schema
+npx amplify sandbox --verbose
+
+# Reset schema cache
+rm -rf .amplify/generated/
+</code></pre></div></div>
+
+<h3 id="frontend-issues">Frontend Issues</h3>
+
+<h4 id="typescript-errors">TypeScript Errors</h4>
+
+<p><strong>Problem</strong>: Type errors after schema changes</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Regenerate types</span>
+npx amplify generate graphql-client-code
+
+<span class="c"># Clear TypeScript cache</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> .tsbuildinfo
+<span class="nb">rm</span> <span class="nt">-rf</span> dist/
+
+<span class="c"># Restart TypeScript service in VS Code</span>
+<span class="c"># Command Palette -&gt; "TypeScript: Restart TS Server"</span>
+</code></pre></div></div>
+
+<h4 id="build-failures">Build Failures</h4>
+
+<p><strong>Problem</strong>: <code class="language-plaintext highlighter-rouge">npm run build</code> fails with dependency errors</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clear package cache</span>
+npm cache clean <span class="nt">--force</span>
+
+<span class="c"># Delete and reinstall dependencies</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> node_modules package-lock.json
+npm <span class="nb">install</span>
+
+<span class="c"># Check for peer dependency conflicts</span>
+npm <span class="nb">ls</span> <span class="nt">--depth</span><span class="o">=</span>0
+</code></pre></div></div>
+
+<h4 id="real-time-subscription-issues">Real-time Subscription Issues</h4>
+
+<p><strong>Problem</strong>: GraphQL subscriptions not working</p>
+
+<p><strong>Solutions</strong>:</p>
+
+<ol>
+  <li><strong>Check WebSocket Connections</strong>:
+```javascript
+// Enable debug logging
+import { Amplify } from ‘aws-amplify’;</li>
+</ol>
+
+<p>Amplify.configure({
+  …amplifyconfig,
+  API: {
+    …amplifyconfig.API,
+    GraphQL: {
+      …amplifyconfig.API.GraphQL,
+      defaultAuthMode: ‘apiKey’, // or ‘userPool’
+    }
+  }
+});</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. **Verify Authorization**:
+```javascript
+// Check subscription authorization
+const subscription = client.models.Post.observeQuery().subscribe({
+  next: (snapshot) =&gt; console.log(snapshot),
+  error: (error) =&gt; console.error('Subscription error:', error)
+});
+</code></pre></div></div>
+
+<h2 id="advanced-debugging">Advanced Debugging</h2>
+
+<h3 id="enable-verbose-logging">Enable Verbose Logging</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Amplify CLI debug mode</span>
+<span class="nv">DEBUG</span><span class="o">=</span>amplify<span class="k">*</span> npx amplify sandbox
+
+<span class="c"># AWS SDK debug</span>
+<span class="nb">export </span><span class="nv">AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE</span><span class="o">=</span>1
+<span class="nb">export </span><span class="nv">DEBUG</span><span class="o">=</span>aws-amplify<span class="k">*</span>
+</code></pre></div></div>
+
+<h3 id="check-cloudformation-stacks">Check CloudFormation Stacks</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List Amplify stacks</span>
+aws cloudformation list-stacks <span class="nt">--stack-status-filter</span> CREATE_COMPLETE UPDATE_COMPLETE
+
+<span class="c"># Describe specific stack</span>
+aws cloudformation describe-stacks <span class="nt">--stack-name</span> amplify-[project-name]-[branch]-[id]
+
+<span class="c"># Check stack events for errors</span>
+aws cloudformation describe-stack-events <span class="nt">--stack-name</span> <span class="o">[</span>stack-name]
+</code></pre></div></div>
+
+<h3 id="monitor-cloudwatch-logs">Monitor CloudWatch Logs</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List log groups</span>
+aws logs describe-log-groups <span class="nt">--log-group-name-prefix</span> /aws/lambda/
+
+<span class="c"># Stream logs in real-time</span>
+aws logs <span class="nb">tail</span> /aws/lambda/[function-name] <span class="nt">--follow</span>
+</code></pre></div></div>
+
+<h2 id="performance-issues">Performance Issues</h2>
+
+<h3 id="slow-graphql-queries">Slow GraphQL Queries</h3>
+
+<p><strong>Problem</strong>: Queries taking too long to execute</p>
+
+<p><strong>Solutions</strong>:</p>
+
+<ol>
+  <li><strong>Add Indexes</strong>:
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add secondary indexes to your schema</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">Post</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+ <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+ <span class="na">authorId</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">id</span><span class="p">(),</span>
+ <span class="na">createdAt</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+ <span class="c1">// Add index for common query patterns</span>
+  <span class="p">}).</span><span class="nx">secondaryIndexes</span><span class="p">(</span><span class="nx">index</span> <span class="o">=&gt;</span> <span class="p">[</span>
+ <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">).</span><span class="nx">sortKeys</span><span class="p">([</span><span class="dl">'</span><span class="s1">createdAt</span><span class="dl">'</span><span class="p">]).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byAuthor</span><span class="dl">'</span><span class="p">),</span>
+ <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">createdAt</span><span class="dl">'</span><span class="p">).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byDate</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">])</span>
+<span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Optimize Queries</strong>:
+```javascript
+// Use specific fields instead of fetching all
+const posts = await client.models.Post.list({
+  selectionSet: [‘id’, ‘title’, ‘createdAt’],
+  limit: 20
+});</li>
+</ol>
+
+<p>// Use pagination
+const posts = await client.models.Post.list({
+  limit: 10,
+  nextToken: lastToken
+});</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+3. **Enable Caching**:
+```javascript
+import { generateClient } from 'aws-amplify/api';
+
+const client = generateClient({
+  cachingPolicy: {
+    ttl: 300000, // 5 minutes
+    policy: 'cache-first'
+  }
+});
+</code></pre></div></div>
+
+<h3 id="high-aws-costs">High AWS Costs</h3>
+
+<p><strong>Problem</strong>: Unexpected AWS charges</p>
+
+<p><strong>Solutions</strong>:</p>
+
+<ol>
+  <li><strong>Monitor Usage</strong>:
+```bash
+    <h1 id="check-dynamodb-usage">Check DynamoDB usage</h1>
+    <p>aws dynamodb describe-table –table-name [table-name]</p>
+  </li>
+</ol>
+
+<h1 id="monitor-lambda-invocations">Monitor Lambda invocations</h1>
+<p>aws logs filter-log-events –log-group-name /aws/lambda/[function-name] –start-time $(date -d ‘1 day ago’ +%s)000</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. **Optimize DynamoDB**:
+```typescript
+// Use on-demand billing for dev environments
+// Set up auto-scaling for production
+export const data = defineData({
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'apiKey'
+  }
+});
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Clean Up Resources</strong>:
+```bash
+    <h1 id="delete-unused-sandboxes">Delete unused sandboxes</h1>
+    <p>npx amplify sandbox delete</p>
+  </li>
+</ol>
+
+<h1 id="remove-old-cloudformation-stacks">Remove old CloudFormation stacks</h1>
+<p>aws cloudformation delete-stack –stack-name [old-stack-name]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## Common Error Messages
+
+### "AccessDenied" Errors
+
+**Error**: `User: arn:aws:iam::account:user/username is not authorized to perform: action`
+
+**Solution**:
+```bash
+# Check IAM permissions
+aws iam get-user-policy --user-name [username] --policy-name [policy-name]
+
+# Attach required policies
+aws iam attach-user-policy --user-name [username] --policy-arn arn:aws:iam::aws:policy/AmplifyBackendDeployFullAccess
+</code></pre></div></div>
+
+<h3 id="validationexception-in-dynamodb">“ValidationException” in DynamoDB</h3>
+
+<p><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">ValidationException: One or more parameter values were invalid</code></p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check data types match schema</span>
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John Doe</span><span class="dl">"</span><span class="p">,</span>        <span class="c1">// String</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>                 <span class="c1">// Number, not string</span>
+  <span class="na">isActive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>          <span class="c1">// Boolean, not string</span>
+  <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>    <span class="c1">// Date object, not string</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="networkingerror-in-graphql">“NetworkingError” in GraphQL</h3>
+
+<p><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">NetworkingError: Network request failed</code></p>
+
+<p><strong>Solutions</strong>:</p>
+
+<ol>
+  <li><strong>Check Endpoint URL</strong>:
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Verify amplify_outputs.json has correct endpoint</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">amplifyconfig</span><span class="p">.</span><span class="nx">API</span><span class="p">.</span><span class="nx">GraphQL</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>CORS Issues</strong>:
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add CORS headers to Lambda functions</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+ <span class="na">statusCode</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+ <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+   <span class="dl">"</span><span class="s2">Access-Control-Allow-Origin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">Access-Control-Allow-Headers</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">Access-Control-Allow-Methods</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span>
+ <span class="p">},</span>
+ <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="resourcenotfound-errors">“ResourceNotFound” Errors</h3>
+
+<p><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">ResourceNotFoundException: Table not found</code></p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Verify table exists</span>
+aws dynamodb list-tables
+
+<span class="c"># Check if sandbox is running</span>
+npx amplify sandbox status
+
+<span class="c"># Redeploy if necessary</span>
+npx amplify sandbox delete
+npx amplify sandbox
+</code></pre></div></div>
+
+<h2 id="migration-issues">Migration Issues</h2>
+
+<h3 id="schema-breaking-changes">Schema Breaking Changes</h3>
+
+<p><strong>Problem</strong>: Existing data incompatible with new schema</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create data migration script</span>
+node scripts/migrate-data.js
+
+<span class="c"># Use gradual rollout</span>
+/ace-migrate <span class="nt">--strategy</span><span class="o">=</span>blue-green
+</code></pre></div></div>
+
+<h3 id="authentication-migration">Authentication Migration</h3>
+
+<p><strong>Problem</strong>: Users can’t login after Cognito migration</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Implement fallback authentication</span>
+<span class="kd">const</span> <span class="nx">authenticateUser</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// Try new Cognito auth first</span>
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">signIn</span><span class="p">({</span> <span class="na">username</span><span class="p">:</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">password</span> <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">user</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Fallback to legacy auth</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">legacyAuth</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="development-workflow-issues">Development Workflow Issues</h2>
+
+<h3 id="git-conflicts-in-generated-files">Git Conflicts in Generated Files</h3>
+
+<p><strong>Problem</strong>: Merge conflicts in <code class="language-plaintext highlighter-rouge">.amplify/</code> or <code class="language-plaintext highlighter-rouge">amplify_outputs.json</code></p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add to .gitignore</span>
+<span class="nb">echo</span> <span class="s2">".amplify/"</span> <span class="o">&gt;&gt;</span> .gitignore
+<span class="nb">echo</span> <span class="s2">"amplify_outputs.json"</span> <span class="o">&gt;&gt;</span> .gitignore
+
+<span class="c"># Regenerate after merge</span>
+npx amplify generate outputs
+</code></pre></div></div>
+
+<h3 id="environment-mismatches">Environment Mismatches</h3>
+
+<p><strong>Problem</strong>: Different behavior between local and production</p>
+
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use environment-specific configs</span>
+<span class="nb">cp </span>amplify_outputs.production.json amplify_outputs.json
+
+<span class="c"># Set environment variables</span>
+<span class="nb">export </span><span class="nv">NODE_ENV</span><span class="o">=</span>production
+<span class="nb">export </span><span class="nv">AMPLIFY_ENV</span><span class="o">=</span>production
+</code></pre></div></div>
+
+<h2 id="getting-help">Getting Help</h2>
+
+<h3 id="debug-information-to-collect">Debug Information to Collect</h3>
+
+<p>When seeking help, include:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># System information</span>
+node <span class="nt">--version</span>
+npm <span class="nt">--version</span>
+npx amplify <span class="nt">--version</span>
+
+<span class="c"># Project information</span>
+<span class="nb">cat </span>package.json | <span class="nb">grep</span> <span class="nt">-A</span> 20 <span class="s1">'"dependencies"'</span>
+<span class="nb">cat </span>amplify_outputs.json | jq <span class="s1">'.API.GraphQL.endpoint'</span>
+
+<span class="c"># Error logs</span>
+<span class="nb">tail</span> <span class="nt">-50</span> ~/.npm/_logs/<span class="k">*</span>.log
+</code></pre></div></div>
+
+<h3 id="community-resources">Community Resources</h3>
+
+<ul>
+  <li><strong>Discord</strong>: <a href="https://discord.gg/ace-flow">ACE-Flow Community</a></li>
+  <li><strong>GitHub Issues</strong>: <a href="https://github.com/ace-flow/ace-flow/issues">Report Bugs</a></li>
+  <li><strong>Stack Overflow</strong>: Tag questions with <code class="language-plaintext highlighter-rouge">ace-flow</code> and <code class="language-plaintext highlighter-rouge">aws-amplify</code></li>
+  <li><strong>AWS Forums</strong>: <a href="https://forum.amplify.aws/">Amplify Community</a></li>
+</ul>
+
+<h3 id="professional-support">Professional Support</h3>
+
+<ul>
+  <li><strong>ACE-Flow Support</strong>: <a href="mailto:support@ace-flow.dev">support@ace-flow.dev</a></li>
+  <li><strong>AWS Support</strong>: Available with AWS support plans</li>
+  <li><strong>Consulting</strong>: <a href="https://ace-flow.dev/consulting">Schedule consultation</a></li>
+</ul>
+
+<h2 id="preventive-measures">Preventive Measures</h2>
+
+<h3 id="pre-deployment-checklist">Pre-deployment Checklist</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Run <code class="language-plaintext highlighter-rouge">/ace-validate</code> before deploying</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Test in sandbox environment first</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Check AWS service quotas</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Verify IAM permissions</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Review estimated costs with <code class="language-plaintext highlighter-rouge">/ace-cost</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backup existing data</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Plan rollback strategy</li>
+</ul>
+
+<h3 id="monitoring-setup">Monitoring Setup</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set up CloudWatch alarms</span>
+/ace-monitor <span class="nt">--setup-alerts</span>
+
+<span class="c"># Enable AWS X-Ray tracing</span>
+/ace-enable-tracing
+
+<span class="c"># Configure error reporting</span>
+/ace-setup-error-tracking
+</code></pre></div></div>
+
+<hr />
+
+<p><em>Still having issues? Check our <a href="https://docs.ace-flow.dev/faq">FAQ</a> or reach out to the community for help.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

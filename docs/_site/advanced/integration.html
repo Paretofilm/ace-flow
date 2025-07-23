@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Integration with Existing Projects | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Integration with Existing Projects" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/integration.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/integration.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Integration with Existing Projects" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Integration with Existing Projects","url":"http://localhost:4000/advanced/integration.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="integration-with-existing-projects">Integration with Existing Projects</h1>
+
+<p>Learn how to safely integrate ACE-Flow with existing applications and migrate legacy systems to modern AWS Amplify Gen 2 architecture.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>ACE-Flow provides powerful tools for integrating with existing projects, whether you’re adding new features to a legacy application or gradually migrating to a modern serverless architecture.</p>
+
+<h2 id="assessment-and-planning">Assessment and Planning</h2>
+
+<h3 id="project-analysis">Project Analysis</h3>
+
+<p>Before integration, ACE-Flow analyzes your existing codebase:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Analyze existing project structure</span>
+/ace-adopt <span class="s2">"existing Node.js app with MySQL database"</span>
+
+<span class="c"># Generate migration assessment report</span>
+/ace-assess-project <span class="nt">--path</span><span class="o">=</span>/path/to/existing/project
+
+<span class="c"># Create integration plan</span>
+/ace-plan-integration <span class="nt">--strategy</span><span class="o">=</span>gradual
+</code></pre></div></div>
+
+<h3 id="migration-strategies">Migration Strategies</h3>
+
+<h4 id="1-gradual-migration-recommended">1. Gradual Migration (Recommended)</h4>
+
+<p>Migrate components incrementally while maintaining existing functionality:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/migration/gradual-plan.yml</span>
+<span class="na">strategy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">gradual"</span>
+<span class="na">phases</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">authentication"</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Migrate</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Cognito</span><span class="nv"> </span><span class="s">authentication"</span>
+    <span class="na">duration</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1-2</span><span class="nv"> </span><span class="s">weeks"</span>
+    <span class="na">components</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">user_login</span>
+      <span class="pi">-</span> <span class="s">user_registration</span>
+      <span class="pi">-</span> <span class="s">password_reset</span>
+    
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">api_layer"</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Replace</span><span class="nv"> </span><span class="s">REST</span><span class="nv"> </span><span class="s">API</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">GraphQL"</span>
+    <span class="na">duration</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2-3</span><span class="nv"> </span><span class="s">weeks"</span>
+    <span class="na">components</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">user_endpoints</span>
+      <span class="pi">-</span> <span class="s">data_endpoints</span>
+      <span class="pi">-</span> <span class="s">file_upload</span>
+    
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">database"</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Migrate</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">DynamoDB"</span>
+    <span class="na">duration</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3-4</span><span class="nv"> </span><span class="s">weeks"</span>
+    <span class="na">components</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">user_data</span>
+      <span class="pi">-</span> <span class="s">application_data</span>
+      <span class="pi">-</span> <span class="s">relationships</span>
+</code></pre></div></div>
+
+<h4 id="2-parallel-development">2. Parallel Development</h4>
+
+<p>Build new features alongside existing system:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">strategy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">parallel"</span>
+<span class="na">approach</span><span class="pi">:</span> <span class="s2">"</span><span class="s">feature_flag"</span>
+<span class="na">timeline</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3-6</span><span class="nv"> </span><span class="s">months"</span>
+
+<span class="na">new_features</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">real_time_notifications</span>
+  <span class="pi">-</span> <span class="s">advanced_analytics</span>  
+  <span class="pi">-</span> <span class="s">mobile_api</span>
+  
+<span class="na">integration_points</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">shared_authentication</span>
+  <span class="pi">-</span> <span class="s">data_synchronization</span>
+  <span class="pi">-</span> <span class="s">user_sessions</span>
+</code></pre></div></div>
+
+<h4 id="3-complete-replacement">3. Complete Replacement</h4>
+
+<p>Full system replacement with data migration:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">strategy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">replacement"</span>
+<span class="na">approach</span><span class="pi">:</span> <span class="s2">"</span><span class="s">big_bang"</span>
+<span class="na">timeline</span><span class="pi">:</span> <span class="s2">"</span><span class="s">6-12</span><span class="nv"> </span><span class="s">months"</span>
+
+<span class="na">phases</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">analysis_and_design</span>
+  <span class="pi">-</span> <span class="s">development_and_testing</span>
+  <span class="pi">-</span> <span class="s">data_migration</span>
+  <span class="pi">-</span> <span class="s">cutover_and_validation</span>
+</code></pre></div></div>
+
+<h2 id="database-migration">Database Migration</h2>
+
+<h3 id="from-sql-to-dynamodb">From SQL to DynamoDB</h3>
+
+<h4 id="schema-mapping">Schema Mapping</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/migration/schema-mapping.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">schemaMigration</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// MySQL Users table -&gt; DynamoDB User model</span>
+  <span class="na">users</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">source</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">table</span><span class="p">:</span> <span class="dl">'</span><span class="s1">users</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">columns</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">password_hash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">created_at</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">updated_at</span><span class="dl">'</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">model</span><span class="p">:</span> <span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">fields</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">,</span> 
+        <span class="c1">// password_hash handled by Cognito</span>
+        <span class="na">createdAt</span><span class="p">:</span> <span class="dl">'</span><span class="s1">created_at</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">updatedAt</span><span class="p">:</span> <span class="dl">'</span><span class="s1">updated_at</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">transformations</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">field</span><span class="p">:</span> <span class="dl">'</span><span class="s1">password_hash</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">migrate_to_cognito</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Posts table with foreign keys</span>
+  <span class="na">posts</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">source</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">table</span><span class="p">:</span> <span class="dl">'</span><span class="s1">posts</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">columns</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">user_id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">content</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">status</span><span class="dl">'</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="na">target</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">model</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Post</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">fields</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">authorId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">user_id</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">content</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">status</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">relationships</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">belongsTo</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">model</span><span class="p">:</span> <span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">foreignKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">user_id</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="data-migration-scripts">Data Migration Scripts</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/migration/migrate-data.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">generateClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-amplify/api</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">mysql</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">mysql2/promise</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">amplifyClient</span> <span class="o">=</span> <span class="nx">generateClient</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">mysqlConnection</span> <span class="o">=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">({</span>
+  <span class="na">host</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_HOST</span><span class="p">,</span>
+  <span class="na">user</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_USER</span><span class="p">,</span>
+  <span class="na">password</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_PASSWORD</span><span class="p">,</span>
+  <span class="na">database</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_DATABASE</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">migrateUsers</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Starting user migration...</span><span class="dl">'</span><span class="p">);</span>
+  
+  <span class="c1">// Fetch users from MySQL</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">rows</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">mysqlConnection</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="dl">'</span><span class="s1">SELECT * FROM users</span><span class="dl">'</span><span class="p">);</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">user</span> <span class="k">of</span> <span class="nx">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="c1">// Create user in Cognito</span>
+      <span class="kd">const</span> <span class="nx">cognitoUser</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">createCognitoUser</span><span class="p">({</span>
+        <span class="na">email</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+        <span class="na">temporaryPassword</span><span class="p">:</span> <span class="nx">generateTempPassword</span><span class="p">()</span>
+      <span class="p">});</span>
+
+      <span class="c1">// Create user record in DynamoDB</span>
+      <span class="k">await</span> <span class="nx">amplifyClient</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+        <span class="na">id</span><span class="p">:</span> <span class="nx">cognitoUser</span><span class="p">.</span><span class="nx">sub</span><span class="p">,</span>
+        <span class="na">email</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+        <span class="na">legacyId</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="c1">// Keep reference to old ID</span>
+        <span class="na">migratedAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+      <span class="p">});</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Migrated user: </span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to migrate user </span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">migratePosts</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Starting posts migration...</span><span class="dl">'</span><span class="p">);</span>
+  
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">posts</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">mysqlConnection</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">`
+    SELECT p.*, u.email as author_email 
+    FROM posts p 
+    JOIN users u ON p.user_id = u.id
+  `</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">post</span> <span class="k">of</span> <span class="nx">posts</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="c1">// Find migrated user</span>
+      <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">amplifyClient</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">User</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+        <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">email</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">author_email</span> <span class="p">}</span> <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">`User not found for post </span><span class="p">${</span><span class="nx">post</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+        <span class="k">continue</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Create post in DynamoDB</span>
+      <span class="k">await</span> <span class="nx">amplifyClient</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+        <span class="na">title</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+        <span class="na">content</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span>
+        <span class="na">status</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span>
+        <span class="na">authorId</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">,</span>
+        <span class="na">legacyId</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+        <span class="na">migratedAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+      <span class="p">});</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Migrated post: </span><span class="p">${</span><span class="nx">post</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to migrate post </span><span class="p">${</span><span class="nx">post</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="migration-execution">Migration Execution</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run migration in stages</span>
+/ace-migrate <span class="nt">--phase</span><span class="o">=</span><span class="nb">users</span> <span class="nt">--dry-run</span>
+/ace-migrate <span class="nt">--phase</span><span class="o">=</span><span class="nb">users</span> <span class="nt">--execute</span>
+
+/ace-migrate <span class="nt">--phase</span><span class="o">=</span>posts <span class="nt">--dry-run</span>  
+/ace-migrate <span class="nt">--phase</span><span class="o">=</span>posts <span class="nt">--execute</span>
+
+<span class="c"># Validate migration</span>
+/ace-validate-migration <span class="nt">--compare-counts</span>
+/ace-validate-migration <span class="nt">--spot-check</span><span class="o">=</span>100
+</code></pre></div></div>
+
+<h2 id="api-integration">API Integration</h2>
+
+<h3 id="proxy-pattern">Proxy Pattern</h3>
+
+<p>Route existing API calls through new GraphQL endpoints:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/api-proxy.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">createAPIProxy</span> <span class="o">=</span> <span class="p">(</span><span class="nx">existingAPI</span><span class="p">,</span> <span class="nx">graphqlAPI</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="c1">// Proxy GET /users/:id -&gt; GraphQL User query</span>
+    <span class="dl">'</span><span class="s1">/users/:id</span><span class="dl">'</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graphqlAPI</span><span class="p">.</span><span class="nx">query</span><span class="p">({</span>
+          <span class="na">query</span><span class="p">:</span> <span class="s2">`
+            query GetUser($id: ID!) {
+              getUser(id: $id) {
+                id
+                email
+                profile {
+                  name
+                  avatar
+                }
+              }
+            }
+          `</span><span class="p">,</span>
+          <span class="na">variables</span><span class="p">:</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// Transform to match old API format</span>
+        <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">transformUserResponse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">getUser</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Fallback to existing API</span>
+        <span class="k">return</span> <span class="nx">existingAPI</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="c1">// Proxy POST /posts -&gt; GraphQL createPost mutation</span>
+    <span class="dl">'</span><span class="s1">/posts</span><span class="dl">'</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graphqlAPI</span><span class="p">.</span><span class="nx">mutate</span><span class="p">({</span>
+          <span class="na">mutation</span><span class="p">:</span> <span class="s2">`
+            mutation CreatePost($input: CreatePostInput!) {
+              createPost(input: $input) {
+                id
+                title
+                content
+                createdAt
+              }
+            }
+          `</span><span class="p">,</span>
+          <span class="na">variables</span><span class="p">:</span> <span class="p">{</span> <span class="na">input</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span> <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">createPost</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">existingAPI</span><span class="p">.</span><span class="nx">createPost</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="dual-write-pattern">Dual-Write Pattern</h3>
+
+<p>Write to both old and new systems during transition:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/dual-write.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">dualWriteMiddleware</span> <span class="o">=</span> <span class="p">(</span><span class="nx">legacyDB</span><span class="p">,</span> <span class="nx">amplifyClient</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">operation</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">resource</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">path</span><span class="p">;</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="c1">// Write to new system first</span>
+      <span class="kd">const</span> <span class="nx">amplifyResult</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">writeToAmplify</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="nx">amplifyClient</span><span class="p">);</span>
+      
+      <span class="c1">// Then write to legacy system</span>
+      <span class="kd">const</span> <span class="nx">legacyResult</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">writeToLegacy</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="nx">legacyDB</span><span class="p">);</span>
+      
+      <span class="c1">// Use Amplify result as source of truth</span>
+      <span class="nx">req</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">amplifyResult</span><span class="p">;</span>
+      <span class="nx">next</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">amplifyError</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Amplify write failed, falling back to legacy:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">amplifyError</span><span class="p">);</span>
+      
+      <span class="c1">// Fallback to legacy system only</span>
+      <span class="kd">const</span> <span class="nx">legacyResult</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">writeToLegacy</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="nx">legacyDB</span><span class="p">);</span>
+      <span class="nx">req</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">legacyResult</span><span class="p">;</span>
+      <span class="nx">next</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="authentication-migration">Authentication Migration</h2>
+
+<h3 id="cognito-user-pool-integration">Cognito User Pool Integration</h3>
+
+<p>Migrate existing users to Cognito:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/auth-migration.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CognitoIdentityServiceProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-sdk</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">cognito</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CognitoIdentityServiceProvider</span><span class="p">();</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">migrateAuthSystem</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">existingUsers</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">user</span> <span class="k">of</span> <span class="nx">existingUsers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="c1">// Create user in Cognito User Pool</span>
+      <span class="k">await</span> <span class="nx">cognito</span><span class="p">.</span><span class="nx">adminCreateUser</span><span class="p">({</span>
+        <span class="na">UserPoolId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COGNITO_USER_POOL_ID</span><span class="p">,</span>
+        <span class="na">Username</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+        <span class="na">UserAttributes</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="na">Name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">,</span> <span class="na">Value</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">Name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">email_verified</span><span class="dl">'</span><span class="p">,</span> <span class="na">Value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">true</span><span class="dl">'</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">Name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">custom:legacy_id</span><span class="dl">'</span><span class="p">,</span> <span class="na">Value</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="na">MessageAction</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SUPPRESS</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Don't send welcome email</span>
+        <span class="na">TemporaryPassword</span><span class="p">:</span> <span class="nx">generateSecurePassword</span><span class="p">()</span>
+      <span class="p">});</span>
+
+      <span class="c1">// Set permanent password if user had one</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password_hash</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nx">cognito</span><span class="p">.</span><span class="nx">adminSetUserPassword</span><span class="p">({</span>
+          <span class="na">UserPoolId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">COGNITO_USER_POOL_ID</span><span class="p">,</span>
+          <span class="na">Username</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+          <span class="na">Password</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">temporaryPassword</span><span class="p">,</span>
+          <span class="na">Permanent</span><span class="p">:</span> <span class="kc">false</span> <span class="c1">// User must change on first login</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Migrated user: </span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to migrate user </span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="session-bridge">Session Bridge</h3>
+
+<p>Maintain sessions across old and new systems:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/session-bridge.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">createSessionBridge</span> <span class="o">=</span> <span class="p">(</span><span class="nx">legacySessionStore</span><span class="p">,</span> <span class="nx">cognitoTokens</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="nx">validateSession</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">legacySession</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">;</span>
+      <span class="kd">const</span> <span class="nx">cognitoToken</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">;</span>
+
+      <span class="c1">// Check if user has both sessions</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">legacySession</span> <span class="o">&amp;&amp;</span> <span class="nx">cognitoToken</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Validate both and ensure they match</span>
+        <span class="kd">const</span> <span class="nx">isValid</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">validateSessionMatch</span><span class="p">(</span><span class="nx">legacySession</span><span class="p">,</span> <span class="nx">cognitoToken</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">isValid</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">req</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getUserFromToken</span><span class="p">(</span><span class="nx">cognitoToken</span><span class="p">);</span>
+          <span class="k">return</span> <span class="nx">next</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Fall back to legacy session validation</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">legacySession</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getUserFromLegacySession</span><span class="p">(</span><span class="nx">legacySession</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">next</span><span class="p">();</span>
+      <span class="p">}</span>
+
+      <span class="c1">// No valid session found</span>
+      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="na">error</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Unauthorized</span><span class="dl">'</span> <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="file-storage-migration">File Storage Migration</h2>
+
+<h3 id="s3-integration">S3 Integration</h3>
+
+<p>Migrate files from local storage to S3:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/file-migration.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">S3Client</span><span class="p">,</span> <span class="nx">PutObjectCommand</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@aws-sdk/client-s3</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">fs</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">path</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">s3Client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">S3Client</span><span class="p">({</span> <span class="na">region</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AWS_REGION</span> <span class="p">});</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">migrateFiles</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">localFilePath</span><span class="p">,</span> <span class="nx">s3BucketName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">files</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">promises</span><span class="p">.</span><span class="nx">readdir</span><span class="p">(</span><span class="nx">localFilePath</span><span class="p">,</span> <span class="p">{</span> <span class="na">recursive</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">file</span> <span class="k">of</span> <span class="nx">files</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">fullPath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">localFilePath</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">promises</span><span class="p">.</span><span class="nx">stat</span><span class="p">(</span><span class="nx">fullPath</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">stats</span><span class="p">.</span><span class="nx">isFile</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">fileContent</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">promises</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">fullPath</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">s3Key</span> <span class="o">=</span> <span class="s2">`migrated/</span><span class="p">${</span><span class="nx">file</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+        
+        <span class="k">await</span> <span class="nx">s3Client</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="k">new</span> <span class="nx">PutObjectCommand</span><span class="p">({</span>
+          <span class="na">Bucket</span><span class="p">:</span> <span class="nx">s3BucketName</span><span class="p">,</span>
+          <span class="na">Key</span><span class="p">:</span> <span class="nx">s3Key</span><span class="p">,</span>
+          <span class="na">Body</span><span class="p">:</span> <span class="nx">fileContent</span><span class="p">,</span>
+          <span class="na">ContentType</span><span class="p">:</span> <span class="nx">getMimeType</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+        <span class="p">}));</span>
+
+        <span class="c1">// Update database references</span>
+        <span class="k">await</span> <span class="nx">updateFileReferences</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">s3Key</span><span class="p">);</span>
+        
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Migrated file: </span><span class="p">${</span><span class="nx">file</span><span class="p">}</span><span class="s2"> -&gt; s3://</span><span class="p">${</span><span class="nx">s3BucketName</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">s3Key</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to migrate file </span><span class="p">${</span><span class="nx">file</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="testing-integration">Testing Integration</h2>
+
+<h3 id="integration-test-suite">Integration Test Suite</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/tests/integration.test.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">testIntegration</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@ace-flow/testing</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Legacy System Integration</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">API proxy forwards requests correctly</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/users/123</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">123</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">dual-write maintains data consistency</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">postData</span> <span class="o">=</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Test Post</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Test content</span><span class="dl">'</span> <span class="p">};</span>
+    
+    <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/posts</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">postData</span><span class="p">),</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Verify data exists in both systems</span>
+    <span class="kd">const</span> <span class="nx">legacyPost</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">legacyDB</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="dl">'</span><span class="s1">SELECT * FROM posts WHERE title = ?</span><span class="dl">'</span><span class="p">,</span> <span class="p">[</span><span class="nx">postData</span><span class="p">.</span><span class="nx">title</span><span class="p">]);</span>
+    <span class="kd">const</span> <span class="nx">amplifyPost</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">amplifyClient</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">list</span><span class="p">({</span>
+      <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="nx">postData</span><span class="p">.</span><span class="nx">title</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">legacyPost</span><span class="p">).</span><span class="nx">toHaveLength</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">amplifyPost</span><span class="p">.</span><span class="nx">data</span><span class="p">).</span><span class="nx">toHaveLength</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="monitoring-integration">Monitoring Integration</h2>
+
+<h3 id="health-checks">Health Checks</h3>
+
+<p>Monitor both systems during integration:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integration/health-checks.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">createHealthChecks</span> <span class="o">=</span> <span class="p">(</span><span class="nx">legacySystem</span><span class="p">,</span> <span class="nx">amplifySystem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="nx">checkSystemHealth</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">allSettled</span><span class="p">([</span>
+        <span class="nx">checkLegacySystem</span><span class="p">(</span><span class="nx">legacySystem</span><span class="p">),</span>
+        <span class="nx">checkAmplifySystem</span><span class="p">(</span><span class="nx">amplifySystem</span><span class="p">),</span>
+        <span class="nx">checkDataConsistency</span><span class="p">()</span>
+      <span class="p">]);</span>
+
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">legacy</span><span class="p">:</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">fulfilled</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">healthy</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">unhealthy</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">amplify</span><span class="p">:</span> <span class="nx">results</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">fulfilled</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">healthy</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">unhealthy</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">consistency</span><span class="p">:</span> <span class="nx">results</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">fulfilled</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">consistent</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">inconsistent</span><span class="dl">'</span>
+      <span class="p">};</span>
+    <span class="p">},</span>
+
+    <span class="k">async</span> <span class="nx">checkDataConsistency</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// Compare record counts between systems</span>
+      <span class="kd">const</span> <span class="nx">legacyCount</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">legacySystem</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="dl">'</span><span class="s1">SELECT COUNT(*) FROM users</span><span class="dl">'</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">amplifyCount</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">amplifySystem</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">User</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
+      
+      <span class="kd">const</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">legacyCount</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">count</span> <span class="o">-</span> <span class="nx">amplifyCount</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">threshold</span> <span class="o">=</span> <span class="nx">legacyCount</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">count</span> <span class="o">*</span> <span class="mf">0.05</span><span class="p">;</span> <span class="c1">// 5% tolerance</span>
+      
+      <span class="k">return</span> <span class="nx">diff</span> <span class="o">&lt;=</span> <span class="nx">threshold</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="planning-phase">Planning Phase</h3>
+
+<ol>
+  <li><strong>Thorough Assessment</strong> - Understand all dependencies and integrations</li>
+  <li><strong>Risk Mitigation</strong> - Plan for rollback scenarios</li>
+  <li><strong>Timeline Realism</strong> - Allow extra time for unexpected issues</li>
+  <li><strong>Stakeholder Alignment</strong> - Keep all teams informed of changes</li>
+</ol>
+
+<h3 id="implementation-phase">Implementation Phase</h3>
+
+<ol>
+  <li><strong>Feature Flags</strong> - Use flags to control rollout pace</li>
+  <li><strong>Gradual Rollout</strong> - Migrate users in batches</li>
+  <li><strong>Monitoring</strong> - Watch system health continuously</li>
+  <li><strong>Data Validation</strong> - Regular consistency checks</li>
+</ol>
+
+<h3 id="post-migration">Post-Migration</h3>
+
+<ol>
+  <li><strong>Performance Monitoring</strong> - Ensure new system performs well</li>
+  <li><strong>User Feedback</strong> - Collect and address user concerns</li>
+  <li><strong>Legacy Cleanup</strong> - Remove old systems when safe</li>
+  <li><strong>Documentation</strong> - Update all system documentation</li>
+</ol>
+
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+
+<h3 id="data-inconsistency">Data Inconsistency</h3>
+
+<p><strong>Problem</strong>: Data gets out of sync between systems
+<strong>Solution</strong>: Implement proper dual-write patterns and regular reconciliation</p>
+
+<h3 id="performance-degradation">Performance Degradation</h3>
+
+<p><strong>Problem</strong>: New system is slower than legacy
+<strong>Solution</strong>: Optimize queries, add caching, consider gradual migration</p>
+
+<h3 id="authentication-issues">Authentication Issues</h3>
+
+<p><strong>Problem</strong>: Users can’t log in after migration
+<strong>Solution</strong>: Maintain legacy auth as fallback during transition</p>
+
+<h3 id="breaking-changes">Breaking Changes</h3>
+
+<p><strong>Problem</strong>: API changes break existing clients
+<strong>Solution</strong>: Use versioned APIs and deprecation notices</p>
+
+<h2 id="migration-checklist">Migration Checklist</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Complete system assessment</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create detailed migration plan</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set up development/staging environments</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Implement data migration scripts</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create API integration layer</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set up monitoring and alerts</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Test thoroughly in staging</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Plan rollback procedures</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Execute gradual rollout</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Monitor system health</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Gather user feedback</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Complete legacy system cleanup</li>
+</ul>
+
+<h2 id="getting-help">Getting Help</h2>
+
+<p>Need assistance with your integration project?</p>
+
+<ul>
+  <li><strong>Assessment Service</strong>: Free project analysis - <a href="https://ace-flow.dev/consultation">Schedule consultation</a></li>
+  <li><strong>Migration Support</strong>: Expert guidance - <a href="mailto:support@ace-flow.dev">Contact support</a></li>
+  <li><strong>Community</strong>: Join our <a href="https://discord.gg/ace-flow">Discord</a> for peer help</li>
+  <li><strong>Documentation</strong>: <a href="https://docs.ace-flow.dev/integration">Integration guides</a></li>
+</ul>
+
+<hr />
+
+<p><em>Ready to integrate ACE-Flow with your existing project? Start with our <a href="https://tools.ace-flow.dev/assess">Project Assessment Tool</a> for personalized recommendations.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Getting Started
+---
+
 # Getting Started with ACE-Flow
 
 ACE-Flow (Amplified Context Engineering) is a next-generation AI workflow system for building production-ready AWS Amplify Gen 2 applications.

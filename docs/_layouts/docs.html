@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="{{ '/getting-started' | relative_url }}" class="nav-link {% if page.url contains 'getting-started' %}active{% endif %}">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/examples' | relative_url }}" class="nav-link {% if page.url contains 'examples' %}active{% endif %}">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="{{ '/patterns/' | relative_url }}" class="nav-link {% if page.url == '/patterns/' or page.url == '/patterns/index.html' %}active{% endif %}">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/patterns/social-platform' | relative_url }}" class="nav-link {% if page.url contains 'social-platform' %}active{% endif %}">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/patterns/e-commerce' | relative_url }}" class="nav-link {% if page.url contains 'e-commerce' %}active{% endif %}">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/patterns/content-management' | relative_url }}" class="nav-link {% if page.url contains 'content-management' %}active{% endif %}">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/patterns/dashboard-analytics' | relative_url }}" class="nav-link {% if page.url contains 'dashboard-analytics' %}active{% endif %}">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/patterns/simple-crud' | relative_url }}" class="nav-link {% if page.url contains 'simple-crud' %}active{% endif %}">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="{{ '/advanced/' | relative_url }}" class="nav-link {% if page.url contains 'advanced' %}active{% endif %}">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/advanced/custom-patterns' | relative_url }}" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/advanced/integration' | relative_url }}" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/advanced/troubleshooting' | relative_url }}" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="{{ '/api/' | relative_url }}" class="nav-link {% if page.url contains 'api' %}active{% endif %}">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/api/commands' | relative_url }}" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/api/configuration' | relative_url }}" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ '/api/hooks' | relative_url }}" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="{{ '/resources' | relative_url }}" class="nav-link {% if page.url contains 'resources' %}active{% endif %}">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ site.ace_flow.github_url }}" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      {{ content }}
+    </article>
+  </div>
+</div>

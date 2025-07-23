@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Social Platform Pattern | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Social Platform Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/patterns/social-platform.html" />
+<meta property="og:url" content="http://localhost:4000/patterns/social-platform.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Social Platform Pattern" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Social Platform Pattern","url":"http://localhost:4000/patterns/social-platform.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link active">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="social-platform-pattern">Social Platform Pattern</h1>
+
+<p>The Social Platform pattern is designed for applications that center around user interactions, content sharing, and community building.</p>
+
+<h2 id="when-to-use">When to Use</h2>
+
+<ul>
+  <li>Social media applications</li>
+  <li>Community platforms</li>
+  <li>Collaboration tools</li>
+  <li>Content sharing platforms</li>
+  <li>Fitness/lifestyle apps with social features</li>
+</ul>
+
+<h2 id="core-features">Core Features</h2>
+
+<h3 id="user-management">User Management</h3>
+<ul>
+  <li><strong>User Profiles</strong>: Rich profiles with photos, bio, preferences</li>
+  <li><strong>Social Graph</strong>: Follow/friend relationships</li>
+  <li><strong>User Discovery</strong>: Search and suggestion algorithms</li>
+  <li><strong>Privacy Controls</strong>: Granular privacy settings</li>
+</ul>
+
+<h3 id="content--media">Content &amp; Media</h3>
+<ul>
+  <li><strong>Post Creation</strong>: Text, images, videos, links</li>
+  <li><strong>Media Processing</strong>: Image resizing, video transcoding</li>
+  <li><strong>Content Feeds</strong>: Algorithmic and chronological feeds</li>
+  <li><strong>Hashtags &amp; Mentions</strong>: Social media conventions</li>
+</ul>
+
+<h3 id="real-time-features">Real-time Features</h3>
+<ul>
+  <li><strong>Live Feeds</strong>: Real-time post updates</li>
+  <li><strong>Notifications</strong>: Push and in-app notifications</li>
+  <li><strong>Messaging</strong>: Direct messages between users</li>
+  <li><strong>Live Events</strong>: Real-time interactions (likes, comments)</li>
+</ul>
+
+<h3 id="social-interactions">Social Interactions</h3>
+<ul>
+  <li><strong>Likes &amp; Reactions</strong>: Multiple reaction types</li>
+  <li><strong>Comments</strong>: Threaded comment systems</li>
+  <li><strong>Sharing</strong>: Repost and cross-platform sharing</li>
+  <li><strong>Groups/Communities</strong>: User-created communities</li>
+</ul>
+
+<h2 id="data-schema">Data Schema</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Core models generated by ACE-Flow</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">User</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">username</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">displayName</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">bio</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">avatar</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span> <span class="c1">// S3 key</span>
+    <span class="na">followers</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Follow</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">followedUserId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">following</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Follow</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">followerUserId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">posts</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Post</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Post</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">content</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">mediaUrls</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">(),</span>
+    <span class="na">author</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">likes</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Like</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">postId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">comments</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Comment</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">postId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">hashtags</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">array</span><span class="p">()</span>
+  <span class="p">}),</span>
+
+  <span class="na">Follow</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">follower</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">followerUserId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">followed</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">followedUserId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}),</span>
+
+  <span class="na">Like</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">user</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">userId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">post</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Post</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">postId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">reactionType</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">like</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">love</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">laugh</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">angry</span><span class="dl">'</span><span class="p">])</span>
+  <span class="p">}),</span>
+
+  <span class="na">Comment</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">content</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">author</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">post</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Post</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">postId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">parentComment</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Comment</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">replies</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Comment</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">parentId</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="real-time-subscriptions">Real-time Subscriptions</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Auto-generated subscriptions</span>
+<span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">generateClient</span><span class="o">&lt;</span><span class="nx">Schema</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">// Subscribe to new posts in feed</span>
+<span class="kd">const</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">onUpdate</span><span class="p">({</span>
+  <span class="na">filter</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">authorId</span><span class="p">:</span> <span class="p">{</span> <span class="na">in</span><span class="p">:</span> <span class="nx">followingUserIds</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">subscribe</span><span class="p">({</span>
+  <span class="na">next</span><span class="p">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Update feed in real-time</span>
+    <span class="nx">updateFeed</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Subscribe to new notifications</span>
+<span class="kd">const</span> <span class="nx">notificationSub</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">onCreate</span><span class="p">({</span>
+  <span class="na">filter</span><span class="p">:</span> <span class="p">{</span> <span class="na">userId</span><span class="p">:</span> <span class="p">{</span> <span class="na">eq</span><span class="p">:</span> <span class="nx">currentUserId</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}).</span><span class="nx">subscribe</span><span class="p">({</span>
+  <span class="na">next</span><span class="p">:</span> <span class="p">(</span><span class="nx">notification</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">showNotification</span><span class="p">(</span><span class="nx">notification</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="storage-configuration">Storage Configuration</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// S3 storage for media files</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">storage</span> <span class="o">=</span> <span class="nx">defineStorage</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">socialPlatformStorage</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">access</span><span class="p">:</span> <span class="p">(</span><span class="nx">allow</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="dl">'</span><span class="s1">public/posts/*</span><span class="dl">'</span><span class="p">:</span> <span class="p">[</span>
+      <span class="nx">allow</span><span class="p">.</span><span class="nx">authenticated</span><span class="p">.</span><span class="nx">to</span><span class="p">([</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">]),</span>
+      <span class="nx">allow</span><span class="p">.</span><span class="nx">owner</span><span class="p">.</span><span class="nx">to</span><span class="p">([</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">write</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">delete</span><span class="dl">'</span><span class="p">])</span>
+    <span class="p">],</span>
+    <span class="dl">'</span><span class="s1">public/avatars/*</span><span class="dl">'</span><span class="p">:</span> <span class="p">[</span>
+      <span class="nx">allow</span><span class="p">.</span><span class="nx">authenticated</span><span class="p">.</span><span class="nx">to</span><span class="p">([</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">]),</span>
+      <span class="nx">allow</span><span class="p">.</span><span class="nx">owner</span><span class="p">.</span><span class="nx">to</span><span class="p">([</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">write</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">delete</span><span class="dl">'</span><span class="p">])</span>
+    <span class="p">],</span>
+    <span class="dl">'</span><span class="s1">private/user-uploads/*</span><span class="dl">'</span><span class="p">:</span> <span class="p">[</span>
+      <span class="nx">allow</span><span class="p">.</span><span class="nx">owner</span><span class="p">.</span><span class="nx">to</span><span class="p">([</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">write</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">delete</span><span class="dl">'</span><span class="p">])</span>
+    <span class="p">]</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="authentication-features">Authentication Features</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">defineAuth</span><span class="p">({</span>
+  <span class="na">loginWith</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">email</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">phone</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">externalProviders</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">google</span><span class="p">:</span> <span class="p">{</span> <span class="na">clientId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_ID</span> <span class="p">},</span>
+      <span class="na">facebook</span><span class="p">:</span> <span class="p">{</span> <span class="na">clientId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">FACEBOOK_CLIENT_ID</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">userAttributes</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">profilePicture</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span> <span class="p">},</span>
+    <span class="na">displayName</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">,</span> <span class="na">required</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+    <span class="na">bio</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span> <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">multifactor</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">OPTIONAL</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">sms</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">totp</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="frontend-components">Frontend Components</h2>
+
+<p>ACE-Flow generates a complete React component library:</p>
+
+<h3 id="core-components">Core Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;UserProfile /&gt;</code> - User profile display and editing</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;PostCreator /&gt;</code> - Rich post creation interface</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;FeedComponent /&gt;</code> - Infinite scroll feed with real-time updates</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;NotificationCenter /&gt;</code> - Notification management</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;UserSearch /&gt;</code> - User discovery and search</li>
+</ul>
+
+<h3 id="social-components">Social Components</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;FollowButton /&gt;</code> - Follow/unfollow functionality</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;LikeButton /&gt;</code> - Like and reaction interface</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;CommentThread /&gt;</code> - Threaded comment display</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;ShareDialog /&gt;</code> - Content sharing options</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;MediaUpload /&gt;</code> - Drag-and-drop media upload</li>
+</ul>
+
+<h2 id="example-implementation">Example Implementation</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create social fitness app</span>
+/ace-genesis <span class="s2">"fitness tracking app where users share workouts and challenge friends"</span>
+
+<span class="c"># ACE-Flow will:</span>
+<span class="c"># 1. Interview about specific social features needed</span>
+<span class="c"># 2. Research AWS Amplify social platform best practices</span>
+<span class="c"># 3. Generate schema optimized for social interactions</span>
+<span class="c"># 4. Create React components with real-time updates</span>
+<span class="c"># 5. Configure S3 for workout photos/videos</span>
+<span class="c"># 6. Set up push notifications for challenges</span>
+<span class="c"># 7. Deploy complete application to AWS</span>
+</code></pre></div></div>
+
+<h2 id="performance-optimizations">Performance Optimizations</h2>
+
+<h3 id="database-indexes">Database Indexes</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Auto-generated indexes for social queries</span>
+<span class="nx">Post</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+  <span class="c1">// ... fields</span>
+<span class="p">}).</span><span class="nx">secondaryIndexes</span><span class="p">(</span><span class="nx">index</span> <span class="o">=&gt;</span> <span class="p">[</span>
+  <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">authorId</span><span class="dl">'</span><span class="p">).</span><span class="nx">sortKeys</span><span class="p">([</span><span class="dl">'</span><span class="s1">createdAt</span><span class="dl">'</span><span class="p">]).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byAuthor</span><span class="dl">'</span><span class="p">),</span>
+  <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">hashtags</span><span class="dl">'</span><span class="p">).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byHashtag</span><span class="dl">'</span><span class="p">),</span>
+  <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">createdAt</span><span class="dl">'</span><span class="p">).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byDate</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<h3 id="caching-strategy">Caching Strategy</h3>
+<ul>
+  <li><strong>User profiles</strong>: Cached at CDN edge</li>
+  <li><strong>Popular posts</strong>: Redis caching for hot content</li>
+  <li><strong>Feed generation</strong>: Background processing with pagination</li>
+  <li><strong>Media files</strong>: CloudFront CDN distribution</li>
+</ul>
+
+<h3 id="scalability-features">Scalability Features</h3>
+<ul>
+  <li><strong>Database sharding</strong>: Automatic based on user regions</li>
+  <li><strong>Media optimization</strong>: Auto-resizing and compression</li>
+  <li><strong>Real-time scaling</strong>: Auto-scaling Lambda functions</li>
+  <li><strong>CDN distribution</strong>: Global content delivery</li>
+</ul>
+
+<h2 id="cost-estimates">Cost Estimates</h2>
+
+<p>For a social platform with 10,000 monthly active users:</p>
+
+<ul>
+  <li><strong>DynamoDB</strong>: ~$15-25/month</li>
+  <li><strong>S3 Storage</strong>: ~$10-20/month (depends on media volume)</li>
+  <li><strong>Lambda Functions</strong>: ~$5-15/month</li>
+  <li><strong>Real-time subscriptions</strong>: ~$10-30/month</li>
+  <li><strong>CDN &amp; Transfer</strong>: ~$5-15/month</li>
+</ul>
+
+<p><strong>Total estimated cost</strong>: $45-105/month</p>
+
+<h2 id="security-features">Security Features</h2>
+
+<ul>
+  <li><strong>Content moderation</strong>: AI-powered content filtering</li>
+  <li><strong>Privacy controls</strong>: Granular post visibility settings</li>
+  <li><strong>Block/report</strong>: User safety features</li>
+  <li><strong>Rate limiting</strong>: API abuse prevention</li>
+  <li><strong>Data encryption</strong>: End-to-end encryption for DMs</li>
+</ul>
+
+<h2 id="common-customizations">Common Customizations</h2>
+
+<h3 id="adding-live-video">Adding Live Video</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Extend schema for live streaming</span>
+<span class="nx">LiveStream</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+  <span class="na">title</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">streamer</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">streamerId</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">streamKey</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+  <span class="na">viewers</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+  <span class="na">isLive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="adding-group-features">Adding Group Features</h3>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add community/group functionality</span>
+<span class="nx">Group</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+  <span class="na">creator</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">User</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">creatorId</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">members</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">GroupMember</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">groupId</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">posts</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">GroupPost</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">groupId</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">isPrivate</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">/ace-genesis</code> with your social platform idea</li>
+  <li>Answer ACE-Flow’s questions about social features</li>
+  <li>Review generated architecture and customize as needed</li>
+  <li>Deploy and start building your community!</li>
+</ol>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/patterns/">← Back to Patterns</a></td>
+      <td><a href="/patterns/e-commerce.html">E-commerce Pattern →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Custom Pattern Development | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Custom Pattern Development" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/custom-patterns.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/custom-patterns.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Custom Pattern Development" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Custom Pattern Development","url":"http://localhost:4000/advanced/custom-patterns.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="custom-pattern-development">Custom Pattern Development</h1>
+
+<p>Learn how to create your own architecture patterns and extend ACE-Flow’s capabilities beyond the built-in patterns.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>ACE-Flow’s architecture patterns are designed to be extensible. You can create custom patterns for specialized use cases, industry-specific requirements, or novel application architectures.</p>
+
+<h2 id="pattern-structure">Pattern Structure</h2>
+
+<h3 id="pattern-definition-file">Pattern Definition File</h3>
+
+<p>Custom patterns are defined in YAML format:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/patterns/custom-analytics.yml</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">custom_analytics"</span>
+<span class="na">display_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Custom</span><span class="nv"> </span><span class="s">Analytics</span><span class="nv"> </span><span class="s">Platform"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Advanced</span><span class="nv"> </span><span class="s">analytics</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">ML</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">real-time</span><span class="nv"> </span><span class="s">processing"</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s2">"</span><span class="s">analytics"</span>
+<span class="na">complexity</span><span class="pi">:</span> <span class="s2">"</span><span class="s">high"</span>
+<span class="na">estimated_time</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4-6</span><span class="nv"> </span><span class="s">hours"</span>
+
+<span class="c1"># Required AWS services</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">dynamodb</span>
+  <span class="pi">-</span> <span class="s">lambda</span>
+  <span class="pi">-</span> <span class="s">s3</span>
+  <span class="pi">-</span> <span class="s">kinesis</span>
+  <span class="pi">-</span> <span class="s">sagemaker</span>
+  <span class="pi">-</span> <span class="s">opensearch</span>
+
+<span class="c1"># Schema definition</span>
+<span class="na">schema</span><span class="pi">:</span>
+  <span class="na">models</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DataSource"</span>
+      <span class="na">fields</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sourceType"</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">enum"</span>
+          <span class="na">values</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">api"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">database"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">stream"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">file"</span><span class="pi">]</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">connectionString"</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
+          <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+    
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Dataset"</span>
+      <span class="na">fields</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">name"</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
+          <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">schema"</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">json"</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dataSource"</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">belongsTo"</span>
+          <span class="na">model</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DataSource"</span>
+
+<span class="c1"># Frontend components to generate</span>
+<span class="na">components</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DataSourceConnector"</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">form"</span>
+    <span class="na">purpose</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Configure</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">source</span><span class="nv"> </span><span class="s">connections"</span>
+  
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AnalyticsDashboard"</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dashboard"</span>  
+    <span class="na">purpose</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Real-time</span><span class="nv"> </span><span class="s">analytics</span><span class="nv"> </span><span class="s">visualization"</span>
+
+<span class="c1"># Implementation templates</span>
+<span class="na">templates</span><span class="pi">:</span>
+  <span class="na">backend</span><span class="pi">:</span> <span class="s2">"</span><span class="s">templates/analytics-backend.ts"</span>
+  <span class="na">frontend</span><span class="pi">:</span> <span class="s2">"</span><span class="s">templates/analytics-frontend.tsx"</span>
+  <span class="na">deployment</span><span class="pi">:</span> <span class="s2">"</span><span class="s">templates/analytics-deploy.yml"</span>
+</code></pre></div></div>
+
+<h3 id="schema-templates">Schema Templates</h3>
+
+<p>Create reusable schema templates:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/templates/analytics-backend.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">a</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@aws-amplify/backend</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">schema</span><span class="p">({</span>
+  <span class="na">DataSource</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">sourceType</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">api</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">database</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">stream</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">]),</span>
+    <span class="na">connectionString</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">isActive</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">boolean</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+    <span class="na">datasets</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">Dataset</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dataSourceId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">metadata</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+  <span class="p">}).</span><span class="nx">authorization</span><span class="p">(</span><span class="nx">allow</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="nx">allow</span><span class="p">.</span><span class="nx">owner</span><span class="p">(),</span>
+    <span class="nx">allow</span><span class="p">.</span><span class="nx">groups</span><span class="p">([</span><span class="dl">'</span><span class="s1">analysts</span><span class="dl">'</span><span class="p">]).</span><span class="nx">to</span><span class="p">([</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">])</span>
+  <span class="p">]),</span>
+
+  <span class="na">Dataset</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">string</span><span class="p">(),</span>
+    <span class="na">schema</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">dataSource</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">DataSource</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dataSourceId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">records</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="dl">'</span><span class="s1">DataRecord</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">datasetId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">lastUpdated</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
+    <span class="na">recordCount</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">integer</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="p">}).</span><span class="nx">secondaryIndexes</span><span class="p">(</span><span class="nx">index</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="nx">index</span><span class="p">(</span><span class="dl">'</span><span class="s1">dataSourceId</span><span class="dl">'</span><span class="p">).</span><span class="nx">sortKeys</span><span class="p">([</span><span class="dl">'</span><span class="s1">lastUpdated</span><span class="dl">'</span><span class="p">]).</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">byDataSource</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">]),</span>
+
+  <span class="na">DataRecord</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">model</span><span class="p">({</span>
+    <span class="na">dataset</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="dl">'</span><span class="s1">Dataset</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">datasetId</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">timestamp</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">datetime</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">processingStatus</span><span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="kr">enum</span><span class="p">([</span><span class="dl">'</span><span class="s1">raw</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">processed</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">]).</span><span class="k">default</span><span class="p">(</span><span class="dl">'</span><span class="s1">raw</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="component-templates">Component Templates</h3>
+
+<p>Generate custom React components:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/templates/analytics-frontend.tsx</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">generateClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-amplify/api</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="kd">type</span> <span class="p">{</span> <span class="nx">Schema</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../amplify/data/resource</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">generateClient</span><span class="o">&lt;</span><span class="nx">Schema</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">AnalyticsDashboard</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">FC</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">dataSources</span><span class="p">,</span> <span class="nx">setDataSources</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">datasets</span><span class="p">,</span> <span class="nx">setDatasets</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">loading</span><span class="p">,</span> <span class="nx">setLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">fetchData</span><span class="p">();</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">[</span><span class="nx">dataSourcesResult</span><span class="p">,</span> <span class="nx">datasetsResult</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">DataSource</span><span class="p">.</span><span class="nx">list</span><span class="p">(),</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Dataset</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
+      <span class="p">]);</span>
+      
+      <span class="nx">setDataSources</span><span class="p">(</span><span class="nx">dataSourcesResult</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      <span class="nx">setDatasets</span><span class="p">(</span><span class="nx">datasetsResult</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error fetching data:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+      <span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">loading</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Loading analytics dashboard...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"analytics-dashboard"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Analytics Dashboard<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"dashboard-grid"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nc">DataSourcePanel</span> <span class="na">dataSources</span><span class="p">=</span><span class="si">{</span><span class="nx">dataSources</span><span class="si">}</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nc">DatasetPanel</span> <span class="na">datasets</span><span class="p">=</span><span class="si">{</span><span class="nx">datasets</span><span class="si">}</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nc">MetricsPanel</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nc">VisualizationPanel</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">DataSourcePanel</span><span class="p">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">FC</span><span class="o">&lt;</span><span class="p">{</span> <span class="na">dataSources</span><span class="p">:</span> <span class="kr">any</span><span class="p">[]</span> <span class="p">}</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">dataSources</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">(</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"panel"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Data Sources<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+    <span class="si">{</span><span class="nx">dataSources</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">source</span> <span class="o">=&gt;</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">source</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span> <span class="na">className</span><span class="p">=</span><span class="s">"data-source-item"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="s2">`status </span><span class="p">${</span><span class="nx">source</span><span class="p">.</span><span class="nx">isActive</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">active</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">inactive</span><span class="dl">'</span><span class="p">}</span><span class="s2">`</span><span class="si">}</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">source</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="p">=</span><span class="s">"type"</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">source</span><span class="p">.</span><span class="nx">sourceType</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">))</span><span class="si">}</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="pattern-registration">Pattern Registration</h2>
+
+<h3 id="register-custom-pattern">Register Custom Pattern</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Register a new pattern</span>
+/ace-register-pattern custom-analytics.yml
+
+<span class="c"># List registered patterns</span>
+/ace-list-patterns
+
+<span class="c"># Validate pattern definition</span>
+/ace-validate-pattern custom-analytics.yml
+</code></pre></div></div>
+
+<h3 id="pattern-inheritance">Pattern Inheritance</h3>
+
+<p>Extend existing patterns:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Extend e-commerce pattern with analytics</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ecommerce_analytics"</span>
+<span class="na">extends</span><span class="pi">:</span> <span class="s2">"</span><span class="s">e_commerce"</span>
+<span class="na">display_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">E-commerce</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Analytics"</span>
+
+<span class="c1"># Additional models</span>
+<span class="na">additional_models</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ProductAnalytics"</span>
+    <span class="na">fields</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">product"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">belongsTo"</span>
+        <span class="na">model</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Product"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">views"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">integer"</span>
+        <span class="na">default</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">conversions"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">integer"</span>
+        <span class="na">default</span><span class="pi">:</span> <span class="m">0</span>
+
+<span class="c1"># Additional components</span>
+<span class="na">additional_components</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ProductAnalyticsDashboard"</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dashboard"</span>
+    <span class="na">purpose</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Track</span><span class="nv"> </span><span class="s">product</span><span class="nv"> </span><span class="s">performance"</span>
+</code></pre></div></div>
+
+<h2 id="advanced-features">Advanced Features</h2>
+
+<h3 id="custom-hooks">Custom Hooks</h3>
+
+<p>Add pattern-specific hooks:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/patterns/hooks/analytics-hooks.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">analyticsHooks</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">preGeneration</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Setting up analytics infrastructure...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// Custom pre-generation logic</span>
+  <span class="p">},</span>
+
+  <span class="na">postGeneration</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Configuring analytics pipelines...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// Set up Kinesis streams, SageMaker endpoints, etc.</span>
+  <span class="p">},</span>
+
+  <span class="na">preDeployment</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Validate analytics configuration</span>
+    <span class="k">await</span> <span class="nx">validateAnalyticsSetup</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">validateAnalyticsSetup</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Custom validation logic</span>
+  <span class="kd">const</span> <span class="nx">requiredServices</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">kinesis</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">opensearch</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sagemaker</span><span class="dl">'</span><span class="p">];</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">service</span> <span class="k">of</span> <span class="nx">requiredServices</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">context</span><span class="p">.</span><span class="nx">services</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">service</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Missing required service: </span><span class="p">${</span><span class="nx">service</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="dynamic-schema-generation">Dynamic Schema Generation</h3>
+
+<p>Generate schemas programmatically:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/patterns/generators/schema-generator.js</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">generateAnalyticsSchema</span> <span class="o">=</span> <span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">models</span> <span class="o">=</span> <span class="p">[];</span>
+  
+  <span class="c1">// Generate models based on data sources</span>
+  <span class="nx">config</span><span class="p">.</span><span class="nx">dataSources</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">source</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">models</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="nx">source</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">Data`</span><span class="p">,</span>
+      <span class="na">fields</span><span class="p">:</span> <span class="nx">generateFieldsFromSchema</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">schema</span><span class="p">),</span>
+      <span class="na">indexes</span><span class="p">:</span> <span class="nx">generateOptimalIndexes</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">queryPatterns</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">models</span><span class="p">,</span>
+    <span class="na">relationships</span><span class="p">:</span> <span class="nx">generateRelationships</span><span class="p">(</span><span class="nx">models</span><span class="p">),</span>
+    <span class="na">authorization</span><span class="p">:</span> <span class="nx">generateAuthRules</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">userRoles</span><span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="testing-custom-patterns">Testing Custom Patterns</h2>
+
+<h3 id="pattern-testing-framework">Pattern Testing Framework</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/patterns/tests/custom-analytics.test.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">testPattern</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@ace-flow/testing</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Custom Analytics Pattern</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">generates valid schema</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">testPattern</span><span class="p">(</span><span class="dl">'</span><span class="s1">custom-analytics</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">dataSources</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">sales</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">database</span><span class="dl">'</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">events</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">stream</span><span class="dl">'</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">models</span><span class="p">).</span><span class="nx">toHaveLength</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">m</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">name</span><span class="p">)).</span><span class="nx">toContain</span><span class="p">(</span><span class="dl">'</span><span class="s1">DataSource</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">creates required AWS resources</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">deployment</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">testPattern</span><span class="p">.</span><span class="nx">deploy</span><span class="p">(</span><span class="dl">'</span><span class="s1">custom-analytics</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">deployment</span><span class="p">.</span><span class="nx">resources</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="dl">'</span><span class="s1">AWS::DynamoDB::Table</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">deployment</span><span class="p">.</span><span class="nx">resources</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="dl">'</span><span class="s1">AWS::Kinesis::Stream</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="integration-testing">Integration Testing</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test pattern in sandbox environment</span>
+/ace-test-pattern custom-analytics <span class="nt">--env</span><span class="o">=</span>sandbox
+
+<span class="c"># Run comprehensive tests</span>
+/ace-test-pattern custom-analytics <span class="nt">--full-test</span>
+
+<span class="c"># Performance testing</span>
+/ace-test-pattern custom-analytics <span class="nt">--performance</span>
+</code></pre></div></div>
+
+<h2 id="pattern-distribution">Pattern Distribution</h2>
+
+<h3 id="publishing-patterns">Publishing Patterns</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Prepare pattern for distribution</span>
+/ace-package-pattern custom-analytics
+
+<span class="c"># Publish to ACE-Flow registry</span>
+/ace-publish-pattern custom-analytics <span class="nt">--registry</span><span class="o">=</span>community
+
+<span class="c"># Install community patterns</span>
+/ace-install-pattern community/financial-analytics
+</code></pre></div></div>
+
+<h3 id="pattern-marketplace">Pattern Marketplace</h3>
+
+<p>Submit patterns to the community:</p>
+
+<ol>
+  <li><strong>Package</strong> your pattern with documentation</li>
+  <li><strong>Test</strong> thoroughly across different scenarios</li>
+  <li><strong>Submit</strong> to the ACE-Flow pattern marketplace</li>
+  <li><strong>Maintain</strong> and update based on feedback</li>
+</ol>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="pattern-design">Pattern Design</h3>
+
+<ol>
+  <li><strong>Keep patterns focused</strong> - Each pattern should solve one primary use case</li>
+  <li><strong>Design for reusability</strong> - Make patterns configurable and extensible</li>
+  <li><strong>Include comprehensive documentation</strong> - Document all configuration options</li>
+  <li><strong>Provide examples</strong> - Include real-world usage examples</li>
+  <li><strong>Test thoroughly</strong> - Ensure patterns work across different environments</li>
+</ol>
+
+<h3 id="performance-considerations">Performance Considerations</h3>
+
+<ol>
+  <li><strong>Optimize database schemas</strong> - Include appropriate indexes</li>
+  <li><strong>Consider scalability</strong> - Design for growth from day one</li>
+  <li><strong>Minimize API calls</strong> - Batch operations where possible</li>
+  <li><strong>Cache effectively</strong> - Implement appropriate caching strategies</li>
+  <li><strong>Monitor resource usage</strong> - Include observability from the start</li>
+</ol>
+
+<h3 id="security-guidelines">Security Guidelines</h3>
+
+<ol>
+  <li><strong>Follow least privilege</strong> - Grant minimal necessary permissions</li>
+  <li><strong>Encrypt sensitive data</strong> - Use AWS KMS for encryption keys</li>
+  <li><strong>Implement proper authorization</strong> - Use Cognito groups and IAM roles</li>
+  <li><strong>Validate inputs</strong> - Include client and server-side validation</li>
+  <li><strong>Audit access</strong> - Log all data access and modifications</li>
+</ol>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="machine-learning-pattern">Machine Learning Pattern</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ml_platform"</span>
+<span class="na">display_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Machine</span><span class="nv"> </span><span class="s">Learning</span><span class="nv"> </span><span class="s">Platform"</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">sagemaker</span>
+  <span class="pi">-</span> <span class="s">s3</span>
+  <span class="pi">-</span> <span class="s">lambda</span>
+  <span class="pi">-</span> <span class="s">dynamodb</span>
+
+<span class="na">models</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MLModel"</span>
+    <span class="na">fields</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">name"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
+        <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">algorithm"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">enum"</span>
+        <span class="na">values</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">linear_regression"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">random_forest"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">neural_network"</span><span class="pi">]</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">trainingData"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">json"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">modelArn"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">status"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">enum"</span>
+        <span class="na">values</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">training"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">ready"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">failed"</span><span class="pi">]</span>
+</code></pre></div></div>
+
+<h3 id="iot-data-platform">IoT Data Platform</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">iot_platform"</span>
+<span class="na">display_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">IoT</span><span class="nv"> </span><span class="s">Data</span><span class="nv"> </span><span class="s">Collection</span><span class="nv"> </span><span class="s">Platform"</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">iot-core</span>
+  <span class="pi">-</span> <span class="s">kinesis</span>
+  <span class="pi">-</span> <span class="s">timestream</span>
+  <span class="pi">-</span> <span class="s">lambda</span>
+
+<span class="na">models</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Device"</span>
+    <span class="na">fields</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">deviceId"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">string"</span>
+        <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">deviceType"</span> 
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">enum"</span>
+        <span class="na">values</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">sensor"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">actuator"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">gateway"</span><span class="pi">]</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">location"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">json"</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">lastSeen"</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">datetime"</span>
+</code></pre></div></div>
+
+<h2 id="getting-help">Getting Help</h2>
+
+<ul>
+  <li><strong>Documentation</strong>: Check the <a href="https://docs.ace-flow.dev/patterns">Pattern Development Guide</a></li>
+  <li><strong>Community</strong>: Join the <a href="https://discord.gg/ace-flow">Discord server</a> for help</li>
+  <li><strong>Examples</strong>: Browse <a href="https://github.com/ace-flow/community-patterns">community patterns</a></li>
+  <li><strong>Issues</strong>: Report bugs on <a href="https://github.com/ace-flow/ace-flow/issues">GitHub</a></li>
+</ul>
+
+<hr />
+
+<p><em>Ready to build your own patterns? Start with our <a href="https://tools.ace-flow.dev/pattern-generator">Pattern Generator Tool</a> for guided pattern creation.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

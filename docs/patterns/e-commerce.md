@@ -1,3 +1,8 @@
+---
+layout: docs
+title: E-commerce Pattern
+---
+
 # E-commerce Pattern
 
 The E-commerce pattern provides a complete foundation for building online stores, marketplaces, and subscription-based services with integrated payment processing.

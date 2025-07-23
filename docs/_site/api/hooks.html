@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hooks System | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Hooks System" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/api/hooks.html" />
+<meta property="og:url" content="http://localhost:4000/api/hooks.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hooks System" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Hooks System","url":"http://localhost:4000/api/hooks.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="hooks-system">Hooks System</h1>
+
+<p>Advanced automation through smart hooks that respond to ACE-Flow lifecycle events.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>ACE-Flow’s hooks system provides powerful automation capabilities by allowing you to execute custom scripts at specific points in the development lifecycle. Hooks enable continuous integration, automated testing, monitoring, and custom workflows.</p>
+
+<h2 id="hook-types">Hook Types</h2>
+
+<h3 id="generation-hooks">Generation Hooks</h3>
+
+<p>Execute during project generation phase:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/hooks.yml</span>
+<span class="na">generation</span><span class="pi">:</span>
+  <span class="na">pre_generation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">validate_requirements"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/validate-reqs.sh"</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      
+  <span class="na">post_generation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">setup_git"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">git</span><span class="nv"> </span><span class="s">init</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">git</span><span class="nv"> </span><span class="s">add</span><span class="nv"> </span><span class="s">."</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">false</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">install_dependencies"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npm</span><span class="nv"> </span><span class="s">install"</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="m">300</span>
+</code></pre></div></div>
+
+<h3 id="research-hooks">Research Hooks</h3>
+
+<p>Execute during documentation research:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">research</span><span class="pi">:</span>
+  <span class="na">pre_research</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">check_cache"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/check-research-cache.sh"</span>
+      
+  <span class="na">post_research</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">update_knowledge_base"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/update-kb.py"</span>
+      <span class="na">async</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h3 id="deployment-hooks">Deployment Hooks</h3>
+
+<p>Execute during AWS deployment:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">deployment</span><span class="pi">:</span>
+  <span class="na">pre_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">run_tests"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npm</span><span class="nv"> </span><span class="s">test"</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="m">600</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">security_scan"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/security-check.sh"</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cost_check"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/estimate-costs.sh"</span>
+      <span class="na">max_cost</span><span class="pi">:</span> <span class="m">100.00</span>
+      
+  <span class="na">post_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">smoke_tests"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/smoke-tests.sh"</span>
+      <span class="na">retry_count</span><span class="pi">:</span> <span class="m">3</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">update_docs"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/generate-api-docs.sh"</span>
+      <span class="na">async</span><span class="pi">:</span> <span class="no">true</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">notify_team"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/slack-notify.sh"</span>
+      <span class="na">env</span><span class="pi">:</span>
+        <span class="na">SLACK_CHANNEL</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#deployments"</span>
+</code></pre></div></div>
+
+<h3 id="validation-hooks">Validation Hooks</h3>
+
+<p>Execute during validation checks:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">validation</span><span class="pi">:</span>
+  <span class="na">pre_validation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">lint_code"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npm</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">lint"</span>
+      
+  <span class="na">post_validation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">generate_report"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/validation-report.sh"</span>
+      <span class="na">output_file</span><span class="pi">:</span> <span class="s2">"</span><span class="s">validation-report.json"</span>
+</code></pre></div></div>
+
+<h2 id="hook-configuration">Hook Configuration</h2>
+
+<h3 id="basic-hook-structure">Basic Hook Structure</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hooks</span><span class="pi">:</span>
+  <span class="pi">[</span><span class="nv">phase</span><span class="pi">]</span><span class="err">:</span>
+    <span class="pi">[</span><span class="nv">event</span><span class="pi">]</span><span class="err">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hook_name"</span>
+        <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">command</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">script</span><span class="nv"> </span><span class="s">path"</span>
+        <span class="na">required</span><span class="pi">:</span> <span class="no">true</span><span class="s">|false</span>
+        <span class="na">timeout</span><span class="pi">:</span> <span class="m">300</span>  <span class="c1"># seconds</span>
+        <span class="na">retry_count</span><span class="pi">:</span> <span class="m">3</span>
+        <span class="na">async</span><span class="pi">:</span> <span class="no">false</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">KEY</span><span class="pi">:</span> <span class="s2">"</span><span class="s">value"</span>
+        <span class="na">conditions</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">condition_expression"</span>
+</code></pre></div></div>
+
+<h3 id="hook-properties">Hook Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>string</td>
+      <td>Unique hook identifier</td>
+      <td>required</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">script</code></td>
+      <td>string</td>
+      <td>Command or script to execute</td>
+      <td>required</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">required</code></td>
+      <td>boolean</td>
+      <td>Fail workflow if hook fails</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">timeout</code></td>
+      <td>integer</td>
+      <td>Maximum execution time (seconds)</td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">retry_count</code></td>
+      <td>integer</td>
+      <td>Number of retries on failure</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">async</code></td>
+      <td>boolean</td>
+      <td>Run hook in background</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">env</code></td>
+      <td>object</td>
+      <td>Environment variables</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">conditions</code></td>
+      <td>array</td>
+      <td>Conditions for hook execution</td>
+      <td><code class="language-plaintext highlighter-rouge">[]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">working_dir</code></td>
+      <td>string</td>
+      <td>Working directory for execution</td>
+      <td>project root</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shell</code></td>
+      <td>string</td>
+      <td>Shell to use for execution</td>
+      <td><code class="language-plaintext highlighter-rouge">/bin/bash</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="environment-variables-in-hooks">Environment Variables in Hooks</h3>
+
+<p>Hooks have access to ACE-Flow context variables:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Available in all hooks</span>
+<span class="nv">$ACE_FLOW_PROJECT_NAME</span>
+<span class="nv">$ACE_FLOW_PROJECT_TYPE</span>
+<span class="nv">$ACE_FLOW_PATTERN</span>
+<span class="nv">$ACE_FLOW_VERSION</span>
+<span class="nv">$ACE_FLOW_PHASE</span>      <span class="c"># current phase: generation, research, deployment, validation</span>
+<span class="nv">$ACE_FLOW_EVENT</span>      <span class="c"># current event: pre_deployment, post_deployment, etc.</span>
+
+<span class="c"># AWS Context</span>
+<span class="nv">$AWS_REGION</span>
+<span class="nv">$AWS_ACCOUNT_ID</span>
+<span class="nv">$AMPLIFY_APP_ID</span>
+<span class="nv">$AMPLIFY_BRANCH</span>
+
+<span class="c"># Project Context</span>
+<span class="nv">$PROJECT_ROOT</span>
+<span class="nv">$CONFIG_FILE</span>
+<span class="nv">$AMPLIFY_OUTPUTS_FILE</span>
+</code></pre></div></div>
+
+<h2 id="built-in-hooks">Built-in Hooks</h2>
+
+<h3 id="aws-amplify-integration">AWS Amplify Integration</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Automatically triggered by AWS Amplify events</span>
+<span class="na">amplify</span><span class="pi">:</span>
+  <span class="na">schema_update</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">regenerate_types"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npx</span><span class="nv"> </span><span class="s">amplify</span><span class="nv"> </span><span class="s">generate</span><span class="nv"> </span><span class="s">graphql-client-code"</span>
+      <span class="na">auto_trigger</span><span class="pi">:</span> <span class="no">true</span>
+      
+  <span class="na">sandbox_ready</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">run_integration_tests"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/integration-tests.sh"</span>
+      
+  <span class="na">deployment_complete</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">verify_endpoints"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/verify-deployment.sh"</span>
+</code></pre></div></div>
+
+<h3 id="testing-hooks">Testing Hooks</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">testing</span><span class="pi">:</span>
+  <span class="na">pre_test</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">setup_test_data"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/seed-test-data.sh"</span>
+      
+  <span class="na">post_test</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cleanup_test_data"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/cleanup-test-data.sh"</span>
+      <span class="na">always_run</span><span class="pi">:</span> <span class="no">true</span>  <span class="c1"># Run even if tests fail</span>
+</code></pre></div></div>
+
+<h3 id="security-hooks">Security Hooks</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">security</span><span class="pi">:</span>
+  <span class="na">pre_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">vulnerability_scan"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npm</span><span class="nv"> </span><span class="s">audit</span><span class="nv"> </span><span class="s">--audit-level=high"</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">secrets_scan"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/check-secrets.sh"</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+      
+  <span class="na">post_deployment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">penetration_test"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/pen-test.sh"</span>
+      <span class="na">async</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h2 id="conditional-hooks">Conditional Hooks</h2>
+
+<p>Execute hooks based on conditions:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hooks</span><span class="pi">:</span>
+  <span class="na">deployment</span><span class="pi">:</span>
+    <span class="na">pre_deployment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">production_checks"</span>
+        <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/prod-checks.sh"</span>
+        <span class="na">conditions</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">$AMPLIFY_BRANCH</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'main'"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">$ACE_FLOW_PATTERN</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'e_commerce'"</span>
+          
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">staging_setup"</span>
+        <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./scripts/staging-setup.sh"</span>
+        <span class="na">conditions</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">$AMPLIFY_BRANCH</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'staging'"</span>
+</code></pre></div></div>
+
+<h3 id="condition-syntax">Condition Syntax</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">conditions</span><span class="pi">:</span>
+  <span class="c1"># Environment variables</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">$NODE_ENV</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'production'"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">$AWS_REGION</span><span class="nv"> </span><span class="s">!=</span><span class="nv"> </span><span class="s">'us-east-1'"</span>
+  
+  <span class="c1"># File existence</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">file_exists('package.json')"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">file_exists('.env.production')"</span>
+  
+  <span class="c1"># Project properties</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">$ACE_FLOW_PATTERN</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">['e_commerce',</span><span class="nv"> </span><span class="s">'social_platform']"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">$ACE_FLOW_PROJECT_TYPE</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'new'"</span>
+  
+  <span class="c1"># Time-based</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">time_between('09:00',</span><span class="nv"> </span><span class="s">'17:00')"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">day_of_week()</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">['Mon',</span><span class="nv"> </span><span class="s">'Tue',</span><span class="nv"> </span><span class="s">'Wed',</span><span class="nv"> </span><span class="s">'Thu',</span><span class="nv"> </span><span class="s">'Fri']"</span>
+  
+  <span class="c1"># Git context</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">git_branch()</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'main'"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">git_has_changes()</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">false"</span>
+  
+  <span class="c1"># Custom functions</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">custom_condition('param1',</span><span class="nv"> </span><span class="s">'param2')"</span>
+</code></pre></div></div>
+
+<h2 id="hook-scripts">Hook Scripts</h2>
+
+<h3 id="shell-scripts">Shell Scripts</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># scripts/pre-deployment-checks.sh</span>
+
+<span class="nb">set</span> <span class="nt">-e</span>  <span class="c"># Exit on any error</span>
+
+<span class="nb">echo</span> <span class="s2">"Running pre-deployment checks..."</span>
+
+<span class="c"># Check AWS credentials</span>
+<span class="k">if</span> <span class="o">!</span> aws sts get-caller-identity <span class="o">&gt;</span> /dev/null 2&gt;&amp;1<span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Error: AWS credentials not configured"</span>
+    <span class="nb">exit </span>1
+<span class="k">fi</span>
+
+<span class="c"># Check required environment variables</span>
+<span class="nv">required_vars</span><span class="o">=(</span><span class="s2">"DATABASE_URL"</span> <span class="s2">"API_KEY"</span><span class="o">)</span>
+<span class="k">for </span>var <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">required_vars</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+    if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="k">${</span><span class="p">!var</span><span class="k">}</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+        </span><span class="nb">echo</span> <span class="s2">"Error: Required environment variable </span><span class="nv">$var</span><span class="s2"> is not set"</span>
+        <span class="nb">exit </span>1
+    <span class="k">fi
+done</span>
+
+<span class="c"># Run tests</span>
+<span class="nb">echo</span> <span class="s2">"Running tests..."</span>
+npm <span class="nb">test</span>
+
+<span class="c"># Check code quality</span>
+<span class="nb">echo</span> <span class="s2">"Running linting..."</span>
+npm run lint
+
+<span class="nb">echo</span> <span class="s2">"Pre-deployment checks completed successfully"</span>
+</code></pre></div></div>
+
+<h3 id="python-scripts">Python Scripts</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+# scripts/cost-analysis.py
+</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">boto3</span>
+
+<span class="k">def</span> <span class="nf">estimate_costs</span><span class="p">():</span>
+    <span class="s">"""Estimate deployment costs"""</span>
+    
+    <span class="c1"># Load Amplify outputs
+</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'amplify_outputs.json'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate estimated costs
+</span>    <span class="n">dynamodb_cost</span> <span class="o">=</span> <span class="n">estimate_dynamodb_cost</span><span class="p">()</span>
+    <span class="n">lambda_cost</span> <span class="o">=</span> <span class="n">estimate_lambda_cost</span><span class="p">()</span>
+    <span class="n">s3_cost</span> <span class="o">=</span> <span class="n">estimate_s3_cost</span><span class="p">()</span>
+    
+    <span class="n">total_cost</span> <span class="o">=</span> <span class="n">dynamodb_cost</span> <span class="o">+</span> <span class="n">lambda_cost</span> <span class="o">+</span> <span class="n">s3_cost</span>
+    
+    <span class="c1"># Check against threshold
+</span>    <span class="n">threshold</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'MAX_MONTHLY_COST'</span><span class="p">,</span> <span class="s">'100'</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">total_cost</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Error: Estimated cost $</span><span class="si">{</span><span class="n">total_cost</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s"> exceeds threshold $</span><span class="si">{</span><span class="n">threshold</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Estimated monthly cost: $</span><span class="si">{</span><span class="n">total_cost</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total_cost</span>
+
+<span class="k">def</span> <span class="nf">estimate_dynamodb_cost</span><span class="p">():</span>
+    <span class="c1"># Implement DynamoDB cost estimation
+</span>    <span class="k">return</span> <span class="mf">10.50</span>
+
+<span class="k">def</span> <span class="nf">estimate_lambda_cost</span><span class="p">():</span>
+    <span class="c1"># Implement Lambda cost estimation
+</span>    <span class="k">return</span> <span class="mf">5.25</span>
+
+<span class="k">def</span> <span class="nf">estimate_s3_cost</span><span class="p">():</span>
+    <span class="c1"># Implement S3 cost estimation
+</span>    <span class="k">return</span> <span class="mf">2.75</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">estimate_costs</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="nodejs-scripts">Node.js Scripts</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#!/usr/bin/env node
+</span><span class="c1">// scripts/verify-deployment.js</span>
+
+<span class="kd">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">https</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">verifyDeployment</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Verifying deployment...</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="c1">// Load Amplify configuration</span>
+    <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">amplify_outputs.json</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">));</span>
+    <span class="kd">const</span> <span class="nx">apiEndpoint</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">API</span><span class="p">.</span><span class="nx">GraphQL</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">;</span>
+    
+    <span class="c1">// Test GraphQL endpoint</span>
+    <span class="kd">const</span> <span class="nx">testQuery</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">query</span><span class="p">:</span> <span class="s2">`
+            query TestQuery {
+                __schema {
+                    types {
+                        name
+                    }
+                }
+            }
+        `</span>
+    <span class="p">};</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">makeGraphQLRequest</span><span class="p">(</span><span class="nx">apiEndpoint</span><span class="p">,</span> <span class="nx">testQuery</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">✅ GraphQL API is responding</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">GraphQL API returned no data</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// Test authentication endpoints</span>
+        <span class="k">await</span> <span class="nx">testAuthEndpoints</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+        
+        <span class="c1">// Test file storage</span>
+        <span class="k">await</span> <span class="nx">testStorageEndpoints</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+        
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">✅ Deployment verification completed successfully</span><span class="dl">'</span><span class="p">);</span>
+        
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">❌ Deployment verification failed:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+        <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">makeGraphQLRequest</span><span class="p">(</span><span class="nx">endpoint</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Implement GraphQL request logic</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="na">__schema</span><span class="p">:</span> <span class="p">{</span> <span class="na">types</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span> <span class="p">}</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">testAuthEndpoints</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Testing authentication endpoints...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// Implement auth testing</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">testStorageEndpoints</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Testing storage endpoints...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// Implement storage testing</span>
+<span class="p">}</span>
+
+<span class="nx">verifyDeployment</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="hook-management">Hook Management</h2>
+
+<h3 id="enabledisable-hooks">Enable/Disable Hooks</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Disable specific hook</span>
+/ace-disable-hook cost-estimation
+
+<span class="c"># Enable hook</span>
+/ace-enable-hook cost-estimation
+
+<span class="c"># List hook status</span>
+/ace-list-hooks <span class="nt">--status</span>
+
+<span class="c"># Run hooks manually</span>
+/ace-run-hook pre-deployment cost-estimation
+</code></pre></div></div>
+
+<h3 id="hook-debugging">Hook Debugging</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enable hook debugging</span>
+<span class="nb">export </span><span class="nv">ACE_FLOW_DEBUG_HOOKS</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># View hook execution logs</span>
+/ace-logs <span class="nt">--hooks</span> <span class="nt">--follow</span>
+
+<span class="c"># Test hook configuration</span>
+/ace-test-hooks <span class="nt">--dry-run</span>
+</code></pre></div></div>
+
+<h3 id="hook-templates">Hook Templates</h3>
+
+<p>Generate hook templates:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate basic hook</span>
+/ace-generate-hook <span class="nt">--name</span><span class="o">=</span>my-hook <span class="nt">--type</span><span class="o">=</span>pre-deployment
+
+<span class="c"># Generate from template</span>
+/ace-generate-hook <span class="nt">--template</span><span class="o">=</span>security-scan
+
+<span class="c"># List available templates</span>
+/ace-list-hook-templates
+</code></pre></div></div>
+
+<h2 id="integration-examples">Integration Examples</h2>
+
+<h3 id="cicd-integration">CI/CD Integration</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GitHub Actions integration</span>
+<span class="na">github_actions</span><span class="pi">:</span>
+  <span class="na">on_push</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">trigger_ace_flow"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/ace-implement</span><span class="nv"> </span><span class="s">--ci-mode"</span>
+      <span class="na">env</span><span class="pi">:</span>
+        <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$"</span>
+        
+  <span class="na">on_pull_request</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">validate_changes"</span>
+      <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/ace-validate</span><span class="nv"> </span><span class="s">--pr-mode"</span>
+</code></pre></div></div>
+
+<h3 id="slack-notifications">Slack Notifications</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># scripts/slack-notify.sh</span>
+
+<span class="nv">WEBHOOK_URL</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">SLACK_WEBHOOK_URL</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">CHANNEL</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">SLACK_CHANNEL</span><span class="k">:-</span><span class="p">#deployments</span><span class="k">}</span><span class="s2">"</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+    <span class="nt">--data</span> <span class="s2">"{
+        </span><span class="se">\"</span><span class="s2">channel</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="nv">$CHANNEL</span><span class="se">\"</span><span class="s2">,
+        </span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">🚀 ACE-Flow deployment completed for </span><span class="nv">$ACE_FLOW_PROJECT_NAME</span><span class="se">\"</span><span class="s2">,
+        </span><span class="se">\"</span><span class="s2">username</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ACE-Flow Bot</span><span class="se">\"</span><span class="s2">
+    }"</span> <span class="se">\</span>
+    <span class="s2">"</span><span class="nv">$WEBHOOK_URL</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h3 id="monitoring-integration">Monitoring Integration</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// scripts/setup-monitoring.js</span>
+<span class="kd">const</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">aws-sdk</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">cloudwatch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">CloudWatch</span><span class="p">();</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">setupAlarms</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Create CloudWatch alarms for key metrics</span>
+    <span class="k">await</span> <span class="nx">cloudwatch</span><span class="p">.</span><span class="nx">putMetricAlarm</span><span class="p">({</span>
+        <span class="na">AlarmName</span><span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ACE_FLOW_PROJECT_NAME</span><span class="p">}</span><span class="s2">-high-error-rate`</span><span class="p">,</span>
+        <span class="na">MetricName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ErrorRate</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">Namespace</span><span class="p">:</span> <span class="dl">'</span><span class="s1">AWS/Lambda</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">Statistic</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Average</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">Period</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+        <span class="na">EvaluationPeriods</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">Threshold</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="na">ComparisonOperator</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GreaterThanThreshold</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">AlarmActions</span><span class="p">:</span> <span class="p">[</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SNS_ALARM_TOPIC</span><span class="p">]</span>
+    <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+    
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Monitoring alarms configured</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">setupAlarms</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="hook-development">Hook Development</h3>
+
+<ol>
+  <li><strong>Keep hooks focused</strong> - Each hook should have a single responsibility</li>
+  <li><strong>Make hooks idempotent</strong> - Safe to run multiple times</li>
+  <li><strong>Handle errors gracefully</strong> - Provide meaningful error messages</li>
+  <li><strong>Use proper exit codes</strong> - 0 for success, non-zero for failure</li>
+  <li><strong>Log appropriately</strong> - Include relevant context in logs</li>
+</ol>
+
+<h3 id="performance-optimization">Performance Optimization</h3>
+
+<ol>
+  <li><strong>Use async hooks</strong> for non-blocking operations</li>
+  <li><strong>Set appropriate timeouts</strong> to prevent hanging</li>
+  <li><strong>Implement retries</strong> for transient failures</li>
+  <li><strong>Cache results</strong> when possible</li>
+  <li><strong>Parallelize</strong> independent operations</li>
+</ol>
+
+<h3 id="security-considerations">Security Considerations</h3>
+
+<ol>
+  <li><strong>Validate inputs</strong> from environment variables</li>
+  <li><strong>Use secure credential storage</strong> (AWS Secrets Manager, etc.)</li>
+  <li><strong>Limit hook permissions</strong> to minimum required</li>
+  <li><strong>Audit hook execution</strong> for compliance</li>
+  <li><strong>Encrypt sensitive data</strong> in hook outputs</li>
+</ol>
+
+<h2 id="troubleshooting-hooks">Troubleshooting Hooks</h2>
+
+<h3 id="common-issues">Common Issues</h3>
+
+<ol>
+  <li><strong>Hook timeout</strong> - Increase timeout or optimize script</li>
+  <li><strong>Permission denied</strong> - Check file permissions and execution rights</li>
+  <li><strong>Environment variables</strong> - Verify all required variables are set</li>
+  <li><strong>Path issues</strong> - Use absolute paths or ensure PATH is correct</li>
+</ol>
+
+<h3 id="debug-commands">Debug Commands</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># View hook execution history</span>
+/ace-hook-history <span class="nt">--last</span><span class="o">=</span>10
+
+<span class="c"># Test hook in isolation</span>
+/ace-test-hook pre-deployment security-scan <span class="nt">--verbose</span>
+
+<span class="c"># Validate hook configuration</span>
+/ace-validate-hooks <span class="nt">--config</span><span class="o">=</span>.ace-flow/hooks.yml
+</code></pre></div></div>
+
+<hr />
+
+<p><em>For more advanced hook scenarios and custom integrations, see our <a href="../advanced/hooks">Advanced Hooks Guide</a> or join our <a href="https://discord.gg/ace-flow">Discord community</a> for support.</em></p>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development</p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

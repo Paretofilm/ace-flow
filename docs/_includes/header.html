@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="{{ "/" | relative_url }}">
+        <img src="{{ "/assets/ace-flow-logo.svg" | relative_url }}" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="{{ '/getting-started' | relative_url }}">Docs</a>
+          <a class="page-link" href="{{ '/examples' | relative_url }}">Examples</a>
+          <a class="page-link" href="{{ '/patterns/' | relative_url }}">Patterns</a>
+          <a class="page-link" href="{{ '/resources' | relative_url }}">Resources</a>
+          <a class="page-link" href="{{ site.ace_flow.github_url }}" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header>

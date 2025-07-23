@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Architecture Patterns
+---
+
 # Architecture Patterns
 
 ACE-Flow provides five pre-built architecture patterns optimized for AWS Amplify Gen 2 development. Each pattern includes complete backend schema, authentication, storage, and frontend components.

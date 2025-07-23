@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Advanced Topics
+---
+
 # Advanced Topics
 
 This section covers advanced ACE-Flow features and customization options for power users and complex use cases.
