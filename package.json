@@ -9,6 +9,8 @@
     "lint": "bash scripts/ace-review.sh --syntax-only",
     "quality-check": "bash scripts/ace-review.sh",
     "quality-report": "bash scripts/ace-review.sh --area=all",
+    "quality-issues": "bash scripts/ace-review.sh --create-issues",
+    "quality-report-issues": "bash scripts/ace-review.sh --area=all --create-issues",
     "generate-report": "bash scripts/ace-review.sh --generate-prompt",
     "cleanup": "bash scripts/cleanup-temp-files.sh",
     "setup-hooks": "bash scripts/cleanup-temp-files.sh --setup-hooks"

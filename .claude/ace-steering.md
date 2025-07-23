@@ -1,533 +1,418 @@
-# /ace-steering - Intelligent Implementation Guidance
+# 🎯 ACE-Flow Steering Management Command
 
-## Overview
-The `/ace-steering` command provides intelligent, context-aware guidance during implementation phases. It analyzes your project state, suggests next steps, identifies potential issues, and steers development toward optimal outcomes based on ACE-Flow best practices.
+## Purpose
+**ace-steering** manages the Kiro-style steering files that provide persistent, project-specific context to enhance ACE-Flow's research, documentation, and implementation capabilities.
 
-## Usage
+## Core Functionality
+
+### Steering File Management
 ```bash
-# Get current guidance and next steps
-/ace-steering
-
-# Get guidance for specific phase
-/ace-steering --phase=genesis
-/ace-steering --phase=research
-/ace-steering --phase=implementation
-
-# Get guidance for specific domain
-/ace-steering --domain=auth
-/ace-steering --domain=data-modeling
-/ace-steering --domain=deployment
-
-# Interactive steering mode
-/ace-steering --interactive
-
-# Generate steering report
-/ace-steering --report --format=markdown
+/ace-steering                          # List all steering files and status
+/ace-steering --create [type]          # Create new steering file from template
+/ace-steering --edit [file]            # Edit existing steering file
+/ace-steering --validate               # Validate all steering files
+/ace-steering --sync                   # Synchronize steering context
+/ace-steering --analytics              # Show steering usage analytics
 ```
 
-## Steering Intelligence
+## Command Processing
 
-### Context-Aware Analysis
-```
-🎯 ACE-Steering Analysis
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Project: recipe-sharing-app
-Pattern: social_platform
-Phase: Implementation (67% complete)
-Quality Score: 8.2/10
-
-Current Focus: Real-time messaging system
-Next Recommended: User notification system
-Risk Level: Medium (infrastructure complexity)
-
-💡 Smart Recommendations:
-1. Prioritize WebSocket optimization before scaling
-2. Consider implementing message queuing (SQS)
-3. Add connection pooling for better performance
-4. Plan for offline message synchronization
-```
-
-### Phase-Specific Guidance
-
-#### Genesis Phase Steering
-```
-🌟 Genesis Phase Guidance
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Current Status: Requirements gathering complete
-Architecture: 73% defined
-Specifications: In progress
-
-🎯 Next Steps:
-1. Finalize data model relationships
-2. Define API endpoints and operations
-3. Create component hierarchy diagram
-4. Validate technical feasibility
-
-⚠️ Potential Issues:
-- Real-time features may require additional AWS services
-- Complex social features need careful auth planning
-- Image storage needs CDN consideration
-
-🔄 Recommended Actions:
-- Run `/ace-research real-time social_platform`
-- Validate auth requirements with `/ace-validate --check=auth`
-- Consider scalability implications early
-```
-
-#### Research Phase Steering
-```
-🔬 Research Phase Guidance
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Research Depth: 85% (42 pages analyzed)
-Knowledge Gaps: 2 critical, 5 minor
-Pattern Confidence: High
-
-📚 Research Summary:
-✅ Authentication patterns well-researched
-✅ Real-time messaging patterns found
-⚠️  File upload optimization needs more research
-❌ Push notification setup incomplete
-
-🎯 Recommended Research:
-1. `/ace-research file-upload optimization`
-2. `/ace-research push-notifications mobile`
-3. Deep dive into WebSocket scaling patterns
-
-📈 Implementation Readiness: 78%
-🚀 Ready to proceed with implementation
-```
-
-#### Implementation Phase Steering
-```
-🚀 Implementation Phase Guidance
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Infrastructure: 92% deployed
-Backend: 78% complete
-Frontend: 65% complete
-Testing: 45% complete
-
-🎯 Current Priority Queue:
-1. Complete user profile management
-2. Implement recipe sharing workflow
-3. Add image upload functionality
-4. Build notification system
-5. Create admin dashboard
-
-⚠️ Blockers Detected:
-- S3 bucket CORS not configured (affects image upload)
-- WebSocket connection limits need adjustment
-- Database indexes missing for search queries
-
-🔧 Quick Fixes Available:
-- Run `/ace-fix cors-setup`
-- Execute `/ace-validate --check=performance`
-- Add database indexes with provided script
-```
-
-## Smart Hook Integration
-
-### Automated Steering Triggers
+### Phase 1: Steering Context Discovery
 ```yaml
-# ACE-Flow automatically triggers steering at key moments
-triggers:
-  - event: "schema_change"
-    action: "analyze_impact"
-    guidance: "data_modeling"
-  
-  - event: "deployment_error"
-    action: "suggest_fixes"
-    guidance: "infrastructure"
-  
-  - event: "test_failure"
-    action: "debug_guidance"
-    guidance: "quality_assurance"
-  
-  - event: "performance_issue"
-    action: "optimization_tips"
-    guidance: "performance"
-```
-
-### Proactive Guidance
-```
-🤖 Proactive Steering Alert
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Pattern: High database query count detected
-Impact: Performance degradation likely
-Confidence: 85%
-
-💡 Steering Recommendation:
-Your app is making 47 database queries per page load.
-Consider implementing:
-1. GraphQL query optimization
-2. Data batching strategies
-3. Cached query results
-
-🔧 Auto-fix Available:
-Run `/ace-optimize --queries` to implement batching
-
-📊 Expected Improvement:
-- 70% reduction in query count
-- 45% faster page load times
-- Better user experience
-```
-
-## Examples
-
-### Basic Project Steering
-```bash
-# Get general guidance for current project
-/ace-steering
-
-🎯 ACE-Steering Analysis
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Project: task-manager
-Pattern: simple_crud
-Phase: Implementation
-Progress: 34%
-
-Next Actions:
-1. Complete task creation form validation
-2. Implement task status update functionality  
-3. Add user authentication flow
-4. Create task filtering system
-
-Estimated Time to MVP: 2.5 hours
-```
-
-### Domain-Specific Steering
-```bash
-# Get authentication-specific guidance
-/ace-steering --domain=auth
-
-🔐 Authentication Steering
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Current Status: Basic login implemented
-Security Level: 6/10
-
-Recommendations:
-1. Enable MFA for production users
-2. Add password strength requirements
-3. Implement session timeout
-4. Add email verification flow
-
-Security Gaps:
-- No rate limiting on login attempts
-- Missing CSRF protection
-- Session tokens not properly secured
-
-Quick Fixes:
-- Run `/ace-validate --check=security`
-- Apply suggested auth improvements
-- Test with `/ace-test auth-flow`
-```
-
-### Interactive Steering Mode
-```bash
-# Start interactive steering session
-/ace-steering --interactive
-
-🎯 Interactive ACE-Steering Session
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-I notice you're building a social platform. Let me guide you through the next steps:
-
-Current Progress: Real-time messaging (78% complete)
-
-Question 1: Are you planning to support group chats?
-[Y/n]: Y
-
-Great! Group chats will require:
-- Message broadcasting optimization
-- Participant management system
-- Typing indicators for multiple users
-
-Question 2: What's your target concurrent user count?
-[100/1000/10000]: 1000
-
-For 1000 concurrent users, I recommend:
-- WebSocket connection pooling
-- Message queue implementation (SQS)
-- Horizontal scaling preparation
-
-Shall I add these optimizations to your implementation plan?
-[Y/n]: Y
-
-✅ Updated implementation plan with:
-   - WebSocket optimization tasks
-   - SQS integration steps
-   - Scaling preparation checklist
-
-Next: Implement user presence system
-Command: `/ace-implement user-presence`
-```
-
-### Phase-Specific Examples
-```bash
-# Genesis phase steering
-/ace-steering --phase=genesis
-
-🌟 Genesis Phase Steering
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Project Concept: E-commerce marketplace
-Pattern Match: 85% e_commerce
-
-Specification Completeness:
-- User Stories: 67% complete
-- Data Models: 23% complete  
-- UI Wireframes: 12% complete
-- Technical Requirements: 45% complete
-
-Priority Actions:
-1. Complete data model definitions
-2. Define payment integration requirements
-3. Specify multi-vendor workflow
-4. Plan inventory management system
-
-Blockers:
-- Payment provider not selected
-- Shipping calculation method undefined
-- Multi-vendor commission structure unclear
-
-Recommendations:
-- Research payment options: `/ace-research payments e_commerce`
-- Define vendor onboarding flow
-- Specify product catalog structure
-```
-
-### Crisis Steering Examples
-```bash
-# When things go wrong
-/ace-steering --crisis
-
-🚨 Crisis Mode Steering
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Status: CRITICAL - Deployment failed
-
-Issue: CloudFormation stack rollback
-Impact: Production system offline
-Duration: 23 minutes
-
-Immediate Actions:
-1. Execute emergency rollback: `/ace-rollback --emergency`
-2. Restore from last known good state
-3. Implement hotfix deployment
-
-Root Cause Analysis:
-- Schema migration caused data conflicts
-- Insufficient testing of breaking changes
-- Missing rollback strategy
-
-Prevention Plan:
-- Implement blue-green deployments
-- Add schema migration testing
-- Create rollback procedures document
-
-Recovery ETA: 8 minutes (with rollback)
-Alternative: 45 minutes (full redeploy)
-
-Recommendation: Execute rollback immediately
-Command: `/ace-rollback --to="pre-schema-change"`
-```
-
-### Performance Steering
-```bash
-# Performance-focused guidance
-/ace-steering --domain=performance
-
-⚡ Performance Steering
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Current Performance Score: 6.2/10
-
-Detected Issues:
-- API response time: 2.3s (target: <500ms)
-- Database queries: 23 per request (excessive)
-- Bundle size: 2.1MB (large for mobile)
-- Image optimization: Not implemented
-
-Optimization Plan:
-1. Implement GraphQL query batching
-2. Add database indexes for common queries
-3. Enable image compression and WebP format
-4. Implement code splitting for bundles
-
-Expected Improvements:
-- 65% faster API responses
-- 40% smaller bundle size
-- Better mobile performance
-- Improved SEO scores
-
-Quick Wins:
-- Enable Amplify caching: 15 minutes
-- Optimize images: 30 minutes
-- Add database indexes: 20 minutes
-
-Total implementation time: ~2 hours
-Performance gain: +3.2 points (9.4/10 target)
-```
-
-### Integration Examples
-```bash
-# Steering for third-party integrations
-/ace-steering --domain=integrations
-
-🔌 Integration Steering
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Current Integrations: 3 active, 2 planned
-
-Active:
-✅ Stripe payments (healthy)
-✅ SendGrid emails (healthy)  
-✅ S3 file storage (healthy)
-
-Planned:
-⏳ Google Analytics (research needed)
-⏳ Social login (OAuth setup required)
-
-Recommendations:
-1. Prioritize social login for user acquisition
-2. Implement analytics after core features
-3. Consider integration health monitoring
-
-Integration Risks:
-- API rate limits not monitored
-- No fallback for failed services
-- Integration testing incomplete
-
-Suggested Actions:
-- Add integration monitoring
-- Implement circuit breaker pattern
-- Create integration test suite
-
-Next: `/ace-research oauth-setup social-login`
-```
-
-### Multi-Project Steering
-```bash
-# Steering across multiple projects
-/ace-steering --scope=organization
-
-🏢 Organization-Wide Steering
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Projects: 5 active, 2 completed
-
-Project Health:
-✅ task-manager (production, stable)
-✅ blog-platform (production, stable)
-🟡 marketplace (development, needs attention)
-🟡 analytics-dashboard (development, behind schedule)
-🔴 mobile-app (blocked, critical issues)
-
-Organization Priorities:
-1. Unblock mobile-app project (OAuth issues)  
-2. Accelerate analytics-dashboard delivery
-3. Address marketplace scalability concerns
-
-Resource Allocation:
-- mobile-app: Needs senior developer
-- analytics-dashboard: Needs designer review
-- marketplace: Needs infrastructure scaling
-
-Strategic Recommendations:
-- Standardize auth across all projects
-- Implement shared component library
-- Create common deployment pipeline
-- Establish code quality standards
-
-Cost Optimization:
-- Consolidate AWS resources: Save $340/month
-- Optimize database usage: Save $120/month
-- Review unused services: Potential $200/month savings
-```
-
-## Steering Algorithms
-
-### Decision Tree Logic
-```typescript
-// Simplified steering decision process
-interface SteeringDecision {
-  analyzeContext(): ProjectContext;
-  identifyPriorities(): Priority[];
-  suggestActions(): Action[];
-  assessRisks(): Risk[];
-  generateGuidance(): Guidance;
-}
-
-class ACESteering implements SteeringDecision {
-  analyzeContext() {
-    return {
-      phase: this.detectCurrentPhase(),
-      pattern: this.identifyArchitecturePattern(),
-      progress: this.calculateProgress(),
-      blockers: this.findBlockers(),
-      quality: this.assessQuality()
-    };
-  }
-  
-  suggestActions() {
-    const context = this.analyzeContext();
-    const priorities = this.identifyPriorities();
+steering_discovery:
+  scan_directories:
+    - "steering/"
+    - ".kiro/steering/"
+    - "docs/steering/"
     
-    return this.generateActionPlan(context, priorities);
-  }
-}
+  identify_files:
+    - research-methodology.md
+    - architecture-decisions.md
+    - domain-expertise.md
+    - quality-standards.md
+    - documentation-style.md
+    - technical-context.md
+    - implementation-learnings.md
+    - compliance-requirements.md
+    
+  analyze_inclusion_modes:
+    - always: "Files included in every interaction"
+    - conditional: "Files included based on file patterns"
+    - manual: "Files included when explicitly referenced"
 ```
 
-### Learning Integration
-```
-🧠 Steering Learning System
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Learning from:
-- 1,247 successful implementations
-- 89 common failure patterns  
-- 567 optimization outcomes
-- 234 performance improvements
-
-Your Project Similarity:
-- 87% match to successful e-commerce projects
-- Similar architecture to 23 high-performing apps
-- Common patterns with 156 completed projects
-
-Confidence Level: 91%
-Personalized Recommendations: Available
-Success Probability: 94% (with guidance)
+### Phase 2: Steering File Status Assessment
+```yaml
+status_assessment:
+  file_health:
+    - last_updated: "Freshness of steering content"
+    - inclusion_mode: "How the file is activated"
+    - usage_frequency: "How often the file provides context"
+    - content_completeness: "How much project-specific content exists"
+    
+  context_coverage:
+    - research_coverage: "Research methodology and priorities"
+    - architecture_coverage: "Architectural decisions and context"
+    - quality_coverage: "Quality standards and compliance"
+    - domain_coverage: "Business and domain knowledge"
 ```
 
-## Best Practices
+## Output Formats
 
-### When to Use Steering
-1. **Feeling Stuck**: Not sure what to do next
-2. **Quality Concerns**: Worried about implementation quality
-3. **Performance Issues**: App running slowly
-4. **Architecture Decisions**: Choosing between approaches
-5. **Crisis Situations**: When things go wrong
-6. **Progress Reviews**: Regular check-ins during development
+### Steering Files Overview
+```markdown
+# 🎯 ACE-Flow Steering Context Overview
 
-### Steering Workflow Integration
+**Last Updated**: 2025-01-22 16:30:00  
+**Total Steering Files**: 8  
+**Context Coverage**: 95% ✅  
+
+## Steering Files Status
+
+### Core Context Files ✅
+├── research-methodology.md (Always included)
+│   └── Last updated: 2025-01-22 | Usage: High | Completeness: 85%
+├── architecture-decisions.md (Always included)
+│   └── Last updated: 2025-01-22 | Usage: High | Completeness: 80%
+└── domain-expertise.md (Conditional: ace-genesis, ace-research)
+    └── Last updated: 2025-01-22 | Usage: Medium | Completeness: 75%
+
+### Quality & Compliance Files ✅
+├── quality-standards.md (Conditional: ace-validate, ace-spec-check)
+│   └── Last updated: 2025-01-22 | Usage: Medium | Completeness: 90%
+├── compliance-requirements.md (Conditional: compliance, security)
+│   └── Last updated: 2025-01-22 | Usage: Low | Completeness: 70%
+
+### Development Context Files ✅
+├── technical-context.md (Conditional: ace-implement, src/*)
+│   └── Last updated: 2025-01-22 | Usage: High | Completeness: 80%
+├── implementation-learnings.md (Conditional: ace-implement, src/*)
+│   └── Last updated: 2025-01-22 | Usage: Medium | Completeness: 70%
+└── documentation-style.md (Conditional: docs/*, *.md)
+    └── Last updated: 2025-01-22 | Usage: Medium | Completeness: 85%
+
+## Context Inclusion Analysis
+- **Always Included**: 2 files (research-methodology, architecture-decisions)
+- **Conditionally Included**: 6 files (based on file patterns and context)
+- **Manually Referenced**: 0 files (none configured for manual inclusion)
+
+## Steering Effectiveness Metrics
+- **Research Enhancement**: 85% (steering significantly improves research efficiency)
+- **Implementation Guidance**: 90% (strong technical context for implementation)
+- **Quality Assurance**: 95% (comprehensive quality and compliance context)
+- **Documentation Intelligence**: 80% (good documentation context and standards)
+
+## Recommendations:
+1. 🔄 Update domain-expertise.md with recent project learnings
+2. 📊 Add more project-specific content to technical-context.md
+3. 📈 Consider adding user-behavior-insights.md for UX context
+4. 🎯 Review and update research priorities in research-methodology.md
+```
+
+### Detailed Steering File Analysis
 ```bash
-# Recommended workflow with steering
-/ace-genesis "your app idea"        # Start project
-/ace-steering --phase=genesis       # Get genesis guidance
-/ace-research [domain] [pattern]    # Research based on steering
-/ace-steering --phase=research      # Validate research completeness  
-/ace-implement project-name         # Begin implementation
-/ace-steering                       # Regular guidance during implementation
-/ace-steering --domain=performance  # Optimize when needed
-/ace-validate                       # Pre-deployment validation
+$ /ace-steering --analyze research-methodology.md
+
+📊 Steering File Analysis: research-methodology.md
+===============================================
+
+## File Metadata
+- **Inclusion Mode**: Conditional (ace-research*, research/*)
+- **Last Updated**: 2025-01-22T16:00:00Z
+- **Version**: 1.0
+- **File Size**: 3.2KB
+- **Content Sections**: 8
+
+## Usage Analytics (Last 30 Days)
+- **Times Included**: 15 interactions
+- **Context Effectiveness**: 85% (AI found context useful)
+- **Research Efficiency Improvement**: +40% faster research
+- **Research Quality Improvement**: +25% more relevant results
+
+## Content Completeness Assessment
+### Fully Populated Sections ✅
+- Research Priorities Framework (100%)
+- Research Quality Standards (100%)
+- Research Output Standards (100%)
+
+### Partially Populated Sections ⚠️
+- Project-Specific Research Insights (60% - needs more project learnings)
+- Research Efficiency Improvements (40% - needs more documented patterns)
+- Current Research Focus (30% - needs regular updates)
+
+### Empty Sections ❌
+- Accumulated Domain Knowledge (10% - placeholder content only)
+- Research Questions to Resolve (5% - minimal content)
+
+## Recommendations for Improvement
+1. **High Priority**: Add project-specific research insights from recent sessions
+2. **Medium Priority**: Document effective research patterns discovered
+3. **Low Priority**: Update current research focus areas regularly
+
+## Integration Analysis
+- **Commands Using This File**: ace-research, ace-genesis (research phase)
+- **Trigger Patterns**: Matches 12 different file patterns
+- **Context Relevance Score**: 92% (very relevant when included)
+- **AI Context Utilization**: 88% (AI actively uses this context)
+
+## Next Actions
+- Schedule monthly review and update
+- Add recent research learnings
+- Update research priorities based on project evolution
 ```
 
-### Steering Best Practices
-1. **Regular Check-ins**: Run steering every few hours during active development
-2. **Crisis Mode**: Use `--crisis` flag when encountering serious issues
-3. **Domain Focus**: Use `--domain` for specific area guidance
-4. **Interactive Mode**: Use `--interactive` for complex decisions
-5. **Learning Mode**: Review steering reports to improve development practices
+### Steering File Creation Wizard
+```bash
+$ /ace-steering --create user-behavior
+
+🎯 Creating New Steering File: user-behavior-insights.md
+====================================================
+
+## Template Selection
+Available templates:
+[1] Domain Knowledge Template
+[2] Technical Context Template  
+[3] Quality Standards Template
+[4] Custom Template
+
+Selection: 4 (Custom)
+
+## Inclusion Mode Configuration
+How should this steering file be included?
+
+[1] Always - Include in every interaction
+[2] Conditional - Include based on file patterns
+[3] Manual - Include only when explicitly referenced
+
+Selection: 2 (Conditional)
+
+## File Pattern Configuration
+Enter file patterns that should trigger inclusion (comma-separated):
+> **/ux/*, **/user/*, **/behavior/*, **/analytics/*, ace-genesis*
+
+## Content Initialization
+Initialize with project-specific content? [y/N]: y
+
+Analyzing project context for user behavior insights...
+✅ Found user story patterns in specifications
+✅ Identified UX-related implementation decisions
+✅ Discovered user feedback patterns in documentation
+
+## File Generation
+✅ Created: steering/user-behavior-insights.md
+✅ Configured inclusion mode: conditional
+✅ Added file patterns: **/ux/*, **/user/*, **/behavior/*, **/analytics/*, ace-genesis*
+✅ Populated with project-specific context
+✅ Added to steering file registry
+
+## Next Steps
+1. Review and customize the generated content
+2. Add project-specific user behavior insights
+3. Set up regular update schedule
+4. Test inclusion with relevant commands
+
+File created successfully! Use '/ace-steering --edit user-behavior-insights' to customize.
+```
+
+## Steering File Templates
+
+### Research Enhancement Template
+```markdown
+---
+inclusion: conditional
+fileMatchPattern: "**/ace-research*,**/research/*"
+description: "Research methodology and context for this project"
+---
+
+# [Project] Research Context
+
+## Research Methodology
+- Research priorities and focus areas
+- Proven research patterns for this domain
+- Research quality standards and validation
+
+## Domain-Specific Research Needs
+- Critical knowledge areas for this project
+- Integration research requirements
+- Performance and scalability research needs
+
+## Research Learning Evolution
+- Accumulated research insights
+- Effective research patterns discovered
+- Research bottlenecks and solutions
+```
+
+### Implementation Context Template
+```markdown
+---
+inclusion: conditional
+fileMatchPattern: "**/ace-implement*,**/src/*,**/tests/*"
+description: "Implementation context and proven patterns"
+---
+
+# [Project] Implementation Context
+
+## Technology Stack Context
+- Framework-specific knowledge
+- Integration patterns that work
+- Performance optimization insights
+
+## Implementation Patterns
+- Proven code patterns for this project
+- Architecture decisions and rationale
+- Error handling and edge case management
+
+## Development Workflow
+- Effective development practices
+- Quality assurance integration
+- Team collaboration patterns
+```
+
+## Interactive Steering Management
+
+### Steering File Health Check
+```bash
+$ /ace-steering --health-check
+
+🩺 Steering Context Health Assessment
+===================================
+
+## Overall Health Score: 88% ✅
+
+### File Freshness Assessment
+✅ **research-methodology.md**: Updated 2 days ago
+✅ **architecture-decisions.md**: Updated 3 days ago
+⚠️ **domain-expertise.md**: Updated 1 week ago (consider update)
+❌ **quality-standards.md**: Updated 3 weeks ago (needs update)
+
+### Content Completeness
+- **High Completeness** (90%+): 3 files
+- **Medium Completeness** (70-89%): 3 files
+- **Low Completeness** (<70%): 2 files
+
+### Usage Pattern Analysis
+- **High Usage** (>10 inclusions/week): 4 files
+- **Medium Usage** (5-10 inclusions/week): 2 files
+- **Low Usage** (<5 inclusions/week): 2 files
+
+## Recommendations:
+1. 🔄 Update quality-standards.md (3 weeks old)
+2. 📊 Add content to low-completeness files
+3. 📈 Review usage patterns for optimization
+4. 🎯 Schedule regular maintenance routine
+
+Would you like to:
+[1] Update outdated files now
+[2] Schedule maintenance reminders
+[3] Optimize file inclusion patterns
+[4] Generate content suggestions
+
+Choice: 1
+
+🔄 Starting guided update process for outdated files...
+```
+
+### Steering Analytics Dashboard
+```bash
+$ /ace-steering --analytics
+
+📈 Steering Context Analytics Dashboard
+======================================
+
+## Usage Metrics (Last 30 Days)
+- **Total Context Inclusions**: 127
+- **Average Context Per Interaction**: 2.3 files
+- **Context Effectiveness Rate**: 89%
+- **AI Context Utilization**: 91%
+
+## Performance Impact
+- **Research Efficiency Improvement**: +42%
+- **Implementation Speed Increase**: +35%
+- **Documentation Quality Improvement**: +28%
+- **Quality Assurance Enhancement**: +51%
+
+## File Usage Frequency
+├── research-methodology.md: 45 inclusions (35%)
+├── technical-context.md: 38 inclusions (30%)
+├── architecture-decisions.md: 22 inclusions (17%)
+├── quality-standards.md: 15 inclusions (12%)
+└── Other files: 7 inclusions (6%)
+
+## Context Relevance Scores
+- **research-methodology.md**: 94% relevance
+- **technical-context.md**: 91% relevance
+- **architecture-decisions.md**: 88% relevance
+- **domain-expertise.md**: 85% relevance
+
+## Steering Evolution Timeline
+- **Week 1**: Basic templates created
+- **Week 2**: Project-specific content added (20% increase in effectiveness)
+- **Week 3**: Usage patterns optimized (15% efficiency gain)
+- **Week 4**: Content maturity reached (10% quality improvement)
+
+## ROI Analysis
+- **Time Saved**: ~8 hours/week in reduced context switching
+- **Quality Improvement**: 25% fewer iterations needed
+- **Knowledge Retention**: 90% of project insights preserved
+- **Team Alignment**: 85% improvement in consistent approaches
+
+## Optimization Opportunities
+1. **Content Enhancement**: 3 files need more project-specific content
+2. **Pattern Optimization**: 2 files have low usage despite high quality
+3. **Integration Improvements**: 4 commands could benefit from additional steering
+4. **Automation Opportunities**: 6 steering updates could be automated
+```
+
+## Integration with ACE-Flow Commands
+
+### Enhanced Command Integration
+```yaml
+command_integration:
+  ace-genesis:
+    steering_files:
+      - research-methodology.md
+      - domain-expertise.md
+      - architecture-decisions.md
+    enhancement: "30-40% better architectural decisions"
+    
+  ace-research:
+    steering_files:
+      - research-methodology.md
+      - domain-expertise.md
+      - technical-context.md
+    enhancement: "40-50% more efficient research"
+    
+  ace-implement:
+    steering_files:
+      - technical-context.md
+      - implementation-learnings.md
+      - architecture-decisions.md
+    enhancement: "35-45% faster implementation"
+    
+  ace-validate:
+    steering_files:
+      - quality-standards.md
+      - compliance-requirements.md
+      - technical-context.md
+    enhancement: "50-60% better quality assurance"
+```
 
 ---
 
-*ACE-Steering: Your intelligent development companion for confident, efficient implementation! 🎯*
+## Best Practices
+
+### Steering File Maintenance
+1. **Regular Updates**: Update steering files weekly during active development
+2. **Content Evolution**: Add learnings and insights as they're discovered
+3. **Pattern Recognition**: Document patterns that work well for reuse
+4. **Context Optimization**: Review and optimize file inclusion patterns monthly
+
+### Team Collaboration
+1. **Shared Ownership**: All team members contribute to steering file evolution
+2. **Knowledge Capture**: Document insights immediately while they're fresh
+3. **Regular Reviews**: Schedule monthly steering context review sessions
+4. **Quality Standards**: Maintain high quality in steering file content
+
+---
+
+*The ace-steering command transforms ACE-Flow from having "good context" to having "intelligent, evolving context" that gets smarter and more valuable over time.*

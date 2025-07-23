@@ -11,11 +11,11 @@ Essential documentation for AWS Amplify Gen 2 development:
 - **[Getting Started](./amplify-gen2/getting-started.md)** - Setup, installation, and first project
 - **[Data Modeling](./amplify-gen2/data-modeling.md)** - GraphQL schemas, relationships, and DynamoDB patterns
 - **[Authentication](./amplify-gen2/authentication.md)** - User auth, social login, and role management
-- **[Storage](./amplify-gen2/storage.md)** - File upload, S3 integration, and media handling
-- **[Real-time](./amplify-gen2/real-time.md)** - GraphQL subscriptions and live data
-- **[Functions](./amplify-gen2/functions.md)** - Lambda functions and custom business logic
-- **[Deployment](./amplify-gen2/deployment.md)** - CI/CD, environments, and production setup
-- **[API Reference](./amplify-gen2/api-reference.md)** - Complete API documentation
+- **Storage** - File upload, S3 integration, and media handling (see [authentication.md](./amplify-gen2/authentication.md) for related patterns)
+- **Real-time** - GraphQL subscriptions and live data (covered in [data-modeling.md](./amplify-gen2/data-modeling.md))
+- **Functions** - Lambda functions and custom business logic
+- **Deployment** - CI/CD, environments, and production setup  
+- **API Reference** - Complete API documentation
 
 ### Next.js 14+
 **Status**: ✅ Complete | **Version**: 14.x | **Last Updated**: Current
@@ -23,28 +23,28 @@ Essential documentation for AWS Amplify Gen 2 development:
 Next.js App Router and modern React patterns:
 - **[App Router](./nextjs/app-router.md)** - File-based routing, layouts, and navigation
 - **[Data Fetching](./nextjs/data-fetching.md)** - Server components, SSR, and caching
-- **[Routing](./nextjs/routing.md)** - Dynamic routes, route groups, and middleware
-- **[Components](./nextjs/components.md)** - Server/client components and best practices
-- **[Optimization](./nextjs/optimization.md)** - Performance, images, and bundle optimization
-- **[Deployment](./nextjs/deployment.md)** - Production deployment patterns
+- **Routing** - Dynamic routes, route groups, and middleware (see [app-router.md](./nextjs/app-router.md))
+- **Components** - Server/client components and best practices (covered in existing guides)
+- **Optimization** - Performance, images, and bundle optimization
+- **Deployment** - Production deployment patterns
 
 ### Amplify UI
 **Status**: ✅ Complete | **Version**: 6.x | **Last Updated**: Current
 
 Amplify UI component library for React:
-- **[Installation](./amplify-ui/installation.md)** - Setup and configuration
-- **[Authenticator](./amplify-ui/authenticator.md)** - Drop-in authentication UI
-- **[Components](./amplify-ui/components.md)** - Core UI components and patterns
-- **[Theming](./amplify-ui/theming.md)** - Customization and styling
-- **[Storage Components](./amplify-ui/storage.md)** - File upload and management UI
+- **Installation** - Setup and configuration (see [getting-started.md](./amplify-gen2/getting-started.md))
+- **Authenticator** - Drop-in authentication UI (see [authentication.md](./amplify-gen2/authentication.md))
+- **Components** - Core UI components and patterns
+- **Theming** - Customization and styling
+- **Storage Components** - File upload and management UI
 
 ### React 18+
 **Status**: 🟡 Essential | **Version**: 18.x | **Last Updated**: Current
 
 Essential React patterns for modern development:
-- **[Hooks Patterns](./react/hooks-patterns.md)** - Essential hooks and custom patterns
-- **[State Management](./react/state-management.md)** - Context, reducers, and state patterns
-- **[Performance](./react/performance.md)** - Optimization techniques and best practices
+- **Hooks Patterns** - Essential hooks and custom patterns (see existing guides)
+- **State Management** - Context, reducers, and state patterns
+- **Performance** - Optimization techniques and best practices
 
 ## 🎯 Usage Guidelines
 

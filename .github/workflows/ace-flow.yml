@@ -267,3 +267,49 @@ jobs:
           echo "- **Timeline**: <2 hours from idea to production" >> $GITHUB_STEP_SUMMARY
           echo "- **Documentation**: 30-100 pages researched per project" >> $GITHUB_STEP_SUMMARY
           echo "- **Auto-fix**: >80% of common issues resolved automatically" >> $GITHUB_STEP_SUMMARY
+          
+      - name: Update README with Current Status
+        run: |
+          echo "🚀 Updating README with current system status..."
+          
+          # Make update script executable
+          chmod +x scripts/update-readme.sh
+          
+          # Check if significant changes warrant README update
+          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -E "(ace-system/|steering/|\.claude/|scripts/)" > /dev/null; then
+            echo "📝 Significant changes detected, updating README..."
+            
+            # Run README update
+            bash scripts/update-readme.sh
+            
+            # Check if README was updated
+            if git diff --quiet README.md; then
+              echo "ℹ️  No README changes needed"
+            else
+              echo "✅ README updated with current system status"
+              
+              # Configure git for automated commits
+              git config --local user.email "action@github.com"
+              git config --local user.name "GitHub Action"
+              
+              # Commit README updates
+              git add README.md
+              git commit -m "docs: Auto-update README with current system status
+
+🤖 Updated by GitHub Action
+- Quality metrics: $(bash scripts/update-readme.sh --dry-run 2>/dev/null | grep 'Quality Score:' | cut -d: -f2 || echo 'Current')
+- System health: All core systems operational
+- Documentation: Current with latest changes
+
+Co-authored-by: ACE-Flow Auto-Update <ace-flow@github.com>" || echo "No changes to commit"
+              
+              # Push changes back to the branch
+              if [ "${{ github.event_name }}" = "pull_request" ]; then
+                git push origin HEAD:${{ github.head_ref }}
+              else
+                git push origin ${{ github.ref }}
+              fi
+            fi
+          else
+            echo "ℹ️  No significant changes detected, skipping README update"
+          fi

@@ -41,7 +41,7 @@ cd .ace-flow && git pull origin main && cd ..
 /ace-flow-install --update
 ```
 
-See [SUBMODULE_SETUP.md](./docs/SUBMODULE_SETUP.md) for detailed instructions.
+See [SUBMODULE_SETUP.md](./ace-system/SUBMODULE_SETUP.md) for detailed instructions.
 
 #### Architecture Patterns Supported
 - **social_platform**: User groups, real-time feeds, media handling
@@ -138,6 +138,37 @@ npm run lint           # Auto-triggered on file save hooks
 - **Follow the ACE-Flow methodology** for consistent, high-quality results
 - **Update this file** when project requirements or patterns change
 
+## 🏗️ ACE-Flow Repository Structure Rules
+
+**CRITICAL**: This is the ACE-Flow tool repository itself, not a user project.
+
+### Repository Structure Rules
+- **NEVER create `.ace-flow/` directory inside the ace-flow repo** - this creates confusing self-nesting
+- **Steering files belong in `steering/` at root level** - not in `.ace-flow/steering/`
+- **Commands belong in `.claude/` directory** - these are the command implementations
+- **Documentation belongs in `docs/` directory** - user guides and technical docs
+- **Scripts belong in `scripts/` directory** - installation and utility scripts
+
+### When ACE-Flow is Used (Correct Structure)
+```
+user-app/                  (user's application)
+├── src/                   (user's app code)
+├── .ace-flow/            (ace-flow as submodule)
+│   ├── .claude/          (command implementations)
+│   ├── steering/         (steering templates)
+│   ├── docs/            (documentation)
+│   └── scripts/         (utility scripts)
+├── .claude/             (aliases pointing to .ace-flow/.claude/)
+└── package.json         (user's app)
+```
+
+### Development Reminder
+When developing ace-flow itself:
+- ✅ Files go in root-level directories (`steering/`, `.claude/`, `docs/`, `scripts/`)
+- ❌ Do NOT create `.ace-flow/` subdirectory inside ace-flow repo
+- ✅ Test commands reference correct paths (e.g., `steering/` not `.ace-flow/steering/`)
+- ✅ Installation scripts should work when ace-flow is added as submodule
+
 ---
 
 **This CLAUDE.md is enhanced with ACE-Flow capabilities. Run `/ace-genesis` or `/ace-adopt` to customize for your specific project.**
@@ -153,6 +184,8 @@ npm run lint           # Auto-triggered on file save hooks
 - `/ace-validate` - Pre-implementation validation checks
 - `/ace-rollback` - Safe recovery and restore system
 - `/ace-cost` - AWS resource cost estimation
+- `/ace-spec-check` - Specification compliance monitoring and accountability
+- `/ace-steering` - Kiro-style steering context management and analytics
 - `/ace-flow-install` - Install or update command aliases
 
 ### Short Aliases (also in .claude/)
@@ -165,6 +198,8 @@ npm run lint           # Auto-triggered on file save hooks
 - `/av` → `/ace-validate`
 - `/arb` → `/ace-rollback`
 - `/ac` → `/ace-cost`
+- `/asc` → `/ace-spec-check`
+- `/ast` → `/ace-steering`
 
 All commands are linked to the ACE-Flow system. Run `/ace-flow-install --update` after updating the ACE-Flow submodule.
 
