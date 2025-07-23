@@ -248,6 +248,170 @@ export const customRules = {
 - `2` - Warnings only
 - `3` - Validation system error
 
+## Examples
+
+### Basic Project Validation
+```bash
+# Validate entire project before deployment
+/ace-validate
+
+🔍 ACE-Validate Report
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Project: recipe-sharing-app
+Pattern: social_platform
+Status: READY
+
+✅ Passed: 22/22 checks
+⚠️  Warnings: 0
+❌ Failures: 0
+
+All systems ready for deployment! 🚀
+```
+
+### Validation with Issues Found
+```bash
+# Validation revealing issues
+/ace-validate
+
+🔍 ACE-Validate Report
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Project: e-commerce-store
+Pattern: e_commerce
+Status: NEEDS ATTENTION
+
+✅ Passed: 18/22 checks
+⚠️  Warnings: 3
+❌ Failures: 1
+
+Critical Issues:
+❌ Missing Stripe API key
+   Fix: Run 'npx ampx sandbox secret set STRIPE_SECRET_KEY'
+
+Warnings:
+⚠️  CORS not configured for file uploads
+⚠️  No MFA enabled for production
+⚠️  Missing database indexes for search queries
+
+Estimated Fix Time: 12 minutes
+```
+
+### Specific Component Validation
+```bash
+# Validate only authentication setup
+/ace-validate --check=auth
+
+🔐 Authentication Validation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ AWS Credentials configured
+✅ Cognito User Pool exists
+✅ Auth configuration valid
+⚠️  MFA not enabled (recommended for production)
+❌ Missing social login providers
+
+Recommendations:
+- Enable MFA: Update auth/resource.ts with MFA config
+- Add Google/Facebook login: Configure social providers
+```
+
+### Quick Validation During Development
+```bash
+# Fast validation for development workflow
+/ace-validate --quick
+
+🔍 Quick Validation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Essential Checks: ✅ 8/8 passed
+
+✅ Schema syntax valid
+✅ Auth configured
+✅ Required secrets present
+✅ Git repository clean
+✅ Dependencies up to date
+✅ No obvious conflicts
+✅ Basic security OK
+✅ Ready for sandbox deploy
+
+Status: GOOD TO GO! 🚀
+```
+
+### Pattern-Specific Validation Examples
+```bash
+# Social platform validation
+/ace-validate --pattern=social_platform
+
+📱 Social Platform Validation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Real-time Features: ✅ Configured
+File Upload: ✅ Ready (S3 + CloudFront)
+Push Notifications: ⚠️  Setup incomplete
+User Profiles: ✅ Validated
+Social Graph: ✅ Models defined
+Content Moderation: ❌ Not configured
+
+Next Steps:
+1. Complete push notification setup
+2. Add content moderation rules
+3. Test real-time subscriptions
+```
+
+### CI/CD Integration Example
+```bash
+# Validation in GitHub Actions
+name: Validate ACE-Flow Project
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install ACE-Flow
+        run: npm install -g ace-flow
+      - name: Run Validation
+        run: /ace-validate --detailed --format=json > validation-report.json
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-report
+          path: validation-report.json
+```
+
+### Validation Report Examples
+```bash
+# Generate detailed validation report
+/ace-validate --detailed --format=markdown > validation-report.md
+
+# Example output in validation-report.md:
+# ACE-Flow Validation Report
+## Project Summary
+- **Name**: fitness-tracker
+- **Pattern**: social_platform  
+- **Status**: READY WITH WARNINGS
+- **Quality Score**: 8.7/10
+
+## Validation Results
+### ✅ Passed (18 checks)
+- Authentication properly configured
+- Data schema valid and optimized
+- File storage permissions correct
+- API endpoints secured
+- Real-time subscriptions working
+
+### ⚠️ Warnings (3 items)
+- Consider enabling MFA for production
+- Add rate limiting to API endpoints
+- Optimize image sizes for mobile
+
+### 🎯 Recommendations
+1. Performance optimization available
+2. Security hardening suggested
+3. Mobile experience can be improved
+```
+
 ## Best Practices
 
 1. **Run before implementation**: Always validate after genesis/research

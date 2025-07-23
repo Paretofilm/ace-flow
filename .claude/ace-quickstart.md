@@ -1,5 +1,16 @@
 # 🚀 ACE-Flow Quick Start Guide
 
+## Purpose/Usage
+The ACE-Flow Quick Start Guide provides rapid onboarding for developers who want to immediately start building with ACE-Flow and AWS Amplify Gen 2. This guide serves:
+
+- **Immediate Productivity**: Get from idea to working app in minutes
+- **Command Mastery**: Learn essential commands and their aliases quickly
+- **Pattern Recognition**: Understand when to use different architecture patterns
+- **Workflow Integration**: See complete development workflows in action
+- **Time Estimation**: Realistic timelines for different project complexities
+
+Perfect for developers who prefer learning by doing. Use this guide to understand ACE-Flow capabilities and start building immediately, then dive deeper with `/ace-help` for detailed documentation.
+
 ## One-Page Command Reference
 
 ### 🎯 Essential Commands (with aliases)
