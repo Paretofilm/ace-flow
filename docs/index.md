@@ -5,7 +5,7 @@ Welcome to the ACE-Flow documentation site! This is the user-facing documentatio
 ## Quick Start
 
 - [Getting Started Guide](getting-started.md)
-- [Installation Instructions](installation.md)
+- [Architecture Patterns](patterns/)
 - [Basic Usage Examples](examples.md)
 
 ## Architecture Patterns
@@ -18,15 +18,15 @@ Welcome to the ACE-Flow documentation site! This is the user-facing documentatio
 
 ## Advanced Topics
 
-- [Custom Pattern Development](advanced/custom-patterns.md)
-- [Integration with Existing Projects](advanced/integration.md)
-- [Troubleshooting Guide](advanced/troubleshooting.md)
+- [Custom Pattern Development](advanced/)
+- [Integration with Existing Projects](advanced/)
+- [Troubleshooting Guide](advanced/)
 
 ## API Reference
 
-- [Command Reference](api/commands.md)
-- [Configuration Options](api/configuration.md)
-- [Hooks and Extensions](api/hooks.md)
+- [Command Reference](api/)
+- [Configuration Options](api/)
+- [Hooks and Extensions](api/)
 
 ---
 
