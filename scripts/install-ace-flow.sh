@@ -192,6 +192,19 @@ if [ ! -d ".claude" ]; then
     echo -e "${GREEN}📁 Created .claude/ directory${NC}"
 fi
 
+# Create .ace-flow/steering directory structure if it doesn't exist
+if [ ! -d ".ace-flow/steering" ]; then
+    mkdir -p .ace-flow/steering
+    echo -e "${GREEN}📁 Created .ace-flow/steering/ directory${NC}"
+    
+    # Copy steering templates if they exist in the source
+    if [ -d "$ACE_FLOW_DIR/.ace-flow/steering" ] && [ "$ACE_FLOW_DIR" != "." ]; then
+        echo -e "${BLUE}📋 Installing steering context templates${NC}"
+        cp -r "$ACE_FLOW_DIR/.ace-flow/steering/"* ".ace-flow/steering/" 2>/dev/null || true
+        echo -e "${GREEN}  ✅ Steering templates installed${NC}"
+    fi
+fi
+
 # 1. INSTALL ACE-FLOW COMMANDS
 echo -e "${PURPLE}📦 Installing ACE-Flow Commands${NC}"
 
@@ -206,6 +219,8 @@ COMMANDS=(
     "ace-validate:av"
     "ace-rollback:arb"
     "ace-cost:ac"
+    "ace-spec-check:asc"
+    "ace-steering:ast"
     "update-docs:ud"
 )
 

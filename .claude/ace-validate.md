@@ -1,7 +1,7 @@
-# /ace-validate - Pre-Implementation Validation
+# /ace-validate - Pre-Implementation Validation with Steering Context
 
 ## Overview
-The `/ace-validate` command performs comprehensive pre-implementation checks to ensure your project is ready for development and deployment. It validates configuration, dependencies, AWS credentials, and architecture compatibility.
+The `/ace-validate` command performs comprehensive pre-implementation checks to ensure your project is ready for development and deployment. Enhanced with Kiro-style accountability and steering context, it validates configuration, dependencies, AWS credentials, architecture compatibility, and **specification compliance** using project-specific standards.
 
 ## Usage
 ```bash
@@ -18,6 +18,68 @@ The `/ace-validate` command performs comprehensive pre-implementation checks to 
 
 # Detailed validation with recommendations
 /ace-validate --detailed
+
+# Specification compliance validation
+/ace-validate --specs
+
+# Pre-deployment compliance check
+/ace-validate --pre-deploy
+
+# Steering-aware validation
+/ace-validate --with-steering
+```
+
+## 🎯 Steering Context Integration
+
+### Active Steering Files
+ACE-Validate automatically loads relevant steering context for enhanced validation:
+
+```
+🎯 Active Steering Context:
+  • Quality standards and compliance requirements (conditional)
+  • Technical context and constraints (conditional)
+  • Compliance requirements and regulations (conditional)
+  Total: 3 steering files loaded
+
+📊 Validation Intelligence: Project-specific standards applied
+```
+
+### How Steering Enhances Validation
+
+1. **Project-Specific Quality Standards**
+   - Uses `quality-standards.md` for custom validation thresholds
+   - Applies domain-specific quality requirements
+   - Enforces project-established compliance levels
+
+2. **Technical Context Awareness**
+   - Leverages `technical-context.md` for framework-specific validations
+   - Applies known constraints and limitations
+   - Uses established performance benchmarks
+
+3. **Compliance Intelligence**
+   - Applies `compliance-requirements.md` for regulatory checks
+   - Enforces industry-specific compliance standards
+   - Validates against documented security requirements
+
+### Automatic Standards Capture
+Validation insights are captured back to steering:
+
+```yaml
+steering_updates:
+  quality-standards.md:
+    - New validation patterns discovered
+    - Quality threshold adjustments
+    - Testing approach refinements
+    
+  technical-context.md:
+    - Performance validation results
+    - Framework limitation discoveries
+    - Configuration optimization insights
+    
+  compliance-requirements.md:
+    - Regulatory validation outcomes
+    - Security check results
+    - Audit preparation improvements
 ```
 
 ## Validation Checks
@@ -256,6 +318,164 @@ export const customRules = {
 4. **Automate validation**: Include in CI/CD pipeline
 5. **Regular checks**: Run periodically during development
 
+## 📊 Specification Compliance Validation
+
+### Pre-Deploy Compliance Check
+```bash
+# Comprehensive compliance validation before deployment
+/ace-validate --pre-deploy
+
+📊 Pre-Deployment Compliance Check
+================================
+
+## Technical Validation: ✅ PASSED
+- AWS Configuration: ✅ Valid
+- Dependencies: ✅ Up to date  
+- Schema: ✅ No errors
+- Security: ✅ All checks passed
+
+## Specification Compliance: ⚠️ 87% (Below 90% threshold)
+- User Stories: 92% ✅ (23/25 implemented)
+- Acceptance Criteria: 85% ⚠️ (34/40 met)
+- Technical Architecture: 90% ✅
+- Test Coverage: 80% ⚠️
+
+❌ DEPLOYMENT BLOCKED: Compliance below 90% threshold
+
+Critical Issues:
+1. Missing real-time workout sharing feature (User Story #12)
+2. 6 acceptance criteria not implemented
+3. Test coverage gaps in social features
+
+Recommended Actions:
+- Implement missing features or update specifications
+- Run '/ace-spec-check --fix-drift' to resolve deviations
+- Achieve 90%+ compliance before deployment
+```
+
+### Specification-Only Validation
+```bash
+# Focus only on specification compliance
+/ace-validate --specs
+
+📋 Specification Compliance Validation
+=====================================
+
+## Genesis Requirements Analysis: ✅
+- Original specifications found: 2025-01-15 09:15:00
+- User stories: 25 total, 23 implemented
+- Acceptance criteria: 40 total, 34 met
+- Architecture pattern: social_platform ✅
+
+## Implementation vs Specification:
+
+### ✅ Fully Compliant Features:
+├── User authentication (100%)
+├── User profiles (100%) 
+├── Workout logging (100%)
+├── Data persistence (100%)
+└── Security implementation (95%)
+
+### ⚠️ Partially Compliant Features:
+├── Social features (60% - missing real-time sharing)
+├── Notification system (40% - basic only, no push)
+├── Data export (80% - missing advanced formats)
+└── Mobile optimization (70% - responsive but not native)
+
+### ❌ Non-Compliant Features:
+├── Real-time workout sharing (0% - not implemented)
+├── Offline synchronization (0% - not implemented)
+└── Advanced analytics (0% - basic metrics only)
+
+### 🆕 Extra Features (Not in Original Specs):
+├── Premium subscription system (fully implemented)
+├── Enhanced user profiles (social media links)
+└── Workout streak tracking (gamification)
+
+## Test-Specification Alignment: 80%
+- Tests covering acceptance criteria: 32/40 (80%)
+- Missing critical test coverage:
+  * Real-time sync functionality
+  * Offline data handling
+  * Premium feature boundaries
+  * Social interaction workflows
+
+## Compliance Trend: ↘ Declining
+- Week 1: 100% (genesis completion)
+- Week 2: 95% (minor deviations)
+- Week 3: 89% (scope additions)
+- Week 4: 87% (feature delays)
+
+## Recommendations:
+1. 🔥 CRITICAL: Address missing real-time features
+2. ⚠️ UPDATE: Incorporate premium features into specifications
+3. 📝 ALIGN: Update specs to reflect current architecture decisions
+4. 🧪 TEST: Add missing test coverage for acceptance criteria
+```
+
+### Smart Hook Integration
+The validation system now integrates with smart hooks for automated compliance checking:
+
+```yaml
+smart_hooks:
+  pre_commit_compliance:
+    trigger: "Before git commit"
+    action: "/ace-validate --specs --quick"
+    threshold: "85% minimum compliance"
+    auto_fix: "Suggest specification updates for new features"
+    
+  pre_deploy_gate:
+    trigger: "Before deployment"
+    action: "/ace-validate --pre-deploy"
+    threshold: "90% compliance required"
+    block_deployment: true
+    notifications: ["team@company.com"]
+    
+  weekly_compliance_review:
+    trigger: "Weekly schedule (Mondays)"
+    action: "/ace-validate --specs --report"
+    stakeholders: ["product-manager", "tech-lead"]
+    trend_analysis: true
+```
+
+### Integration with ace-spec-check
+```bash
+# Combined validation and specification check
+/ace-validate --with-spec-check
+
+This command combines technical validation with specification compliance:
+1. Runs all technical validations (AWS, dependencies, schema)
+2. Performs comprehensive specification compliance check
+3. Provides unified report with actionable recommendations
+4. Suggests fixes for both technical and compliance issues
+
+Quick Actions Available:
+- Fix technical issues automatically
+- Update specifications interactively
+- Generate compliance improvement plan
+- Schedule specification review meeting
+```
+
+### Compliance Gating
+The validation system now supports compliance-based deployment gating:
+
+```yaml
+deployment_gates:
+  development:
+    minimum_compliance: "70%"
+    block_on_critical: true
+    
+  staging:
+    minimum_compliance: "85%"
+    require_test_coverage: "80%"
+    
+  production:
+    minimum_compliance: "95%"
+    require_stakeholder_approval: true
+    require_full_test_coverage: "90%"
+    security_scan_required: true
+```
+
 ---
 
-*ACE-Validate: Catch issues before they catch you! 🛡️*
+*ACE-Validate: Enhanced with Kiro-style accountability - ensuring specs and code stay aligned! 🛡️📊*

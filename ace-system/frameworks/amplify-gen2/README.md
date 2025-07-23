@@ -22,8 +22,8 @@
 - **Monitoring** - Logging, metrics, and debugging
 - **Security** - Security best practices and compliance
 - **API Reference** - Complete API documentation
-- **[Configuration](./configuration.md)** - Environment and build configuration
-- **[Troubleshooting](./troubleshooting.md)** - Common issues and solutions
+- **Configuration** - See [getting-started.md](./getting-started.md) for environment setup
+- **Troubleshooting** - Common issues covered in individual guides
 
 ## 🚀 Quick Start Reference
 

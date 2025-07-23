@@ -1,0 +1,33 @@
+# GitHub Pages configuration for ACE-Flow documentation
+theme: minima
+title: "ACE-Flow Documentation"
+description: "Amplified Context Engineering for AWS Amplify Gen 2 development"
+
+# Navigation
+header_pages:
+  - getting-started.md  
+  - examples.md
+  - patterns/index.md
+  - api/index.md
+
+# GitHub repository information
+github_username: paretofilm
+repository: ace-flow
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/

@@ -161,6 +161,8 @@ COMMANDS=(
     "ace-validate:av"
     "ace-rollback:arb"
     "ace-cost:ac"
+    "ace-spec-check:asc"
+    "ace-steering:ast"
 )
 
 # Create manifest file to track installed commands

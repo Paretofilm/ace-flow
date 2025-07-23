@@ -6,29 +6,29 @@
 
 ### Core Concepts
 - **[App Router](./app-router.md)** - File-based routing, layouts, and navigation
-- **[Server Components](./server-components.md)** - Server-side rendering and data fetching
-- **[Client Components](./client-components.md)** - Interactive UI and client-side logic
-- **[Routing](./routing.md)** - Dynamic routes, route groups, and middleware
+- **Server Components** - Server-side rendering and data fetching (see [app-router.md](./app-router.md))
+- **Client Components** - Interactive UI and client-side logic (see [data-fetching.md](./data-fetching.md))
+- **Routing** - Dynamic routes, route groups, and middleware (covered in [app-router.md](./app-router.md))
 
 ### Data & State Management
 - **[Data Fetching](./data-fetching.md)** - Server/client data patterns and caching
-- **[State Management](./state-management.md)** - React state, Context, and external libraries
-- **[API Routes](./api-routes.md)** - Backend API development with Next.js
+- **State Management** - React state, Context, and external libraries (patterns in [data-fetching.md](./data-fetching.md))
+- **API Routes** - Backend API development with Next.js
 
 ### UI & Styling
-- **[Components](./components.md)** - Component patterns and best practices
-- **[Styling](./styling.md)** - CSS Modules, Tailwind, and styling approaches
-- **[Images & Media](./images-media.md)** - Image optimization and media handling
+- **Components** - Component patterns and best practices (see existing guides)
+- **Styling** - CSS Modules, Tailwind, and styling approaches
+- **Images & Media** - Image optimization and media handling
 
 ### Performance & Optimization
-- **[Optimization](./optimization.md)** - Performance, bundling, and Core Web Vitals
-- **[Caching](./caching.md)** - Data caching, ISR, and cache strategies
-- **[Loading & Streaming](./loading-streaming.md)** - Loading UI and streaming patterns
+- **Optimization** - Performance, bundling, and Core Web Vitals (see [app-router.md](./app-router.md))
+- **Caching** - Data caching, ISR, and cache strategies (see [data-fetching.md](./data-fetching.md))
+- **Loading & Streaming** - Loading UI and streaming patterns (covered in existing guides)
 
 ### Production & Deployment
-- **[Deployment](./deployment.md)** - Production deployment and hosting
-- **[Monitoring](./monitoring.md)** - Analytics, error tracking, and performance monitoring
-- **[SEO](./seo.md)** - Search engine optimization and metadata
+- **Deployment** - Production deployment and hosting
+- **Monitoring** - Analytics, error tracking, and performance monitoring
+- **SEO** - Search engine optimization and metadata
 
 ## 🚀 Quick Start Reference
 

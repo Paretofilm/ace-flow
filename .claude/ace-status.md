@@ -335,7 +335,160 @@ Average_Durations:
    📊 Progress adjusted: 58% → 55% (includes fix time)
 ```
 
+## 📊 Specification Compliance Integration
+
+### Compliance in Status Display
+```bash
+# Basic status with compliance summary
+$ /ace-status --compliance
+
+📊 Project Status with Specification Compliance
+
+## Implementation Progress: 78% ✅
+- Backend: 85% complete
+- Frontend: 70% complete  
+- Testing: 65% complete
+
+## Specification Compliance: 87% ⚠️
+└── 3 deviations requiring attention
+└── Last check: 2 hours ago
+└── Trend: Improving (+5% since last week)
+
+⚠️ Critical Deviations:
+- Missing real-time workout sharing (User Story #12)
+- Login flow differs from specifications
+- Premium subscription not documented in specs
+
+💡 Quick Actions:
+- Run '/ace-spec-check --detailed' for full analysis
+- Use '/ace-spec-check --fix-drift' for interactive fixes
+```
+
+### Enhanced Status with Specification Details
+```bash
+$ /ace-status --detailed --compliance
+
+🚀 ACE-Flow Detailed Status Report
+Generated: 2025-01-22 14:30:00
+
+## Project Overview
+├── Name: fitness-tracking-app
+├── Pattern: social_platform
+├── Genesis: 2025-01-15 09:15:00
+└── Last Deploy: 2025-01-21 16:45:00
+
+## Implementation Progress: 78% (↗ +12% this week)
+
+### Backend Status: 85% ✅
+├── [████████▌ ] Schema & Auth (85%)
+├── [██████████] API Endpoints (100%)
+├── [███████▌  ] Business Logic (75%)
+└── [██████    ] Real-time Features (60%) ⚠️
+
+### Frontend Status: 70% ⚠️
+├── [███████   ] Core Components (70%)
+├── [██████████] Authentication UI (100%)
+├── [█████████ ] User Dashboard (90%)
+└── [██        ] Social Features (20%) ❌
+
+### Testing Status: 65% ⚠️
+├── [███████   ] Unit Tests (70%)
+├── [██████    ] Integration Tests (60%)
+├── [█████     ] E2E Tests (50%)
+└── [████████  ] Spec Coverage (80%)
+
+## Specification Compliance: 87% ⚠️
+
+### Compliance by Category:
+├── User Stories: 92% ✅ (23/25 implemented)
+├── Acceptance Criteria: 85% ⚠️ (34/40 met)
+├── Technical Architecture: 90% ✅
+├── Security Requirements: 95% ✅
+└── Performance Requirements: 70% ❌
+
+### Recent Compliance Changes:
+├── [Jan 22] Premium subscription added (+feature)
+├── [Jan 21] Login flow simplified (~behavior)
+├── [Jan 20] Real-time sharing delayed (-feature)
+└── [Jan 19] Enhanced user profiles (+feature)
+
+### Critical Deviations Requiring Action:
+❌ **Missing Feature**: Real-time workout sharing
+   ├── Priority: High (blocks core social functionality)
+   ├── Original User Story: #12 "Share workouts in real-time"
+   ├── Impact: 3 acceptance criteria not met
+   └── Action: Schedule implementation or defer with approval
+
+⚠️ **Modified Behavior**: Authentication flow
+   ├── Original Spec: Email/password + social login
+   ├── Current Implementation: Email/password only
+   ├── Reason: Technical complexity of social providers
+   └── Action: Update specs or implement social login
+
+⚠️ **Extra Feature**: Premium subscription system
+   ├── Status: Implemented but not in original specifications
+   ├── Business Value: High (revenue stream)
+   ├── Test Coverage: 90%
+   └── Action: Update specifications to include this feature
+
+## Smart Hook Activity: Active ✅
+└── Pre-deploy compliance check: Enabled (85% threshold)
+└── Weekly compliance review: Scheduled for Jan 29
+└── Specification drift monitoring: Active
+
+## Accountability Metrics:
+├── Specification adherence trend: ↘ Declining (-3% this week)
+├── Test-specification alignment: 80%
+├── Feature drift ratio: 15% (3 changes, 20 total features)
+└── Last specification update: 5 days ago
+
+## Recommended Actions:
+1. 🔥 HIGH: Implement missing real-time features or update timeline
+2. ⚠️ MEDIUM: Update specifications for premium subscription
+3. 📝 LOW: Align login implementation with specs or update requirements
+4. 📊 REVIEW: Schedule specification alignment meeting
+
+## Next Milestones:
+├── Real-time features: 7 days (if approved for implementation)
+├── Specification review: Jan 29, 2025
+├── Full compliance audit: End of sprint
+└── Production deployment: Feb 15, 2025 (pending 90% compliance)
+```
+
+### Quick Compliance Commands
+```bash
+$ /ace-status --compliance-quick
+Compliance: 87% ⚠️ (3 deviations)
+
+$ /ace-status --deviations
+🔍 Active Deviations:
+- Missing real-time sharing
+- Modified login flow  
+- Undocumented premium features
+
+$ /ace-status --compliance-trend
+📈 Compliance Trend (7 days):
+94% → 91% → 89% → 87% (↘ -7%)
+Cause: Feature additions without spec updates
+```
+
+## Integration with ace-spec-check
+
+The ace-status command now seamlessly integrates with the specification compliance system:
+
+### Real-time Compliance Monitoring
+- **Automatic Updates**: Compliance scores update when code changes
+- **Trend Analysis**: Shows compliance direction over time
+- **Smart Alerts**: Warns when compliance drops below thresholds
+- **Action Prompts**: Suggests next steps for compliance improvements
+
+### Specification Lifecycle Tracking
+- **Genesis Integration**: Links back to original requirements from genesis
+- **Change History**: Tracks all specification modifications
+- **Approval Workflow**: Shows which changes need stakeholder approval
+- **Impact Analysis**: Displays how code changes affect requirement compliance
+
 ---
 
-*Last Updated: 2025-07-20*
-*Command Version: 1.0*
+*Last Updated: 2025-01-22*
+*Command Version: 2.0 (Enhanced with Kiro-style Accountability)*

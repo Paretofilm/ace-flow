@@ -1,0 +1,205 @@
+name: README Auto-Update
+
+on:
+  # Trigger on PR events
+  pull_request:
+    types: [opened, synchronize, closed]
+    paths:
+      - 'ace-system/**'
+      - 'steering/**'
+      - '.claude/**'
+      - 'scripts/**'
+      - 'quality-reports/**'
+      - 'ace-system/patterns/**'
+
+  # Trigger on push to main (after PR merge)
+  push:
+    branches: [main]
+    paths:
+      - 'ace-system/**'
+      - 'steering/**'
+      - '.claude/**'
+      - 'scripts/**'
+      - 'quality-reports/**'
+      - 'ace-system/patterns/**'
+
+  # Scheduled updates (weekly)
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update even if no changes detected'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit for comparison
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/update-readme.sh
+          chmod +x scripts/ace-review.sh
+          
+      - name: Check if README update is needed
+        id: check_update
+        run: |
+          echo "🔍 Checking if README update is needed..."
+          
+          # Always update on manual trigger with force flag
+          if [ "${{ github.event.inputs.force_update }}" = "true" ]; then
+            echo "update_needed=true" >> $GITHUB_OUTPUT
+            echo "reason=Manual force update requested" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Always update on scheduled runs
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "update_needed=true" >> $GITHUB_OUTPUT
+            echo "reason=Scheduled weekly update" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Check for significant file changes
+          if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.event_name }}" = "push" ]; then
+            # Get list of changed files
+            if [ "${{ github.event_name }}" = "pull_request" ]; then
+              changed_files=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || echo "")
+            else
+              changed_files=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || echo "")
+            fi
+            
+            echo "Changed files: $changed_files"
+            
+            # Check if any significant files changed
+            if echo "$changed_files" | grep -E "(ace-system/patterns/|steering/|\.claude/|scripts/ace-review|quality-reports/)" > /dev/null; then
+              echo "update_needed=true" >> $GITHUB_OUTPUT
+              echo "reason=Significant files changed affecting README status" >> $GITHUB_OUTPUT
+            else
+              echo "update_needed=false" >> $GITHUB_OUTPUT
+              echo "reason=No significant changes detected" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "update_needed=false" >> $GITHUB_OUTPUT
+            echo "reason=No trigger conditions met" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Update README
+        if: steps.check_update.outputs.update_needed == 'true'
+        run: |
+          echo "📝 Updating README..."
+          echo "Reason: ${{ steps.check_update.outputs.reason }}"
+          
+          # Run README update with force flag for scheduled/manual updates
+          if [ "${{ github.event.inputs.force_update }}" = "true" ] || [ "${{ github.event_name }}" = "schedule" ]; then
+            bash scripts/update-readme.sh --force
+          else
+            bash scripts/update-readme.sh
+          fi
+          
+      - name: Check for changes and commit
+        if: steps.check_update.outputs.update_needed == 'true'
+        run: |
+          # Check if README was actually updated
+          if git diff --quiet README.md; then
+            echo "ℹ️  No README changes were made"
+            exit 0
+          fi
+          
+          echo "✅ README was updated, preparing commit..."
+          
+          # Get current quality metrics for commit message
+          quality_metrics=$(bash scripts/update-readme.sh --dry-run 2>/dev/null | grep 'Quality Score:' | cut -d: -f2 | tr -d ' ' || echo "current")
+          pattern_count=$(find ace-system/patterns -name "*.md" -not -name "README.md" | wc -l | tr -d ' ' || echo "0")
+          steering_count=$(find steering -name "*.md" -not -name "README.md" | wc -l | tr -d ' ' || echo "0")
+          
+          # Configure git
+          git config --local user.email "action@github.com"
+          git config --local user.name "ACE-Flow Auto-Update"
+          
+          # Create descriptive commit message
+          commit_message="docs: Auto-update README with current system status
+
+🤖 Automated README update
+- Quality Score: ${quality_metrics}/100
+- Architecture Patterns: ${pattern_count} available
+- Steering Files: ${steering_count}/8 active
+- Trigger: ${{ steps.check_update.outputs.reason }}
+
+$(date '+Generated: %Y-%m-%d %H:%M:%S UTC')
+
+Co-authored-by: ACE-Flow Auto-Update <ace-flow@github.com>"
+          
+          # Add and commit changes
+          git add README.md
+          git commit -m "$commit_message"
+          
+          echo "📤 Pushing changes..."
+          
+          # Push changes based on event type
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # For PRs, push to the PR branch
+            git push origin HEAD:${{ github.head_ref }}
+            echo "✅ Changes pushed to PR branch: ${{ github.head_ref }}"
+          else
+            # For push to main or scheduled runs, push to current branch
+            git push origin HEAD
+            echo "✅ Changes pushed to main branch"
+          fi
+          
+      - name: Update job summary
+        if: always()
+        run: |
+          echo "## 📝 README Auto-Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Update Needed**: ${{ steps.check_update.outputs.update_needed }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Reason**: ${{ steps.check_update.outputs.reason }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_update.outputs.update_needed }}" = "true" ]; then
+            # Get current system stats
+            quality_score=$(bash scripts/update-readme.sh --dry-run 2>/dev/null | grep 'Quality Score:' | cut -d: -f2 | tr -d ' ' || echo "N/A")
+            pattern_count=$(find ace-system/patterns -name "*.md" -not -name "README.md" | wc -l | tr -d ' ' || echo "0")
+            steering_count=$(find steering -name "*.md" -not -name "README.md" | wc -l | tr -d ' ' || echo "0")
+            
+            echo "### 📊 Updated System Status" >> $GITHUB_STEP_SUMMARY
+            echo "- **Quality Score**: ${quality_score}/100" >> $GITHUB_STEP_SUMMARY
+            echo "- **Architecture Patterns**: ${pattern_count}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Steering Files**: ${steering_count}/8" >> $GITHUB_STEP_SUMMARY
+            echo "- **Last Updated**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+            
+            if git diff --quiet HEAD~1 HEAD README.md 2>/dev/null; then
+              echo "- **Changes**: No changes made to README" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- **Changes**: ✅ README updated successfully" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "### ℹ️ No Update Required" >> $GITHUB_STEP_SUMMARY
+            echo "README is current and no significant changes detected." >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔧 Available Manual Actions" >> $GITHUB_STEP_SUMMARY
+          echo "- **Force Update**: Re-run this workflow with 'force_update' enabled" >> $GITHUB_STEP_SUMMARY
+          echo "- **Manual Script**: Run \`bash scripts/update-readme.sh\` locally" >> $GITHUB_STEP_SUMMARY
+          echo "- **Check Status**: Run \`bash scripts/ace-review.sh --quick\` for current metrics" >> $GITHUB_STEP_SUMMARY
