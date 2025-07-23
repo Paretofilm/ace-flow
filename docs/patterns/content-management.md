@@ -119,6 +119,7 @@ export const schema = a.schema({
 
 ## Rich Content Editor
 
+{% raw %}
 ```typescript
 // Rich text editor with image upload
 import { Editor } from '@tinymce/tinymce-react';
@@ -154,9 +155,11 @@ const ContentEditor = ({ content, onChange }) => {
   );
 };
 ```
+{% endraw %}
 
 ## SEO Integration
 
+{% raw %}
 ```typescript
 // Auto-generate SEO metadata
 const generateSEOMetadata = (article) => {
@@ -185,6 +188,7 @@ const generateSEOMetadata = (article) => {
   };
 };
 ```
+{% endraw %}
 
 ## Editorial Workflow
 
@@ -322,6 +326,7 @@ const searchContent = async (query, filters = {}) => {
 ## Performance Optimizations
 
 ### Content Caching
+{% raw %}
 ```typescript
 // Multi-layer caching strategy
 const getCachedArticle = async (slug) => {
@@ -346,6 +351,7 @@ const getCachedArticle = async (slug) => {
   return article;
 };
 ```
+{% endraw %}
 
 ### Static Site Generation
 ```typescript

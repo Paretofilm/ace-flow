@@ -116,6 +116,7 @@ export const schema = a.schema({
 
 ## Real-time Data Processing
 
+{% raw %}
 ```typescript
 // WebSocket connection for real-time updates
 import { io } from 'socket.io-client';
@@ -157,9 +158,11 @@ const processEventStream = async (events) => {
   broadcastToSubscribers(processedEvents);
 };
 ```
+{% endraw %}
 
 ## Chart Components
 
+{% raw %}
 ```typescript
 // Reusable chart components with real-time updates
 import { Line, Bar, Pie, Scatter } from 'react-chartjs-2';
@@ -213,9 +216,11 @@ const DynamicChart = ({ widgetConfig, data, isRealTime }) => {
   );
 };
 ```
+{% endraw %}
 
 ## Data Source Integration
 
+{% raw %}
 ```typescript
 // Generic data source connector
 class DataSourceConnector {
@@ -262,9 +267,11 @@ class APIConnector {
   }
 }
 ```
+{% endraw %}
 
 ## Alert System
 
+{% raw %}
 ```typescript
 // Alert monitoring and notification system
 const AlertManager = {
@@ -318,6 +325,7 @@ const evaluateCondition = (condition, data) => {
   }
 };
 ```
+{% endraw %}
 
 ## Frontend Components
 
@@ -360,6 +368,7 @@ const evaluateCondition = (condition, data) => {
 ## Advanced Features
 
 ### Custom Widget Development
+{% raw %}
 ```typescript
 // Framework for creating custom widgets
 export const CustomWidget = {
@@ -407,8 +416,10 @@ const SalesGaugeWidget = {
 
 CustomWidget.register('sales-gauge', SalesGaugeWidget);
 ```
+{% endraw %}
 
 ### Machine Learning Integration
+{% raw %}
 ```typescript
 // Predictive analytics and anomaly detection
 const MLAnalytics = {
@@ -447,10 +458,12 @@ const MLAnalytics = {
   }
 };
 ```
+{% endraw %}
 
 ## Performance Optimizations
 
 ### Data Aggregation
+{% raw %}
 ```typescript
 // Pre-compute aggregations for fast dashboard loading
 const DataAggregator = {
@@ -480,8 +493,10 @@ const DataAggregator = {
   }
 };
 ```
+{% endraw %}
 
 ### Caching Strategy
+{% raw %}
 ```typescript
 // Multi-level caching for dashboard performance
 const DashboardCache = {
@@ -514,6 +529,7 @@ const DashboardCache = {
   }
 };
 ```
+{% endraw %}
 
 ## Cost Estimates
 
