@@ -12,7 +12,9 @@ header_pages:
 
 # GitHub repository information
 github_username: paretofilm
-repository: ace-flow
+repository: Paretofilm/ace-flow
+github:
+  repository_nwo: Paretofilm/ace-flow
 
 # Build settings
 markdown: kramdown
