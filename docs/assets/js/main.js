@@ -34,7 +34,64 @@ document.addEventListener('DOMContentLoaded', function() {
   const animateElements = document.querySelectorAll('.feature-card, .hero-content');
   animateElements.forEach(el => observer.observe(el));
 
-  // Mobile menu toggle (if needed)
+  // Mobile documentation navigation
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const mobileNavClose = document.querySelector('.mobile-nav-close');
+  const mobileNavBackdrop = document.querySelector('.mobile-nav-backdrop');
+  const docsSidebar = document.querySelector('.docs-sidebar');
+  const docsLayout = document.querySelector('.docs-layout');
+  
+  function openMobileNav() {
+    if (docsSidebar) docsSidebar.classList.add('mobile-nav-open');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.add('mobile-nav-open');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeMobileNav() {
+    if (docsSidebar) docsSidebar.classList.remove('mobile-nav-open');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.remove('mobile-nav-open');
+    document.body.style.overflow = '';
+  }
+  
+  if (mobileNavToggle && docsSidebar) {
+    mobileNavToggle.addEventListener('click', openMobileNav);
+  }
+  
+  if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', closeMobileNav);
+  }
+  
+  // Close mobile nav when clicking backdrop
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener('click', closeMobileNav);
+  }
+  
+  // Close mobile nav when clicking outside or on navigation links
+  if (docsSidebar) {
+    // Close mobile nav when clicking on content area
+    if (docsLayout) {
+      docsLayout.addEventListener('click', function(e) {
+        if (e.target === docsLayout || !docsSidebar.contains(e.target)) {
+          closeMobileNav();
+        }
+      });
+    }
+    
+    // Close mobile nav when clicking on a navigation link
+    const navLinks = docsSidebar.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+    
+    // Close mobile nav on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && docsSidebar.classList.contains('mobile-nav-open')) {
+        closeMobileNav();
+      }
+    });
+  }
+
+  // Header mobile menu toggle (existing functionality)
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const siteNav = document.querySelector('.site-nav');
   
