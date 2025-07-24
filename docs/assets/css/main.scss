@@ -392,35 +392,19 @@ body {
   }
 }
 
-// Mobile menu toggle button
-.mobile-nav-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
-  background: var(--accent-primary);
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: var(--accent-secondary);
-    transform: scale(1.05);
-  }
-  
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-  
+// Mobile menu toggle button (removed - using header .menu-icon instead)
+
+// Ensure menu-icon shows on docs pages for mobile
+.docs-layout .site-nav {
   @media (max-width: 768px) {
-    display: block;
+    .menu-icon {
+      display: block !important;
+    }
+    
+    // Hide the normal nav trigger/menu functionality on docs pages
+    .nav-trigger:checked ~ .trigger {
+      display: none !important;
+    }
   }
 }
 
