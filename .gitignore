@@ -96,6 +96,14 @@ jspm_packages/
 # TernJS port file
 .tern-port
 
+# Jekyll
+docs/_site/
+docs/.sass-cache/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+docs/vendor/
+docs/Gemfile.lock
+
 # ACE-Flow specific
 .learning/cache/
 .learning/logs/
