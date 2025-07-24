@@ -3,6 +3,22 @@
 
 @import "minima";
 
+// Global Minima theme overrides for hamburger menu
+// This ensures the hamburger menu has no white background at any screen width
+.site-nav .menu-icon {
+  // Force override Minima's default white background
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+  
+  // Ensure the hamburger icon image displays properly
+  img {
+    display: block;
+    width: 20px;
+    height: 15px;
+  }
+}
+
 // Kiro-inspired color scheme
 :root {
   --bg-primary: #0a0a0a;
@@ -107,8 +123,10 @@ body {
     display: none;
     // Override any default Jekyll/Minima styles
     background-color: transparent !important;
+    background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
   }
   
   .page-link {
@@ -155,19 +173,16 @@ body {
       border-radius: 0 !important;
       box-shadow: none !important;
       
-      > svg {
-        stroke: var(--text-secondary);
-        fill: none;
-        transition: stroke 0.3s ease;
-        width: 18px;
-        height: 13px;
+      img {
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
       }
       
       &:hover {
         background-color: transparent !important;
         
-        > svg {
-          stroke: var(--text-primary);
+        img {
+          opacity: 1;
         }
       }
     }
@@ -181,8 +196,8 @@ body {
       background-color: transparent !important;
       border: none !important;
       
-      > svg {
-        stroke: var(--accent-primary);
+      img {
+        opacity: 1;
       }
     }
     
@@ -230,6 +245,189 @@ body {
   
   .site-logo .logo-image {
     height: 42px;
+  }
+}
+
+// DISABLED: Override Minima's 600px breakpoint for hamburger menu
+// (Navigation is completely hidden at 600px and below for testing)
+/*
+@media screen and (max-width: 600px) {
+  .site-nav .menu-icon {
+    // Force our image-based hamburger menu over Minima's SVG
+    background-color: transparent !important;
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 8px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    
+    // Hide any SVG elements that Minima might inject
+    > svg,
+    svg {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    // Hide any pseudo-elements
+    &::before,
+    &::after {
+      display: none !important;
+      content: none !important;
+    }
+    
+    // Ensure our image shows properly
+    img {
+      display: block !important;
+      opacity: 1 !important;
+      width: 20px !important;
+      height: 15px !important;
+      position: relative !important;
+      z-index: 11 !important;
+      visibility: visible !important;
+    }
+    
+    &:hover {
+      background-color: transparent !important;
+      background: transparent !important;
+      background-image: none !important;
+    }
+  }
+  
+  // Additional specificity for any nested elements
+  .site-nav label[for="nav-trigger"].menu-icon {
+    background: transparent !important;
+    
+    > svg {
+      display: none !important;
+    }
+    
+    img {
+      display: block !important;
+      opacity: 1 !important;
+    }
+  }
+}
+*/
+
+// Reintroduce hamburger menu with our SVG file for narrow screens
+@media (max-width: 600px) {
+  .site-nav {
+    display: block !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    left: auto !important;
+    // Override Minima's white rounded rectangle container
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    top: auto !important;
+    right: auto !important;
+    text-align: right !important;
+    float: right !important;
+    line-height: 54px !important;
+  }
+  
+  // Show only the hamburger menu icon using our SVG file
+  .site-nav .menu-icon {
+    display: block !important;
+    float: right !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 8px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    z-index: 20 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    left: auto !important;
+    
+    // Force our SVG image to show
+    img {
+      display: block !important;
+      opacity: 1 !important;
+      width: 20px !important;
+      height: 15px !important;
+      visibility: visible !important;
+      position: relative !important;
+      z-index: 21 !important;
+    }
+    
+    // Hide any other SVG elements
+    > svg,
+    svg {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    &:hover img {
+      opacity: 1 !important;
+    }
+  }
+  
+  // Show the navigation trigger checkbox
+  .site-nav .nav-trigger {
+    display: none !important; // Keep hidden but functional
+    visibility: visible !important;
+    opacity: 1 !important;
+    left: auto !important;
+  }
+  
+  // Show the dropdown menu when triggered
+  .site-nav .trigger {
+    display: none; // Hidden by default
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    padding: 1rem 0 !important;
+    min-width: 180px !important;
+    z-index: 1000 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    left: auto !important;
+  }
+  
+  // Show dropdown when checkbox is checked
+  .site-nav .nav-trigger:checked ~ .trigger {
+    display: block !important;
+  }
+  
+  // Style dropdown links
+  .site-nav .trigger .page-link {
+    display: block !important;
+    padding: 0.75rem 1.5rem !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    color: var(--text-secondary) !important;
+    text-decoration: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    left: auto !important;
+    
+    &:hover {
+      background-color: var(--bg-tertiary) !important;
+      color: var(--accent-primary) !important;
+    }
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-primary) !important;
+    }
   }
 }
 
