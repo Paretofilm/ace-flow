@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Multi-environment Setup | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Multi-environment Setup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/environments.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/environments.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Multi-environment Setup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Multi-environment Setup","url":"http://localhost:4000/advanced/environments.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="multi-environment-setup">Multi-environment Setup</h1>
+
+<p>Configure development, staging, and production environments with ACE-Flow for seamless deployment workflows and environment-specific configurations.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Multi-environment setup enables:</p>
+<ul>
+  <li>Isolated development and testing</li>
+  <li>Gradual rollout strategies</li>
+  <li>Environment-specific configurations</li>
+  <li>Automated CI/CD pipelines</li>
+  <li>Risk mitigation through staging</li>
+</ul>
+
+<h2 id="environment-architecture">Environment Architecture</h2>
+
+<h3 id="standard-environment-topology">Standard Environment Topology</h3>
+
+<pre><code class="language-mermaid">graph TD
+    A[Local Development] --&gt; B[Development Environment]
+    B --&gt; C[Staging Environment]
+    C --&gt; D[Production Environment]
+    
+    E[Feature Branches] --&gt; B
+    F[Main Branch] --&gt; C
+    G[Release Tags] --&gt; D
+</code></pre>
+
+<h3 id="environment-configuration-structure">Environment Configuration Structure</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.ace-flow/
+├── environments/
+│   ├── <span class="nb">local</span>/
+│   │   ├── config.yml
+│   │   ├── secrets.yml
+│   │   └── overrides/
+│   ├── development/
+│   │   ├── config.yml
+│   │   ├── secrets.yml
+│   │   └── overrides/
+│   ├── staging/
+│   │   ├── config.yml
+│   │   ├── secrets.yml
+│   │   └── overrides/
+│   └── production/
+│       ├── config.yml
+│       ├── secrets.yml
+│       └── overrides/
+├── scripts/
+│   ├── deploy-dev.sh
+│   ├── deploy-staging.sh
+│   └── deploy-prod.sh
+└── templates/
+    ├── environment.template.yml
+    └── secrets.template.yml
+</code></pre></div></div>
+
+<h2 id="environment-configuration">Environment Configuration</h2>
+
+<h3 id="base-configuration-template">Base Configuration Template</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/templates/environment.template.yml</span>
+<span class="na">environment</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">${ENVIRONMENT_NAME}</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s">${AWS_REGION}</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">${STAGE}</span>
+
+<span class="na">database</span><span class="pi">:</span>
+  <span class="na">instance_type</span><span class="pi">:</span> <span class="s">${DB_INSTANCE_TYPE}</span>
+  <span class="na">storage</span><span class="pi">:</span> <span class="s">${DB_STORAGE_SIZE}</span>
+  <span class="na">backup_retention</span><span class="pi">:</span> <span class="s">${DB_BACKUP_RETENTION}</span>
+  <span class="na">multi_az</span><span class="pi">:</span> <span class="s">${DB_MULTI_AZ}</span>
+
+<span class="na">lambda</span><span class="pi">:</span>
+  <span class="na">memory</span><span class="pi">:</span> <span class="s">${LAMBDA_MEMORY}</span>
+  <span class="na">timeout</span><span class="pi">:</span> <span class="s">${LAMBDA_TIMEOUT}</span>
+  <span class="na">runtime</span><span class="pi">:</span> <span class="s">${LAMBDA_RUNTIME}</span>
+
+<span class="na">storage</span><span class="pi">:</span>
+  <span class="na">bucket_name</span><span class="pi">:</span> <span class="s">${S3_BUCKET_NAME}</span>
+  <span class="na">cdn_enabled</span><span class="pi">:</span> <span class="s">${CDN_ENABLED}</span>
+  <span class="na">encryption</span><span class="pi">:</span> <span class="s">${S3_ENCRYPTION}</span>
+
+<span class="na">monitoring</span><span class="pi">:</span>
+  <span class="na">log_level</span><span class="pi">:</span> <span class="s">${LOG_LEVEL}</span>
+  <span class="na">metrics_enabled</span><span class="pi">:</span> <span class="s">${METRICS_ENABLED}</span>
+  <span class="na">alerts_enabled</span><span class="pi">:</span> <span class="s">${ALERTS_ENABLED}</span>
+
+<span class="na">security</span><span class="pi">:</span>
+  <span class="na">mfa_required</span><span class="pi">:</span> <span class="s">${MFA_REQUIRED}</span>
+  <span class="na">session_timeout</span><span class="pi">:</span> <span class="s">${SESSION_TIMEOUT}</span>
+  <span class="na">rate_limiting</span><span class="pi">:</span> <span class="s">${RATE_LIMITING}</span>
+</code></pre></div></div>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/environments/development/config.yml</span>
+<span class="na">environment</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-dev"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dev"</span>
+
+<span class="na">database</span><span class="pi">:</span>
+  <span class="na">instance_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">t3.micro"</span>
+  <span class="na">storage</span><span class="pi">:</span> <span class="m">20</span>
+  <span class="na">backup_retention</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">multi_az</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="na">lambda</span><span class="pi">:</span>
+  <span class="na">memory</span><span class="pi">:</span> <span class="m">256</span>
+  <span class="na">timeout</span><span class="pi">:</span> <span class="m">30</span>
+  <span class="na">runtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">nodejs18.x"</span>
+
+<span class="na">storage</span><span class="pi">:</span>
+  <span class="na">bucket_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-dev-storage"</span>
+  <span class="na">cdn_enabled</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">encryption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AES256"</span>
+
+<span class="na">monitoring</span><span class="pi">:</span>
+  <span class="na">log_level</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DEBUG"</span>
+  <span class="na">metrics_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">alerts_enabled</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="na">security</span><span class="pi">:</span>
+  <span class="na">mfa_required</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">session_timeout</span><span class="pi">:</span> <span class="m">3600</span>
+  <span class="na">rate_limiting</span><span class="pi">:</span> <span class="m">1000</span>
+
+<span class="na">features</span><span class="pi">:</span>
+  <span class="na">debug_mode</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">test_data</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">mock_external_apis</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h3 id="staging-environment">Staging Environment</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/environments/staging/config.yml</span>
+<span class="na">environment</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-staging"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s2">"</span><span class="s">staging"</span>
+
+<span class="na">database</span><span class="pi">:</span>
+  <span class="na">instance_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">t3.small"</span>
+  <span class="na">storage</span><span class="pi">:</span> <span class="m">50</span>
+  <span class="na">backup_retention</span><span class="pi">:</span> <span class="m">7</span>
+  <span class="na">multi_az</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="na">lambda</span><span class="pi">:</span>
+  <span class="na">memory</span><span class="pi">:</span> <span class="m">512</span>
+  <span class="na">timeout</span><span class="pi">:</span> <span class="m">60</span>
+  <span class="na">runtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">nodejs18.x"</span>
+
+<span class="na">storage</span><span class="pi">:</span>
+  <span class="na">bucket_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-staging-storage"</span>
+  <span class="na">cdn_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">encryption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">aws:kms"</span>
+
+<span class="na">monitoring</span><span class="pi">:</span>
+  <span class="na">log_level</span><span class="pi">:</span> <span class="s2">"</span><span class="s">INFO"</span>
+  <span class="na">metrics_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">alerts_enabled</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">security</span><span class="pi">:</span>
+  <span class="na">mfa_required</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">session_timeout</span><span class="pi">:</span> <span class="m">1800</span>
+  <span class="na">rate_limiting</span><span class="pi">:</span> <span class="m">500</span>
+
+<span class="na">features</span><span class="pi">:</span>
+  <span class="na">debug_mode</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">test_data</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">mock_external_apis</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">performance_testing</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h3 id="production-environment">Production Environment</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/environments/production/config.yml</span>
+<span class="na">environment</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-prod"</span>
+  <span class="na">region</span><span class="pi">:</span> <span class="s2">"</span><span class="s">us-east-1"</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s2">"</span><span class="s">prod"</span>
+
+<span class="na">database</span><span class="pi">:</span>
+  <span class="na">instance_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">r5.large"</span>
+  <span class="na">storage</span><span class="pi">:</span> <span class="m">100</span>
+  <span class="na">backup_retention</span><span class="pi">:</span> <span class="m">30</span>
+  <span class="na">multi_az</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">lambda</span><span class="pi">:</span>
+  <span class="na">memory</span><span class="pi">:</span> <span class="m">1024</span>
+  <span class="na">timeout</span><span class="pi">:</span> <span class="m">60</span>
+  <span class="na">runtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">nodejs18.x"</span>
+  <span class="na">provisioned_concurrency</span><span class="pi">:</span> <span class="m">10</span>
+
+<span class="na">storage</span><span class="pi">:</span>
+  <span class="na">bucket_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-prod-storage"</span>
+  <span class="na">cdn_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">encryption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">aws:kms"</span>
+  <span class="na">backup_enabled</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">monitoring</span><span class="pi">:</span>
+  <span class="na">log_level</span><span class="pi">:</span> <span class="s2">"</span><span class="s">WARN"</span>
+  <span class="na">metrics_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">alerts_enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">detailed_monitoring</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">security</span><span class="pi">:</span>
+  <span class="na">mfa_required</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">session_timeout</span><span class="pi">:</span> <span class="m">900</span>
+  <span class="na">rate_limiting</span><span class="pi">:</span> <span class="m">100</span>
+  <span class="na">waf_enabled</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">features</span><span class="pi">:</span>
+  <span class="na">debug_mode</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">test_data</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">mock_external_apis</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">blue_green_deployment</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h2 id="secret-management">Secret Management</h2>
+
+<h3 id="environment-specific-secrets">Environment-specific Secrets</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/environments/development/secrets.yml</span>
+<span class="na">secrets</span><span class="pi">:</span>
+  <span class="na">database</span><span class="pi">:</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dev_db_password"</span>
+    <span class="na">connection_string</span><span class="pi">:</span> <span class="s2">"</span><span class="s">postgresql://user:pass@dev-db:5432/aceflow"</span>
+  
+  <span class="na">external_apis</span><span class="pi">:</span>
+    <span class="na">stripe_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sk_test_development_key"</span>
+    <span class="na">sendgrid_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">SG.dev_key"</span>
+    <span class="na">slack_webhook</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://hooks.slack.com/dev/webhook"</span>
+  
+  <span class="na">auth</span><span class="pi">:</span>
+    <span class="na">jwt_secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dev_jwt_secret_key"</span>
+    <span class="na">oauth_client_secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dev_oauth_secret"</span>
+  
+  <span class="na">monitoring</span><span class="pi">:</span>
+    <span class="na">sentry_dsn</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://dev@sentry.io/project"</span>
+    <span class="na">datadog_api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">dev_datadog_key"</span>
+</code></pre></div></div>
+
+<h3 id="aws-secrets-manager-integration">AWS Secrets Manager Integration</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/environment-secrets.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">EnvironmentSecrets</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">secretsCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">any</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">getEnvironmentSecrets</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">cacheKey</span> <span class="o">=</span> <span class="s2">`env_secrets_</span><span class="p">${</span><span class="nx">environment</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">secretsCache</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">secretsCache</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">secretName</span> <span class="o">=</span> <span class="s2">`ace-flow/</span><span class="p">${</span><span class="nx">environment</span><span class="p">}</span><span class="s2">/secrets`</span><span class="p">;</span>
+      <span class="kd">const</span> <span class="nx">secrets</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">retrieveSecret</span><span class="p">(</span><span class="nx">secretName</span><span class="p">);</span>
+      
+      <span class="c1">// Cache for 5 minutes</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">secretsCache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">,</span> <span class="nx">secrets</span><span class="p">);</span>
+      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">secretsCache</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">);</span>
+      <span class="p">},</span> <span class="mi">300000</span><span class="p">);</span>
+      
+      <span class="k">return</span> <span class="nx">secrets</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to retrieve secrets for </span><span class="p">${</span><span class="nx">environment</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Environment secrets retrieval failed</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">updateEnvironmentSecrets</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">secrets</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">secretName</span> <span class="o">=</span> <span class="s2">`ace-flow/</span><span class="p">${</span><span class="nx">environment</span><span class="p">}</span><span class="s2">/secrets`</span><span class="p">;</span>
+    
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateSecret</span><span class="p">(</span><span class="nx">secretName</span><span class="p">,</span> <span class="nx">secrets</span><span class="p">);</span>
+    
+    <span class="c1">// Invalidate cache</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">secretsCache</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">`env_secrets_</span><span class="p">${</span><span class="nx">environment</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">retrieveSecret</span><span class="p">(</span><span class="nx">secretName</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">aws-sdk</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">secretsManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">SecretsManager</span><span class="p">();</span>
+    
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">secretsManager</span><span class="p">.</span><span class="nx">getSecretValue</span><span class="p">({</span>
+      <span class="na">SecretId</span><span class="p">:</span> <span class="nx">secretName</span>
+    <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+    
+    <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">SecretString</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="cicd-pipeline-setup">CI/CD Pipeline Setup</h2>
+
+<h3 id="github-actions-workflow">GitHub Actions Workflow</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .github/workflows/multi-environment.yml</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">Multi-Environment Deployment</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">,</span> <span class="nv">develop</span><span class="pi">]</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
+
+<span class="na">env</span><span class="pi">:</span>
+  <span class="na">NODE_VERSION</span><span class="pi">:</span> <span class="s1">'</span><span class="s">18'</span>
+  
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Setup Node.js</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v3</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run tests</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm run test</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run linting</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm run lint</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run type checking</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm run type-check</span>
+
+  <span class="na">deploy-dev</span><span class="pi">:</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">test</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">github.ref == 'refs/heads/develop'</span>
+    <span class="na">environment</span><span class="pi">:</span> <span class="s">development</span>
+    
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Configure AWS credentials</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">aws-actions/configure-aws-credentials@v2</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">aws-access-key-id</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">aws-secret-access-key</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">aws-region</span><span class="pi">:</span> <span class="s">us-east-1</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to development</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">/ace-validate --environment development</span>
+          <span class="s">/ace-implement --environment development</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">ACE_ENVIRONMENT</span><span class="pi">:</span> <span class="s">development</span>
+
+  <span class="na">deploy-staging</span><span class="pi">:</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">test</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">github.ref == 'refs/heads/main'</span>
+    <span class="na">environment</span><span class="pi">:</span> <span class="s">staging</span>
+    
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Configure AWS credentials</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">aws-actions/configure-aws-credentials@v2</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">aws-access-key-id</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">aws-secret-access-key</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">aws-region</span><span class="pi">:</span> <span class="s">us-east-1</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to staging</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">/ace-validate --environment staging</span>
+          <span class="s">/ace-implement --environment staging</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">ACE_ENVIRONMENT</span><span class="pi">:</span> <span class="s">staging</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run integration tests</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm run test:integration</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">TEST_ENDPOINT</span><span class="pi">:</span> <span class="s">$</span>
+
+  <span class="na">deploy-production</span><span class="pi">:</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">deploy-staging</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">startsWith(github.ref, 'refs/tags/v')</span>
+    <span class="na">environment</span><span class="pi">:</span> <span class="s">production</span>
+    
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Configure AWS credentials</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">aws-actions/configure-aws-credentials@v2</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">aws-access-key-id</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">aws-secret-access-key</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">aws-region</span><span class="pi">:</span> <span class="s">us-east-1</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to production</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">/ace-validate --environment production --strict</span>
+          <span class="s">/ace-implement --environment production --strategy blue-green</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">ACE_ENVIRONMENT</span><span class="pi">:</span> <span class="s">production</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run smoke tests</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm run test:smoke</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">TEST_ENDPOINT</span><span class="pi">:</span> <span class="s">$</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Notify deployment</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">curl -X POST $ \</span>
+            <span class="s">-H 'Content-type: application/json' \</span>
+            <span class="s">--data '{"text":"✅ Production deployment completed: $"}'</span>
+</code></pre></div></div>
+
+<h3 id="aws-codepipeline-alternative">AWS CodePipeline Alternative</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// infrastructure/pipeline.ts</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">codepipeline</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-cdk-lib/aws-codepipeline</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">codepipeline_actions</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-cdk-lib/aws-codepipeline-actions</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MultiEnvironmentPipeline</span> <span class="kd">extends</span> <span class="nx">Stack</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="p">:</span> <span class="nx">Construct</span><span class="p">,</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">props</span><span class="p">?:</span> <span class="nx">StackProps</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+    
+    <span class="kd">const</span> <span class="nx">pipeline</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Pipeline</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ACEFlowPipeline</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">pipelineName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ace-flow-multi-env</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">crossAccountKeys</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Source stage</span>
+    <span class="kd">const</span> <span class="nx">sourceOutput</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Artifact</span><span class="p">();</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nx">addStage</span><span class="p">({</span>
+      <span class="na">stageName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Source</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">actions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">GitHubSourceAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GitHub_Source</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">owner</span><span class="p">:</span> <span class="dl">'</span><span class="s1">paretofilm</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">repo</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ace-flow</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">branch</span><span class="p">:</span> <span class="dl">'</span><span class="s1">main</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">oauthToken</span><span class="p">:</span> <span class="nx">SecretValue</span><span class="p">.</span><span class="nx">secretsManager</span><span class="p">(</span><span class="dl">'</span><span class="s1">github-token</span><span class="dl">'</span><span class="p">),</span>
+          <span class="na">output</span><span class="p">:</span> <span class="nx">sourceOutput</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Build stage</span>
+    <span class="kd">const</span> <span class="nx">buildOutput</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Artifact</span><span class="p">();</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nx">addStage</span><span class="p">({</span>
+      <span class="na">stageName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Build</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">actions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">CodeBuildAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Build</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">project</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">createBuildProject</span><span class="p">(),</span>
+          <span class="na">input</span><span class="p">:</span> <span class="nx">sourceOutput</span><span class="p">,</span>
+          <span class="na">outputs</span><span class="p">:</span> <span class="p">[</span><span class="nx">buildOutput</span><span class="p">]</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Development deployment</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nx">addStage</span><span class="p">({</span>
+      <span class="na">stageName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Deploy-Dev</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">actions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">CloudFormationCreateUpdateStackAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Deploy-Development</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">templatePath</span><span class="p">:</span> <span class="nx">buildOutput</span><span class="p">.</span><span class="nx">atPath</span><span class="p">(</span><span class="dl">'</span><span class="s1">dev-template.yml</span><span class="dl">'</span><span class="p">),</span>
+          <span class="na">stackName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ace-flow-dev</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">adminPermissions</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="na">parameterOverrides</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">Environment</span><span class="p">:</span> <span class="dl">'</span><span class="s1">development</span><span class="dl">'</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Staging deployment with approval</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nx">addStage</span><span class="p">({</span>
+      <span class="na">stageName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Deploy-Staging</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">actions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">ManualApprovalAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Approve-Staging</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">notificationTopic</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">createNotificationTopic</span><span class="p">()</span>
+        <span class="p">}),</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">CloudFormationCreateUpdateStackAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Deploy-Staging</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">templatePath</span><span class="p">:</span> <span class="nx">buildOutput</span><span class="p">.</span><span class="nx">atPath</span><span class="p">(</span><span class="dl">'</span><span class="s1">staging-template.yml</span><span class="dl">'</span><span class="p">),</span>
+          <span class="na">stackName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ace-flow-staging</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">adminPermissions</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="na">parameterOverrides</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">Environment</span><span class="p">:</span> <span class="dl">'</span><span class="s1">staging</span><span class="dl">'</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Production deployment with approval</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nx">addStage</span><span class="p">({</span>
+      <span class="na">stageName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Deploy-Production</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">actions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">ManualApprovalAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Approve-Production</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">notificationTopic</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">createNotificationTopic</span><span class="p">()</span>
+        <span class="p">}),</span>
+        <span class="k">new</span> <span class="nx">codepipeline_actions</span><span class="p">.</span><span class="nx">CloudFormationCreateUpdateStackAction</span><span class="p">({</span>
+          <span class="na">actionName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Deploy-Production</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">templatePath</span><span class="p">:</span> <span class="nx">buildOutput</span><span class="p">.</span><span class="nx">atPath</span><span class="p">(</span><span class="dl">'</span><span class="s1">prod-template.yml</span><span class="dl">'</span><span class="p">),</span>
+          <span class="na">stackName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ace-flow-prod</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">adminPermissions</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="na">parameterOverrides</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">Environment</span><span class="p">:</span> <span class="dl">'</span><span class="s1">production</span><span class="dl">'</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="deployment-strategies">Deployment Strategies</h2>
+
+<h3 id="blue-green-deployment">Blue-Green Deployment</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/blue-green-deployment.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">BlueGreenDeployment</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">deploy</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">version</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">currentColor</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getCurrentColor</span><span class="p">(</span><span class="nx">environment</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">newColor</span> <span class="o">=</span> <span class="nx">currentColor</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span><span class="p">;</span>
+    
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Deploying </span><span class="p">${</span><span class="nx">version</span><span class="p">}</span><span class="s2"> to </span><span class="p">${</span><span class="nx">newColor</span><span class="p">}</span><span class="s2"> environment`</span><span class="p">);</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="c1">// Deploy to inactive environment</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">deployToColor</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+      
+      <span class="c1">// Run health checks</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">runHealthChecks</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">);</span>
+      
+      <span class="c1">// Run smoke tests</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">runSmokeTests</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">);</span>
+      
+      <span class="c1">// Switch traffic</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">switchTraffic</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">);</span>
+      
+      <span class="c1">// Monitor for issues</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">monitorDeployment</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">newColor</span><span class="p">);</span>
+      
+      <span class="c1">// Mark old environment for cleanup</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">scheduleCleanup</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">currentColor</span><span class="p">);</span>
+      
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Successfully deployed </span><span class="p">${</span><span class="nx">version</span><span class="p">}</span><span class="s2"> to </span><span class="p">${</span><span class="nx">environment</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+      
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Deployment failed:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      
+      <span class="c1">// Rollback if needed</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">rollback</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">currentColor</span><span class="p">);</span>
+      
+      <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">runHealthChecks</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">color</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getEnvironmentEndpoint</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">healthUrl</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">endpoint</span><span class="p">}</span><span class="s2">/health`</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">attempts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">maxAttempts</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="nx">attempts</span> <span class="o">&lt;</span> <span class="nx">maxAttempts</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">healthUrl</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">const</span> <span class="nx">health</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+          
+          <span class="k">if</span> <span class="p">(</span><span class="nx">health</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">healthy</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Health check passed for </span><span class="p">${</span><span class="nx">color</span><span class="p">}</span><span class="s2"> environment`</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="nx">attempts</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span> <span class="c1">// Wait 10 seconds</span>
+        
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">attempts</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Health checks failed for </span><span class="p">${</span><span class="nx">color</span><span class="p">}</span><span class="s2"> environment`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="canary-deployment">Canary Deployment</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/canary-deployment.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CanaryDeployment</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">deploy</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">version</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">canaryPercent</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Starting canary deployment: </span><span class="p">${</span><span class="nx">canaryPercent</span><span class="p">}</span><span class="s2">% traffic to </span><span class="p">${</span><span class="nx">version</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="c1">// Deploy canary version</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">deployCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+      
+      <span class="c1">// Route small percentage of traffic</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeTraffic</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">,</span> <span class="nx">canaryPercent</span><span class="p">);</span>
+      
+      <span class="c1">// Monitor metrics</span>
+      <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">monitorCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">,</span> <span class="mi">300000</span><span class="p">);</span> <span class="c1">// 5 minutes</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isCanaryHealthy</span><span class="p">(</span><span class="nx">metrics</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// Gradually increase traffic</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">promoteCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Rollback canary</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">rollbackCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Canary deployment failed health checks</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Canary deployment failed:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">rollbackCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">promoteCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">version</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">trafficSteps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">];</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">percent</span> <span class="k">of</span> <span class="nx">trafficSteps</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeTraffic</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">,</span> <span class="nx">percent</span><span class="p">);</span>
+      
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Routing </span><span class="p">${</span><span class="nx">percent</span><span class="p">}</span><span class="s2">% traffic to canary`</span><span class="p">);</span>
+      
+      <span class="c1">// Monitor for 2 minutes at each step</span>
+      <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">monitorCanary</span><span class="p">(</span><span class="nx">environment</span><span class="p">,</span> <span class="nx">version</span><span class="p">,</span> <span class="mi">120000</span><span class="p">);</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isCanaryHealthy</span><span class="p">(</span><span class="nx">metrics</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Canary promotion failed at </span><span class="p">${</span><span class="nx">percent</span><span class="p">}</span><span class="s2">% traffic`</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Canary deployment successfully promoted to 100%</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="environment-monitoring">Environment Monitoring</h2>
+
+<h3 id="multi-environment-dashboard">Multi-Environment Dashboard</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/environment-monitor.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">EnvironmentMonitor</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">getEnvironmentStatus</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">environments</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">development</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">staging</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">production</span><span class="dl">'</span><span class="p">];</span>
+    
+    <span class="kd">const</span> <span class="nx">statuses</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span>
+      <span class="nx">environments</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="k">async</span> <span class="p">(</span><span class="nx">env</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">health</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">checkEnvironmentHealth</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getEnvironmentMetrics</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">deployments</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRecentDeployments</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span>
+        
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="na">environment</span><span class="p">:</span> <span class="nx">env</span><span class="p">,</span>
+          <span class="nx">health</span><span class="p">,</span>
+          <span class="nx">metrics</span><span class="p">,</span>
+          <span class="nx">deployments</span><span class="p">,</span>
+          <span class="na">lastUpdated</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+        <span class="p">};</span>
+      <span class="p">})</span>
+    <span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">environments</span><span class="p">:</span> <span class="nx">statuses</span><span class="p">,</span>
+      <span class="na">summary</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateSummary</span><span class="p">(</span><span class="nx">statuses</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">checkEnvironmentHealth</span><span class="p">(</span><span class="nx">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getEnvironmentConfig</span><span class="p">(</span><span class="nx">environment</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">api_endpoint</span><span class="p">;</span>
+      
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">endpoint</span><span class="p">}</span><span class="s2">/health`</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">timeout</span><span class="p">:</span> <span class="mi">5000</span>
+      <span class="p">});</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">unhealthy</span><span class="dl">'</span><span class="p">,</span> <span class="na">reason</span><span class="p">:</span> <span class="s2">`HTTP </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span> <span class="p">};</span>
+      <span class="p">}</span>
+      
+      <span class="kd">const</span> <span class="nx">health</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+      <span class="k">return</span> <span class="nx">health</span><span class="p">;</span>
+      
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> 
+        <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">unhealthy</span><span class="dl">'</span><span class="p">,</span> 
+        <span class="na">reason</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span> 
+      <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">generateSummary</span><span class="p">(</span><span class="nx">statuses</span><span class="p">:</span> <span class="kr">any</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">healthy</span> <span class="o">=</span> <span class="nx">statuses</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">health</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">healthy</span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">statuses</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">healthyEnvironments</span><span class="p">:</span> <span class="nx">healthy</span><span class="p">,</span>
+      <span class="na">totalEnvironments</span><span class="p">:</span> <span class="nx">total</span><span class="p">,</span>
+      <span class="na">overallStatus</span><span class="p">:</span> <span class="nx">healthy</span> <span class="o">===</span> <span class="nx">total</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">healthy</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">degraded</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">criticalIssues</span><span class="p">:</span> <span class="nx">statuses</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">health</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="cross-environment-alerting">Cross-Environment Alerting</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/cross-environment-alerts.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CrossEnvironmentAlerts</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">setupAlerts</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">alerts</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Production Down</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="dl">'</span><span class="s1">environment:production AND status:unhealthy</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">channels</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">pagerduty</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">slack-critical</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Staging Deployment Failed</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="dl">'</span><span class="s1">environment:staging AND deployment:failed</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">channels</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-dev</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">email-dev-team</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Development Environment Issues</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="dl">'</span><span class="s1">environment:development AND status:unhealthy</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">channels</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-dev</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Cross-Environment Performance Degradation</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="dl">'</span><span class="s1">response_time &gt; 2s AND affected_environments &gt;= 2</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">channels</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-critical</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">email-sre</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">];</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">alert</span> <span class="k">of</span> <span class="nx">alerts</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createAlert</span><span class="p">(</span><span class="nx">alert</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">createAlert</span><span class="p">(</span><span class="nx">alert</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Create CloudWatch alarm or integrate with monitoring service</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Creating alert: </span><span class="p">${</span><span class="nx">alert</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    
+    <span class="c1">// Example with CloudWatch</span>
+    <span class="kd">const</span> <span class="nx">cloudwatch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">CloudWatch</span><span class="p">();</span>
+    
+    <span class="k">await</span> <span class="nx">cloudwatch</span><span class="p">.</span><span class="nx">putMetricAlarm</span><span class="p">({</span>
+      <span class="na">AlarmName</span><span class="p">:</span> <span class="nx">alert</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="na">ComparisonOperator</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GreaterThanThreshold</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">EvaluationPeriods</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="na">MetricName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">EnvironmentHealth</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">Namespace</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ACE-Flow/Environments</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">Period</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+      <span class="na">Statistic</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Average</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">Threshold</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+      <span class="na">ActionsEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">AlarmActions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">`arn:aws:sns:us-east-1:123456789012:</span><span class="p">${</span><span class="nx">alert</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">+/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">)}</span><span class="s2">`</span>
+      <span class="p">],</span>
+      <span class="na">AlarmDescription</span><span class="p">:</span> <span class="s2">`Alert for </span><span class="p">${</span><span class="nx">alert</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="na">Dimensions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="na">Name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Environment</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">Value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="environment-hygiene">Environment Hygiene</h3>
+
+<ol>
+  <li><strong>Consistent Configuration</strong>: Use templates for environment consistency</li>
+  <li><strong>Secret Rotation</strong>: Regularly rotate secrets across all environments</li>
+  <li><strong>Access Control</strong>: Implement environment-specific access controls</li>
+  <li><strong>Data Isolation</strong>: Ensure complete data separation between environments</li>
+  <li><strong>Resource Tagging</strong>: Tag all resources with environment information</li>
+</ol>
+
+<h3 id="deployment-best-practices">Deployment Best Practices</h3>
+
+<ol>
+  <li><strong>Always deploy to lower environments first</strong></li>
+  <li><strong>Run comprehensive tests in staging</strong></li>
+  <li><strong>Use feature flags for gradual rollouts</strong></li>
+  <li><strong>Implement automated rollback mechanisms</strong></li>
+  <li><strong>Monitor deployments closely</strong></li>
+  <li><strong>Document environment-specific procedures</strong></li>
+</ol>
+
+<h3 id="cost-management">Cost Management</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/environment-cost-optimizer.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">EnvironmentCostOptimizer</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">optimizeEnvironmentCosts</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">environments</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getEnvironments</span><span class="p">();</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">env</span> <span class="k">of</span> <span class="nx">environments</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">name</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">production</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">scheduleResourceShutdown</span><span class="p">(</span><span class="nx">env</span><span class="p">,</span> <span class="p">{</span>
+          <span class="na">schedule</span><span class="p">:</span> <span class="dl">'</span><span class="s1">0 18 * * 1-5</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Shutdown at 6 PM weekdays</span>
+          <span class="na">resources</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">ec2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">rds</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">elasticache</span><span class="dl">'</span><span class="p">]</span>
+        <span class="p">});</span>
+        
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">scheduleResourceStartup</span><span class="p">(</span><span class="nx">env</span><span class="p">,</span> <span class="p">{</span>
+          <span class="na">schedule</span><span class="p">:</span> <span class="dl">'</span><span class="s1">0 8 * * 1-5</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Startup at 8 AM weekdays</span>
+          <span class="na">resources</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">ec2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">rds</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">elasticache</span><span class="dl">'</span><span class="p">]</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="security.md">← Back to Security Best Practices</a></td>
+      <td><a href="monitoring.md">Monitoring and Analytics →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development by <a href="https://www.paretofilm.no" target="_blank" style="color: var(--accent-primary); text-decoration: none;">Pareto Film AS</a></p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

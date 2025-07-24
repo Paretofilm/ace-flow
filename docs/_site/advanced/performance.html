@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Performance Optimization | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Performance Optimization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/performance.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/performance.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Performance Optimization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Performance Optimization","url":"http://localhost:4000/advanced/performance.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="performance-optimization">Performance Optimization</h1>
+
+<p>Optimize your ACE-Flow applications for scale, performance, and cost-effectiveness with proven strategies and best practices.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Performance optimization in ACE-Flow involves multiple layers:</p>
+<ul>
+  <li>Database query optimization</li>
+  <li>Caching strategies</li>
+  <li>Real-time data handling</li>
+  <li>Resource utilization</li>
+  <li>Cost optimization</li>
+</ul>
+
+<h2 id="database-optimization">Database Optimization</h2>
+
+<h3 id="indexing-strategies">Indexing Strategies</h3>
+
+<p>Optimize database performance with strategic indexing:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># amplify/data/resource.ts</span><span class="w">
+</span><span class="k">type</span><span class="w"> </span><span class="n">Post</span><span class="w"> </span><span class="err">@</span><span class="n">model</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!</span><span class="w">
+  </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byTitle</span><span class="err">"</span><span class="p">)</span><span class="w">
+  </span><span class="n">content</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w">
+  </span><span class="n">authorId</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byAuthor</span><span class="err">"</span><span class="p">)</span><span class="w">
+  </span><span class="n">category</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byCategory</span><span class="err">"</span><span class="p">)</span><span class="w">
+  </span><span class="n">createdAt</span><span class="p">:</span><span class="w"> </span><span class="n">AWSDateTime</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byCreatedAt</span><span class="err">"</span><span class="p">)</span><span class="w">
+  </span><span class="n">isPublished</span><span class="p">:</span><span class="w"> </span><span class="nb">Boolean</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byPublished</span><span class="err">"</span><span class="p">)</span><span class="w">
+  
+  </span><span class="c"># Composite indexes for complex queries</span><span class="w">
+  </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byStatusAndDate</span><span class="err">"</span><span class="p">,</span><span class="w"> </span><span class="n">sortKeyFields</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">"</span><span class="n">createdAt</span><span class="err">"</span><span class="p">])</span><span class="w">
+  </span><span class="n">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">!]</span><span class="w"> </span><span class="err">@</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">byTags</span><span class="err">"</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="query-optimization">Query Optimization</h3>
+
+<p>Optimize GraphQL queries for better performance:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Efficient query with proper field selection</span>
+<span class="kd">const</span> <span class="nx">optimizedQuery</span> <span class="o">=</span> <span class="s2">`
+  query ListPosts($limit: Int, $nextToken: String) {
+    listPosts(limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        authorId
+        createdAt
+        # Only select needed fields
+      }
+      nextToken
+    }
+  }
+`</span><span class="p">;</span>
+
+<span class="c1">// Use pagination for large datasets</span>
+<span class="kd">const</span> <span class="nx">getPaginatedPosts</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">limit</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">allPosts</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">nextToken</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  
+  <span class="k">do</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">graphql</span><span class="p">({</span>
+      <span class="na">query</span><span class="p">:</span> <span class="nx">optimizedQuery</span><span class="p">,</span>
+      <span class="na">variables</span><span class="p">:</span> <span class="p">{</span> <span class="nx">limit</span><span class="p">,</span> <span class="nx">nextToken</span> <span class="p">}</span>
+    <span class="p">});</span>
+    
+    <span class="nx">allPosts</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">listPosts</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
+    <span class="nx">nextToken</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">listPosts</span><span class="p">.</span><span class="nx">nextToken</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">nextToken</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="nx">allPosts</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="connection-pooling">Connection Pooling</h3>
+
+<p>Optimize database connections:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// amplify/functions/shared/db-config.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">dbConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">maxConnections</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="na">connectionTimeout</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+  <span class="na">idleTimeout</span><span class="p">:</span> <span class="mi">600000</span><span class="p">,</span>
+  <span class="na">retryAttempts</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  
+  <span class="c1">// Connection pooling for Lambda</span>
+  <span class="na">keepAlive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">maxIdleConnections</span><span class="p">:</span> <span class="mi">5</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="caching-strategies">Caching Strategies</h2>
+
+<h3 id="in-memory-caching">In-Memory Caching</h3>
+
+<p>Implement efficient caching layers:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/cache.ts</span>
+<span class="kd">class</span> <span class="nx">MemoryCache</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="p">{</span> <span class="na">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span> <span class="nl">expiry</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="kd">set</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="nx">ttl</span> <span class="o">=</span> <span class="mi">300000</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 5 minutes default</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="p">,</span>
+      <span class="na">expiry</span><span class="p">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="nx">ttl</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="kd">get</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">item</span> <span class="o">||</span> <span class="nx">item</span><span class="p">.</span><span class="nx">expiry</span> <span class="o">&lt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">item</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nx">clear</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MemoryCache</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="redis-caching">Redis Caching</h3>
+
+<p>Implement distributed caching with Redis:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/redis-cache.ts</span>
+<span class="k">import</span> <span class="nx">Redis</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">ioredis</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">RedisCache</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">redis</span><span class="p">:</span> <span class="nx">Redis</span><span class="p">;</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">redis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Redis</span><span class="p">({</span>
+      <span class="na">host</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REDIS_HOST</span><span class="p">,</span>
+      <span class="na">port</span><span class="p">:</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REDIS_PORT</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">6379</span><span class="dl">'</span><span class="p">),</span>
+      <span class="na">retryDelayOnFailover</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="na">maxRetriesPerRequest</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="kd">set</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="nx">ttl</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">redis</span><span class="p">.</span><span class="nx">setex</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">ttl</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="kd">get</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">redis</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">data</span> <span class="p">?</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">invalidate</span><span class="p">(</span><span class="nx">pattern</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">keys</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">redis</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">keys</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">redis</span><span class="p">.</span><span class="nx">del</span><span class="p">(...</span><span class="nx">keys</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">redisCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedisCache</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="api-response-caching">API Response Caching</h3>
+
+<p>Cache API responses at multiple levels:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// middleware/cache-middleware.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">cacheMiddleware</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ttl</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">async</span> <span class="p">(</span><span class="na">req</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="na">res</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="na">next</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">cacheKey</span> <span class="o">=</span> <span class="s2">`api:</span><span class="p">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">}</span><span class="s2">:</span><span class="p">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">originalUrl</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    
+    <span class="c1">// Try cache first</span>
+    <span class="kd">const</span> <span class="nx">cached</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">redisCache</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cached</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">cached</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Cache the response</span>
+    <span class="kd">const</span> <span class="nx">originalSend</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">;</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="na">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">redisCache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">cacheKey</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">ttl</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">originalSend</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+    <span class="p">};</span>
+    
+    <span class="nx">next</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="real-time-optimization">Real-time Optimization</h2>
+
+<h3 id="websocket-connection-management">WebSocket Connection Management</h3>
+
+<p>Optimize real-time connections:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/websocket-manager.ts</span>
+<span class="kd">class</span> <span class="nx">WebSocketManager</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">connections</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">WebSocket</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">private</span> <span class="nx">rooms</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nb">Set</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+  
+  <span class="nx">addConnection</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">ws</span><span class="p">:</span> <span class="nx">WebSocket</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">ws</span><span class="p">);</span>
+    
+    <span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">close</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">removeConnection</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="nx">removeConnection</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+    
+    <span class="c1">// Clean up room memberships</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">room</span><span class="p">,</span> <span class="nx">members</span><span class="p">]</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">members</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">members</span><span class="p">.</span><span class="nx">size</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">room</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="nx">joinRoom</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">roomId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">roomId</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">roomId</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">roomId</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="nx">broadcastToRoom</span><span class="p">(</span><span class="nx">roomId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">message</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">members</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">roomId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">members</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">userId</span> <span class="k">of</span> <span class="nx">members</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">ws</span> <span class="o">&amp;&amp;</span> <span class="nx">ws</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">OPEN</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="subscription-optimization">Subscription Optimization</h3>
+
+<p>Optimize GraphQL subscriptions:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// optimized-subscriptions.ts</span>
+<span class="kd">const</span> <span class="nx">optimizedSubscription</span> <span class="o">=</span> <span class="s2">`
+  subscription OnPostUpdate($authorId: ID!) {
+    onUpdatePost(filter: { authorId: { eq: $authorId } }) {
+      id
+      title
+      updatedAt
+      # Only subscribe to necessary fields
+    }
+  }
+`</span><span class="p">;</span>
+
+<span class="c1">// Batch subscription updates</span>
+<span class="kd">const</span> <span class="nx">batchSubscriptionUpdates</span> <span class="o">=</span> <span class="p">(</span><span class="nx">updates</span><span class="p">:</span> <span class="kr">any</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">batched</span> <span class="o">=</span> <span class="nx">updates</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">update</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">update</span><span class="p">.</span><span class="kd">type</span><span class="p">}</span><span class="s2">:</span><span class="p">${</span><span class="nx">update</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nx">acc</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">update</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{});</span>
+  
+  <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">batched</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">processUpdate</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="frontend-performance">Frontend Performance</h2>
+
+<h3 id="code-splitting">Code Splitting</h3>
+
+<p>Implement effective code splitting:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// components/LazyComponents.tsx</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">lazy</span><span class="p">,</span> <span class="nx">Suspense</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Dashboard</span> <span class="o">=</span> <span class="nx">lazy</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">./Dashboard</span><span class="dl">'</span><span class="p">));</span>
+<span class="kd">const</span> <span class="nx">Profile</span> <span class="o">=</span> <span class="nx">lazy</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">./Profile</span><span class="dl">'</span><span class="p">));</span>
+<span class="kd">const</span> <span class="nx">Settings</span> <span class="o">=</span> <span class="nx">lazy</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">./Settings</span><span class="dl">'</span><span class="p">));</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">LazyDashboard</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Suspense</span> <span class="nx">fallback</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Loading</span><span class="p">...</span><span class="o">&lt;</span><span class="sr">/div&gt;}</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">Dashboard</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/Suspense</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="image-optimization">Image Optimization</h3>
+
+<p>Optimize image loading and processing:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/image-optimization.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">optimizeImage</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">file</span><span class="p">:</span> <span class="nx">File</span><span class="p">,</span> <span class="nx">maxWidth</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Blob</span><span class="o">&gt;</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">canvas</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span><span class="o">!</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+    
+    <span class="nx">img</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">ratio</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">maxWidth</span> <span class="o">/</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">maxWidth</span> <span class="o">/</span> <span class="nx">img</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+      <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">ratio</span><span class="p">;</span>
+      <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="nx">ratio</span><span class="p">;</span>
+      
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+      <span class="nx">canvas</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">resolve</span><span class="o">!</span><span class="p">,</span> <span class="dl">'</span><span class="s1">image/jpeg</span><span class="dl">'</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
+    <span class="p">};</span>
+    
+    <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="bundle-optimization">Bundle Optimization</h3>
+
+<p>Optimize bundle size and loading:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// webpack.config.js optimization</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">optimization</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">splitChunks</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">chunks</span><span class="p">:</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">cacheGroups</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">vendor</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">[\\/]</span><span class="sr">node_modules</span><span class="se">[\\/]</span><span class="sr">/</span><span class="p">,</span>
+          <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">vendors</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">chunks</span><span class="p">:</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="na">common</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">minChunks</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="na">chunks</span><span class="p">:</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">enforce</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="lambda-function-optimization">Lambda Function Optimization</h2>
+
+<h3 id="cold-start-reduction">Cold Start Reduction</h3>
+
+<p>Minimize Lambda cold starts:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// amplify/functions/optimized-function/handler.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">APIGatewayProxyHandler</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-lambda</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Initialize outside handler for reuse</span>
+<span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">initializeDatabase</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">cache</span> <span class="o">=</span> <span class="nx">initializeCache</span><span class="p">();</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">handler</span><span class="p">:</span> <span class="nx">APIGatewayProxyHandler</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Keep connections warm</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">source</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">aws.events</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="na">statusCode</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="na">body</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Warmed</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// Optimized handler logic</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">processRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">statusCode</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Handler error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">statusCode</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+      <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="na">error</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Internal server error</span><span class="dl">'</span> <span class="p">})</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="memory-and-timeout-optimization">Memory and Timeout Optimization</h3>
+
+<p>Configure Lambda resources efficiently:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// amplify/backend.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">backend</span> <span class="o">=</span> <span class="nx">defineBackend</span><span class="p">({</span>
+  <span class="na">functions</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">optimizedFunction</span><span class="p">:</span> <span class="nx">defineFunction</span><span class="p">({</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">optimized-function</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">memoryMB</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span> <span class="c1">// Optimize based on actual usage</span>
+      <span class="na">timeoutSeconds</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="c1">// Set appropriate timeout</span>
+      <span class="na">environment</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">NODE_OPTIONS</span><span class="p">:</span> <span class="dl">'</span><span class="s1">--enable-source-maps</span><span class="dl">'</span><span class="p">,</span>
+        <span class="c1">// Optimize Node.js performance</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="monitoring-and-profiling">Monitoring and Profiling</h2>
+
+<h3 id="performance-monitoring">Performance Monitoring</h3>
+
+<p>Implement comprehensive performance monitoring:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/performance-monitor.ts</span>
+<span class="kd">class</span> <span class="nx">PerformanceMonitor</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="nx">startTimer</span><span class="p">(</span><span class="nx">operation</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">start</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+    
+    <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">duration</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">start</span><span class="p">;</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">operation</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">operation</span><span class="p">,</span> <span class="p">[]);</span>
+      <span class="p">}</span>
+      
+      <span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">duration</span><span class="p">);</span>
+      
+      <span class="c1">// Log slow operations</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">duration</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">`Slow operation: </span><span class="p">${</span><span class="nx">operation</span><span class="p">}</span><span class="s2"> took </span><span class="p">${</span><span class="nx">duration</span><span class="p">}</span><span class="s2">ms`</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="nx">getStats</span><span class="p">(</span><span class="nx">operation</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">times</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">times</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">avg</span> <span class="o">=</span> <span class="nx">times</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="nx">times</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">times</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">min</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(...</span><span class="nx">times</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span> <span class="nx">avg</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">min</span><span class="p">,</span> <span class="na">count</span><span class="p">:</span> <span class="nx">times</span><span class="p">.</span><span class="nx">length</span> <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">perfMonitor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PerformanceMonitor</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="custom-metrics">Custom Metrics</h3>
+
+<p>Track custom performance metrics:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/custom-metrics.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CloudWatch</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-sdk</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">CustomMetrics</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">cloudwatch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CloudWatch</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">recordMetric</span><span class="p">(</span>
+    <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">value</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span>
+    <span class="nx">unit</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Count</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">dimensions</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">Namespace</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ACE-Flow/Performance</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">MetricData</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="na">MetricName</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
+        <span class="na">Value</span><span class="p">:</span> <span class="nx">value</span><span class="p">,</span>
+        <span class="na">Unit</span><span class="p">:</span> <span class="nx">unit</span><span class="p">,</span>
+        <span class="na">Dimensions</span><span class="p">:</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">dimensions</span><span class="p">).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">({</span>
+          <span class="na">Name</span><span class="p">:</span> <span class="nx">key</span><span class="p">,</span>
+          <span class="na">Value</span><span class="p">:</span> <span class="nb">String</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+        <span class="p">})),</span>
+        <span class="na">Timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+      <span class="p">}]</span>
+    <span class="p">};</span>
+    
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">cloudwatch</span><span class="p">.</span><span class="nx">putMetricData</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomMetrics</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="cost-optimization">Cost Optimization</h2>
+
+<h3 id="resource-right-sizing">Resource Right-sizing</h3>
+
+<p>Optimize AWS resource allocation:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/cost-optimizer.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">optimizeResources</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">lambda</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// Profile memory usage and adjust</span>
+    <span class="na">profileMemoryUsage</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="na">functionName</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Analyze CloudWatch metrics</span>
+      <span class="c1">// Recommend optimal memory settings</span>
+    <span class="p">},</span>
+    
+    <span class="c1">// Optimize provisioned concurrency</span>
+    <span class="na">optimizeConcurrency</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="na">functionName</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Analyze usage patterns</span>
+      <span class="c1">// Recommend concurrency settings</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  
+  <span class="na">database</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// Optimize RDS/DynamoDB capacity</span>
+    <span class="na">optimizeCapacity</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="na">tableName</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Analyze usage patterns</span>
+      <span class="c1">// Recommend capacity settings</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="usage-based-scaling">Usage-based Scaling</h3>
+
+<p>Implement intelligent scaling strategies:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/auto-scaler.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">autoScaler</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">scaleBasedOnUsage</span><span class="p">(</span><span class="na">serviceName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">recommendations</span> <span class="o">=</span> <span class="nx">analyzeUsage</span><span class="p">(</span><span class="nx">metrics</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">recommendations</span><span class="p">.</span><span class="nx">scaleUp</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="nx">scaleService</span><span class="p">(</span><span class="nx">serviceName</span><span class="p">,</span> <span class="dl">'</span><span class="s1">up</span><span class="dl">'</span><span class="p">,</span> <span class="nx">recommendations</span><span class="p">.</span><span class="nx">factor</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">recommendations</span><span class="p">.</span><span class="nx">scaleDown</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="nx">scaleService</span><span class="p">(</span><span class="nx">serviceName</span><span class="p">,</span> <span class="dl">'</span><span class="s1">down</span><span class="dl">'</span><span class="p">,</span> <span class="nx">recommendations</span><span class="p">.</span><span class="nx">factor</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="performance-testing">Performance Testing</h3>
+
+<p>Implement comprehensive performance testing:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tests/performance.test.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">performanceTest</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./utils/performance-testing</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Performance Tests</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should handle concurrent users</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">performanceTest</span><span class="p">({</span>
+      <span class="na">concurrent</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">60000</span><span class="p">,</span> <span class="c1">// 1 minute</span>
+      <span class="na">endpoint</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/api/posts</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">expectedResponseTime</span><span class="p">:</span> <span class="mi">500</span> <span class="c1">// ms</span>
+    <span class="p">});</span>
+    
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">averageResponseTime</span><span class="p">).</span><span class="nx">toBeLessThan</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">errorRate</span><span class="p">).</span><span class="nx">toBeLessThan</span><span class="p">(</span><span class="mf">0.01</span><span class="p">);</span> <span class="c1">// &lt; 1%</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="continuous-optimization">Continuous Optimization</h3>
+
+<p>Implement continuous performance optimization:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/continuous-optimization.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">continuousOptimization</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">analyzeAndOptimize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Analyze performance metrics</span>
+    <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getPerformanceMetrics</span><span class="p">();</span>
+    
+    <span class="c1">// Identify bottlenecks</span>
+    <span class="kd">const</span> <span class="nx">bottlenecks</span> <span class="o">=</span> <span class="nx">identifyBottlenecks</span><span class="p">(</span><span class="nx">metrics</span><span class="p">);</span>
+    
+    <span class="c1">// Apply optimizations</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">bottleneck</span> <span class="k">of</span> <span class="nx">bottlenecks</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="nx">applyOptimization</span><span class="p">(</span><span class="nx">bottleneck</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Measure improvements</span>
+    <span class="kd">const</span> <span class="nx">newMetrics</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getPerformanceMetrics</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">compareMetrics</span><span class="p">(</span><span class="nx">metrics</span><span class="p">,</span> <span class="nx">newMetrics</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="troubleshooting-performance-issues">Troubleshooting Performance Issues</h2>
+
+<h3 id="common-performance-problems">Common Performance Problems</h3>
+
+<p><strong>Slow database queries:</strong></p>
+<ul>
+  <li>Add appropriate indexes</li>
+  <li>Optimize query structure</li>
+  <li>Implement query caching</li>
+  <li>Use connection pooling</li>
+</ul>
+
+<p><strong>High Lambda cold start times:</strong></p>
+<ul>
+  <li>Reduce bundle size</li>
+  <li>Optimize imports</li>
+  <li>Use provisioned concurrency</li>
+  <li>Implement connection warming</li>
+</ul>
+
+<p><strong>Memory leaks:</strong></p>
+<ul>
+  <li>Profile memory usage</li>
+  <li>Clean up event listeners</li>
+  <li>Properly close connections</li>
+  <li>Use weak references where appropriate</li>
+</ul>
+
+<p><strong>High costs:</strong></p>
+<ul>
+  <li>Right-size resources</li>
+  <li>Implement auto-scaling</li>
+  <li>Use reserved instances</li>
+  <li>Optimize data transfer</li>
+</ul>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="hooks.md">← Back to Hooks and Extensions</a></td>
+      <td><a href="security.md">Security Best Practices →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development by <a href="https://www.paretofilm.no" target="_blank" style="color: var(--accent-primary); text-decoration: none;">Pareto Film AS</a></p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Security Best Practices | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Security Best Practices" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/security.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/security.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Security Best Practices" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Security Best Practices","url":"http://localhost:4000/advanced/security.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="security-best-practices">Security Best Practices</h1>
+
+<p>Secure your ACE-Flow applications with comprehensive security measures, authentication hardening, and compliance frameworks.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Security in ACE-Flow applications involves multiple layers:</p>
+<ul>
+  <li>Authentication and authorization</li>
+  <li>Data protection and encryption</li>
+  <li>API security measures</li>
+  <li>Infrastructure security</li>
+  <li>Compliance and audit trails</li>
+</ul>
+
+<h2 id="authentication-hardening">Authentication Hardening</h2>
+
+<h3 id="multi-factor-authentication-mfa">Multi-Factor Authentication (MFA)</h3>
+
+<p>Implement robust MFA for user accounts:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// amplify/auth/resource.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">defineAuth</span><span class="p">({</span>
+  <span class="na">loginWith</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">email</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">username</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="na">multifactor</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">REQUIRED</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">totp</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">sms</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="na">passwordPolicy</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">minLength</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="na">requireUppercase</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">requireLowercase</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">requireNumbers</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">requireSymbols</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="na">accountRecovery</span><span class="p">:</span> <span class="dl">'</span><span class="s1">EMAIL_ONLY</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="advanced-password-policies">Advanced Password Policies</h3>
+
+<p>Implement sophisticated password validation:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/password-validator.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">PasswordValidator</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">minLength</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">maxLength</span> <span class="o">=</span> <span class="mi">128</span><span class="p">;</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">commonPasswords</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">([</span>
+    <span class="dl">'</span><span class="s1">password123</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">admin123</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">123456789</span><span class="dl">'</span>
+    <span class="c1">// Load from common passwords database</span>
+  <span class="p">]);</span>
+  
+  <span class="nx">validate</span><span class="p">(</span><span class="nx">password</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="p">{</span> <span class="nl">valid</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span> <span class="nl">errors</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="p">}</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="na">errors</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    
+    <span class="c1">// Length check</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">minLength</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">`Password must be at least </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">minLength</span><span class="p">}</span><span class="s2"> characters`</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">maxLength</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">`Password must be no more than </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">maxLength</span><span class="p">}</span><span class="s2"> characters`</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Complexity checks</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/</span><span class="se">[</span><span class="sr">A-Z</span><span class="se">]</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password must contain uppercase letters</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password must contain lowercase letters</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/</span><span class="se">\d</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password must contain numbers</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/</span><span class="se">[</span><span class="sr">!@#$%^&amp;*()_+</span><span class="se">\-</span><span class="sr">=</span><span class="se">\[\]</span><span class="sr">{};':"</span><span class="se">\\</span><span class="sr">|,.&lt;&gt;</span><span class="se">\/</span><span class="sr">?</span><span class="se">]</span><span class="sr">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password must contain special characters</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Common password check</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">commonPasswords</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">password</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()))</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password is too common</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Sequential character check</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasSequentialChars</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password cannot contain sequential characters</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">valid</span><span class="p">:</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nx">errors</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">hasSequentialChars</span><span class="p">(</span><span class="nx">password</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">boolean</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">char1</span> <span class="o">=</span> <span class="nx">password</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">char2</span> <span class="o">=</span> <span class="nx">password</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">char3</span> <span class="o">=</span> <span class="nx">password</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">char2</span> <span class="o">===</span> <span class="nx">char1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">char3</span> <span class="o">===</span> <span class="nx">char2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="session-management">Session Management</h3>
+
+<p>Implement secure session handling:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/session-manager.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SessionManager</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">maxSessionAge</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// 24 hours</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">inactivityTimeout</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// 30 minutes</span>
+  
+  <span class="k">async</span> <span class="nx">createSession</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">userAgent</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">ipAddress</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">sessionId</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateSecureId</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">sessionId</span><span class="p">,</span>
+      <span class="nx">userId</span><span class="p">,</span>
+      <span class="nx">userAgent</span><span class="p">,</span>
+      <span class="nx">ipAddress</span><span class="p">,</span>
+      <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">lastActivity</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">isActive</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">};</span>
+    
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeSession</span><span class="p">(</span><span class="nx">session</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">sessionId</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">validateSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">ipAddress</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">userAgent</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">session</span> <span class="o">||</span> <span class="o">!</span><span class="nx">session</span><span class="p">.</span><span class="nx">isActive</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Invalid session</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Check session age</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">session</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">maxSessionAge</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">invalidateSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Session expired</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Check inactivity</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">session</span><span class="p">.</span><span class="nx">lastActivity</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">inactivityTimeout</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">invalidateSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Session timed out due to inactivity</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Verify IP and user agent (optional strict mode)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STRICT_SESSION_VALIDATION</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">true</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">ipAddress</span> <span class="o">!==</span> <span class="nx">ipAddress</span> <span class="o">||</span> <span class="nx">session</span><span class="p">.</span><span class="nx">userAgent</span> <span class="o">!==</span> <span class="nx">userAgent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">invalidateSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">);</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Session security violation</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Update last activity</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateLastActivity</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nx">session</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">generateSecureId</span><span class="p">():</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="data-protection-strategies">Data Protection Strategies</h2>
+
+<h3 id="encryption-at-rest">Encryption at Rest</h3>
+
+<p>Implement comprehensive data encryption:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/encryption.ts</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">crypto</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">DataEncryption</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">algorithm</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">aes-256-gcm</span><span class="dl">'</span><span class="p">;</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">keyLength</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+  
+  <span class="nx">encrypt</span><span class="p">(</span><span class="nx">data</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">key</span><span class="p">:</span> <span class="nx">Buffer</span><span class="p">):</span> <span class="p">{</span> <span class="nl">encrypted</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span> <span class="nl">iv</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span> <span class="nl">tag</span><span class="p">:</span> <span class="kr">string</span> <span class="p">}</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">iv</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">cipher</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createCipher</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">algorithm</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="p">{</span> <span class="nx">iv</span> <span class="p">});</span>
+    
+    <span class="kd">let</span> <span class="nx">encrypted</span> <span class="o">=</span> <span class="nx">cipher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">encrypted</span> <span class="o">+=</span> <span class="nx">cipher</span><span class="p">.</span><span class="nx">final</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="kd">const</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nx">cipher</span><span class="p">.</span><span class="nx">getAuthTag</span><span class="p">();</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">encrypted</span><span class="p">,</span>
+      <span class="na">iv</span><span class="p">:</span> <span class="nx">iv</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">),</span>
+      <span class="na">tag</span><span class="p">:</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="nx">decrypt</span><span class="p">(</span><span class="nx">encrypted</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">key</span><span class="p">:</span> <span class="nx">Buffer</span><span class="p">,</span> <span class="nx">iv</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">tag</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">decipher</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createDecipher</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">algorithm</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">iv</span><span class="p">:</span> <span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">iv</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">});</span>
+    
+    <span class="nx">decipher</span><span class="p">.</span><span class="nx">setAuthTag</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">tag</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">));</span>
+    
+    <span class="kd">let</span> <span class="nx">decrypted</span> <span class="o">=</span> <span class="nx">decipher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">encrypted</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">decrypted</span> <span class="o">+=</span> <span class="nx">decipher</span><span class="p">.</span><span class="nx">final</span><span class="p">(</span><span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nx">decrypted</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nx">generateKey</span><span class="p">():</span> <span class="nx">Buffer</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">keyLength</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Field-level encryption for sensitive data</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">encryptSensitiveFields</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="nx">sensitiveFields</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">encryption</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataEncryption</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ENCRYPTION_KEY</span><span class="o">!</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">);</span>
+  
+  <span class="kd">const</span> <span class="nx">encrypted</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">data</span> <span class="p">};</span>
+  
+  <span class="nx">sensitiveFields</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">field</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">encrypted</span><span class="p">[</span><span class="nx">field</span><span class="p">])</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">encryption</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">encrypted</span><span class="p">[</span><span class="nx">field</span><span class="p">],</span> <span class="nx">key</span><span class="p">);</span>
+      <span class="nx">encrypted</span><span class="p">[</span><span class="nx">field</span><span class="p">]</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+      <span class="nx">encrypted</span><span class="p">[</span><span class="s2">`</span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2">_encrypted`</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  
+  <span class="k">return</span> <span class="nx">encrypted</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="pii-data-handling">PII Data Handling</h3>
+
+<p>Implement secure handling of personally identifiable information:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/pii-handler.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">PIIHandler</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="k">readonly</span> <span class="nx">sensitiveFields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">phone</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ssn</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">creditCard</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">address</span><span class="dl">'</span>
+  <span class="p">];</span>
+  
+  <span class="k">async</span> <span class="nx">sanitizeForLogging</span><span class="p">(</span><span class="nx">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">sanitized</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">data</span> <span class="p">};</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">sensitiveFields</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">field</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">sanitized</span><span class="p">[</span><span class="nx">field</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">sanitized</span><span class="p">[</span><span class="nx">field</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">maskField</span><span class="p">(</span><span class="nx">sanitized</span><span class="p">[</span><span class="nx">field</span><span class="p">],</span> <span class="nx">field</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    
+    <span class="k">return</span> <span class="nx">sanitized</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">maskField</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">fieldType</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">fieldType</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">:</span>
+        <span class="kd">const</span> <span class="p">[</span><span class="nx">local</span><span class="p">,</span> <span class="nx">domain</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">@</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">local</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span><span class="s2">***@</span><span class="p">${</span><span class="nx">domain</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+      
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">phone</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">`***-***-</span><span class="p">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+      
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">ssn</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">`***-**-</span><span class="p">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+      
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">creditCard</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">`****-****-****-</span><span class="p">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+      
+      <span class="nl">default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="dl">'</span><span class="s1">***</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">redactSensitiveData</span><span class="p">(</span><span class="nx">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">redacted</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">data</span> <span class="p">};</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">sensitiveFields</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">field</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">redacted</span><span class="p">[</span><span class="nx">field</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">redacted</span><span class="p">[</span><span class="nx">field</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">[REDACTED]</span><span class="dl">'</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    
+    <span class="k">return</span> <span class="nx">redacted</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="api-security-measures">API Security Measures</h2>
+
+<h3 id="request-rate-limiting">Request Rate Limiting</h3>
+
+<p>Implement sophisticated rate limiting:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// middleware/rate-limiter.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">RateLimiterRedis</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">rate-limiter-flexible</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">APIRateLimiter</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">limiters</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">RateLimiterRedis</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Different limits for different endpoints</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setupLimiters</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">setupLimiters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// General API rate limit</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">limiters</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">'</span><span class="s1">general</span><span class="dl">'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">RateLimiterRedis</span><span class="p">({</span>
+      <span class="na">storeClient</span><span class="p">:</span> <span class="nx">redisClient</span><span class="p">,</span>
+      <span class="na">keyPrefix</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rl_general</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">points</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="c1">// Number of requests</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="c1">// Per 60 seconds</span>
+      <span class="na">blockDuration</span><span class="p">:</span> <span class="mi">60</span> <span class="c1">// Block for 60 seconds if limit exceeded</span>
+    <span class="p">}));</span>
+    
+    <span class="c1">// Login attempts rate limit</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">limiters</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">'</span><span class="s1">login</span><span class="dl">'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">RateLimiterRedis</span><span class="p">({</span>
+      <span class="na">storeClient</span><span class="p">:</span> <span class="nx">redisClient</span><span class="p">,</span>
+      <span class="na">keyPrefix</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rl_login</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">points</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">// 5 attempts</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span> <span class="c1">// Per 15 minutes</span>
+      <span class="na">blockDuration</span><span class="p">:</span> <span class="mi">900</span> <span class="c1">// Block for 15 minutes</span>
+    <span class="p">}));</span>
+    
+    <span class="c1">// Password reset rate limit</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">limiters</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">'</span><span class="s1">password_reset</span><span class="dl">'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">RateLimiterRedis</span><span class="p">({</span>
+      <span class="na">storeClient</span><span class="p">:</span> <span class="nx">redisClient</span><span class="p">,</span>
+      <span class="na">keyPrefix</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rl_pwd_reset</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">points</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// 3 attempts</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="c1">// Per hour</span>
+      <span class="na">blockDuration</span><span class="p">:</span> <span class="mi">3600</span> <span class="c1">// Block for 1 hour</span>
+    <span class="p">}));</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">checkLimit</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">identifier</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">limiterType</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">general</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">limiter</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">limiters</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">limiterType</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">limiter</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Unknown limiter type: </span><span class="p">${</span><span class="nx">limiterType</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="nx">limiter</span><span class="p">.</span><span class="nx">consume</span><span class="p">(</span><span class="nx">identifier</span><span class="p">);</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="na">allowed</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">rejRes</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">allowed</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">remainingPoints</span><span class="p">:</span> <span class="nx">rejRes</span><span class="p">.</span><span class="nx">remainingPoints</span><span class="p">,</span>
+        <span class="na">msBeforeNext</span><span class="p">:</span> <span class="nx">rejRes</span><span class="p">.</span><span class="nx">msBeforeNext</span><span class="p">,</span>
+        <span class="na">totalHits</span><span class="p">:</span> <span class="nx">rejRes</span><span class="p">.</span><span class="nx">totalHits</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="input-validation-and-sanitization">Input Validation and Sanitization</h3>
+
+<p>Implement comprehensive input validation:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/input-validator.ts</span>
+<span class="k">import</span> <span class="nx">DOMPurify</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">isomorphic-dompurify</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">validator</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">validator</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">InputValidator</span> <span class="p">{</span>
+  <span class="nx">validateAndSanitize</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="nx">schema</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="kr">any</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">sanitized</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="p">{};</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">field</span><span class="p">,</span> <span class="nx">rules</span><span class="p">]</span> <span class="k">of</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">schema</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">input</span><span class="p">[</span><span class="nx">field</span><span class="p">];</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">required</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Field </span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2"> is required`</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+      
+      <span class="c1">// Type validation</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">validator</span><span class="p">.</span><span class="nx">isEmail</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Invalid email format for field </span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">url</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">validator</span><span class="p">.</span><span class="nx">isURL</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Invalid URL format for field </span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="c1">// Length validation</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">minLength</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">rules</span><span class="p">.</span><span class="nx">minLength</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Field </span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2"> must be at least </span><span class="p">${</span><span class="nx">rules</span><span class="p">.</span><span class="nx">minLength</span><span class="p">}</span><span class="s2"> characters`</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">maxLength</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">rules</span><span class="p">.</span><span class="nx">maxLength</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Field </span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2"> must be no more than </span><span class="p">${</span><span class="nx">rules</span><span class="p">.</span><span class="nx">maxLength</span><span class="p">}</span><span class="s2"> characters`</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="c1">// Pattern validation</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">pattern</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">pattern</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Field </span><span class="p">${</span><span class="nx">field</span><span class="p">}</span><span class="s2"> does not match required pattern`</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="c1">// Sanitization</span>
+      <span class="kd">let</span> <span class="nx">sanitizedValue</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">html</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">sanitizedValue</span> <span class="o">=</span> <span class="nx">DOMPurify</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span><span class="nx">sanitizedValue</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">sql</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">sanitizedValue</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">sanitizeSQL</span><span class="p">(</span><span class="nx">sanitizedValue</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">xss</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">sanitizedValue</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">sanitizeXSS</span><span class="p">(</span><span class="nx">sanitizedValue</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      
+      <span class="nx">sanitized</span><span class="p">[</span><span class="nx">field</span><span class="p">]</span> <span class="o">=</span> <span class="nx">sanitizedValue</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">sanitized</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">sanitizeSQL</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="c1">// Remove common SQL injection patterns</span>
+    <span class="k">return</span> <span class="nx">input</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[</span><span class="sr">';</span><span class="se">\\</span><span class="sr">x00</span><span class="se">\\</span><span class="sr">n</span><span class="se">\\</span><span class="sr">r</span><span class="se">\\</span><span class="sr">x1a</span><span class="se">]</span><span class="sr">/g</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">sanitizeXSS</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="c1">// Remove potential XSS vectors</span>
+    <span class="k">return</span> <span class="nx">input</span>
+      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;script</span><span class="se">\b[^</span><span class="sr">&lt;</span><span class="se">]</span><span class="sr">*</span><span class="se">(?:(?!</span><span class="sr">&lt;</span><span class="se">\/</span><span class="sr">script&gt;</span><span class="se">)</span><span class="sr">&lt;</span><span class="se">[^</span><span class="sr">&lt;</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">*&lt;</span><span class="se">\/</span><span class="sr">script&gt;/gi</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/javascript:/gi</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/on</span><span class="se">\w</span><span class="sr">+</span><span class="se">\s</span><span class="sr">*=/gi</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="api-key-management">API Key Management</h3>
+
+<p>Implement secure API key handling:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/api-key-manager.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">APIKeyManager</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">generateAPIKey</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">permissions</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateSecureKey</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">hashedKey</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">hashAPIKey</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeAPIKey</span><span class="p">({</span>
+      <span class="nx">userId</span><span class="p">,</span>
+      <span class="nx">hashedKey</span><span class="p">,</span>
+      <span class="nx">permissions</span><span class="p">,</span>
+      <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">lastUsed</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="na">isActive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">expiresAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="mi">365</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1">// 1 year</span>
+    <span class="p">});</span>
+    
+    <span class="k">return</span> <span class="nx">key</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">validateAPIKey</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="p">{</span> <span class="na">valid</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span> <span class="nl">permissions</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="p">}</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">hashedKey</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">hashAPIKey</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">keyRecord</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAPIKeyRecord</span><span class="p">(</span><span class="nx">hashedKey</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">keyRecord</span> <span class="o">||</span> <span class="o">!</span><span class="nx">keyRecord</span><span class="p">.</span><span class="nx">isActive</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="na">valid</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">permissions</span><span class="p">:</span> <span class="p">[]</span> <span class="p">};</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">keyRecord</span><span class="p">.</span><span class="nx">expiresAt</span> <span class="o">&lt;</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">deactivateAPIKey</span><span class="p">(</span><span class="nx">hashedKey</span><span class="p">);</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="na">valid</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">permissions</span><span class="p">:</span> <span class="p">[]</span> <span class="p">};</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Update last used timestamp</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateLastUsed</span><span class="p">(</span><span class="nx">hashedKey</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">valid</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">permissions</span><span class="p">:</span> <span class="nx">keyRecord</span><span class="p">.</span><span class="nx">permissions</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">generateSecureKey</span><span class="p">():</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">prefix</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">ak_</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// API key prefix</span>
+    <span class="kd">const</span> <span class="nx">randomPart</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">prefix</span><span class="p">}${</span><span class="nx">randomPart</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">hashAPIKey</span><span class="p">(</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="dl">'</span><span class="s1">sha256</span><span class="dl">'</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">key</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="infrastructure-security">Infrastructure Security</h2>
+
+<h3 id="network-security">Network Security</h3>
+
+<p>Configure secure network policies:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// amplify/backend.ts - Security Groups</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">backend</span> <span class="o">=</span> <span class="nx">defineBackend</span><span class="p">({</span>
+  <span class="c1">// Configure VPC and security groups</span>
+  <span class="na">vpc</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">cidr</span><span class="p">:</span> <span class="dl">'</span><span class="s1">10.0.0.0/16</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">subnetConfiguration</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">private-subnet</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">subnetType</span><span class="p">:</span> <span class="nx">SubnetType</span><span class="p">.</span><span class="nx">PRIVATE_WITH_EGRESS</span><span class="p">,</span>
+        <span class="na">cidrMask</span><span class="p">:</span> <span class="mi">24</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">public-subnet</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">subnetType</span><span class="p">:</span> <span class="nx">SubnetType</span><span class="p">.</span><span class="nx">PUBLIC</span><span class="p">,</span>
+        <span class="na">cidrMask</span><span class="p">:</span> <span class="mi">24</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  
+  <span class="na">securityGroups</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">database</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">allowedPorts</span><span class="p">:</span> <span class="p">[</span><span class="mi">5432</span><span class="p">],</span> <span class="c1">// PostgreSQL</span>
+      <span class="na">allowedSources</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">lambda-sg</span><span class="dl">'</span><span class="p">]</span> <span class="c1">// Only Lambda functions</span>
+    <span class="p">},</span>
+    
+    <span class="na">lambda</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">allowedPorts</span><span class="p">:</span> <span class="p">[</span><span class="mi">443</span><span class="p">],</span> <span class="c1">// HTTPS only</span>
+      <span class="na">allowedSources</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">0.0.0.0/0</span><span class="dl">'</span><span class="p">]</span> <span class="c1">// Internet access for API Gateway</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="secrets-management">Secrets Management</h3>
+
+<p>Implement secure secrets handling:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/secrets-manager.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SecretsManager</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">aws-sdk</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SecureSecretsManager</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SecretsManager</span><span class="p">();</span>
+  <span class="k">private</span> <span class="nx">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span> <span class="nl">expiry</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">getSecret</span><span class="p">(</span><span class="nx">secretName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">ttl</span> <span class="o">=</span> <span class="mi">300000</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// Check cache first</span>
+    <span class="kd">const</span> <span class="nx">cached</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">secretName</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cached</span> <span class="o">&amp;&amp;</span> <span class="nx">cached</span><span class="p">.</span><span class="nx">expiry</span> <span class="o">&gt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">cached</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">getSecretValue</span><span class="p">({</span>
+        <span class="na">SecretId</span><span class="p">:</span> <span class="nx">secretName</span>
+      <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+      
+      <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">SecretString</span><span class="o">!</span><span class="p">);</span>
+      
+      <span class="c1">// Cache with TTL</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">secretName</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="p">,</span>
+        <span class="na">expiry</span><span class="p">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="nx">ttl</span>
+      <span class="p">});</span>
+      
+      <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to retrieve secret </span><span class="p">${</span><span class="nx">secretName</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Secret retrieval failed</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">updateSecret</span><span class="p">(</span><span class="nx">secretName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">secretValue</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">updateSecret</span><span class="p">({</span>
+        <span class="na">SecretId</span><span class="p">:</span> <span class="nx">secretName</span><span class="p">,</span>
+        <span class="na">SecretString</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">secretValue</span><span class="p">)</span>
+      <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+      
+      <span class="c1">// Invalidate cache</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">secretName</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to update secret </span><span class="p">${</span><span class="nx">secretName</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Secret update failed</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">rotateSecret</span><span class="p">(</span><span class="nx">secretName</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// Implement automatic secret rotation</span>
+    <span class="c1">// This should be called periodically via CloudWatch Events</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="compliance-frameworks">Compliance Frameworks</h2>
+
+<h3 id="gdpr-compliance">GDPR Compliance</h3>
+
+<p>Implement GDPR compliance features:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/gdpr-compliance.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">GDPRCompliance</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">handleDataSubjectRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">access</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">rectification</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">erasure</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">portability</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nl">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">email</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">})</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">access</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">exportUserData</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+      
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">rectification</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateUserData</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">request</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">erasure</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">deleteUserData</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+      
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">portability</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">exportPortableData</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">exportUserData</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Collect all user data from various sources</span>
+    <span class="kd">const</span> <span class="nx">userData</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">profile</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserProfile</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+      <span class="na">posts</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserPosts</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+      <span class="na">comments</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserComments</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+      <span class="na">analytics</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserAnalytics</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span>
+    <span class="p">};</span>
+    
+    <span class="c1">// Log the data access request</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">logDataAccess</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="dl">'</span><span class="s1">export</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nx">userData</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">deleteUserData</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Implement right to be forgotten</span>
+    <span class="kd">const</span> <span class="nx">deletionTasks</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">deleteUserProfile</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">anonymizeUserPosts</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">deleteUserComments</span><span class="p">(</span><span class="nx">userId</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">purgeUserAnalytics</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span>
+    <span class="p">];</span>
+    
+    <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">deletionTasks</span><span class="p">);</span>
+    
+    <span class="c1">// Log the deletion</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">logDataDeletion</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span> <span class="na">deleted</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="soc-2-compliance">SOC 2 Compliance</h3>
+
+<p>Implement SOC 2 Type II controls:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/soc2-controls.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SOC2Controls</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">logSecurityEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">type</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">userId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">ipAddress</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">userAgent</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+    <span class="nl">details</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="p">})</span> <span class="p">{</span>
+    <span class="c1">// Immutable audit log entry</span>
+    <span class="kd">const</span> <span class="nx">logEntry</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateUUID</span><span class="p">(),</span>
+      <span class="p">...</span><span class="nx">event</span><span class="p">,</span>
+      <span class="na">hash</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+    <span class="p">};</span>
+    
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeAuditLog</span><span class="p">(</span><span class="nx">logEntry</span><span class="p">);</span>
+    
+    <span class="c1">// Alert on critical security events</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isCriticalEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="kd">type</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendSecurityAlert</span><span class="p">(</span><span class="nx">logEntry</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">generateComplianceReport</span><span class="p">(</span><span class="nx">startDate</span><span class="p">:</span> <span class="nb">Date</span><span class="p">,</span> <span class="nx">endDate</span><span class="p">:</span> <span class="nb">Date</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">report</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">accessLogs</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAccessLogs</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span> <span class="nx">endDate</span><span class="p">),</span>
+      <span class="na">changeAudits</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getChangeAudits</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span> <span class="nx">endDate</span><span class="p">),</span>
+      <span class="na">securityIncidents</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getSecurityIncidents</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span> <span class="nx">endDate</span><span class="p">),</span>
+      <span class="na">dataProcessingActivities</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getDataProcessingActivities</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span> <span class="nx">endDate</span><span class="p">)</span>
+    <span class="p">};</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="p">...</span><span class="nx">report</span><span class="p">,</span>
+      <span class="na">generatedAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">reportHash</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">report</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="security-monitoring">Security Monitoring</h2>
+
+<h3 id="real-time-threat-detection">Real-time Threat Detection</h3>
+
+<p>Implement automated threat detection:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/threat-detector.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ThreatDetector</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">anomalyThresholds</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">failedLoginAttempts</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="na">unusualAccessPatterns</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="na">suspiciousApiCalls</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="p">};</span>
+  
+  <span class="k">async</span> <span class="nx">analyzeUserBehavior</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">activity</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">userProfile</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserBehaviorProfile</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">anomalies</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">detectAnomalies</span><span class="p">(</span><span class="nx">activity</span><span class="p">,</span> <span class="nx">userProfile</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">anomalies</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSecurityAnomaly</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">anomalies</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">detectAnomalies</span><span class="p">(</span><span class="nx">activity</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="nx">profile</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="kr">string</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">anomalies</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    
+    <span class="c1">// Geographic anomaly detection</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isUnusualLocation</span><span class="p">(</span><span class="nx">activity</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">usualLocations</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">anomalies</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">unusual_location</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Time-based anomaly detection</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isUnusualTime</span><span class="p">(</span><span class="nx">activity</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">,</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">usualHours</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">anomalies</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">unusual_time</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Device anomaly detection</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isUnusualDevice</span><span class="p">(</span><span class="nx">activity</span><span class="p">.</span><span class="nx">device</span><span class="p">,</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">knownDevices</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">anomalies</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">unusual_device</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">anomalies</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">handleSecurityAnomaly</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">anomalies</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="c1">// Log the security event</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">logSecurityEvent</span><span class="p">({</span>
+      <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">security_anomaly</span><span class="dl">'</span><span class="p">,</span>
+      <span class="nx">userId</span><span class="p">,</span>
+      <span class="nx">anomalies</span><span class="p">,</span>
+      <span class="na">severity</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateSeverity</span><span class="p">(</span><span class="nx">anomalies</span><span class="p">),</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// Take appropriate action based on severity</span>
+    <span class="kd">const</span> <span class="nx">severity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateSeverity</span><span class="p">(</span><span class="nx">anomalies</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">severity</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">lockUserAccount</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">notifySecurityTeam</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">anomalies</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">severity</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">requireAdditionalAuth</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="security-metrics-and-alerting">Security Metrics and Alerting</h3>
+
+<p>Implement comprehensive security monitoring:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/security-monitor.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SecurityMonitor</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">trackSecurityMetrics</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">failedLoginAttempts</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">countFailedLogins</span><span class="p">(),</span>
+      <span class="na">activeSecurityIncidents</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">countActiveIncidents</span><span class="p">(),</span>
+      <span class="na">vulnerabilityScore</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateVulnerabilityScore</span><span class="p">(),</span>
+      <span class="na">complianceScore</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateComplianceScore</span><span class="p">()</span>
+    <span class="p">};</span>
+    
+    <span class="c1">// Send metrics to monitoring system</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendMetrics</span><span class="p">(</span><span class="nx">metrics</span><span class="p">);</span>
+    
+    <span class="c1">// Check for alert conditions</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">checkAlertConditions</span><span class="p">(</span><span class="nx">metrics</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nx">metrics</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">checkAlertConditions</span><span class="p">(</span><span class="nx">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">failedLoginAttempts</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendAlert</span><span class="p">(</span><span class="dl">'</span><span class="s1">High number of failed login attempts</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">vulnerabilityScore</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendAlert</span><span class="p">(</span><span class="dl">'</span><span class="s1">High vulnerability score detected</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">complianceScore</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendAlert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Compliance score below threshold</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="best-practices-summary">Best Practices Summary</h2>
+
+<h3 id="development-security-guidelines">Development Security Guidelines</h3>
+
+<ol>
+  <li><strong>Never commit secrets</strong> to version control</li>
+  <li><strong>Validate all inputs</strong> on both client and server side</li>
+  <li><strong>Use parameterized queries</strong> to prevent SQL injection</li>
+  <li><strong>Implement proper error handling</strong> without exposing sensitive information</li>
+  <li><strong>Apply the principle of least privilege</strong> for all access controls</li>
+  <li><strong>Regular security audits</strong> and dependency updates</li>
+  <li><strong>Implement comprehensive logging</strong> for security events</li>
+  <li><strong>Use HTTPS everywhere</strong> with proper certificate management</li>
+</ol>
+
+<h3 id="deployment-security-checklist">Deployment Security Checklist</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />All secrets stored in AWS Secrets Manager</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Rate limiting configured for all endpoints</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Input validation implemented</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Security headers configured</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Encryption at rest and in transit</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Access logs enabled</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Security monitoring active</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Compliance controls implemented</li>
+</ul>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="performance.md">← Back to Performance Optimization</a></td>
+      <td><a href="environments.md">Multi-environment Setup →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development by <a href="https://www.paretofilm.no" target="_blank" style="color: var(--accent-primary); text-decoration: none;">Pareto Film AS</a></p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

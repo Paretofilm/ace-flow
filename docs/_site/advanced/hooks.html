@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hooks and Extensions | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Hooks and Extensions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/hooks.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/hooks.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hooks and Extensions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Hooks and Extensions","url":"http://localhost:4000/advanced/hooks.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="hooks-and-extensions">Hooks and Extensions</h1>
+
+<p>Customize ACE-Flow behavior with hooks and extensions to integrate with your existing workflows and add custom functionality.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>ACE-Flow provides a comprehensive hook system that allows you to:</p>
+<ul>
+  <li>Execute custom code at key lifecycle points</li>
+  <li>Integrate with third-party services and tools</li>
+  <li>Validate and transform data during operations</li>
+  <li>Automate repetitive tasks and workflows</li>
+</ul>
+
+<h2 id="prepost-deployment-hooks">Pre/Post Deployment Hooks</h2>
+
+<h3 id="pre-deployment-hooks">Pre-deployment Hooks</h3>
+
+<p>Execute validation and preparation tasks before deployment:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .ace-flow/hooks/pre-deploy.sh</span>
+<span class="c">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">"Running pre-deployment checks..."</span>
+
+<span class="c"># Run tests</span>
+npm run <span class="nb">test</span>
+
+<span class="c"># Validate configuration</span>
+/ace-validate <span class="nt">--strict</span>
+
+<span class="c"># Check AWS resources</span>
+aws sts get-caller-identity
+
+<span class="nb">echo</span> <span class="s2">"Pre-deployment checks completed successfully"</span>
+</code></pre></div></div>
+
+<h3 id="post-deployment-hooks">Post-deployment Hooks</h3>
+
+<p>Perform cleanup and notification tasks after deployment:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .ace-flow/hooks/post-deploy.sh</span>
+<span class="c">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">"Running post-deployment tasks..."</span>
+
+<span class="c"># Send deployment notification</span>
+curl <span class="nt">-X</span> POST <span class="s2">"</span><span class="nv">$SLACK_WEBHOOK_URL</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'{"text":"ACE-Flow deployment completed successfully"}'</span>
+
+<span class="c"># Update monitoring dashboards</span>
+npm run update-dashboards
+
+<span class="nb">echo</span> <span class="s2">"Post-deployment tasks completed"</span>
+</code></pre></div></div>
+
+<h2 id="custom-validation-rules">Custom Validation Rules</h2>
+
+<h3 id="schema-validation-extensions">Schema Validation Extensions</h3>
+
+<p>Add custom validation logic to your data models:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/validators/user-validator.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">validateUser</span> <span class="o">=</span> <span class="p">(</span><span class="nx">user</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="na">errors</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  
+  <span class="c1">// Custom email domain validation</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="dl">'</span><span class="s1">@company.com</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">User email must be from company domain</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Complex password requirements</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isStrongPassword</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Password must meet security requirements</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">isValid</span><span class="p">:</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">errors</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="business-rule-enforcement">Business Rule Enforcement</h3>
+
+<p>Implement custom business logic validation:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/validators/business-rules.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">validateOrder</span> <span class="o">=</span> <span class="p">(</span><span class="nx">order</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Check inventory availability</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">checkInventory</span><span class="p">(</span><span class="nx">order</span><span class="p">.</span><span class="nx">items</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Insufficient inventory for order</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Validate pricing</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">validatePricing</span><span class="p">(</span><span class="nx">order</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Order pricing validation failed</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="third-party-integrations">Third-party Integrations</h2>
+
+<h3 id="webhook-configuration">Webhook Configuration</h3>
+
+<p>Configure webhooks for external service integration:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/config/webhooks.yml</span>
+<span class="na">webhooks</span><span class="pi">:</span>
+  <span class="na">deployment</span><span class="pi">:</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://api.github.com/repos/owner/repo/dispatches"</span>
+    <span class="na">headers</span><span class="pi">:</span>
+      <span class="na">Authorization</span><span class="pi">:</span> <span class="s2">"</span><span class="s">token</span><span class="nv"> </span><span class="s">$GITHUB_TOKEN"</span>
+      <span class="na">Accept</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/vnd.github.v3+json"</span>
+    <span class="na">payload</span><span class="pi">:</span>
+      <span class="na">event_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ace-flow-deployment"</span>
+      <span class="na">client_payload</span><span class="pi">:</span>
+        <span class="na">environment</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$ACE_ENVIRONMENT"</span>
+        <span class="na">timestamp</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$DEPLOYMENT_TIME"</span>
+  
+  <span class="na">errors</span><span class="pi">:</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"</span>
+    <span class="na">headers</span><span class="pi">:</span>
+      <span class="na">Content-Type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">application/json"</span>
+    <span class="na">payload</span><span class="pi">:</span>
+      <span class="na">text</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ACE-Flow</span><span class="nv"> </span><span class="s">error:</span><span class="nv"> </span><span class="s">$ERROR_MESSAGE"</span>
+</code></pre></div></div>
+
+<h3 id="api-integration-patterns">API Integration Patterns</h3>
+
+<p>Integrate with external APIs during the ACE-Flow lifecycle:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/integrations/external-api.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">APIClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./api-client</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ExternalIntegration</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">client</span><span class="p">:</span> <span class="nx">APIClient</span><span class="p">;</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">APIClient</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">EXTERNAL_API_URL</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">onUserCreated</span><span class="p">(</span><span class="nx">user</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Sync user to external CRM</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/users</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">email</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">onOrderCompleted</span><span class="p">(</span><span class="nx">order</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Send to fulfillment system</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/orders</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">orderId</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">items</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">items</span><span class="p">,</span>
+      <span class="na">shippingAddress</span><span class="p">:</span> <span class="nx">order</span><span class="p">.</span><span class="nx">shippingAddress</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="event-processing">Event Processing</h2>
+
+<h3 id="lifecycle-events">Lifecycle Events</h3>
+
+<p>Hook into ACE-Flow lifecycle events:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/hooks/lifecycle.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">beforeGenesis</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="na">config</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Starting project genesis...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// Custom initialization logic</span>
+  <span class="p">},</span>
+  
+  <span class="na">afterImplementation</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="na">project</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Implementation completed</span><span class="dl">'</span><span class="p">);</span>
+    <span class="c1">// Send notifications, update tracking systems</span>
+  <span class="p">},</span>
+  
+  <span class="na">onError</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="na">error</span><span class="p">:</span> <span class="nb">Error</span><span class="p">,</span> <span class="na">context</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">ACE-Flow error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="c1">// Send to error tracking service</span>
+    <span class="k">await</span> <span class="nx">sendToErrorTracker</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">context</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="custom-event-handlers">Custom Event Handlers</h3>
+
+<p>Create custom event handlers for specific scenarios:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/handlers/custom-events.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomEventHandler</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">handleSchemaChange</span><span class="p">(</span><span class="nx">event</span><span class="p">:</span> <span class="nx">SchemaChangeEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Regenerate API documentation</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateApiDocs</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">schema</span><span class="p">);</span>
+    
+    <span class="c1">// Update test fixtures</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateTestFixtures</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">changes</span><span class="p">);</span>
+    
+    <span class="c1">// Notify development team</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">notifyTeam</span><span class="p">(</span><span class="s2">`Schema updated: </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">summary</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">handleDeploymentFailure</span><span class="p">(</span><span class="nx">event</span><span class="p">:</span> <span class="nx">DeploymentFailureEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Automatic rollback</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">executeRollback</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">deploymentId</span><span class="p">);</span>
+    
+    <span class="c1">// Create incident ticket</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createIncident</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    
+    <span class="c1">// Alert on-call engineer</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">alertOnCall</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="automation-workflows">Automation Workflows</h2>
+
+<h3 id="cicd-integration">CI/CD Integration</h3>
+
+<p>Integrate ACE-Flow with your CI/CD pipeline:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .github/workflows/ace-flow.yml</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">ACE-Flow Deployment</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Setup Node.js</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">18'</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run ACE-Flow validation</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">/ace-validate --ci</span>
+      
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy with ACE-Flow</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">/ace-implement $</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">AWS_ACCESS_KEY_ID</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">AWS_SECRET_ACCESS_KEY</span><span class="pi">:</span> <span class="s">$</span>
+</code></pre></div></div>
+
+<h3 id="scheduled-tasks">Scheduled Tasks</h3>
+
+<p>Automate recurring tasks with scheduled hooks:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .ace-flow/hooks/scheduled/daily-maintenance.sh</span>
+<span class="c">#!/bin/bash</span>
+<span class="c"># Run via cron: 0 2 * * * /path/to/daily-maintenance.sh</span>
+
+<span class="nb">echo</span> <span class="s2">"Running daily maintenance tasks..."</span>
+
+<span class="c"># Clean up old logs</span>
+find /var/log/ace-flow <span class="nt">-name</span> <span class="s2">"*.log"</span> <span class="nt">-mtime</span> +7 <span class="nt">-delete</span>
+
+<span class="c"># Optimize database</span>
+/ace-status <span class="nt">--optimize-db</span>
+
+<span class="c"># Generate usage reports</span>
+/ace-cost <span class="nt">--report</span> <span class="nt">--email</span> admin@company.com
+
+<span class="nb">echo</span> <span class="s2">"Daily maintenance completed"</span>
+</code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="hook-configuration">Hook Configuration</h3>
+
+<p>Configure hook behavior in your project:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .ace-flow/config/hooks.yml</span>
+<span class="na">hooks</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">timeout</span><span class="pi">:</span> <span class="m">300</span>  <span class="c1"># seconds</span>
+  <span class="na">retries</span><span class="pi">:</span> <span class="m">3</span>
+  
+  <span class="na">pre_deploy</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hooks/pre-deploy.sh"</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="m">600</span>
+    <span class="pi">-</span> <span class="na">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">npm</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">test"</span>
+      <span class="na">required</span><span class="pi">:</span> <span class="no">true</span>
+  
+  <span class="na">post_deploy</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hooks/post-deploy.sh"</span>
+    <span class="pi">-</span> <span class="na">webhook</span><span class="pi">:</span> <span class="s2">"</span><span class="s">webhooks.deployment"</span>
+  
+  <span class="na">validation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">validator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">validators/user-validator"</span>
+    <span class="pi">-</span> <span class="na">validator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">validators/business-rules"</span>
+      <span class="na">models</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">Order"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">Product"</span><span class="pi">]</span>
+</code></pre></div></div>
+
+<h3 id="environment-variables">Environment Variables</h3>
+
+<p>Configure hooks with environment variables:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .env.hooks</span>
+<span class="nv">HOOK_TIMEOUT</span><span class="o">=</span>300
+<span class="nv">SLACK_WEBHOOK_URL</span><span class="o">=</span>https://hooks.slack.com/your/webhook
+<span class="nv">GITHUB_TOKEN</span><span class="o">=</span>your_github_token
+<span class="nv">EXTERNAL_API_URL</span><span class="o">=</span>https://api.external-service.com
+<span class="nv">ERROR_TRACKER_URL</span><span class="o">=</span>https://sentry.io/api/projects/your-project
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="error-handling">Error Handling</h3>
+
+<p>Implement robust error handling in your hooks:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/hooks/error-handling.ts</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">safeHook</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hookFunction</span><span class="p">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">async</span> <span class="p">(...</span><span class="na">args</span><span class="p">:</span> <span class="kr">any</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">await</span> <span class="nx">hookFunction</span><span class="p">(...</span><span class="nx">args</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hook execution failed:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      
+      <span class="c1">// Don't fail the entire deployment for non-critical hooks</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">hookFunction</span><span class="p">.</span><span class="nx">critical</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="na">success</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">error</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span> <span class="p">};</span>
+      <span class="p">}</span>
+      
+      <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="testing-hooks">Testing Hooks</h3>
+
+<p>Test your hooks thoroughly:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .ace-flow/tests/hooks.test.ts</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">validateUser</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../validators/user-validator</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">User Validator Hook</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should validate company email domain</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">user@company.com</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">password</span><span class="p">:</span> <span class="dl">'</span><span class="s1">StrongP@ssw0rd123</span><span class="dl">'</span>
+    <span class="p">};</span>
+    
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validateUser</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">isValid</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">});</span>
+  
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should reject external email domains</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">user@gmail.com</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">password</span><span class="p">:</span> <span class="dl">'</span><span class="s1">StrongP@ssw0rd123</span><span class="dl">'</span>
+    <span class="p">};</span>
+    
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">validateUser</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">isValid</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">errors</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="dl">'</span><span class="s1">User email must be from company domain</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="performance-considerations">Performance Considerations</h3>
+
+<p>Optimize hook performance:</p>
+
+<ul>
+  <li>Keep hooks lightweight and fast</li>
+  <li>Use async/await for I/O operations</li>
+  <li>Implement caching where appropriate</li>
+  <li>Set reasonable timeouts</li>
+  <li>Use parallel execution for independent operations</li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="common-issues">Common Issues</h3>
+
+<p><strong>Hook timeouts:</strong></p>
+<ul>
+  <li>Increase timeout values in configuration</li>
+  <li>Optimize hook performance</li>
+  <li>Split long-running tasks into smaller chunks</li>
+</ul>
+
+<p><strong>Permission errors:</strong></p>
+<ul>
+  <li>Ensure hook scripts have execute permissions</li>
+  <li>Verify AWS credentials and permissions</li>
+  <li>Check file system permissions</li>
+</ul>
+
+<p><strong>Integration failures:</strong></p>
+<ul>
+  <li>Validate webhook URLs and authentication</li>
+  <li>Test API endpoints separately</li>
+  <li>Check network connectivity and firewall rules</li>
+</ul>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/advanced/">← Back to Advanced Topics</a></td>
+      <td><a href="performance.md">Performance Optimization →</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development by <a href="https://www.paretofilm.no" target="_blank" style="color: var(--accent-primary); text-decoration: none;">Pareto Film AS</a></p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

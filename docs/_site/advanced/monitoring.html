@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Monitoring and Analytics | ACE-Flow Documentation</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Monitoring and Analytics" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<meta property="og:description" content="Amplified Context Engineering for AWS Amplify Gen 2 development" />
+<link rel="canonical" href="http://localhost:4000/advanced/monitoring.html" />
+<meta property="og:url" content="http://localhost:4000/advanced/monitoring.html" />
+<meta property="og:site_name" content="ACE-Flow Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Monitoring and Analytics" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Amplified Context Engineering for AWS Amplify Gen 2 development","headline":"Monitoring and Analytics","url":"http://localhost:4000/advanced/monitoring.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ACE-Flow Documentation" /><!-- Preload fonts for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head><body><header class="site-header">
+  <div class="wrapper">
+    <div class="header-content">
+      
+      <a class="site-logo" rel="author" href="/">
+        <img src="/assets/ace-flow-logo.svg" alt="ACE-Flow" class="logo-image">
+      </a>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger" class="menu-icon">
+          <svg viewBox="0 0 20 15" width="20px" height="15px">
+            <line x1="2" y1="2.5" x2="18" y2="2.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="7.5" x2="18" y2="7.5" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="12.5" x2="18" y2="12.5" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </label>
+        <div class="trigger">
+          <a class="page-link" href="/getting-started">Docs</a>
+          <a class="page-link" href="/examples">Examples</a>
+          <a class="page-link" href="/patterns/">Patterns</a>
+          <a class="page-link" href="/resources">Resources</a>
+          <a class="page-link" href="" target="_blank">GitHub</a>
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-title">Getting Started</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/getting-started" class="nav-link ">Quick Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="/examples" class="nav-link ">Examples</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Architecture Patterns</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/patterns/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/social-platform" class="nav-link ">Social Platform</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/e-commerce" class="nav-link ">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/content-management" class="nav-link ">Content Management</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/dashboard-analytics" class="nav-link ">Dashboard Analytics</a>
+          </li>
+          <li class="nav-item">
+            <a href="/patterns/simple-crud" class="nav-link ">Simple CRUD</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Advanced Topics</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/advanced/" class="nav-link active">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/custom-patterns" class="nav-link">Custom Patterns</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/integration" class="nav-link">Integration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/advanced/troubleshooting" class="nav-link">Troubleshooting</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">API Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/api/" class="nav-link ">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/commands" class="nav-link">Commands</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/configuration" class="nav-link">Configuration</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/hooks" class="nav-link">Hooks</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-title">Resources</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/resources" class="nav-link ">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="docs-content">
+    <article>
+      <h1 id="monitoring-and-analytics">Monitoring and Analytics</h1>
+
+<p>Monitor and analyze your ACE-Flow applications with comprehensive observability, performance tracking, and business intelligence.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Effective monitoring in ACE-Flow encompasses:</p>
+<ul>
+  <li>Application performance monitoring (APM)</li>
+  <li>Error tracking and alerting</li>
+  <li>Usage analytics and insights</li>
+  <li>Custom metrics and KPIs</li>
+  <li>Real-time dashboards</li>
+  <li>Automated anomaly detection</li>
+</ul>
+
+<h2 id="application-performance-monitoring">Application Performance Monitoring</h2>
+
+<h3 id="core-performance-metrics">Core Performance Metrics</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/performance-tracker.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">PerformanceTracker</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">PerformanceMetric</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">trackOperation</span><span class="p">(</span>
+    <span class="nx">operationName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> 
+    <span class="nx">operation</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nx">metadata</span><span class="p">?:</span> <span class="kr">any</span>
+  <span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">startMemory</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">memoryUsage</span><span class="p">();</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">operation</span><span class="p">();</span>
+      
+      <span class="kd">const</span> <span class="nx">endTime</span> <span class="o">=</span> <span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+      <span class="kd">const</span> <span class="nx">endMemory</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">memoryUsage</span><span class="p">();</span>
+      
+      <span class="kd">const</span> <span class="na">metric</span><span class="p">:</span> <span class="nx">PerformanceMetric</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">operation</span><span class="p">:</span> <span class="nx">operationName</span><span class="p">,</span>
+        <span class="na">duration</span><span class="p">:</span> <span class="nx">endTime</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">,</span>
+        <span class="na">memoryDelta</span><span class="p">:</span> <span class="nx">endMemory</span><span class="p">.</span><span class="nx">heapUsed</span> <span class="o">-</span> <span class="nx">startMemory</span><span class="p">.</span><span class="nx">heapUsed</span><span class="p">,</span>
+        <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">metadata</span>
+      <span class="p">};</span>
+      
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">recordMetric</span><span class="p">(</span><span class="nx">metric</span><span class="p">);</span>
+      
+      <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+      
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">endTime</span> <span class="o">=</span> <span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+      
+      <span class="kd">const</span> <span class="na">metric</span><span class="p">:</span> <span class="nx">PerformanceMetric</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">operation</span><span class="p">:</span> <span class="nx">operationName</span><span class="p">,</span>
+        <span class="na">duration</span><span class="p">:</span> <span class="nx">endTime</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">,</span>
+        <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">error</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+        <span class="nx">metadata</span>
+      <span class="p">};</span>
+      
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">recordMetric</span><span class="p">(</span><span class="nx">metric</span><span class="p">);</span>
+      
+      <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">recordMetric</span><span class="p">(</span><span class="nx">metric</span><span class="p">:</span> <span class="nx">PerformanceMetric</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Store in local buffer</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">metric</span><span class="p">.</span><span class="nx">operation</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">metric</span><span class="p">.</span><span class="nx">operation</span><span class="p">,</span> <span class="p">[]);</span>
+    <span class="p">}</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">metrics</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">metric</span><span class="p">.</span><span class="nx">operation</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">metric</span><span class="p">);</span>
+    
+    <span class="c1">// Send to monitoring service</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendToMonitoring</span><span class="p">(</span><span class="nx">metric</span><span class="p">);</span>
+    
+    <span class="c1">// Log slow operations</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">metric</span><span class="p">.</span><span class="nx">duration</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">`Slow operation detected: </span><span class="p">${</span><span class="nx">metric</span><span class="p">.</span><span class="nx">operation</span><span class="p">}</span><span class="s2"> took </span><span class="p">${</span><span class="nx">metric</span><span class="p">.</span><span class="nx">duration</span><span class="p">}</span><span class="s2">ms`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getOperationStats</span><span class="p">(</span><span class="nx">operationName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getMetricsForOperation</span><span class="p">(</span><span class="nx">operationName</span><span class="p">,</span> <span class="nx">timeRange</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">metrics</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">const</span> <span class="nx">durations</span> <span class="o">=</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">m</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">duration</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">successRate</span> <span class="o">=</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">m</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">success</span><span class="p">).</span><span class="nx">length</span> <span class="o">/</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">operationName</span><span class="p">,</span>
+      <span class="na">totalCalls</span><span class="p">:</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="nx">successRate</span><span class="p">,</span>
+      <span class="na">averageDuration</span><span class="p">:</span> <span class="nx">durations</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="nx">durations</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">p50Duration</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">durations</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+      <span class="na">p95Duration</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">durations</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">),</span>
+      <span class="na">p99Duration</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">durations</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">),</span>
+      <span class="na">maxDuration</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">durations</span><span class="p">),</span>
+      <span class="na">minDuration</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(...</span><span class="nx">durations</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">PerformanceMetric</span> <span class="p">{</span>
+  <span class="nl">operation</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">duration</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">memoryDelta</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+  <span class="nl">success</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">error</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">metadata</span><span class="p">?:</span> <span class="kr">any</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="database-query-monitoring">Database Query Monitoring</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/database-monitor.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">DatabaseMonitor</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">queryTracker</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">QueryMetrics</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">monitorQuery</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nx">queryName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">query</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">params</span><span class="p">:</span> <span class="kr">any</span><span class="p">[],</span>
+    <span class="nx">executor</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span>
+  <span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+    
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">executor</span><span class="p">();</span>
+      <span class="kd">const</span> <span class="nx">duration</span> <span class="o">=</span> <span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">;</span>
+      
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">recordQueryMetric</span><span class="p">({</span>
+        <span class="nx">queryName</span><span class="p">,</span>
+        <span class="na">query</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">sanitizeQuery</span><span class="p">(</span><span class="nx">query</span><span class="p">),</span>
+        <span class="nx">duration</span><span class="p">,</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">rowCount</span><span class="p">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">?</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+      <span class="p">});</span>
+      
+      <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+      
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">duration</span> <span class="o">=</span> <span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">;</span>
+      
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">recordQueryMetric</span><span class="p">({</span>
+        <span class="nx">queryName</span><span class="p">,</span>
+        <span class="na">query</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">sanitizeQuery</span><span class="p">(</span><span class="nx">query</span><span class="p">),</span>
+        <span class="nx">duration</span><span class="p">,</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">error</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+        <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+      <span class="p">});</span>
+      
+      <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">sanitizeQuery</span><span class="p">(</span><span class="nx">query</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="c1">// Remove sensitive data from query for logging</span>
+    <span class="k">return</span> <span class="nx">query</span>
+      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\$\d</span><span class="sr">+/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">?</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Replace parameter placeholders</span>
+      <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">+/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)</span>   <span class="c1">// Normalize whitespace</span>
+      <span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getSlowQueries</span><span class="p">(</span><span class="nx">threshold</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">QueryMetrics</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">allMetrics</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queryTracker</span><span class="p">.</span><span class="nx">values</span><span class="p">());</span>
+    
+    <span class="k">return</span> <span class="nx">allMetrics</span>
+      <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">metric</span> <span class="o">=&gt;</span> <span class="nx">metric</span><span class="p">.</span><span class="nx">duration</span> <span class="o">&gt;</span> <span class="nx">threshold</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">duration</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">duration</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span> <span class="c1">// Top 50 slow queries</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">analyzeQueryPerformance</span><span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">QueryAnalysis</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queryTracker</span><span class="p">.</span><span class="nx">values</span><span class="p">());</span>
+    
+    <span class="kd">const</span> <span class="nx">analysis</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">totalQueries</span><span class="p">:</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">averageDuration</span><span class="p">:</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">m</span><span class="p">.</span><span class="nx">duration</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">slowQueries</span><span class="p">:</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">m</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">duration</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">).</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">failedQueries</span><span class="p">:</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">m</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">m</span><span class="p">.</span><span class="nx">success</span><span class="p">).</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">mostFrequent</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">getMostFrequentQueries</span><span class="p">(</span><span class="nx">metrics</span><span class="p">),</span>
+      <span class="na">slowestOperations</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">getSlowestOperations</span><span class="p">(</span><span class="nx">metrics</span><span class="p">)</span>
+    <span class="p">};</span>
+    
+    <span class="k">return</span> <span class="nx">analysis</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">QueryMetrics</span> <span class="p">{</span>
+  <span class="nl">queryName</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">query</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">duration</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">success</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">rowCount</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">error</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="error-tracking-and-alerting">Error Tracking and Alerting</h2>
+
+<h3 id="comprehensive-error-tracking">Comprehensive Error Tracking</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/error-tracker.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ErrorTracker</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">errorBuffer</span><span class="p">:</span> <span class="nx">ErrorEvent</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">private</span> <span class="nx">errorCounts</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">trackError</span><span class="p">(</span><span class="nx">error</span><span class="p">:</span> <span class="nb">Error</span><span class="p">,</span> <span class="nx">context</span><span class="p">?:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">errorEvent</span><span class="p">:</span> <span class="nx">ErrorEvent</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateErrorId</span><span class="p">(),</span>
+      <span class="na">message</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+      <span class="na">stack</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">stack</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="nx">context</span><span class="p">,</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">fingerprint</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateFingerprint</span><span class="p">(</span><span class="nx">error</span><span class="p">),</span>
+      <span class="na">severity</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">determineSeverity</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">context</span><span class="p">),</span>
+      <span class="na">userId</span><span class="p">:</span> <span class="nx">context</span><span class="p">?.</span><span class="nx">userId</span><span class="p">,</span>
+      <span class="na">requestId</span><span class="p">:</span> <span class="nx">context</span><span class="p">?.</span><span class="nx">requestId</span><span class="p">,</span>
+      <span class="na">environment</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">development</span><span class="dl">'</span>
+    <span class="p">};</span>
+    
+    <span class="c1">// Update error counts</span>
+    <span class="kd">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">errorEvent</span><span class="p">.</span><span class="nx">fingerprint</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">errorCounts</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">errorCounts</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    
+    <span class="c1">// Add to buffer</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">errorBuffer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">errorEvent</span><span class="p">);</span>
+    
+    <span class="c1">// Send to error tracking service</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendToErrorService</span><span class="p">(</span><span class="nx">errorEvent</span><span class="p">);</span>
+    
+    <span class="c1">// Check for alert conditions</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">checkAlertConditions</span><span class="p">(</span><span class="nx">errorEvent</span><span class="p">);</span>
+    
+    <span class="c1">// Clean up old errors from buffer</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cleanupBuffer</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">generateFingerprint</span><span class="p">(</span><span class="nx">error</span><span class="p">:</span> <span class="nb">Error</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">:</span><span class="p">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="s2">:</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">getStackFingerprint</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">stack</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="dl">'</span><span class="s1">sha256</span><span class="dl">'</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">input</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="dl">'</span><span class="s1">hex</span><span class="dl">'</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">determineSeverity</span><span class="p">(</span><span class="nx">error</span><span class="p">:</span> <span class="nb">Error</span><span class="p">,</span> <span class="nx">context</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span> <span class="p">{</span>
+    <span class="c1">// Critical errors that affect core functionality</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">DatabaseConnectionError</span><span class="dl">'</span> <span class="o">||</span> 
+        <span class="nx">error</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">AuthenticationError</span><span class="dl">'</span> <span class="o">||</span>
+        <span class="nx">context</span><span class="p">?.</span><span class="nx">isPaymentRelated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// High severity for user-facing errors</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">ValidationError</span><span class="dl">'</span> <span class="o">||</span> 
+        <span class="nx">error</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">NotFoundError</span><span class="dl">'</span> <span class="o">||</span>
+        <span class="nx">context</span><span class="p">?.</span><span class="nx">affectsUserExperience</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Medium for business logic errors</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">BusinessLogicError</span><span class="dl">'</span> <span class="o">||</span>
+        <span class="nx">context</span><span class="p">?.</span><span class="nx">isBusinessCritical</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">checkAlertConditions</span><span class="p">(</span><span class="nx">errorEvent</span><span class="p">:</span> <span class="nx">ErrorEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">fingerprint</span> <span class="o">=</span> <span class="nx">errorEvent</span><span class="p">.</span><span class="nx">fingerprint</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">errorCounts</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">fingerprint</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">// Alert on error spikes</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendAlert</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">error_spike</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s2">`Error spike detected: </span><span class="p">${</span><span class="nx">errorEvent</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+        <span class="nx">count</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="nx">errorEvent</span><span class="p">.</span><span class="nx">severity</span><span class="p">,</span>
+        <span class="nx">fingerprint</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Alert on critical errors immediately</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">errorEvent</span><span class="p">.</span><span class="nx">severity</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendAlert</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">critical_error</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">message</span><span class="p">:</span> <span class="s2">`Critical error: </span><span class="p">${</span><span class="nx">errorEvent</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">,</span>
+        <span class="nx">errorEvent</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getErrorSummary</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ErrorSummary</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">errors</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getErrorsInRange</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">);</span>
+    
+    <span class="kd">const</span> <span class="nx">summary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">totalErrors</span><span class="p">:</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">uniqueErrors</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">fingerprint</span><span class="p">)).</span><span class="nx">size</span><span class="p">,</span>
+      <span class="na">errorsBySeverity</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">groupBySeverity</span><span class="p">(</span><span class="nx">errors</span><span class="p">),</span>
+      <span class="na">topErrors</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">getTopErrors</span><span class="p">(</span><span class="nx">errors</span><span class="p">),</span>
+      <span class="na">errorTrends</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateErrorTrends</span><span class="p">(</span><span class="nx">errors</span><span class="p">),</span>
+      <span class="na">affectedUsers</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">userId</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">)).</span><span class="nx">size</span>
+    <span class="p">};</span>
+    
+    <span class="k">return</span> <span class="nx">summary</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">ErrorEvent</span> <span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">stack</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">context</span><span class="p">?:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="nl">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+  <span class="nl">fingerprint</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nl">userId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">requestId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">environment</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="smart-alerting-system">Smart Alerting System</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/smart-alerting.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SmartAlertingSystem</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">alertRules</span><span class="p">:</span> <span class="nx">AlertRule</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">private</span> <span class="nx">alertHistory</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">AlertEvent</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setupDefaultRules</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">setupDefaultRules</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">alertRules</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high_error_rate</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">High Error Rate</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="p">(</span><span class="na">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">errorRate</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">,</span> <span class="c1">// 5%</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">cooldown</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="c1">// 5 minutes</span>
+        <span class="na">escalation</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">duration</span><span class="p">:</span> <span class="mi">900000</span><span class="p">,</span> <span class="c1">// 15 minutes</span>
+          <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">escalate_to_oncall</span><span class="dl">'</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">slow_response_time</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Slow Response Time</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="p">(</span><span class="na">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">p95ResponseTime</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">,</span> <span class="c1">// 2 seconds</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">cooldown</span><span class="p">:</span> <span class="mi">600000</span><span class="p">,</span> <span class="c1">// 10 minutes</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">database_connection_issues</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Database Connection Issues</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="p">(</span><span class="na">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">dbConnectionErrors</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">cooldown</span><span class="p">:</span> <span class="mi">60000</span><span class="p">,</span> <span class="c1">// 1 minute</span>
+        <span class="na">immediateEscalation</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">memory_leak_detection</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Memory Leak Detection</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">condition</span><span class="p">:</span> <span class="p">(</span><span class="na">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> 
+          <span class="nx">metrics</span><span class="p">.</span><span class="nx">memoryUsage</span> <span class="o">&gt;</span> <span class="mf">0.85</span> <span class="o">&amp;&amp;</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">memoryTrend</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">increasing</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">severity</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">cooldown</span><span class="p">:</span> <span class="mi">1800000</span><span class="p">,</span> <span class="c1">// 30 minutes</span>
+      <span class="p">}</span>
+    <span class="p">];</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">evaluateAlerts</span><span class="p">(</span><span class="nx">metrics</span><span class="p">:</span> <span class="nx">SystemMetrics</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">rule</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">alertRules</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">shouldEvaluateRule</span><span class="p">(</span><span class="nx">rule</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">condition</span><span class="p">(</span><span class="nx">metrics</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">triggerAlert</span><span class="p">(</span><span class="nx">rule</span><span class="p">,</span> <span class="nx">metrics</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">shouldEvaluateRule</span><span class="p">(</span><span class="nx">rule</span><span class="p">:</span> <span class="nx">AlertRule</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">boolean</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">history</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">alertHistory</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="kd">const</span> <span class="nx">lastAlert</span> <span class="o">=</span> <span class="nx">history</span><span class="p">[</span><span class="nx">history</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">lastAlert</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">timeSinceLastAlert</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">lastAlert</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">getTime</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">timeSinceLastAlert</span> <span class="o">&gt;</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">cooldown</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">triggerAlert</span><span class="p">(</span><span class="nx">rule</span><span class="p">:</span> <span class="nx">AlertRule</span><span class="p">,</span> <span class="nx">metrics</span><span class="p">:</span> <span class="nx">SystemMetrics</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">alertEvent</span><span class="p">:</span> <span class="nx">AlertEvent</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateAlertId</span><span class="p">(),</span>
+      <span class="na">ruleId</span><span class="p">:</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="na">ruleName</span><span class="p">:</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="na">severity</span><span class="p">:</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">severity</span><span class="p">,</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="nx">metrics</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">triggered</span><span class="dl">'</span>
+    <span class="p">};</span>
+    
+    <span class="c1">// Record alert</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">alertHistory</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">id</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">alertHistory</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">[]);</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">alertHistory</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="o">!</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">);</span>
+    
+    <span class="c1">// Send alert</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendAlert</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">);</span>
+    
+    <span class="c1">// Setup escalation if configured</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">escalation</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">rule</span><span class="p">.</span><span class="nx">immediateEscalation</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">isAlertStillActive</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">escalateAlert</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">,</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">escalation</span><span class="o">!</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">escalation</span><span class="p">.</span><span class="nx">duration</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">rule</span><span class="p">.</span><span class="nx">immediateEscalation</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">escalateAlert</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">,</span> <span class="p">{</span> <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">immediate_escalation</span><span class="dl">'</span> <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">sendAlert</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">:</span> <span class="nx">AlertEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">channels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAlertChannels</span><span class="p">(</span><span class="nx">alertEvent</span><span class="p">.</span><span class="nx">severity</span><span class="p">);</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">channel</span> <span class="k">of</span> <span class="nx">channels</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendToChannel</span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span> <span class="nx">alertEvent</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">getAlertChannels</span><span class="p">(</span><span class="nx">severity</span><span class="p">:</span> <span class="nx">AlertSeverity</span><span class="p">):</span> <span class="kr">string</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">severity</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="dl">'</span><span class="s1">pagerduty</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">slack-critical</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">email-oncall</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sms-oncall</span><span class="dl">'</span><span class="p">];</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-alerts</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">email-dev-team</span><span class="dl">'</span><span class="p">];</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-monitoring</span><span class="dl">'</span><span class="p">];</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-monitoring</span><span class="dl">'</span><span class="p">];</span>
+      <span class="nl">default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="dl">'</span><span class="s1">slack-monitoring</span><span class="dl">'</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">AlertRule</span> <span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">condition</span><span class="p">:</span> <span class="p">(</span><span class="nx">metrics</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">severity</span><span class="p">:</span> <span class="nx">AlertSeverity</span><span class="p">;</span>
+  <span class="nl">cooldown</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">escalation</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">duration</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+    <span class="nl">action</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="nl">immediateEscalation</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">AlertSeverity</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="usage-analytics-and-insights">Usage Analytics and Insights</h2>
+
+<h3 id="user-behavior-analytics">User Behavior Analytics</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/analytics-tracker.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AnalyticsTracker</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">events</span><span class="p">:</span> <span class="nx">AnalyticsEvent</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">private</span> <span class="nx">sessionData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">UserSession</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="k">async</span> <span class="nx">trackEvent</span><span class="p">(</span>
+    <span class="nx">eventName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">properties</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="nx">userId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">sessionId</span><span class="p">?:</span> <span class="kr">string</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">event</span><span class="p">:</span> <span class="nx">AnalyticsEvent</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateEventId</span><span class="p">(),</span>
+      <span class="na">name</span><span class="p">:</span> <span class="nx">eventName</span><span class="p">,</span>
+      <span class="nx">properties</span><span class="p">,</span>
+      <span class="nx">userId</span><span class="p">,</span>
+      <span class="nx">sessionId</span><span class="p">,</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">userAgent</span><span class="p">:</span> <span class="nx">properties</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">,</span>
+      <span class="na">ipAddress</span><span class="p">:</span> <span class="nx">properties</span><span class="p">.</span><span class="nx">ipAddress</span><span class="p">,</span>
+      <span class="na">referrer</span><span class="p">:</span> <span class="nx">properties</span><span class="p">.</span><span class="nx">referrer</span>
+    <span class="p">};</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    
+    <span class="c1">// Update session data</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">sessionId</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Send to analytics service</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">sendToAnalytics</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    
+    <span class="c1">// Check for interesting patterns</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">analyzeEventPatterns</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">trackPageView</span><span class="p">(</span>
+    <span class="nx">path</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">userId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">sessionId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">properties</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">page_view</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">path</span><span class="p">,</span>
+      <span class="p">...</span><span class="nx">properties</span>
+    <span class="p">},</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">sessionId</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">trackUserAction</span><span class="p">(</span>
+    <span class="nx">action</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">target</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">userId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">sessionId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="nx">properties</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">user_action</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">action</span><span class="p">,</span>
+      <span class="nx">target</span><span class="p">,</span>
+      <span class="p">...</span><span class="nx">properties</span>
+    <span class="p">},</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">sessionId</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getUserJourney</span><span class="p">(</span><span class="nx">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">UserJourney</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">userEvents</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> 
+      <span class="nx">e</span><span class="p">.</span><span class="nx">userId</span> <span class="o">===</span> <span class="nx">userId</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">e</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">&gt;=</span> <span class="nx">timeRange</span><span class="p">.</span><span class="nx">start</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">e</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">&lt;=</span> <span class="nx">timeRange</span><span class="p">.</span><span class="nx">end</span>
+    <span class="p">).</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">getTime</span><span class="p">());</span>
+    
+    <span class="kd">const</span> <span class="nx">sessions</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">groupEventsBySessions</span><span class="p">(</span><span class="nx">userEvents</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">userId</span><span class="p">,</span>
+      <span class="nx">timeRange</span><span class="p">,</span>
+      <span class="na">totalSessions</span><span class="p">:</span> <span class="nx">sessions</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">totalEvents</span><span class="p">:</span> <span class="nx">userEvents</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">sessions</span><span class="p">:</span> <span class="nx">sessions</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">events</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">analyzeSession</span><span class="p">(</span><span class="nx">events</span><span class="p">)),</span>
+      <span class="na">conversionFunnel</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">analyzeConversionFunnel</span><span class="p">(</span><span class="nx">userEvents</span><span class="p">),</span>
+      <span class="na">engagementScore</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateEngagementScore</span><span class="p">(</span><span class="nx">userEvents</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getFeatureUsage</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">FeatureUsageReport</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">events</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getEventsInRange</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">featureEvents</span> <span class="o">=</span> <span class="nx">events</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">feature_used</span><span class="dl">'</span><span class="p">);</span>
+    
+    <span class="kd">const</span> <span class="nx">usage</span> <span class="o">=</span> <span class="nx">featureEvents</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">feature</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">feature</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">acc</span><span class="p">[</span><span class="nx">feature</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">acc</span><span class="p">[</span><span class="nx">feature</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">feature</span><span class="p">,</span>
+          <span class="na">totalUses</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="na">uniqueUsers</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(),</span>
+          <span class="na">averageSessionUsage</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">};</span>
+      <span class="p">}</span>
+      
+      <span class="nx">acc</span><span class="p">[</span><span class="nx">feature</span><span class="p">].</span><span class="nx">totalUses</span><span class="o">++</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">userId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">acc</span><span class="p">[</span><span class="nx">feature</span><span class="p">].</span><span class="nx">uniqueUsers</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+      <span class="p">}</span>
+      
+      <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{}</span> <span class="k">as</span> <span class="kr">any</span><span class="p">);</span>
+    
+    <span class="c1">// Convert Set to size for serialization</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">usage</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="na">feature</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">feature</span><span class="p">.</span><span class="nx">uniqueUsers</span> <span class="o">=</span> <span class="nx">feature</span><span class="p">.</span><span class="nx">uniqueUsers</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span>
+    <span class="p">});</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">timeRange</span><span class="p">,</span>
+      <span class="na">features</span><span class="p">:</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">usage</span><span class="p">),</span>
+      <span class="na">totalFeatureUses</span><span class="p">:</span> <span class="nx">featureEvents</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">mostUsedFeatures</span><span class="p">:</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">usage</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="na">a</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">totalUses</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">totalUses</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">analyzeEventPatterns</span><span class="p">(</span><span class="nx">event</span><span class="p">:</span> <span class="nx">AnalyticsEvent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Detect unusual patterns</span>
+    <span class="kd">const</span> <span class="nx">recentEvents</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRecentEvents</span><span class="p">(</span><span class="mi">300000</span><span class="p">);</span> <span class="c1">// Last 5 minutes</span>
+    
+    <span class="c1">// Check for rapid successive events (potential bot or error)</span>
+    <span class="kd">const</span> <span class="nx">sameEventCount</span> <span class="o">=</span> <span class="nx">recentEvents</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> 
+      <span class="nx">e</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">event</span><span class="p">.</span><span class="nx">name</span> <span class="o">&amp;&amp;</span> 
+      <span class="nx">e</span><span class="p">.</span><span class="nx">userId</span> <span class="o">===</span> <span class="nx">event</span><span class="p">.</span><span class="nx">userId</span>
+    <span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">sameEventCount</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">flagAnomalousActivity</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">rapid_events</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">userId</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">userId</span><span class="p">,</span>
+        <span class="na">eventName</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+        <span class="na">count</span><span class="p">:</span> <span class="nx">sameEventCount</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Check for conversion events</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isConversionEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">recordConversion</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">AnalyticsEvent</span> <span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">properties</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="nl">userId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">sessionId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">timestamp</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+  <span class="nl">userAgent</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">ipAddress</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">referrer</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="business-intelligence-dashboard">Business Intelligence Dashboard</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/business-intelligence.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">BusinessIntelligence</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nx">generateBusinessReport</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">BusinessReport</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span>
+      <span class="nx">userMetrics</span><span class="p">,</span>
+      <span class="nx">revenueMetrics</span><span class="p">,</span>
+      <span class="nx">featureMetrics</span><span class="p">,</span>
+      <span class="nx">performanceMetrics</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getUserMetrics</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getRevenueMetrics</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getFeatureMetrics</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getPerformanceMetrics</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">)</span>
+    <span class="p">]);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">timeRange</span><span class="p">,</span>
+      <span class="na">summary</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateSummary</span><span class="p">({</span>
+        <span class="nx">userMetrics</span><span class="p">,</span>
+        <span class="nx">revenueMetrics</span><span class="p">,</span>
+        <span class="nx">featureMetrics</span><span class="p">,</span>
+        <span class="nx">performanceMetrics</span>
+      <span class="p">}),</span>
+      <span class="nx">userMetrics</span><span class="p">,</span>
+      <span class="nx">revenueMetrics</span><span class="p">,</span>
+      <span class="nx">featureMetrics</span><span class="p">,</span>
+      <span class="nx">performanceMetrics</span><span class="p">,</span>
+      <span class="na">insights</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateInsights</span><span class="p">({</span>
+        <span class="nx">userMetrics</span><span class="p">,</span>
+        <span class="nx">revenueMetrics</span><span class="p">,</span>
+        <span class="nx">featureMetrics</span><span class="p">,</span>
+        <span class="nx">performanceMetrics</span>
+      <span class="p">}),</span>
+      <span class="na">recommendations</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateRecommendations</span><span class="p">({</span>
+        <span class="nx">userMetrics</span><span class="p">,</span>
+        <span class="nx">revenueMetrics</span><span class="p">,</span>
+        <span class="nx">featureMetrics</span><span class="p">,</span>
+        <span class="nx">performanceMetrics</span>
+      <span class="p">})</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">getUserMetrics</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">UserMetrics</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">totalUsers</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getTotalUsers</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">newUsers</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getNewUsers</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">activeUsers</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getActiveUsers</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">churnRate</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getChurnRate</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">retentionRate</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRetentionRate</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">userGrowthRate</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserGrowthRate</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">averageSessionDuration</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAverageSessionDuration</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">),</span>
+      <span class="na">userSegments</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserSegments</span><span class="p">(</span><span class="nx">timeRange</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">generateInsights</span><span class="p">(</span><span class="nx">data</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">BusinessInsight</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="na">insights</span><span class="p">:</span> <span class="nx">BusinessInsight</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    
+    <span class="c1">// User growth insights</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">userMetrics</span><span class="p">.</span><span class="nx">userGrowthRate</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">insights</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">positive</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">category</span><span class="p">:</span> <span class="dl">'</span><span class="s1">user_growth</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Strong User Growth</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">description</span><span class="p">:</span> <span class="s2">`User growth rate of </span><span class="p">${(</span><span class="nx">data</span><span class="p">.</span><span class="nx">userMetrics</span><span class="p">.</span><span class="nx">userGrowthRate</span> <span class="o">*</span> <span class="mi">100</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">)}</span><span class="s2">% indicates healthy product adoption.`</span><span class="p">,</span>
+        <span class="na">impact</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">confidence</span><span class="p">:</span> <span class="mf">0.9</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Performance insights</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">performanceMetrics</span><span class="p">.</span><span class="nx">averageResponseTime</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">insights</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">negative</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">category</span><span class="p">:</span> <span class="dl">'</span><span class="s1">performance</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Slow Response Times</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">description</span><span class="p">:</span> <span class="s2">`Average response time of </span><span class="p">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">performanceMetrics</span><span class="p">.</span><span class="nx">averageResponseTime</span><span class="p">}</span><span class="s2">ms may be impacting user experience.`</span><span class="p">,</span>
+        <span class="na">impact</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">confidence</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="na">recommendation</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Consider optimizing database queries and implementing caching</span><span class="dl">'</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Feature adoption insights</span>
+    <span class="kd">const</span> <span class="nx">lowAdoptionFeatures</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">featureMetrics</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span>
+      <span class="p">(</span><span class="na">f</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">f</span><span class="p">.</span><span class="nx">adoptionRate</span> <span class="o">&lt;</span> <span class="mf">0.1</span>
+    <span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lowAdoptionFeatures</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">insights</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">warning</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">category</span><span class="p">:</span> <span class="dl">'</span><span class="s1">feature_adoption</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Low Feature Adoption</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">description</span><span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="nx">lowAdoptionFeatures</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2"> features have adoption rates below 10%.`</span><span class="p">,</span>
+        <span class="na">impact</span><span class="p">:</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">confidence</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="na">recommendation</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Consider improving feature discoverability or removing unused features</span><span class="dl">'</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">insights</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">createCustomDashboard</span><span class="p">(</span><span class="nx">config</span><span class="p">:</span> <span class="nx">DashboardConfig</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Dashboard</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">widgets</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span>
+      <span class="nx">config</span><span class="p">.</span><span class="nx">widgets</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">widgetConfig</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">createWidget</span><span class="p">(</span><span class="nx">widgetConfig</span><span class="p">))</span>
+    <span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateDashboardId</span><span class="p">(),</span>
+      <span class="na">name</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="na">description</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">description</span><span class="p">,</span>
+      <span class="nx">widgets</span><span class="p">,</span>
+      <span class="na">refreshInterval</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">refreshInterval</span> <span class="o">||</span> <span class="mi">300000</span><span class="p">,</span> <span class="c1">// 5 minutes</span>
+      <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">lastUpdated</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">createWidget</span><span class="p">(</span><span class="nx">config</span><span class="p">:</span> <span class="nx">WidgetConfig</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">DashboardWidget</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">metric</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createMetricWidget</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">chart</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createChartWidget</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">table</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createTableWidget</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">gauge</span><span class="dl">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createGaugeWidget</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+      <span class="nl">default</span><span class="p">:</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Unknown widget type: </span><span class="p">${</span><span class="nx">config</span><span class="p">.</span><span class="kd">type</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">BusinessInsight</span> <span class="p">{</span>
+  <span class="nl">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">positive</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">negative</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">warning</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">neutral</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nl">category</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">description</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">impact</span><span class="p">:</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nl">confidence</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">recommendation</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="custom-metrics-and-kpis">Custom Metrics and KPIs</h2>
+
+<h3 id="kpi-tracking-system">KPI Tracking System</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/kpi-tracker.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">KPITracker</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">kpis</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">KPI</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="nx">defineKPI</span><span class="p">(</span><span class="nx">definition</span><span class="p">:</span> <span class="nx">KPIDefinition</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="na">kpi</span><span class="p">:</span> <span class="nx">KPI</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="p">...</span><span class="nx">definition</span><span class="p">,</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateKPIId</span><span class="p">(),</span>
+      <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+      <span class="na">values</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">active</span><span class="dl">'</span>
+    <span class="p">};</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">kpis</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">kpi</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">kpi</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">recordKPIValue</span><span class="p">(</span>
+    <span class="nx">kpiId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> 
+    <span class="nx">value</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> 
+    <span class="nx">timestamp</span><span class="p">:</span> <span class="nb">Date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span>
+    <span class="nx">metadata</span><span class="p">?:</span> <span class="kr">any</span>
+  <span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">kpi</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">kpis</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">kpiId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">kpi</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`KPI not found: </span><span class="p">${</span><span class="nx">kpiId</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">const</span> <span class="na">kpiValue</span><span class="p">:</span> <span class="nx">KPIValue</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">value</span><span class="p">,</span>
+      <span class="nx">timestamp</span><span class="p">,</span>
+      <span class="nx">metadata</span>
+    <span class="p">};</span>
+    
+    <span class="nx">kpi</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">kpiValue</span><span class="p">);</span>
+    <span class="nx">kpi</span><span class="p">.</span><span class="nx">lastUpdated</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    
+    <span class="c1">// Keep only recent values to prevent memory issues</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">kpi</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">kpi</span><span class="p">.</span><span class="nx">values</span> <span class="o">=</span> <span class="nx">kpi</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5000</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Check thresholds</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">checkKPIThresholds</span><span class="p">(</span><span class="nx">kpi</span><span class="p">,</span> <span class="nx">kpiValue</span><span class="p">);</span>
+    
+    <span class="c1">// Send to metrics store</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeKPIValue</span><span class="p">(</span><span class="nx">kpi</span><span class="p">,</span> <span class="nx">kpiValue</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getKPIReport</span><span class="p">(</span>
+    <span class="nx">kpiId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> 
+    <span class="nx">timeRange</span><span class="p">:</span> <span class="nx">TimeRange</span>
+  <span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">KPIReport</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">kpi</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">kpis</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">kpiId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">kpi</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`KPI not found: </span><span class="p">${</span><span class="nx">kpiId</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">const</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">kpi</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> 
+      <span class="nx">v</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">&gt;=</span> <span class="nx">timeRange</span><span class="p">.</span><span class="nx">start</span> <span class="o">&amp;&amp;</span> 
+      <span class="nx">v</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">&lt;=</span> <span class="nx">timeRange</span><span class="p">.</span><span class="nx">end</span>
+    <span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">kpi</span><span class="p">:</span> <span class="nx">kpi</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+        <span class="nx">timeRange</span><span class="p">,</span>
+        <span class="na">noData</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+    
+    <span class="kd">const</span> <span class="nx">numericValues</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">kpi</span><span class="p">:</span> <span class="nx">kpi</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="nx">timeRange</span><span class="p">,</span>
+      <span class="na">currentValue</span><span class="p">:</span> <span class="nx">values</span><span class="p">[</span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+      <span class="na">averageValue</span><span class="p">:</span> <span class="nx">numericValues</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="nx">numericValues</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">minValue</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(...</span><span class="nx">numericValues</span><span class="p">),</span>
+      <span class="na">maxValue</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">numericValues</span><span class="p">),</span>
+      <span class="na">trend</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateTrend</span><span class="p">(</span><span class="nx">values</span><span class="p">),</span>
+      <span class="na">thresholdStatus</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">getThresholdStatus</span><span class="p">(</span><span class="nx">kpi</span><span class="p">,</span> <span class="nx">values</span><span class="p">[</span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">value</span><span class="p">),</span>
+      <span class="na">dataPoints</span><span class="p">:</span> <span class="nx">values</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="na">percentileValues</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">p50</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">numericValues</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="na">p90</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">numericValues</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+        <span class="na">p95</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">numericValues</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">),</span>
+        <span class="na">p99</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">percentile</span><span class="p">(</span><span class="nx">numericValues</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">checkKPIThresholds</span><span class="p">(</span><span class="nx">kpi</span><span class="p">:</span> <span class="nx">KPI</span><span class="p">,</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">KPIValue</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">kpi</span><span class="p">.</span><span class="nx">thresholds</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">currentValue</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    
+    <span class="c1">// Check critical thresholds</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">kpi</span><span class="p">.</span><span class="nx">thresholds</span><span class="p">.</span><span class="nx">critical</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">min</span><span class="p">,</span> <span class="nx">max</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">kpi</span><span class="p">.</span><span class="nx">thresholds</span><span class="p">.</span><span class="nx">critical</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">((</span><span class="nx">min</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">currentValue</span> <span class="o">&lt;</span> <span class="nx">min</span><span class="p">)</span> <span class="o">||</span> 
+          <span class="p">(</span><span class="nx">max</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">currentValue</span> <span class="o">&gt;</span> <span class="nx">max</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">triggerKPIAlert</span><span class="p">(</span><span class="nx">kpi</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="dl">'</span><span class="s1">critical</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Check warning thresholds</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">kpi</span><span class="p">.</span><span class="nx">thresholds</span><span class="p">.</span><span class="nx">warning</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">min</span><span class="p">,</span> <span class="nx">max</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">kpi</span><span class="p">.</span><span class="nx">thresholds</span><span class="p">.</span><span class="nx">warning</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">((</span><span class="nx">min</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">currentValue</span> <span class="o">&lt;</span> <span class="nx">min</span><span class="p">)</span> <span class="o">||</span> 
+          <span class="p">(</span><span class="nx">max</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">currentValue</span> <span class="o">&gt;</span> <span class="nx">max</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">triggerKPIAlert</span><span class="p">(</span><span class="nx">kpi</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="dl">'</span><span class="s1">warning</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">generateKPIDashboard</span><span class="p">(</span><span class="nx">kpiIds</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">KPIDashboard</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">kpiReports</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span>
+      <span class="nx">kpiIds</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="k">async</span> <span class="nx">id</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">timeRange</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="na">start</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="c1">// Last 24 hours</span>
+          <span class="na">end</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+        <span class="p">};</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getKPIReport</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">timeRange</span><span class="p">);</span>
+      <span class="p">})</span>
+    <span class="p">);</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateDashboardId</span><span class="p">(),</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">KPI Dashboard</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">reports</span><span class="p">:</span> <span class="nx">kpiReports</span><span class="p">,</span>
+      <span class="na">summary</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateKPISummary</span><span class="p">(</span><span class="nx">kpiReports</span><span class="p">),</span>
+      <span class="na">generatedAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">KPIDefinition</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">description</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">unit</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">category</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">calculationMethod</span><span class="p">:</span> <span class="dl">'</span><span class="s1">sum</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">average</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">count</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">rate</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">custom</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nl">thresholds</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="nx">warning</span><span class="p">?:</span> <span class="p">{</span> <span class="nx">min</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span> <span class="nl">max</span><span class="p">?:</span> <span class="kr">number</span> <span class="p">};</span>
+    <span class="nl">critical</span><span class="p">?:</span> <span class="p">{</span> <span class="nx">min</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span> <span class="nl">max</span><span class="p">?:</span> <span class="kr">number</span> <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="nl">aggregationPeriod</span><span class="p">:</span> <span class="dl">'</span><span class="s1">minute</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">hour</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">day</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">week</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">month</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">KPI</span> <span class="kd">extends</span> <span class="nx">KPIDefinition</span> <span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">createdAt</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+  <span class="nl">lastUpdated</span><span class="p">?:</span> <span class="nb">Date</span><span class="p">;</span>
+  <span class="nl">values</span><span class="p">:</span> <span class="nx">KPIValue</span><span class="p">[];</span>
+  <span class="nl">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">active</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">inactive</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">deprecated</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="real-time-dashboards">Real-time Dashboards</h2>
+
+<h3 id="live-dashboard-system">Live Dashboard System</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// utils/live-dashboard.ts</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">LiveDashboard</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">websocketServer</span><span class="p">:</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">Server</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">dashboardClients</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nb">Set</span><span class="o">&lt;</span><span class="nx">WebSocket</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+  <span class="k">private</span> <span class="nx">dashboardData</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">any</span><span class="o">&gt;</span><span class="p">();</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setupWebSocketServer</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">startDataRefreshLoop</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">setupWebSocketServer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">websocketServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">Server</span><span class="p">({</span> 
+      <span class="na">port</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DASHBOARD_WS_PORT</span> <span class="o">||</span> <span class="mi">8080</span> 
+    <span class="p">});</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">websocketServer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">connection</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">ws</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">dashboardId</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">extractDashboardId</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dashboardId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="mi">1008</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Invalid dashboard ID</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+      
+      <span class="k">this</span><span class="p">.</span><span class="nx">addClient</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">,</span> <span class="nx">ws</span><span class="p">);</span>
+      
+      <span class="c1">// Send current data immediately</span>
+      <span class="kd">const</span> <span class="nx">currentData</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dashboardData</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">currentData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+          <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">data_update</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">data</span><span class="p">:</span> <span class="nx">currentData</span>
+        <span class="p">}));</span>
+      <span class="p">}</span>
+      
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">close</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">removeClient</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">,</span> <span class="nx">ws</span><span class="p">);</span>
+      <span class="p">});</span>
+      
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">handleClientMessage</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">,</span> <span class="nx">ws</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">startDataRefreshLoop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">setInterval</span><span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">dashboardId</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">dashboardClients</span><span class="p">.</span><span class="nx">keys</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+          <span class="kd">const</span> <span class="nx">newData</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">fetchDashboardData</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">);</span>
+          <span class="kd">const</span> <span class="nx">currentData</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dashboardData</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">);</span>
+          
+          <span class="c1">// Only broadcast if data has changed</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isDataEqual</span><span class="p">(</span><span class="nx">currentData</span><span class="p">,</span> <span class="nx">newData</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">dashboardData</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">,</span> <span class="nx">newData</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">broadcastToClients</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">,</span> <span class="p">{</span>
+              <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">data_update</span><span class="dl">'</span><span class="p">,</span>
+              <span class="na">data</span><span class="p">:</span> <span class="nx">newData</span><span class="p">,</span>
+              <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+            <span class="p">});</span>
+          <span class="p">}</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">`Failed to refresh dashboard </span><span class="p">${</span><span class="nx">dashboardId</span><span class="p">}</span><span class="s2">:`</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">broadcastToClients</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">,</span> <span class="p">{</span>
+            <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Failed to refresh dashboard data</span><span class="dl">'</span>
+          <span class="p">});</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="mi">5000</span><span class="p">);</span> <span class="c1">// Refresh every 5 seconds</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">createRealtimeDashboard</span><span class="p">(</span><span class="nx">config</span><span class="p">:</span> <span class="nx">DashboardConfig</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">RealtimeDashboard</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="na">dashboard</span><span class="p">:</span> <span class="nx">RealtimeDashboard</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">generateDashboardId</span><span class="p">(),</span>
+      <span class="na">name</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="na">widgets</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">createDashboardWidgets</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">widgets</span><span class="p">),</span>
+      <span class="na">refreshInterval</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">refreshInterval</span> <span class="o">||</span> <span class="mi">5000</span><span class="p">,</span>
+      <span class="na">filters</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">filters</span> <span class="o">||</span> <span class="p">{},</span>
+      <span class="na">layout</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">layout</span><span class="p">,</span>
+      <span class="na">permissions</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">permissions</span><span class="p">,</span>
+      <span class="na">createdAt</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">};</span>
+    
+    <span class="c1">// Initialize data for this dashboard</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dashboardData</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">dashboard</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">{});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dashboardClients</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">dashboard</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">());</span>
+    
+    <span class="k">return</span> <span class="nx">dashboard</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="k">async</span> <span class="nx">fetchDashboardData</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// This would fetch real-time data based on dashboard configuration</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">systemMetrics</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getSystemMetrics</span><span class="p">(),</span>
+      <span class="na">applicationMetrics</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getApplicationMetrics</span><span class="p">(),</span>
+      <span class="na">businessMetrics</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getBusinessMetrics</span><span class="p">(),</span>
+      <span class="na">alerts</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getActiveAlerts</span><span class="p">(),</span>
+      <span class="na">logs</span><span class="p">:</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">getRecentLogs</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="p">};</span>
+    
+    <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">private</span> <span class="nx">broadcastToClients</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">message</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">clients</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dashboardClients</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">dashboardId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">clients</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">messageString</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    
+    <span class="nx">clients</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">client</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">OPEN</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">messageString</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="k">async</span> <span class="nx">getSystemHealth</span><span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">SystemHealthStatus</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span>
+      <span class="nx">cpuUsage</span><span class="p">,</span>
+      <span class="nx">memoryUsage</span><span class="p">,</span>
+      <span class="nx">diskUsage</span><span class="p">,</span>
+      <span class="nx">networkStats</span><span class="p">,</span>
+      <span class="nx">serviceStatus</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getCPUUsage</span><span class="p">(),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getMemoryUsage</span><span class="p">(),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getDiskUsage</span><span class="p">(),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getNetworkStats</span><span class="p">(),</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getServiceStatus</span><span class="p">()</span>
+    <span class="p">]);</span>
+    
+    <span class="kd">const</span> <span class="nx">overallHealth</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">calculateOverallHealth</span><span class="p">({</span>
+      <span class="nx">cpuUsage</span><span class="p">,</span>
+      <span class="nx">memoryUsage</span><span class="p">,</span>
+      <span class="nx">diskUsage</span><span class="p">,</span>
+      <span class="nx">networkStats</span><span class="p">,</span>
+      <span class="nx">serviceStatus</span>
+    <span class="p">});</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">overall</span><span class="p">:</span> <span class="nx">overallHealth</span><span class="p">,</span>
+      <span class="na">cpu</span><span class="p">:</span> <span class="nx">cpuUsage</span><span class="p">,</span>
+      <span class="na">memory</span><span class="p">:</span> <span class="nx">memoryUsage</span><span class="p">,</span>
+      <span class="na">disk</span><span class="p">:</span> <span class="nx">diskUsage</span><span class="p">,</span>
+      <span class="na">network</span><span class="p">:</span> <span class="nx">networkStats</span><span class="p">,</span>
+      <span class="na">services</span><span class="p">:</span> <span class="nx">serviceStatus</span><span class="p">,</span>
+      <span class="na">timestamp</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">RealtimeDashboard</span> <span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">widgets</span><span class="p">:</span> <span class="nx">DashboardWidget</span><span class="p">[];</span>
+  <span class="nl">refreshInterval</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">filters</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="nl">layout</span><span class="p">:</span> <span class="nx">DashboardLayout</span><span class="p">;</span>
+  <span class="nl">permissions</span><span class="p">:</span> <span class="nx">DashboardPermissions</span><span class="p">;</span>
+  <span class="nl">createdAt</span><span class="p">:</span> <span class="nb">Date</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="monitoring-strategy">Monitoring Strategy</h3>
+
+<ol>
+  <li><strong>Define Clear SLIs/SLOs</strong>: Establish service level indicators and objectives</li>
+  <li><strong>Monitor User Experience</strong>: Track real user metrics, not just synthetic tests</li>
+  <li><strong>Alert on Symptoms</strong>: Alert on user-facing issues, not just system metrics</li>
+  <li><strong>Reduce Alert Fatigue</strong>: Implement smart alerting with proper thresholds</li>
+  <li><strong>Regular Review</strong>: Periodically review and update monitoring strategies</li>
+</ol>
+
+<h3 id="performance-optimization">Performance Optimization</h3>
+
+<ol>
+  <li><strong>Collect Meaningful Metrics</strong>: Focus on metrics that drive business decisions</li>
+  <li><strong>Implement Distributed Tracing</strong>: Track requests across service boundaries</li>
+  <li><strong>Use Sampling</strong>: Sample high-volume events to reduce monitoring overhead</li>
+  <li><strong>Archive Old Data</strong>: Implement data retention policies for cost management</li>
+</ol>
+
+<h3 id="security-and-privacy">Security and Privacy</h3>
+
+<ol>
+  <li><strong>Sanitize Logs</strong>: Remove sensitive data from logs and metrics</li>
+  <li><strong>Access Control</strong>: Implement proper access controls for monitoring data</li>
+  <li><strong>Data Encryption</strong>: Encrypt monitoring data in transit and at rest</li>
+  <li><strong>Compliance</strong>: Ensure monitoring practices comply with regulations</li>
+</ol>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="environments.md">← Back to Multi-environment Setup</a></td>
+      <td><a href="/advanced/">Back to Advanced Topics</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </article>
+  </div>
+</div>
+  </main><footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="" target="_blank" style="margin: 0 1rem;">GitHub</a>
+      <a href="/getting-started" style="margin: 0 1rem;">Documentation</a>
+      <a href="/examples" style="margin: 0 1rem;">Examples</a>
+    </div>
+    <p>&copy; 2025 ACE-Flow Documentation. Built with Jekyll and hosted on GitHub Pages.</p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">Amplified Context Engineering for AWS Amplify Gen 2 development by <a href="https://www.paretofilm.no" target="_blank" style="color: var(--accent-primary); text-decoration: none;">Pareto Film AS</a></p>
+  </div>
+</footer><script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>
