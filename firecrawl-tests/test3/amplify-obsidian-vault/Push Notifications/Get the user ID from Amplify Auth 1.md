@@ -1,0 +1,36 @@
+---
+title: Get the user ID from Amplify Auth
+topics: ['Push Notifications']
+primary_topic: Push Notifications
+source: fragments/lib/push-notifications/common/identify-user.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, push-notifications]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Push Notifications/]]
+**Primary**: [[Push Notifications/]]
+
+---
+
+
+# Get the user ID from Amplify Auth
+
+This call identifies the current user (which could be unauthenticated or authenticated) to Amazon Pinpoint. The user ID can be any string which identifies the user in the context of your application.
+
+## Get the user ID from Amplify Auth
+
+## Identify the user to Amazon Pinpoint
+
+Once you have a string that identifies the current user (either from the Auth category as shown above or through your own application logic), you can identify the user to Amazon Pinpoint with the following:
+
+
+---
+
+## 📚 Related Topics
+- [[Push Notifications/]]
+
+## 📖 Source
+Original: `fragments/lib/push-notifications/common/identify-user.mdx`

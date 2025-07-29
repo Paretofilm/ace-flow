@@ -1,0 +1,15 @@
+---
+title: outboxMutationEnqueued
+source: fragments/lib/datastore/native_common/datastore-events/outbox-mutation-enqueued.mdx
+---
+
+# outboxMutationEnqueued
+
+## outboxMutationEnqueued
+
+Dispatched when a local change has been newly staged for synchronization with the Cloud
+
+HubPayload `outboxMutationEvent` contains:
+- `modelName` (String): the name of the model that is awaiting publication to the Cloud
+- `element`: 
+    - `model` (Model): the model instance that will be published

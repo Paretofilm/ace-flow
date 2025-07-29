@@ -1,0 +1,87 @@
+{
+  "lastUpdated": "2025-01-28T10:00:00Z",
+  "updateFrequency": "weekly",
+  "source": "AWS Amplify Gen 2 Documentation",
+  "compatibilityMatrix": {
+    "amplifyGen2": {
+      "2.2.0": {
+        "minNextJs": "14.1.4",
+        "maxNextJs": "14.2.x",
+        "recommendedNextJs": "14.2.16",
+        "notes": "Full App Router support, Server Components compatible",
+        "knownIssues": []
+      },
+      "2.1.0": {
+        "minNextJs": "14.0.0",
+        "maxNextJs": "14.2.x",
+        "recommendedNextJs": "14.1.4",
+        "notes": "Stable App Router support",
+        "knownIssues": ["SSR hydration warnings with 14.0.0-14.0.3"]
+      },
+      "2.0.0": {
+        "minNextJs": "13.5.0",
+        "maxNextJs": "14.1.x",
+        "recommendedNextJs": "14.0.4",
+        "notes": "Initial Gen 2 release",
+        "knownIssues": ["App Router experimental with 13.x"]
+      }
+    }
+  },
+  "dependencies": {
+    "required": {
+      "@aws-amplify/backend": "^1.5.0",
+      "@aws-amplify/backend-cli": "^1.4.0",
+      "aws-amplify": "^6.8.0"
+    },
+    "peerDependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+      "@types/node": "^20.0.0",
+      "@types/react": "^18.2.0",
+      "@types/react-dom": "^18.2.0"
+    }
+  },
+  "features": {
+    "appRouter": {
+      "minVersion": "13.4.0",
+      "stableVersion": "14.0.0",
+      "amplifySupport": "full"
+    },
+    "serverComponents": {
+      "minVersion": "13.0.0",
+      "stableVersion": "14.0.0",
+      "amplifySupport": "partial",
+      "notes": "Client components required for auth UI"
+    },
+    "middleware": {
+      "minVersion": "12.0.0",
+      "amplifySupport": "full",
+      "notes": "Edge runtime compatible"
+    },
+    "imageOptimization": {
+      "minVersion": "10.0.0",
+      "amplifySupport": "full",
+      "notes": "Works with Amplify Storage"
+    }
+  },
+  "breakingChanges": [
+    {
+      "version": "14.0.0",
+      "changes": ["App Router stable", "Turbopack beta"],
+      "migration": "Update routing patterns"
+    },
+    {
+      "version": "13.0.0", 
+      "changes": ["App directory", "React Server Components"],
+      "migration": "Gradual adoption possible"
+    }
+  ],
+  "verificationEndpoints": {
+    "amplify": "https://docs.amplify.aws/nextjs/start/quickstart/",
+    "nextjs": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "npm": "https://registry.npmjs.org/-/package/next/dist-tags"
+  }
+}

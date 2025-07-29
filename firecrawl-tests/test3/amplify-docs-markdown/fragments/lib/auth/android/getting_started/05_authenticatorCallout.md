@@ -1,0 +1,12 @@
+---
+title: Documentation
+source: fragments/lib/auth/android/getting_started/05_authenticatorCallout.mdx
+---
+
+# Documentation
+
+> **Note**: 
+
+**New**: The Authenticator UI component for Android via Jetpack Compose is now generally available! 
+
+Once you've gone through the steps below, you can use it to automatically [add authentication capabilities to your application](#option-1-use-the-authenticator-ui-component).

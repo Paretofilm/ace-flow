@@ -1,0 +1,19 @@
+{
+  "name": "Claude Code Documentation",
+  "version": "latest",
+  "type": "tool_documentation",
+  "scrape_date": "2025-01-28",
+  "source_url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+  "total_pages": 8,
+  "sections": [
+    "overview",
+    "quickstart",
+    "setup",
+    "cli-reference",
+    "settings",
+    "common-workflows",
+    "mcp"
+  ],
+  "last_updated": "2025-01-28",
+  "notes": "Official Claude Code documentation from Anthropic. Includes CLI usage, configuration, and MCP integration."
+}

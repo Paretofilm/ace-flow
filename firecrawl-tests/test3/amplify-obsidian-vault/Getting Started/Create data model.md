@@ -1,0 +1,114 @@
+---
+title: Create data model
+topics: ['Getting Started']
+primary_topic: Getting Started
+source: fragments/start/getting-started/flutter/generate-model.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Getting Started/]]
+**Primary**: [[Getting Started/]]
+
+---
+
+
+# Create data model
+
+With the basic setup complete, you can now model the data your application will work with. These models are specified as GraphQL schemas. You can [learn more](/gen1/[platform]/build-a-backend/graphqlapi/) about GraphQL schemas and data modeling. We can start by creating the budget management data model.
+
+## Create data model
+
+> Make sure you have followed the steps in the [Prerequisites](/gen1/[platform]/start/getting-started/installation/) section and have the Amplify CLI installed and configured.
+
+1. In the console, navigate to your project's root.
+2. Run `amplify init` to initialize your Amplify project.
+3. Enter a name for your project and proceed through the remaining steps. Most of the defaults should be correct for you.
+
+```console
+$ amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Enter a name for the project <project-name>
+The following configuration will be applied:
+
+Project information
+| Name: <project-name>
+| Environment: dev
+| Default editor: Visual Studio Code
+| App type: flutter
+| Configuration file location: ./lib/
+
+? Initialize the project with the above configuration? Yes
+Using default provider  awscloudformation
+? Select the authentication method you want to use: AWS profile
+
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+
+? Please choose the profile you want to use default
+```
+
+After a minute or so, your project will be initialized and you should see the following message printed to the console:
+
+```console
+Deployment state saved successfully.
+✔ Initialized provider successfully.
+✅ Initialized your environment successfully.
+
+Your project has been successfully initialized and connected to the cloud!
+
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify add <category>" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify console" to open the Amplify Console and view your project status
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify push" to deploy everything
+```
+
+4. Now, we can run `amplify add api` to create the data model.
+
+   - For the first prompt, select **GraphQL**
+   - Highlight **Authorization modes** and press ``. Change it to **Amazon Cognito User Pool**.
+   - Select **Default configuration**, **Username**, then **No, I am done.**
+   - Enter `N` when prompted to **Configure additional auth types**
+   - Select **Continue**
+   - For your schema template, choose **Blank Schema**
+   - When prompted to edit the schema, enter `Y`
+
+   Your `schema.graphql` file will open. Replace its contents with the following:
+
+```graphql
+type BudgetEntry @model @auth(rules: []) 
+```
+
+5. Save the file.
+6. Back in the console, run `amplify push -y`.
+
+   Your project will start deploying to AWS. This is a good time to relax and grab a cup of coffee. After a few minutes, you should see the following:
+
+```console
+Deployment state saved successfully.
+
+GraphQL endpoint: 
+
+GraphQL transformer version: 2
+```
+
+7. Finally, run `amplify codegen models` to generate Dart files which enable interacting with the GraphQL schema in a type-safe manner.
+
+Congratulations! You have deployed your first Amplify backend 🎉 You're ready to integrate with the app!
+
+
+---
+
+## 📚 Related Topics
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/start/getting-started/flutter/generate-model.mdx`

@@ -1,0 +1,17 @@
+---
+title: Documentation
+source: fragments/lib-v1/restapi/flutter/getting-started/20_installLib.mdx
+---
+
+# Documentation
+
+Add the following dependencies to your `pubspec.yaml` file and install dependencies when asked. Please keep in mind that Auth plugin is needed for IAM authorization mode, which is default for REST API:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  amplify_flutter: ^1.0.0
+  amplify_api: ^1.0.0
+  amplify_auth_cognito: ^1.0.0
+```

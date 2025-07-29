@@ -1,0 +1,22 @@
+---
+title: Documentation
+source: fragments/lib/analytics/ios/record-event-code.mdx
+---
+
+# Documentation
+
+```swift
+let properties: AnalyticsProperties = [
+    "eventPropertyStringKey": "eventPropertyStringValue",
+    "eventPropertyIntKey": 123,
+    "eventPropertyDoubleKey": 12.34,
+    "eventPropertyBoolKey": true
+]
+
+let event = BasicAnalyticsEvent(
+    name: "eventName",
+    properties: properties
+)
+
+Amplify.Analytics.record(event: event)
+```

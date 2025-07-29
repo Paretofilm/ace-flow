@@ -1,0 +1,10 @@
+---
+title: Documentation
+source: fragments/lib/android-kotlin-java-interop.mdx
+---
+
+# Documentation
+
+> **Note**: 
+
+Learn more about consuming Kotlin clients from Java using either a blocking interface or an equivalent async interface based on futures [here](https://github.com/awslabs/smithy-kotlin/blob/main/docs/design/kotlin-smithy-sdk.md#java-interop).

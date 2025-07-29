@@ -1,0 +1,110 @@
+---
+title: Configurable validation rules
+topics: ['General']
+primary_topic: General
+source: pages/build-ui/formbuilder/validations/index.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Configurable validation rules
+
+Sanitize user input by adding validation rules to your form. By default, Amplify generated forms infers a range of validation rules based on the data model. For example, given a data model with an `AWSEmail` field, the generated form input will automatically run an email validation rule.
+
+## Configurable validation rules
+
+By default, the following validation rules are available for you to configure:
+
+| Input type | Configurable validation rule |
+| --- | --- |
+| `String` | - Start With <br/> - End With <br/> - Contain <br/> - Does not contain <br/> - Be less than N characters long <br/> - Be at least N characters long <br/> |
+| `Int`, `Float` | - Be greater than <br/> - Be less than <br/> - Be equal to <br/> |
+| `AWSDate`, `AWSTime`, `AWSDateTime` | - Be before <br/> - Be after <br/> |
+
+### Automatically configured validation rules
+
+For the types below, we automatically apply validation rules on form inputs:
+
+- `AWSIPAddress`: input value must be a valid IPv4 or IPv6 address.
+- `AWSURL`: input value must consist of a schema (`http`, `mailto`) and a path part. Path part can't contain two forward slashes (//).
+- `AWSEmail`: input value must be an email address in the format `<local-part>@<domain-part>`.
+- `AWSJSON`: input value must be a valid JSON.
+- `AWSPhone`: input value must be a phone number that can contain either spaces or hyphens to separate digit groups.
+
+## Add validation rules
+
+Every form provides an `onValidate` event handler to provide additional validation rules via code. Return an object with validation functions for the fields you want to validate. In the example below, `address` must start with a number, otherwise return any existing auto-generated validation responses.
+
+```jsx
+ ;
+      }
+      return validationResponse;
+    }
+  }}
+/>
+```
+
+**Note:** the validation function must return a validation response of the following shape:
+
+```ts
+type ValidationResponse = ;
+```
+
+### Add validation rules for nested JSON data
+
+Amplify generated forms can also produce nested JSON object. For example, you can create a new `ProductForm` component based on the following JSON object:
+
+```json
+
+}
+```
+
+To add validation rules to the nested objects, pass in validation functions in the same nested structure as the data:
+
+```js
+ ;
+        }
+        return validationResponse;
+      }
+    }
+  }}
+  onSubmit=
+/>
+```
+
+### Call external APIs for asynchronous form validation
+
+Sometimes your form needs to asynchronously validate an input with an external API or database before the form data is submitted.
+
+Return a Promise in the `onValidate` prop to run an asynchronous validation rule. In the following example, we check with an external API if a real estate agent exist based on a given license number:
+
+```jsx
+ `).then(
+        (response) => ;
+          }
+          return validationResponse;
+        }
+      );
+    }
+  }}
+  onSubmit=
+/>
+```
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `pages/build-ui/formbuilder/validations/index.mdx`

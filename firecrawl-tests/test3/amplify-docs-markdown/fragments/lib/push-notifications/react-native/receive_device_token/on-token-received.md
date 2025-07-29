@@ -1,0 +1,30 @@
+---
+title: Documentation
+source: fragments/lib/push-notifications/react-native/receive_device_token/on-token-received.mdx
+---
+
+# Documentation
+
+```ts
+import  from 'aws-amplify/push-notifications';
+
+const myTokenReceivedHandler: OnTokenReceivedInput = (token) => ;
+
+const listener: OnTokenReceivedOutput = onTokenReceived(myTokenReceivedHandler);
+
+listener.remove(); // Remember to remove the listener when it is no longer needed
+```
+
+</Block>
+
+```js
+
+const myTokenReceivedHandler = (token) => ;
+
+const listener = onTokenReceived(myTokenReceivedHandler);
+
+listener.remove(); // Remember to remove the listener when it is no longer needed
+```
+
+</Block>
+</BlockSwitcher>

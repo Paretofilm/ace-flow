@@ -1,0 +1,58 @@
+---
+title: Update Info.plist
+topics: ['Authentication']
+primary_topic: Authentication
+source: fragments/lib-v1/auth/ios/signin_web_ui/20_platform_specific_setup.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, authentication]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Authentication/]]
+**Primary**: [[Authentication/]]
+
+---
+
+
+# Update Info.plist
+
+## Update Info.plist
+
+Signin with web UI require the Amplify plugin to show up the signin UI inside a webview. After the signin process is complete it will redirect back to your app. 
+You have to enable this in your app's `Info.plist`. Right click Info.plist and then choose Open As > Source Code. Add the following entry in the URL scheme:
+
+```xml
+
+ <plist version="1.0">
+
+     <dict>
+     <!-- YOUR OTHER PLIST ENTRIES HERE -->
+
+     <!-- ADD AN ENTRY TO CFBundleURLTypes for Cognito Auth -->
+     <!-- IF YOU DO NOT HAVE CFBundleURLTypes, YOU CAN COPY THE WHOLE BLOCK BELOW -->
+     <key>CFBundleURLTypes</key>
+     <array>
+         <dict>
+             <key>CFBundleURLSchemes</key>
+             <array>
+                 <string>myapp</string>
+             </array>
+         </dict>
+     </array>
+
+     <!-- ... -->
+     </dict>
+```
+
+When creating a new SwiftUI app using Xcode 13 no longer require configuration files such as the Info.plist. If you are missing this file, click on the project target, under Info, Url Types, and click '+' to add a new URL Type. Add `myapp` to the URL Schemes. You should see the Info.plist file now with the entry for CFBundleURLSchemes.
+
+
+---
+
+## 📚 Related Topics
+- [[Authentication/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/auth/ios/signin_web_ui/20_platform_specific_setup.mdx`

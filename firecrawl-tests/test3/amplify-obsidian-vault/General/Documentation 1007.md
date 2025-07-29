@@ -1,0 +1,54 @@
+---
+title: Documentation
+topics: ['General']
+primary_topic: General
+source: fragments/lib/project-setup/android/create-application/20_gradle.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Documentation
+
+Amplify for Android is distributed as Apache Maven packages. In this section, you'll add the packages and other required directives to your build configuration.
+
+Under **Gradle Scripts**, open **build.gradle (Module :app)**.
+
+Add the following lines:
+
+```groovy
+android 
+}
+
+dependencies 
+```
+
+- Set `coreLibraryDesugaringEnabled`, `sourceCompatibility`, and `targetCompatibility` to allow your application to make use of Java 8 features like Lambda expressions
+- Add Amplify Core and Desugaring libraries to the `dependencies` block
+
+Run **Gradle Sync**
+
+Android Studio requires you to sync your project with your new configuration. To do this, click **Sync Now** in the notification bar above the file editor.
+
+![Screenshot with an arrow pointing to the Sync Now button in the file's notification bar](/images/lib/getting-started/android/set-up-android-studio-sync-gradle.png)
+
+When complete, you will see *CONFIGURE SUCCESSFUL* in the output in the *Build* tab at the bottom of your screen.
+
+![Shows Android studio gradle sync successful](/images/lib/getting-started/android/set-up-android-studio-configure-successful.png)
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib/project-setup/android/create-application/20_gradle.mdx`

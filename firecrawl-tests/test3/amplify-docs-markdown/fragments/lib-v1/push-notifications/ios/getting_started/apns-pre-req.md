@@ -1,0 +1,12 @@
+---
+title: Documentation
+source: fragments/lib-v1/push-notifications/ios/getting_started/apns-pre-req.mdx
+---
+
+# Documentation
+
+Push Notifications are delivered via the Apple Push Notification service (APNs). In order to use APNs, you need to setup credentials (keys or certificates) and export your credentials to a p12 file. See [Setting up push notification services](/gen1/[platform]/prev/build-a-backend/push-notifications/set-up-push-service/) for more information.
+
+> **Note**: 
+
+Testing with APNs on the iOS simulator requires an Apple Silicon Mac running macOS 13+, Xcode 14+, and iOS simulator 16+. If your development environment does not meet all these requirements, then you must run on a real device to get an APNs token.

@@ -1,0 +1,83 @@
+---
+title: Working with the API
+topics: ['General']
+primary_topic: General
+source: fragments/lib/predictions/ios/translate.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Working with the API
+
+If you haven't already done so, run `amplify init` inside your project and then `amplify add auth` (we recommend selecting the *default configuration*).
+
+Run `amplify add predictions`, then use the following answers:
+
+```console
+? Please select from one of the categories below
+  Identify
+❯ Convert
+  Interpret
+  Infer
+  Learn More
+  
+? What would you like to convert? (Use arrow keys)
+❯ Translate text into a different language
+  Generate speech audio from text
+  Transcribe text from audio
+
+? Provide a friendly name for your resource
+
+? What is the source language? (Use arrow keys)
+
+? What is the target language? (Use arrow keys)
+
+? Who should have access?
+  Auth users only
+❯ Auth and Guest users
+
+```
+
+Run `amplify push` to create the resources in the cloud
+
+## Working with the API
+
+Here is an example of translating text. In order to override any choices you made in regards to target or source languages while adding this resource using the Amplify CLI, you can pass in them in directly as parameters as shown below.
+
+```swift
+func translateText(text: String) async throws -> String  catch let error as PredictionsError  catch 
+}
+```
+
+</Block>
+
+```swift
+func translateText(text: String) -> AnyCancellable 
+    .sink(receiveCompletion: 
+    }, receiveValue: )
+}
+```
+
+</Block>
+
+</BlockSwitcher>
+
+As a result of running this code, you will see the translated text printed to the console.
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib/predictions/ios/translate.mdx`

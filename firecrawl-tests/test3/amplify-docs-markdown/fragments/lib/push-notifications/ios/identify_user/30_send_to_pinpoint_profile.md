@@ -1,0 +1,22 @@
+---
+title: Documentation
+source: fragments/lib/push-notifications/ios/identify_user/30_send_to_pinpoint_profile.mdx
+---
+
+# Documentation
+
+Alternatively, you can provide additional information about the user by passing a user profile:
+
+```swift
+let userProfile = BasicUserProfile(
+    name: "Name",
+    customProperties: [
+        "attribute": "value"
+    ]
+)
+
+try await Amplify.Notifications.Push.identifyUser(
+    userId: user,
+    userProfile: userProfile
+)
+```

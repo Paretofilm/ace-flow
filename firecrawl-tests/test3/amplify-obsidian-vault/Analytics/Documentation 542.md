@@ -1,0 +1,52 @@
+---
+title: Documentation
+topics: ['Analytics']
+primary_topic: Analytics
+source: fragments/lib-v1/analytics/ios/identifyuser.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, analytics]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Analytics/]]
+**Primary**: [[Analytics/]]
+
+---
+
+
+# Documentation
+
+This call sends information that you have specified about the user to Amazon Pinpoint. This could be an authenticated user. If the user is signed in through [Amplify.Auth.signIn](/gen1/[platform]/prev/build-a-backend/auth/enable-sign-in/), then you can retrieve the current user and use it with Analytics. You can also provide location information in `AnalyticsUserProfile.Location`.
+
+```swift
+func identifyUser() 
+
+    let location = AnalyticsUserProfile.Location(latitude: 47.606209,
+                                                 longitude: -122.332069,
+                                                 postalCode: "98122",
+                                                 city: "Seattle",
+                                                 region: "WA",
+                                                 country: "USA")
+
+    let properties: AnalyticsProperties = ["phoneNumber": "+11234567890", "age": 25]
+
+    let userProfile = AnalyticsUserProfile(name: username,
+                                           email: "name@example.com",
+                                           location: location,
+                                           properties: properties)
+
+    Amplify.Analytics.identifyUser(user.userId, withProfile: userProfile)
+
+}
+```
+
+
+---
+
+## 📚 Related Topics
+- [[Analytics/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/analytics/ios/identifyuser.mdx`

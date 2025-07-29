@@ -1,0 +1,42 @@
+---
+title: Documentation
+topics: ['General']
+primary_topic: General
+source: fragments/lib/ios-prereq-category.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Documentation
+
+An application with Amplify libraries integrated and a minimum target of any of the following:
+- **iOS 13.0**, using **Xcode 14.1** or later.
+- **macOS 10.15**, using **Xcode 14.1** or later.
+- **tvOS 13.0**, using **Xcode 14.3** or later.
+- **watchOS 9.0**, using **Xcode 14.3** or later.
+- **visionOS 1.0**, using **Xcode 15** or later. (Preview support - see below for more details.)
+
+For a full example, please follow the [project setup walkthrough](/gen1/[platform]/start/project-setup/prerequisites/).
+
+> **Note**: 
+
+visionOS support is currently in **preview** and can be used by using the latest [Amplify Release](https://github.com/aws-amplify/amplify-swift/releases). 
+As new Xcode and visionOS versions are released, the support will be updated with any necessary fixes on a best effort basis.
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib/ios-prereq-category.mdx`

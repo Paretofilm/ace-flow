@@ -1,0 +1,92 @@
+---
+title: Documentation
+topics: ['File Storage', 'Getting Started']
+primary_topic: File Storage
+source: fragments/lib-v1/storage/ios/getting-started/30_initStorage.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, file-storage, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[File Storage/]] • [[Getting Started/]]
+**Primary**: [[File Storage/]]
+
+---
+
+
+# Documentation
+
+To initialize the Amplify Storage and Authentication categories, you are required to use the `Amplify.add()` method for each category you want.  When you are done calling `add()` on each category, you finish configuring Amplify by calling `Amplify.configure()`.
+
+**Add the following imports** to the top of your `AppDelegate.swift` file:
+
+```swift
+import Amplify
+import AWSS3StoragePlugin
+```
+
+</Block>
+
+```swift
+import Amplify
+import AmplifyPlugins
+```
+
+</Block>
+
+</BlockSwitcher>
+
+**Add the following code**
+
+Create a custom `AppDelegate`, and add to your `application:didFinishLaunchingWithOptions` method
+```swift
+class AppDelegate: NSObject, UIApplicationDelegate  catch 
+
+        return true
+    }
+}
+```
+
+Then in the `App` scene, use `UIApplicationDelegateAdaptor` property wrapper to use your custom `AppDelegate`
+```swift
+@main
+struct MyAmplifyApp: App 
+    }
+}
+```
+
+</Block>
+
+Add to your AppDelegate's `application:didFinishLaunchingWithOptions` method
+
+```swift
+func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+) -> Bool  catch 
+
+    return true
+}
+```
+
+</Block>
+
+</BlockSwitcher>
+
+Upon building and running this application you should see the following in your console window:
+
+```console
+Amplify configured with storage plugin
+```
+
+
+---
+
+## 📚 Related Topics
+- [[File Storage/]]
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/storage/ios/getting-started/30_initStorage.mdx`

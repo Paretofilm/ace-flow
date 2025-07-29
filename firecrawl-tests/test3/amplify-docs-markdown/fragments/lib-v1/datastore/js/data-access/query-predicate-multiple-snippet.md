@@ -1,0 +1,15 @@
+---
+title: Documentation
+source: fragments/lib-v1/datastore/js/data-access/query-predicate-multiple-snippet.mdx
+---
+
+# Documentation
+
+When using multiple conditions, you can wrap the predicates with the `and` operator. For example with multiple conditions:
+
+```js
+const posts = await DataStore.query(Post, (c) => c.and(c => [
+  c.rating.gt(4),
+  c.status.eq(PostStatus.ACTIVE)
+]));
+```

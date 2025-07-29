@@ -1,0 +1,8 @@
+---
+title: Documentation
+source: fragments/lib/storage/flutter/path-provider.mdx
+---
+
+# Documentation
+
+Here you use the [path_provider](https://pub.dev/packages/path_provider) package to get a directory where you can create a temporary file for uploading.

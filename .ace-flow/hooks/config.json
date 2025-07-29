@@ -1,0 +1,118 @@
+{
+  "hooks": {
+    "onFileSave": {
+      "enabled": true,
+      "patterns": {
+        "**/*.ts": ["validate-typescript", "fix-imports"],
+        "**/*.tsx": ["validate-typescript", "validate-react", "check-accessibility"],
+        "**/amplify/**/*.ts": ["validate-amplify-syntax", "fix-amplify-patterns"],
+        "**/data/resource.ts": ["validate-schema", "check-authorization"],
+        "**/*.test.ts": ["validate-test-patterns"],
+        "**/*.spec.ts": ["validate-e2e-patterns"]
+      },
+      "timeout": 5000
+    },
+    "preCommit": {
+      "enabled": true,
+      "commands": [
+        {
+          "name": "lint",
+          "command": "npm run lint:fix",
+          "continueOnError": false
+        },
+        {
+          "name": "type-check",
+          "command": "npm run type-check",
+          "continueOnError": false
+        },
+        {
+          "name": "test",
+          "command": "npm test -- --run --passWithNoTests",
+          "continueOnError": true
+        },
+        {
+          "name": "validate-specs",
+          "command": "node .ace-flow/hooks/scripts/validate-specs.js",
+          "continueOnError": false
+        }
+      ],
+      "timeout": 30000
+    },
+    "postDeploy": {
+      "enabled": true,
+      "validations": [
+        {
+          "name": "api-health",
+          "endpoint": "${API_URL}/health",
+          "expectedStatus": 200
+        },
+        {
+          "name": "auth-flow",
+          "script": "validate-auth-deployment"
+        },
+        {
+          "name": "real-time",
+          "script": "test-subscriptions"
+        }
+      ],
+      "notifications": {
+        "success": "Deployment validation passed ✅",
+        "failure": "Deployment validation failed ❌"
+      }
+    },
+    "errorRecovery": {
+      "enabled": true,
+      "autoFix": true,
+      "patterns": [
+        {
+          "error": "Cannot find module 'aws-amplify/data'",
+          "fix": "install-amplify-packages"
+        },
+        {
+          "error": "Property .* does not exist on type",
+          "fix": "regenerate-types"
+        },
+        {
+          "error": "DataStore is deprecated",
+          "fix": "migrate-to-client"
+        },
+        {
+          "error": "auth rules .* deprecated",
+          "fix": "update-authorization-syntax"
+        }
+      ],
+      "maxRetries": 3
+    },
+    "onChange": {
+      "enabled": true,
+      "watchers": [
+        {
+          "pattern": "**/amplify/data/resource.ts",
+          "action": "regenerate-graphql-types"
+        },
+        {
+          "pattern": "**/amplify/auth/resource.ts",
+          "action": "update-auth-config"
+        },
+        {
+          "pattern": "**/.env*",
+          "action": "validate-env-vars"
+        }
+      ]
+    }
+  },
+  "settings": {
+    "parallelExecution": true,
+    "showProgress": true,
+    "logLevel": "info",
+    "cacheDuration": 300000,
+    "disableInCI": false,
+    "customHooksPath": ".ace-flow/hooks/custom"
+  },
+  "metrics": {
+    "enabled": true,
+    "trackPerformance": true,
+    "reportInterval": "daily",
+    "metricsPath": ".ace-flow/hooks/metrics.json"
+  }
+}

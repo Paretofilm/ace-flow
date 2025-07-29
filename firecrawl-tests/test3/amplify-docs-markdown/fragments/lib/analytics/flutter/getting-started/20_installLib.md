@@ -1,0 +1,19 @@
+---
+title: Documentation
+source: fragments/lib/analytics/flutter/getting-started/20_installLib.mdx
+---
+
+# Documentation
+
+In your Flutter project directory, open **pubspec.yaml**.
+
+> You will already have configured Amplify by following the steps in the project setup.
+
+Add Analytics by adding these libraries into your dependencies block:
+
+```yaml
+dependencies:
+  amplify_analytics_pinpoint: ^2.0.0
+  amplify_auth_cognito: ^2.0.0
+  amplify_flutter: ^2.0.0
+```

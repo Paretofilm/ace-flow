@@ -1,0 +1,43 @@
+---
+title: Documentation
+topics: ['Getting Started']
+primary_topic: Getting Started
+source: fragments/start/getting-started/android/nextsteps.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Getting Started/]]
+**Primary**: [[Getting Started/]]
+
+---
+
+
+# Documentation
+
+👏 In this tutorial, you created an application that persists data both locally on the device and in the cloud.
+
+To begin your production application, continue to the [Project Setup](/gen1/[platform]/start/project-setup/create-application/) guide which will walk you through more details of setting up an Amplify project. Then, you will be ready to start exploring additional Amplify categories to add to your application:
+
+- [Authentication](/gen1/[platform]/build-a-backend/auth/set-up-auth/)
+- [Storage](/gen1/[platform]/build-a-backend/storage/set-up-storage/)
+- [DataStore](/gen1/[platform]/build-a-backend/more-features/datastore/set-up-datastore/)
+- [Geo](/gen1/[platform]/build-a-backend/more-features/geo/set-up-geo/)
+- [API (GraphQL)](/gen1/[platform]/build-a-backend/graphqlapi/set-up-graphql-api/)
+- [API (REST)](/gen1/[platform]/build-a-backend/restapi/set-up-rest-api/)
+- [Analytics](/gen1/[platform]/build-a-backend/more-features/analytics/set-up-analytics/)
+- [Predictions](/gen1/[platform]/build-a-backend/more-features/predictions/set-up-predictions/)
+- [Push Notifications](/gen1/[platform]/build-a-backend/push-notifications/set-up-push-notifications/)
+- [Logging](/gen1/[platform]/build-a-backend/more-features/logging/set-up-logging/)
+
+
+---
+
+## 📚 Related Topics
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/start/getting-started/android/nextsteps.mdx`

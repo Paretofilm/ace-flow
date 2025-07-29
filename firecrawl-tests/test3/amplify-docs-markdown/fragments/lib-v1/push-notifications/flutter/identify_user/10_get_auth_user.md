@@ -1,0 +1,14 @@
+---
+title: Documentation
+source: fragments/lib-v1/push-notifications/flutter/identify_user/10_get_auth_user.mdx
+---
+
+# Documentation
+
+If the user is signed in through [Amplify.Auth.signIn](/gen1/flutter/prev/build-a-backend/auth/enable-sign-in/), then you can retrieve the current user's ID as shown below:
+
+```dart
+final user = await Amplify.Auth.getCurrentUser();
+
+final userId = user.userId
+```

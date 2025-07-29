@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "backend": {
+    "environment": "dev"
+  },
+  "auth": {
+    "user_pool_id": "placeholder",
+    "user_pool_client_id": "placeholder",
+    "identity_pool_id": "placeholder"
+  },
+  "data": {
+    "url": "placeholder"
+  },
+  "storage": {
+    "bucket_name": "placeholder",
+    "region": "us-east-1"
+  }
+}

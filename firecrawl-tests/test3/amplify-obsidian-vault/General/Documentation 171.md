@@ -1,0 +1,42 @@
+---
+title: Documentation
+topics: ['General']
+primary_topic: General
+source: fragments/lib-v1/debugging/ios/dev-menu/setup.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Documentation
+
+In your project, drag and drop the file `./amplify/.config/local-env-info.json` to xcode. This file contains environment information that will be displayed on the developer menu.
+
+> **Note**: 
+
+If you do not see the `amplify` directory, please follow the [project setup instructions](/gen1/[platform]/prev/start/project-setup/prerequisites/).
+
+To be able to activate the developer menu when running a debug build of your app, add the following line of code before calling `Amplify.configure()`:
+
+```
+Amplify.enableDevMenu(contextProvider: obj1)
+```
+
+where `obj1` is an object that implements `DevMenuPresentationContextProvider`.
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/debugging/ios/dev-menu/setup.mdx`

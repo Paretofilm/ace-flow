@@ -1,0 +1,101 @@
+---
+title: Set up your backend
+topics: ['General']
+primary_topic: General
+source: fragments/lib-v1/predictions/ios/label-image.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Set up your backend
+
+The following APIs will enable you identify real world objects (chairs, desks, etc) in images.  These objects are referred to as "labels" from images.
+
+For labeling images on iOS we use both AWS backend services as well as Apple's on-device Core ML [Vision Framework](https://developer.apple.com/documentation/vision) to provide you with the most accurate results.  If your device is offline, we will return results only from Core ML.  On the other hand, if you are able to connect to AWS Services, we will return a unioned result from both the service and Core ML.  Switching between backend services and Core ML is done automatically without any additional configuration required.
+
+## Set up your backend
+
+If you haven't already done so, run `amplify init` inside your project and then `amplify add auth` (we recommend selecting the *default configuration*).
+
+Run `amplify add predictions`, then use the following answers:
+
+```console
+? Please select from one of the categories below (Use arrow keys)
+❯ Identify
+  Convert
+  Interpret
+  Infer
+  Learn More
+  
+? What would you like to identify?
+  Identify Text
+  Identify Entities
+❯ Identify Labels
+
+? Provide a friendly name for your resource
+
+? Would you like use the default configuration?
+❯ Default Configuration
+  Advanced Configuration
+
+? Who should have access?
+  Auth users only
+❯ Auth and Guest users  
+
+```
+
+The Advanced Configuration will allow you to select moderation for unsafe content or all of the identified labels. Default uses both.
+
+Run `amplify push` to create the resources in the cloud
+
+## Working with the API
+
+You can identify real world objects such as chairs, desks, etc. which are referred to as “labels” by using the following sample code:
+
+```swift
+func detectLabels(_ image:URL) 
+    }
+}
+
+// To identify labels with unsafe content
+func detectLabels(_ image:URL) 
+    }
+}
+```
+
+</Block>
+
+```swift
+func detectLabels(_ image:URL) -> AnyCancellable 
+        }
+        receiveValue: 
+}
+
+// To identify labels with unsafe content
+func detectLabels(_ image:URL) -> AnyCancellable 
+        }
+        receiveValue: 
+}
+```
+
+</Block>
+
+</BlockSwitcher>
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/predictions/ios/label-image.mdx`

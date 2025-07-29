@@ -1,0 +1,56 @@
+---
+title: Lambda Layers
+source: pages/build-a-backend/functions/add-lambda-layers/index.mdx
+---
+
+# Lambda Layers
+
+Amplify offers the ability to add layers to your functions which contain your library dependencies. Lambda layers allow you to separate your function code from its dependencies, enabling easier management of shared components across multiple functions and reducing deployment package sizes.
+
+> **Note**: 
+
+**Note:** Configuring or adding layers in `defineFunction` is not supported for [Custom Functions](/[platform]/build-a-backend/functions/custom-functions/).
+
+To add a Lambda layer to your function, follow these steps:
+
+1. First, create and set up your Lambda layer in AWS. You can do this through the AWS Console or using the AWS CLI. For guidance on creating layers, refer to the [AWS documentation on creating Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-create).
+
+2. Once your layer is created and available in AWS, you can reference it in your Amplify project as shown below.
+
+   Specify the `layers` property in `defineFunction`, for example:
+
+   ```ts title="amplify/functions/my-function/resource.ts"
+   import  from "@aws-amplify/backend";
+
+   export const myFunction = defineFunction(,
+   });
+   ```
+   
+   The Lambda layer is represented by an object of key/value pairs where the key is the module name that is exported from your layer and the value is the ARN of the layer. The key (module name) is used to externalize the module dependency so it doesn't get bundled with your Lambda function. A maximum of 5 layers can be attached to a function, and they must be in the same region as the function.
+   
+   <br/>Alternatively, you can specify the layer as `myLayer:1` where `myLayer` is the name of the layer and `1` is the version of the layer. For example:
+
+   ```ts title="amplify/functions/my-function/resource.ts"
+   import  from "@aws-amplify/backend";
+
+   export const myFunction = defineFunction(,
+   });
+   ```
+
+   Amplify will automatically convert this to the full layer ARN format `arn:aws:lambda:<region>:<account-id>:layer:myLayer:1` using your existing account ID and region.
+  
+   > **Note**: 
+
+   When using layers, be mindful of versioning. The ARN includes a version number (e.g., `:12` in the example). Ensure you're using the appropriate version and have a strategy for updating layers when new versions are released.
+
+3. Then use the locally installed module in the function handler:
+   ```ts title="amplify/functions/my-function/handler.ts"
+   import  from "@aws-lambda-powertools/logger";
+   import type  from "aws-lambda";
+
+   const logger = new Logger();
+
+   export const handler: Handler = async (event, context) => ;
+   ```
+
+For further information on creating and managing your layers refer to [AWS documentation for Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html)

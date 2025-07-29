@@ -1,0 +1,50 @@
+---
+title: Documentation
+topics: ['Authentication']
+primary_topic: Authentication
+source: fragments/lib-v1/graphqlapi/flutter/authz/10_userpool.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, authentication]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Authentication/]]
+**Primary**: [[Authentication/]]
+
+---
+
+
+# Documentation
+
+In case you have not added the Cognito libraries to your application, be sure to add them:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+   amplify_flutter: ^1.0.0
+   amplify_api: ^1.0.0
+   # Be sure that this is added
+   amplify_auth_cognito: ^1.0.0
+```
+
+Afterwards add the following code to your app before you configure Amplify:
+
+```dart
+await Amplify.addPlugins([
+  AmplifyAuthCognito(), 
+  AmplifyAPI(modelProvider: ModelProvider.instance),
+]);
+```
+
+
+---
+
+## 📚 Related Topics
+- [[Authentication/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/graphqlapi/flutter/authz/10_userpool.mdx`

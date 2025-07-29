@@ -1,0 +1,24 @@
+---
+title: Documentation
+source: fragments/lib/restapi/js/existing-resources.mdx
+---
+
+# Documentation
+
+Existing Amazon API Gateway resources can be used with the Amplify Libraries by calling `Amplify.configure()` with the API Gateway API name and options. Note you need to supply the full resource configuration and library options objects when calling `Amplify.configure()`. The following example shows how to configure additional API Gateway resources to an existing Amplify application:
+
+```javascript
+
+const resourceConfig = parseAmplifyConfig(amplifyconfig);
+
+Amplify.configure(
+    }
+  }
+});
+```
+
+- **API NAME**: Friendly name for the API (e.g., _api_)
+  - **endpoint**: The HTTPS endpoint of the API (e.g. _https://aaaaaaaaaa.execute-api.us-east-1.amazonaws.com/api_)
+  - **region**: AWS Region where the resources are provisioned (e.g. _us-east-1_). If not specified, the region will be inferred from the endpoint.
+
+Note that before you can add an AWS resource to your application, the application must have the Amplify libraries installed. If you need to perform this step, see [Install Amplify Libraries](/gen1/[platform]/start/project-setup/create-application/#n2-install-amplify-libraries).

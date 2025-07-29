@@ -1,0 +1,16 @@
+{
+  "name": "firecrawl-tests",
+  "version": "1.0.0",
+  "description": "This directory contains tests and examples for using the Firecrawl MCP server to scrape documentation.",
+  "main": "playwright-scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.54.1"
+  }
+}

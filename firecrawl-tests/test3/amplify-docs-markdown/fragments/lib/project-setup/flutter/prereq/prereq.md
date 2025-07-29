@@ -1,0 +1,9 @@
+---
+title: Documentation
+source: fragments/lib/project-setup/flutter/prereq/prereq.mdx
+---
+
+# Documentation
+
+- Install a stable version of [Flutter](https://flutter.dev/docs/get-started/install).
+- Setup your [IDE](https://flutter.dev/docs/get-started/editor?tab=androidstudio)

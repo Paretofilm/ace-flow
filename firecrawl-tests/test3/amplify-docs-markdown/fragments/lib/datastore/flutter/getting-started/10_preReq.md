@@ -1,0 +1,9 @@
+---
+title: Documentation
+source: fragments/lib/datastore/flutter/getting-started/10_preReq.mdx
+---
+
+# Documentation
+
+- [Install and configure Amplify CLI](/gen1/[platform]/tools/cli/start/set-up-cli/)
+- An iOS configuration targeting at least iOS 13.0 and an Android configuration targeting at least Android API level 24 (Android 7.0). For a full example of please follow the [project setup walkthrough](/gen1/[platform]/start/project-setup/create-application/)

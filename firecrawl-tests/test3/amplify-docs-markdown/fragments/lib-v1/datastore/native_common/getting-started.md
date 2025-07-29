@@ -1,0 +1,78 @@
+---
+title: DataStore with Amplify
+source: fragments/lib-v1/datastore/native_common/getting-started.mdx
+---
+
+# DataStore with Amplify
+
+## DataStore with Amplify
+
+Amplify DataStore provides a programming model for leveraging shared and distributed data without writing additional code for offline and online scenarios, which makes working with distributed, cross-user data just as simple as working with local-only data.
+
+> **Note**: 
+
+**Note:** this allows you to start persisting data locally to your device with DataStore, even without an AWS account.
+
+## Goal
+
+To setup and configure your application with Amplify DataStore and use it to persist data locally on a device.
+
+## Prerequisites
+
+## Setup local development environment
+
+## Idiomatic persistence
+
+DataStore relies on platform standard data structures to represent the data schema in an idiomatic way. The persistence language is composed by data types that satisfies the `Model` interface and operations defined by common verbs such as `save`, `query` and `delete`.
+
+### Data schema
+
+The first step to create an app backed by a persistent datastore is to **define a schema**. DataStore uses GraphQL schema files as the definition of the application data model. The schema contains data types and relationships that represent the app's functionality.
+
+### Sample schema
+
+For the next steps, let's start with a schema for a small blog application. Currently, it has only a single model. New types and constructs will be added to this base schema as more concepts are presented.
+
+Open the `schema.graphql` file located by default at `amplify/backend//` and **define a model** `Post` as follows.
+
+```graphql
+type Post @model 
+
+enum PostStatus 
+```
+
+Now you will to convert the platform-agnostic `schema.graphql` into platform-specific data structures. DataStore relies on code generation to guarantee schemas are correctly converted to platform code.
+
+Like the initial setup, models can be generated either using the IDE integration or Amplify CLI directly.
+
+### Code generation: Platform integration
+
+</InlineFilter>
+
+### Code generation: Amplify CLI
+
+## Initialize Amplify DataStore
+
+## Persistence operations
+
+Now the application is ready to execute persistence operations. The data will be persisted to a local database, enabling offline-first use cases by default.
+
+Even though a GraphQL API is already added to your project, the cloud synchronization will only be enabled when the API plugin is initialized and the backend provisioned. See the [Next steps](#next-steps) for more info.
+
+### Writing to the database
+
+To write to the database, create an instance of the `Post` model and save it.
+
+### Reading from the database
+
+To read from the database, the simplest approach is to query for all records of a given model type.
+
+## Next steps
+
+Congratulations! You’ve created and retrieved data from the local database. Check out the following links to see other Amplify DataStore use cases and advanced concepts:
+
+- [Write data](/gen1/[platform]/prev/build-a-backend/more-features/datastore/manipulate-data/#create-and-update)
+- [Query data](/gen1/[platform]/prev/build-a-backend/more-features/datastore/manipulate-data/#query-data)
+- [Model associations](/gen1/[platform]/prev/build-a-backend/more-features/datastore/relational-models/)
+- [Cloud synchronization](/gen1/[platform]/prev/build-a-backend/more-features/datastore/sync-to-cloud/)
+- [Clear local data](/gen1/[platform]/prev/build-a-backend/more-features/datastore/sync-to-cloud/#clear-local-data)

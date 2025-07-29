@@ -1,0 +1,17 @@
+---
+title: Documentation
+source: fragments/lib-v1/auth/flutter/getting_started/20_installLib.mdx
+---
+
+# Documentation
+
+Add the following dependency to your **app**'s `pubspec.yaml` along with others you added above in **Prerequisites**:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  amplify_flutter: ^1.0.0
+  amplify_auth_cognito: ^1.0.0
+```

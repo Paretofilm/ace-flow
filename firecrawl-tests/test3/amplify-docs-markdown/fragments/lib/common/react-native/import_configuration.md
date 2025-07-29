@@ -1,0 +1,8 @@
+---
+title: Documentation
+source: fragments/lib/common/react-native/import_configuration.mdx
+---
+
+# Documentation
+
+Import and load the configuration file in your app. It's recommended you add the Amplify configuration step to your app's root entry point. For example, **App.js** (Expo) or **index.js** (React Native CLI).

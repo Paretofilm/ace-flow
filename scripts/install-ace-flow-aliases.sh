@@ -95,7 +95,7 @@ uninstall_aliases() {
     # If we're in the ACE-Flow directory itself, only remove short aliases
     if [ "$ACE_FLOW_DIR" = "." ]; then
         # Only remove short aliases when in ACE-Flow directory
-        SHORT_ALIASES=("ag" "ar" "ai" "aa" "as" "ah" "av" "arb" "ac")
+        SHORT_ALIASES=("ag" "ar" "ai" "aa" "as" "ah" "av" "arb" "ac" "asc" "ast" "ace" "aag")
         
         for alias in "${SHORT_ALIASES[@]}"; do
             if [ -f ".claude/${alias}.md" ]; then
@@ -108,8 +108,9 @@ uninstall_aliases() {
         ACE_COMMANDS=(
             "ace-genesis" "ace-research" "ace-implement" "ace-adopt"
             "ace-status" "ace-help" "ace-validate" "ace-rollback" "ace-cost"
+            "ace-spec-check" "ace-steering" "ace-spec" "ace-agent"
             "ace-flow-install"
-            "ag" "ar" "ai" "aa" "as" "ah" "av" "arb" "ac"
+            "ag" "ar" "ai" "aa" "as" "ah" "av" "arb" "ac" "asc" "ast" "ace" "aag"
         )
         
         for cmd in "${ACE_COMMANDS[@]}"; do
@@ -163,6 +164,8 @@ COMMANDS=(
     "ace-cost:ac"
     "ace-spec-check:asc"
     "ace-steering:ast"
+    "ace-spec:ace"
+    "ace-agent:aag"
 )
 
 # Create manifest file to track installed commands

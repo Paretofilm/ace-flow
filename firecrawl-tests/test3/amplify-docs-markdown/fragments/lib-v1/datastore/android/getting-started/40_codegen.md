@@ -1,0 +1,8 @@
+---
+title: Documentation
+source: fragments/lib-v1/datastore/android/getting-started/40_codegen.mdx
+---
+
+# Documentation
+
+Code generation via the `amplify-tools-gradle-plugin` Gradle plugin is deprecated, so please use the [Amplify CLI](/gen1/[platform]/prev/build-a-backend/more-features/datastore/set-up-datastore/#code-generation-amplify-cli) instead.

@@ -1,0 +1,54 @@
+---
+title: Request user permission for notifications
+topics: ['Push Notifications']
+primary_topic: Push Notifications
+source: fragments/lib/push-notifications/ios/register_device/20_register_with_apns.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, push-notifications]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Push Notifications/]]
+**Primary**: [[Push Notifications/]]
+
+---
+
+
+# Request user permission for notifications
+
+## Request user permission for notifications
+
+Displaying push notifications from APNs requires requesting permission from the user to receive notifications and registering with the APNs service. 
+
+**AWSPinpointPushNotificationsPlugin** takes care of registering with APNs during configuration. If you want the plugin to also request user permission during configuration, you can pass an array of `UNAuthorizationOptions` when adding the plugin. For example, to request permission for badges, alerts, and sounds, you could add the plugin with the following:
+
+```swift
+try Amplify.add(
+    plugin: AWSPinpointPushNotificationsPlugin(options: [.badge, .alert, .sound])
+)
+```
+
+If you don't pass `UNAuthorizationOptions` when adding the plugin, you will be responsible for requesting notification permissions and registering with APNs as shown below.
+
+> **Note**: 
+
+The following is only required when you do not pass `UNAuthorizationOptions` when adding the plugin as described above.
+
+```swift
+// Request user permission for notifications.
+let options: UNAuthorizationOptions = [.badge, .alert, .sound]
+let notificationsAllowed = try await UNUserNotificationCenter.current().requestAuthorization(
+    options: options
+)
+```
+
+
+---
+
+## 📚 Related Topics
+- [[Push Notifications/]]
+
+## 📖 Source
+Original: `fragments/lib/push-notifications/ios/register_device/20_register_with_apns.mdx`

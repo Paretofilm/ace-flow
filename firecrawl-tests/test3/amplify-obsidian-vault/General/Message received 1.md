@@ -1,0 +1,100 @@
+---
+title: Message received
+topics: ['General']
+primary_topic: General
+source: fragments/lib/in-app-messaging/respond-interaction-events/respond-interaction-events.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Message received
+
+Your code can respond with additional behavior to your users interacting with in-app messages by adding interaction event listeners.
+
+## Message received
+
+Add `onMessageReceived` listeners to respond to an in-app message being received from the library as the result of an event matching the criteria of a synced in-app message. This is required if you are implementing a custom UI so that your UI can respond to event-triggered campaign messages but you may also find it helpful to listen for these messages for any other reason your application requires.
+
+```js
+
+const myMessageReceivedHandler = (message) => ;
+
+const listener = onMessageReceived(myMessageReceivedHandler);
+
+listener.remove(); // Remember to remove the listener when it is no longer needed
+```
+
+## Message displayed
+
+Add `onMessageDisplayed` listeners to respond to an in-app message being displayed to your user.
+
+```js
+
+const myMessageDisplayedHandler = (message) => ;
+
+const listener = onMessageDisplayed(myMessageDisplayedHandler);
+
+listener.remove(); // Remember to remove the listener when it is no longer needed
+```
+
+## Message dismissed
+
+Add `onMessageDismissed` listeners to respond to an in-app message being dismissed by your user.
+
+```js
+
+const myMessageDismissedHandler = (message) => ;
+
+const listener = onMessageDismissed(myMessageDismissedHandler);
+
+listener.remove(); // Remember to remove the listener when it is no longer needed
+```
+
+## Message action taken
+
+Add `onMessageActionTaken` listeners to respond to an action being taken on an in-app message. Typically, this means that the user has tapped or clicked a button on an in-app message.
+
+```js
+
+const myMessageActionTakenHandler = (message) => ;
+
+const listener = onMessageActionTaken(myMessageActionTakenHandler);
+
+listener.remove(); // Remember to remove the listener when it is no longer needed
+```
+
+## Notifying listeners
+
+If you are using the Amplify In-App Messaging UI, interaction events notifications are already wired up for you. However, if you are implementing your own UI, it is highly recommended to notify listeners of interaction events through your UI code so that the library can take further actions prescribed by the installed provider (for example, automatically recording corresponding Analytics events).
+
+```ts
+
+const message = 
+
+/**
+ * Interaction events that can be notified correspond to their respective listeners:
+ *    'messageReceived'
+ *    'messageDisplayed'
+ *    'messageDismissed'
+ *    'messageActionTaken'
+ */
+notifyMessageInteraction();
+```
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib/in-app-messaging/respond-interaction-events/respond-interaction-events.mdx`

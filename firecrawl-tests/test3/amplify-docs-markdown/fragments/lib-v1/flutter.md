@@ -1,0 +1,15 @@
+---
+title: Amplify Flutter
+source: fragments/lib-v1/flutter.mdx
+---
+
+# Amplify Flutter
+
+## Amplify Flutter
+
+Welcome to the Amplify Flutter documentation. To stay up to date with the latest changes and provide feedback, please take a look at our [Github repo](https://github.com/aws-amplify/amplify-flutter) or join us on [Discord](https://discord.gg/jWVbPfC).
+
+ Amplify Flutter v0 supports iOS/Android as target platforms.
+
+  <span slot="text">Get Started</span>
+</InternalLinkButton>

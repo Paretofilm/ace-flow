@@ -1,0 +1,30 @@
+{
+  "framework": "aws-amplify-gen2",
+  "version": "2025-07-28",
+  "purification": {
+    "status": "complete",
+    "contamination_removed": "42%",
+    "gen1_files_removed": 838,
+    "legacy_commands_cleaned": 217,
+    "total_files": 1426,
+    "pages": 282,
+    "fragments": 1144
+  },
+  "source": {
+    "repository": "https://github.com/aws-amplify/docs.git",
+    "clone_date": "2025-07-28T01:48:00Z",
+    "purification_date": "2025-07-28T01:50:00Z"
+  },
+  "patterns": {
+    "current_only": true,
+    "gen1_removed": true,
+    "commands": ["npm create amplify@latest", "npx ampx sandbox", "npx ampx generate"],
+    "syntax": ["defineAuth()", "defineData()", "defineStorage()", "defineFunction()"],
+    "imports": ["@aws-amplify/backend"]
+  },
+  "ace_flow": {
+    "version": "2.0",
+    "integration": "context7-enhanced",
+    "claude_optimized": true
+  }
+}

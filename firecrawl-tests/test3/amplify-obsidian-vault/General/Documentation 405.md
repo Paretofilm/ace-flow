@@ -1,0 +1,51 @@
+---
+title: Documentation
+topics: ['General']
+primary_topic: General
+source: fragments/lib-v1/project-setup/android/create-application/10_createProject.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Documentation
+
+**Open Android Studio.**  Select **+ Create New Project.**
+
+![Shows the Android studio welcome window](/images/lib/getting-started/android/set-up-android-studio-welcome.png)
+
+In **Select a Project Template**, select **Empty Activity**. Press **Next**.
+
+![Shows Android studio new project window](/images/lib/getting-started/android/set-up-android-studio-select-project-template.png)
+
+Next, configure your project:
+
+ - Enter *MyAmplifyApp* in the **Name** field
+ - Select either *Java* or *Kotlin* from the **Language** dropdown menu
+ - Select *API 16: Android 4.1 (Jelly Bean)* from the **Minimum SDK** dropdown menu
+ - Press **Finish**
+
+![Shows Android studio configure project window](/images/lib/getting-started/android/set-up-android-studio-configure-your-project-v1.png)
+
+Android Studio will open your project with a tab opened to either *MainActivity.java* or *MainActivity.kt* depending upon if you created a Java or Kotlin project respectively.
+
+![Shows Android studio successfully setup with the editor open](/images/lib/getting-started/android/set-up-android-studio-successful-setup.png)
+
+You now have an empty Android project into which you'll add Amplify in the next steps.
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/project-setup/android/create-application/10_createProject.mdx`

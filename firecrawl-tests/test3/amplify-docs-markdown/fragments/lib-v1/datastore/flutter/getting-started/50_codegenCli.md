@@ -1,0 +1,16 @@
+---
+title: Documentation
+source: fragments/lib-v1/datastore/flutter/getting-started/50_codegenCli.mdx
+---
+
+# Documentation
+
+Models can also be generated using the Amplify CLI directly.
+
+In your terminal, make sure you are in your project/root folder and **execute the codegen command**:
+
+```console
+amplify codegen models
+```
+
+The generated files will be under the `lib/models` directory by default. They get re-generated each time codegen is run.

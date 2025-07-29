@@ -1,0 +1,13 @@
+---
+title: Documentation
+source: fragments/lib-v1/predictions/android/getting-started/60_nextSteps.mdx
+---
+
+# Documentation
+
+- [Convert text to speech](/gen1/[platform]/prev/build-a-backend/more-features/predictions/text-to-speech/)
+- [Identify text](/gen1/[platform]/prev/build-a-backend/more-features/predictions/identify-text/)
+- [Identify entities from images](/gen1/[platform]/prev/build-a-backend/more-features/predictions/identify-entity/)
+- [Label objects in image](/gen1/[platform]/prev/build-a-backend/more-features/predictions/label-image/)
+- [Interpret sentiment](/gen1/[platform]/prev/build-a-backend/more-features/predictions/interpret-sentiment/)
+- [Escape hatch](/gen1/[platform]/build-a-backend/more-features/predictions/sdk/)

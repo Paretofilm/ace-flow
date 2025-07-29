@@ -1,0 +1,49 @@
+---
+title: Cloud infrastructure
+topics: ['AI & Machine Learning']
+primary_topic: AI & Machine Learning
+source: pages/ai/concepts/architecture/index.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, ai-&-machine-learning]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[AI & Machine Learning/]]
+**Primary**: [[AI & Machine Learning/]]
+
+---
+
+
+# Cloud infrastructure
+
+The Amplify AI kit is built around the idea of routes. An AI route is like an API endpoint for interacting with backend AI functionality. AI routes are configured in an Amplify backend where you can define the authorization rules, what type of route (generation or conversation), AI model and inference configuration like temperature, what are the inputs and outputs, and what data it has access to. There are currently 2 types of AI routes:
+
+* **Conversation:** A conversation route is an asynchronous, multi-turn API. Conversations and messages are automatically stored in DynamoDB. Examples of this are any chat-based AI experience or conversational UI.
+* **Generation:** A single synchronous request-response API. A generation route is an AppSync Query that generates structured data according to your route definition. Common uses include generating structured data from unstructured input and summarization.
+
+## Cloud infrastructure
+
+When you create an AI route with the Amplify AI kit, it is using these services:
+
+### AWS AppSync
+Serverless API layer to authorize and route requests from the browser to AWS services. 
+
+### Amazon DynamoDB
+Serverless database for storing conversation history.
+
+### AWS Lambda
+Serverless execution for conversations. 
+
+### Amazon Bedrock
+Serverless foundation models.
+
+
+---
+
+## 📚 Related Topics
+- [[AI & Machine Learning/]]
+
+## 📖 Source
+Original: `pages/ai/concepts/architecture/index.mdx`

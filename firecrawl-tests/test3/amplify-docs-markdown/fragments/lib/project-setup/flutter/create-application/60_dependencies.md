@@ -1,0 +1,15 @@
+---
+title: Documentation
+source: fragments/lib/project-setup/flutter/create-application/60_dependencies.mdx
+---
+
+# Documentation
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  amplify_flutter: ^2.0.0
+  amplify_auth_cognito: ^2.0.0
+```

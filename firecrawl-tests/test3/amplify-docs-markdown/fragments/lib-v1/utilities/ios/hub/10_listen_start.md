@@ -1,0 +1,8 @@
+---
+title: Documentation
+source: fragments/lib-v1/utilities/ios/hub/10_listen_start.mdx
+---
+
+# Documentation
+
+You can use `Amplify.Hub.listen(to: HubChannel) ` (listener) or `Amplify.Hub.publisher(for: HubChannel).sink ` (Combine) to listen for messages that have been dispatched. Additionally, you can pass `isIncluded: HubFilter` or `eventName: HubPayloadEventName` to the `listen` method to further filter Hub events. You can add multiple listeners to your application for different combinations of channels, filters, and events.

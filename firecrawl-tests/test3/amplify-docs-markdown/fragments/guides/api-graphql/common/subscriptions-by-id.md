@@ -1,0 +1,45 @@
+---
+title: Documentation
+source: fragments/guides/api-graphql/common/subscriptions-by-id.mdx
+---
+
+# Documentation
+
+Take for example the following GraphQL schema:
+
+```graphql
+type Post @model @auth(rules: [])
+
+type Comment @model @auth(rules: [])
+```
+
+By default, subscriptions will be created for the following mutations:
+
+```graphql
+# Post type
+onCreatePost
+onUpdatePost
+onDeletePost
+
+# Comment type
+onCreateComment
+onUpdateComment
+onDeleteComment
+```
+
+One operation that is not covered is if you wanted to only subscribe to comments for a specific post.
+
+Because the schema has a one to many relationship enabled between posts and comments, you can use the auto-generated field `postCommentsId` that defines the relationship between the post and the comment to set this up in a new Subscription definition.
+
+To implement this, you could update the schema with the following:
+
+```graphql
+type Post @model @auth(rules: [])
+
+type Comment @model @auth(rules: [])
+
+type Subscription 
+
+```
+
+Now you can create a custom subscription for comment creation with a specific post id:

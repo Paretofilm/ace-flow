@@ -1,0 +1,8 @@
+---
+title: Documentation
+source: fragments/lib/analytics/ios/getting-started/12_amplifyConfig.mdx
+---
+
+# Documentation
+
+Upon completion, `amplifyconfiguration.json` should be updated to reference provisioned backend analytics resources. Note that these files should already be a part of your project if you followed the [Project setup walkthrough](/gen1/[platform]/start/project-setup/create-application/).

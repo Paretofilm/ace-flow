@@ -1,0 +1,20 @@
+---
+title: Sign up for an AWS account
+source: fragments/lib/project-setup/native_common/prereq/common_body.mdx
+---
+
+# Sign up for an AWS account
+
+## Sign up for an AWS account
+
+If you don't already have an AWS account, you'll need to create one in order to follow the steps outlined in this tutorial.
+
+[Create AWS Account](https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start)
+
+> There are no upfront charges or any term commitments to create an AWS account and signing up gives you immediate access to the AWS Free Tier.
+
+## Install the Amplify CLI
+
+The Amplify Command Line Interface (CLI) is a unified toolchain to create AWS cloud services for your app. Let's go ahead and install the Amplify CLI.
+
+Next, you'll set up your app and initialize Amplify!

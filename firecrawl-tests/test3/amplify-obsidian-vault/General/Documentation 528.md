@@ -1,0 +1,68 @@
+---
+title: Documentation
+topics: ['General']
+primary_topic: General
+source: fragments/lib-v1/predictions/android/escapehatch.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Documentation
+
+If you need functionality in the AWS services used by the Amplify Predictions category that isn't available, we provide an escape hatch so you can get a reference to that service. For example, to get a reference to `AmazonRekognitionClient`:
+
+```java
+// Obtain reference to the plugin
+AWSPredictionsPlugin predictionsPlugin = (AWSPredictionsPlugin)
+        Amplify.Predictions.getPlugin("awsPredictionsPlugin");
+AWSPredictionsEscapeHatch escapeHatch = predictionsPlugin.getEscapeHatch();
+
+// Send a new request to the Rekognition endpoint directly using the client
+AmazonRekognitionClient client = escapeHatch.getRekognitionClient();
+CreateCollectionRequest request = new CreateCollectionRequest()
+        .withCollectionId("<new-collection-id-here>");
+client.createCollection(request);
+```
+
+</Block>
+
+```kotlin
+// Obtain reference to the plugin
+val plugin = Amplify.Predictions.getPlugin("awsPredictionsPlugin")
+val escapeHatch = (plugin as AWSPredictionsPlugin).escapeHatch
+
+// Send a new request to the Rekognition endpoint directly using the client
+val client = escapeHatch.rekognitionClient
+val request = CreateCollectionRequest().withCollectionId("<new-collection-id-here>")
+
+client.createCollection(request)
+```
+
+</Block>
+</BlockSwitcher>
+
+**API Documentation Resources**
+
+* [Amazon Rekognition API Reference](https://docs.aws.amazon.com/rekognition/latest/dg/API_Reference.html)
+* [Amazon Translate API Reference](https://docs.aws.amazon.com/translate/latest/dg/API_Reference.html)
+* [Amazon Polly API Reference](https://docs.aws.amazon.com/polly/latest/dg/API_Reference.html)
+* [Amazon Comprehend API Reference](https://docs.aws.amazon.com/comprehend/latest/dg/API_Reference.html)
+* [Amazon Textract API Reference](https://docs.aws.amazon.com/textract/latest/dg/API_Reference.html)
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/predictions/android/escapehatch.mdx`

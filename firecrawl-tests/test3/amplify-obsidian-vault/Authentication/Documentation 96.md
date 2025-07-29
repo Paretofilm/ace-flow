@@ -1,0 +1,57 @@
+---
+title: Documentation
+topics: ['Authentication']
+primary_topic: Authentication
+source: fragments/lib-v1/auth/flutter/social_signin_web_ui/10_cli_setup.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, authentication]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Authentication/]]
+**Primary**: [[Authentication/]]
+
+---
+
+
+# Documentation
+
+Once you have the social provider configured, run the following in your project’s root folder
+
+```bash
+amplify add auth     ## "amplify update auth" if already configured
+```
+
+Choose the following options (the last steps are specific to Facebook here but are similar for other providers):
+
+```terminal
+? Do you want to use the default authentication and security configuration? 
+    `Default configuration with Social Provider (Federation)`
+? How do you want users to be able to sign in? 
+    `Username`
+? Do you want to configure advanced settings? 
+    `No, I am done.`
+? What domain name prefix you want us to create for you? 
+    `(default)`
+? Enter your redirect signin URI: 
+    `myapp://`
+? Do you want to add another redirect signin URI 
+    `No`
+? Enter your redirect signout URI: 
+    `myapp://`
+? Do you want to add another redirect signout URI 
+    `No`
+? Select the social providers you want to configure for your user pool: 
+    `<choose your provider and follow the prompts to input the proper tokens>`
+```
+
+
+---
+
+## 📚 Related Topics
+- [[Authentication/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/auth/flutter/social_signin_web_ui/10_cli_setup.mdx`

@@ -1,0 +1,10 @@
+---
+title: Documentation
+source: fragments/lib/analytics/android/getting-started/10_preReq.mdx
+---
+
+# Documentation
+
+* [Install and configure Amplify CLI](/gen1/[platform]/tools/cli/start/set-up-cli/)
+* An Android application targeting Android API level 24 (Android 7.0) or above
+    * For a full example of creating Android project, please follow the [project setup walkthrough](/gen1/[platform]/start/project-setup/create-application/)

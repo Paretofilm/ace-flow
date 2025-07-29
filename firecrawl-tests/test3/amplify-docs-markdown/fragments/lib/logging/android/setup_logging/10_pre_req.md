@@ -1,0 +1,10 @@
+---
+title: Documentation
+source: fragments/lib/logging/android/setup_logging/10_pre_req.mdx
+---
+
+# Documentation
+
+* An Android application targeting at least Android SDK API level 24 with Amplify libraries integrated
+    * For a full example of creating Android project, please follow the [project setup walkthrough](/gen1/[platform]/start/project-setup/create-application/)
+* The Amplify Logger is available for versions 2.11.0 and beyond of the Amplify Android SDK

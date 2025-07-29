@@ -1,0 +1,15 @@
+---
+title: Documentation
+source: fragments/start/getting-started/android/build-footer.mdx
+---
+
+# Documentation
+
+<br />
+
+  <span slot="text">Start the Tutorial</span>
+</InternalLinkButton>
+
+[Already have AWS resources? (Cognito, S3, etc.)](/gen1/[platform]/start/project-setup/use-existing-resources/)
+
+Use Amplify Studio to get started with Amplify. [Get started](https://sandbox.amplifyapp.com/getting-started)

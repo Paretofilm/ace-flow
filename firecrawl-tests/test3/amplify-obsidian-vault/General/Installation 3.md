@@ -1,0 +1,67 @@
+---
+title: Installation
+topics: ['General']
+primary_topic: General
+source: fragments/lib-v1/utilities/i18n.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Installation
+
+The AWS Amplify I18n module is a lightweight internationalization solution.
+
+## Installation
+
+```javascript
+```
+
+## Working with the API
+
+### setLanguage()
+
+Sets the active language.
+
+```javascript
+I18n.setLanguage('fr');
+```
+
+In the browser, Amplify detects browser language automatically. For mobile you may want to use other libraries to detect the language, and then set it using Amplify in your code.
+
+### putVocabularies()
+
+You can create your custom dictionary and set it as your `vocabularies` in your app. Dictionary is a JavaScript object that you can implement with different terms and languages.
+
+```javascript
+const dict = ,
+  es: 
+};
+
+I18n.putVocabularies(dict);
+```
+
+### get()
+
+Retrieves a phrase from the dictionary for the active language. If the phrase does not have an entry in the dictionary, the original parameter value will be returned.
+
+```javascript
+I18n.get('Sign In');
+```
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/utilities/i18n.mdx`

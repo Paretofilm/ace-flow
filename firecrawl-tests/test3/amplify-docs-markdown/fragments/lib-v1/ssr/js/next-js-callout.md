@@ -1,0 +1,10 @@
+---
+title: Documentation
+source: fragments/lib-v1/ssr/js/next-js-callout.mdx
+---
+
+# Documentation
+
+> **Note**: 
+
+SSR functionality in Amplify was primarily built for compatibility with Next.js [page components](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts), and their [getServerSideProps data fetching mechanism](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props). Compatibility with other frameworks or Next.js features cannot be guaranteed.

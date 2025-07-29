@@ -1,0 +1,62 @@
+---
+title: Local Development
+topics: ['General']
+primary_topic: General
+source: fragments/lib/project-setup/flutter/platform-setup/linux.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Local Development
+
+Amplify Flutter depends on the [libsecret](https://wiki.gnome.org/Projects/Libsecret) library when targeting Linux.
+
+### Local Development
+
+To run and debug an app that depends on Amplify Flutter, you must install `libsecret-1-dev`.
+
+To install on Ubuntu, run:
+
+```terminal
+sudo apt-get update
+sudo apt-get install -y libsecret-1-dev
+```
+
+This will install `libsecret-1-dev` and any dependencies of `libsecret-1-dev`, such as `libglib2.0-dev`, which are also required to run and debug apps that depend on Amplify Flutter.
+
+> **Note**: 
+  The command to install might vary on other Linux distributions.
+
+### Packaging Your App
+
+To include the required dependencies when packaging your app with Snapcraft, include them in your `snapcraft.yaml` file. For more info, see [Flutter's documentation on releasing to the Snap Store](https://docs.flutter.dev/deployment/linux).
+
+```yaml
+parts:
+  my-app:
+    plugin: flutter
+    source: .
+    flutter-target: lib/main.dart
+    build-packages:
+      - libsecret-1-dev
+    stage-packages:
+      - libsecret-1-0
+```
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib/project-setup/flutter/platform-setup/linux.mdx`

@@ -1,0 +1,49 @@
+---
+title: List of actions
+source: pages/build-a-backend/auth/grant-access-to-auth-resources/index.mdx
+---
+
+# List of actions
+
+Amplify Auth can be defined with an `access` property, which allows other resources to interact with auth by specifying actions.
+
+```ts title="amplify/auth/resource.ts"
+
+/**
+ * Define and configure your auth resource
+ * @see https://docs.amplify.aws/gen2/build-a-backend/auth
+ */
+
+> **Note**: 
+
+When you grant a function access to another resource in your Amplify backend it will configure environment variables for that function to make SDK calls to the AWS services it has access to. Those environment variables are typed and available as part of the `env` object.
+
+## List of actions
+
+|Action Name|Description|Cognito IAM Actions|
+|-|-|-|
+|manageUsers | Grants CRUD access to users in the UserPool | <ul><li>cognito-idp:AdminConfirmSignUp</li><li>cognito-idp:AdminCreateUser</li><li>cognito-idp:AdminDeleteUser</li><li>cognito-idp:AdminDeleteUserAttributes</li><li>cognito-idp:AdminDisableUser</li><li>cognito-idp:AdminEnableUser</li><li>cognito-idp:AdminGetUser</li><li>cognito-idp:AdminListGroupsForUser</li><li>cognito-idp:AdminRespondToAuthChallenge</li><li>cognito-idp:AdminSetUserMFAPreference</li><li>cognito-idp:AdminSetUserSettings</li><li>cognito-idp:AdminUpdateUserAttributes</li><li>cognito-idp:AdminUserGlobalSignOut</li></ul>|
+|manageGroupMembership | Grants permission to add and remove users from groups | <ul><li>cognito-idp:AdminAddUserToGroup</li><li>cognito-idp:AdminRemoveUserFromGroup</li></ul>|
+|manageGroups | Grants CRUD access to groups in the UserPool | <ul><li>cognito-idp:GetGroup</li><li>cognito-idp:ListGroups</li><li>cognito-idp:CreateGroup</li><li>cognito-idp:DeleteGroup</li><li>cognito-idp:UpdateGroup</li></ul>|
+|manageUserDevices | Manages devices registered to users| <ul><li>cognito-idp:AdminForgetDevice</li><li>cognito-idp:AdminGetDevice</li><li>cognito-idp:AdminListDevices</li><li>cognito-idp:AdminUpdateDeviceStatus</li></ul>|
+|managePasswordRecovery | Grants permission to reset user passwords | <ul><li>cognito-idp:AdminResetUserPassword</li><li>cognito-idp:AdminSetUserPassword</li></ul>| 
+|addUserToGroup | Grants permission to add any user to any group. | <ul><li>cognito-idp:AdminAddUserToGroup</li></ul>
+|createUser | Grants permission to create new users and send welcome messages via email or SMS. | <ul><li>cognito-idp:AdminCreateUser</li></ul>
+|deleteUser | Grants permission to delete any user | <ul><li>cognito-idp:AdminDeleteUser</li></ul>
+|deleteUserAttributes | Grants permission to delete attributes from any user | <ul><li>cognito-idp:AdminDeleteUserAttributes</li></ul>
+|disableUser | Grants permission to deactivate any user | <ul><li>cognito-idp:AdminDisableUser</li></ul>
+|enableUser | Grants permission to activate any user | <ul><li>cognito-idp:AdminEnableUser</li></ul>
+|forgetDevice | Grants permission to deregister any user's devices | <ul><li>cognito-idp:AdminForgetDevice</li></ul>
+|getDevice | Grants permission to get information about any user's devices | <ul><li>cognito-idp:AdminGetDevice</li></ul>
+|getUser | Grants permission to look up any user by user name | <ul><li>cognito-idp:AdminGetUser</li></ul>
+|listUsers | Grants permission to list users and their basic details in the UserPool | <ul><li>cognito-idp:ListUsers</li></ul>
+|listDevices | Grants permission to list any user's remembered devices | <ul><li>cognito-idp:AdminListDevices</li></ul>
+|listGroupsForUser | Grants permission to list the groups that any user belongs to | <ul><li>cognito-idp:AdminListGroupsForUser</li></ul>
+|listUsersInGroup | Grants permission to list users in the specified group | <ul><li>cognito-idp:ListUsersInGroup</li></ul>
+|removeUserFromGroup | Grants permission to remove any user from any group | <ul><li>cognito-idp:AdminRemoveUserFromGroup</li></ul>
+|resetUserPassword | Grants permission to reset any user's password | <ul><li>cognito-idp:AdminResetUserPassword</li></ul>
+|setUserMfaPreference | Grants permission to set any user's preferred MFA method | <ul><li>cognito-idp:AdminSetUserMFAPreference</li></ul>
+|setUserPassword | Grants permission to set any user's password | <ul><li>cognito-idp:AdminSetUserPassword</li></ul>
+|setUserSettings | Grants permission to set user settings for any user | <ul><li>cognito-idp:AdminSetUserSettings</li></ul>
+|updateDeviceStatus | Grants permission to update the status of any user's remembered devices | <ul><li>cognito-idp:AdminUpdateDeviceStatus</li></ul>
+|updateUserAttributes | Grants permission to updates any user's standard or custom attributes | <ul><li>cognito-idp:AdminUpdateUserAttributes</li></ul>

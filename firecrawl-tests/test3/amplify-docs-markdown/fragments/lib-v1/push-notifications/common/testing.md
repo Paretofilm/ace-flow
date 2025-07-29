@@ -1,0 +1,8 @@
+---
+title: Documentation
+source: fragments/lib-v1/push-notifications/common/testing.mdx
+---
+
+# Documentation
+
+You can create messaging campaigns and send push notifications to your app with Amazon Pinpoint! Just follow these instructions on [Amazon Pinpoint User Guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/messages-mobile.html) for the next steps.

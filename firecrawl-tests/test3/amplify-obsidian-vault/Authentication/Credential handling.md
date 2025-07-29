@@ -1,0 +1,34 @@
+---
+title: Credential handling
+topics: ['Authentication']
+primary_topic: Authentication
+source: fragments/lib/auth/ios/credential_handling/10_credential_handling.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, authentication]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Authentication/]]
+**Primary**: [[Authentication/]]
+
+---
+
+
+# Credential handling
+
+## Credential handling
+
+Amplify Swift library securely handles credentials and user identity information. You do not need to store, refresh, or delete credentials yourself. Instead, Amplify Swift library handles these operations using platform capabilities such as [`ASWebAuthenticationSession`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) for web-based OAuth flows, and [Keychain Services](https://developer.apple.com/documentation/security/keychain_services/) for storing and retrieving sensitive information. Only the host app (or defined app group) can access values that Amplify Swift library stores, and Amplify Swift library also clears credentials if it detects a configuration change such as a new Cognito UserPool or Cognito Identity Pool.
+
+You can retrieve stored credentials by invoking [`fetchAuthSession` API](/gen1/[platform]/build-a-backend/auth/accessing-credentials/), which is the same API that other Amplify Swift library categories use to retrieve credentials for making calls to backend services like AWS AppSync, Amazon Pinpoint, and Amazon Simple Storage Service (Amazon S3). That API validates stored credentials and returns them if valid. If the credentials are not valid, Amplify Swift library will use the stored refresh token to refresh the credentials and return them. If the refresh token is not valid, Amplify Swift library will return a session expired error.
+
+
+---
+
+## 📚 Related Topics
+- [[Authentication/]]
+
+## 📖 Source
+Original: `fragments/lib/auth/ios/credential_handling/10_credential_handling.mdx`

@@ -1,0 +1,26 @@
+---
+title: Guest access
+source: pages/build-a-backend/auth/concepts/guest-access/index.mdx
+---
+
+# Guest access
+
+The Auth Plugin can be configured to automatically obtain guest credentials once the device is online so that you are able to use other categories "anonymously" without the need to sign in. You will not be able to perform user specific methods while in this state such as updating attributes, changing your password, or getting the current user. However, you can obtain the unique Identity ID which is assigned to the device through the `fetchAuthSession` method [described here](/[platform]/build-a-backend/auth/concepts/tokens-and-credentials/).
+
+</InlineFilter>
+
+Amplify Auth can be configured to automatically obtain guest credentials once the device is online so that you are able to use other categories "anonymously" without the need to sign in. You will not be able to perform user specific methods while in this state such as updating attributes, changing your password, or getting the current user. However, you can obtain the unique Identity ID which is assigned to the device through the `fetchAuthSession` method [described here](/[platform]/build-a-backend/auth/connect-your-frontend/manage-user-sessions/).
+
+</InlineFilter>
+
+Amplify Gen 2 enables guest access by default. To disable it, you can update the `backend.ts` file with the following changes:
+
+```ts title="amplify/backend.ts"
+
+const backend = defineBackend();
+
+// highlight-start
+const  = backend.auth.resources.cfnResources;
+cfnIdentityPool.allowUnauthenticatedIdentities = false;
+// highlight-end
+```

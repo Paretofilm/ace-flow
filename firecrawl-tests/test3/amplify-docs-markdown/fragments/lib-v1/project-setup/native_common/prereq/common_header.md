@@ -1,0 +1,12 @@
+---
+title: Documentation
+source: fragments/lib-v1/project-setup/native_common/prereq/common_header.mdx
+---
+
+# Documentation
+
+Before you begin, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) v14.x or later
+- [npm](https://www.npmjs.com/get-npm) v6.14.4 or later
+- [git](https://git-scm.com/) v2.14.1 or later

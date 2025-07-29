@@ -1,0 +1,44 @@
+---
+title: Escape Hatch
+topics: ['Getting Started']
+primary_topic: Getting Started
+source: fragments/start/getting-started/flutter/nextsteps.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Getting Started/]]
+**Primary**: [[Getting Started/]]
+
+---
+
+
+# Escape Hatch
+
+👏  In this tutorial you created fully featured CRUD application using Amplify API and Authentication. 
+But your Amplify journey is just getting started! You can now explore the API and Authentication categories 
+in more depth or dive into the other categories and add them to your application.
+
+- [Authentication](/gen1/[platform]/build-a-backend/auth/set-up-auth/)
+- [Analytics](/gen1/[platform]/build-a-backend/more-features/analytics/set-up-analytics/)
+- [GraphQL API](/gen1/[platform]/build-a-backend/graphqlapi/set-up-graphql-api/)
+- [REST API](/gen1/[platform]/build-a-backend/restapi/set-up-rest-api/)
+- [Storage](/gen1/[platform]/build-a-backend/storage/set-up-storage/)
+
+## Escape Hatch
+
+As an alternative to the Amplify client libraries, or in situations where the libraries do not provide the functionality you require,
+the underlying AWS services can be communicated with [directly](/gen1/[platform]/start/project-setup/escape-hatch/)
+using an HTTP client and the AWS Signature V4 (SigV4) protocol.
+
+
+---
+
+## 📚 Related Topics
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/start/getting-started/flutter/nextsteps.mdx`

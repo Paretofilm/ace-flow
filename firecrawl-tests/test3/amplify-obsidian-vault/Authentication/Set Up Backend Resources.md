@@ -1,0 +1,499 @@
+---
+title: Set Up Backend Resources
+topics: ['Authentication']
+primary_topic: Authentication
+source: fragments/lib-v1/auth/common/mfa/flows.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, authentication]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Authentication/]]
+**Primary**: [[Authentication/]]
+
+---
+
+
+# Set Up Backend Resources
+
+The Auth category supports Multi-factor Authentication (MFA) for user sign-in flows. MFA is an extra layer of security used to make sure that users trying to gain access to an account are who they say they are. It requires users to provide additional information to verify their identity. The category supports the following MFA methods:
+
+- [SMS](#multi-factor-authentication-with-sms)
+- [TOTP](#multi-factor-authentication-with-totp) (Time-based One-time Password)
+
+## Set Up Backend Resources
+
+Below are the steps you can use to set up MFA using SMS or TOTP with the Amplify CLI. The Amplify libraries are designed to work with MFA even if you have set up your Amazon Cognito resources separately.
+
+> **Note**: 
+
+When using Amplify CLI to set up backend resources, the following options are only available when starting a new project (via `amplify add auth`). You will not have access to these settings after creation (via `amplify update`).
+
+- Required MFA (i.e. Setting MFA to "ON")
+
+> **Note**: 
+Note: If you create or update an SMS MFA configuration for your Cognito user pool, the Cognito service will send a test SMS message to an internal number in order to verify your configuration. You will be charged for these test messages by Amazon SNS.
+
+Refer to [SMS sandbox](/gen1/[platform]/build-a-backend/auth/add-sms-flows/#sandbox-mode).
+
+For information about Amazon SNS pricing, see [Worldwide SMS Pricing](https://aws.amazon.com/sns/sms-pricing/).
+
+Run `amplify add auth` to create a new Cognito Auth resource, and follow the prompts below depending on how you want to integrate MFA into your flow.
+
+Turning MFA "ON" will make it required for all users, while "Optional" will make it available to enable on a per-user basis.
+
+</Block>
+
+Run `amplify update auth` and follow the prompts as guided below.
+
+</Block>
+
+</BlockSwitcher>
+
+## Multi-factor authentication with SMS
+
+### Enabling SMS for MFA during Sign Up
+
+You will need to pass `phone_number` as a user attribute to enable SMS MFA for your users during sign up. However, if the primary login mechanism for your Cognito resource is `phone_number` (without enabling `username`), then you do not need to pass it as an attribute.
+
+```ts
+
+async function handleSignUp(
+  username: string,
+  password: string,
+  phone_number: string,
+  email: string
+) 
+      }
+    });
+  } catch (error) 
+}
+```
+
+</Block>
+
+```javascript
+
+async function handleSignUp(username, password, phone_number, email) 
+      }
+    });
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> signUpWithPhoneVerification(
+  String username,
+  String password,
+) async ,
+    ),
+  );
+}
+```
+</InlineFilter>
+
+By default, you have to verify a user account after they sign up using the `confirmSignUp` API, which will send a one-time password to the user's phone number or email, depending on your Amazon Cognito configuration.
+
+```ts
+
+async function handleSignUpConfirmation(
+  username: string,
+  confirmationCode: string
+) );
+  } catch (error) 
+}
+```
+
+</Block>
+
+```js
+
+async function handleSignUpConfirmation(username, confirmationCode) );
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> confirmSignUpPhoneVerification(
+  String username,
+  String otpCode,
+) async 
+```
+</InlineFilter>
+
+### Handling SMS MFA challenge during Sign In
+
+After a user signs in, if they have MFA enabled for their account, a challenge will be returned that you would need to call the `confirmSignIn` API where the user provides their confirmation code sent to their phone number.
+
+```typescript
+
+async function handleSignIn(username: string, password: string) );
+  } catch (error) 
+}
+```
+
+</Block>
+
+```js
+
+async function handleSignIn(username, password) );
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> signInWithPhoneVerification(
+  String username,
+  String password,
+) async 
+```
+</InlineFilter>
+
+If MFA is **ON** or enabled for the user, you must call `confirmSignIn` with the OTP sent to their phone.
+
+```ts
+
+async function handleSignInConfirmation(otpCode: string) );
+  } catch (error) 
+}
+```
+
+</Block>
+
+```js
+
+async function handleSignInConfirmation(otpCode) );
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> confirmSignInPhoneVerification(String otpCode) async 
+```
+</InlineFilter>
+
+After a user has been signed in, call `updateMFAPreference` to record the MFA type as enabled for the user and optionally set it as preferred so that subsequent logins default to using this MFA type.
+
+```ts
+
+async function handleUpdateMFAPreference() );
+  } catch (error) 
+}
+```
+
+</InlineFilter>
+
+```dart
+Future<void> updateMfaPreferences() async 
+```
+</InlineFilter>
+
+## Multi-factor authentication with TOTP
+
+You can use Time-based One-Time Password (TOTP) for multi-factor authentication (MFA) in your web or mobile applications. The Amplify Auth category includes support for TOTP setup and verification using authenticator apps, offering an integrated solution and enhanced security for your users. These apps, such as Google Authenticator, Microsoft Authenticator, have the TOTP algorithm built-in and work by using a shared secret key and the current time to generate short-lived, six digit passwords.
+
+### Setting up TOTP for a user
+
+After you initiate a user sign in with the `signIn` API where a user is required to set up TOTP as an MFA method, the API call will return `CONTINUE_SIGN_IN_WITH_TOTP_SETUP` as a challenge and next step to handle in your app. You will get that challenge if the following conditions are met:
+
+- MFA is marked as **Required** in your user pool.
+- TOTP is enabled in your user pool.
+- User does not have TOTP MFA set up already.
+
+The `CONTINUE_SIGN_IN_WITH_TOTP_SETUP` step signifies that the user must set up TOTP before they can sign in. The step returns an associated value of type `TOTPSetupDetails` which must be used to configure an authenticator app like Microsoft Authenticator or Google Authenticator. `TOTPSetupDetails` provides a helper method called `getSetupURI` which generates a URI that can be used, for example, in a button to open the user's installed authenticator app. For more advanced use cases, `TOTPSetupDetails` also contains a `sharedSecret` which can be used to either generate a QR code or be manually entered into an authenticator app.
+
+Once the authenticator app is set up, the user can generate a TOTP code and provide it to the library to complete the sign in process.
+
+```ts
+
+async function handleSignIn(username: string, password: string) );
+
+    handleSignInNextSteps(output);
+  } catch (error) 
+}
+
+function handleSignInNextSteps(output: SignInOutput)  = output;
+  switch (nextStep.signInStep) 
+}
+```
+
+</Block>
+
+```js
+
+async function handleSignIn(username, password) );
+
+    handleSignInNextSteps(output);
+  } catch (error) 
+}
+
+function handleSignInNextSteps(output)  = output;
+  switch (nextStep.signInStep) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> signInUser(String username, String password) async  on AuthException catch (e) ');
+  }
+}
+
+Future<void> _handleSignInResult(SignInResult result) async 
+}
+```
+</InlineFilter>
+
+The TOTP code can be obtained from the user via a text field or any other means. Once the user provides the TOTP code, call `confirmSignIn` with the TOTP code as the `challengeResponse` parameter.
+
+```ts
+
+async function handleSignInConfirmation(totpCode: string) );
+  } catch (error) 
+}
+```
+
+</Block>
+
+```js
+
+async function handleSignInConfirmation(totpCode) );
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> confirmTotpUser(String totpCode) async  on AuthException catch (e) ');
+  }
+}
+```
+</InlineFilter>
+
+After a user has been signed in, call `updateMFAPreference` to record the MFA type as enabled for the user and optionally set it as preferred so that subsequent logins default to using this MFA type.
+
+```ts
+
+async function handleUpdateMFAPreference() );
+  } catch (error) 
+}
+```
+
+</InlineFilter>
+
+### Enabling TOTP after a user is signed in
+
+TOTP MFA can be set up after a user has signed in. This can be done when the following conditions are met:
+
+- MFA is marked as **Optional** or **Required** in your user pool.
+- TOTP is marked as an enabled MFA method in your user pool.
+
+TOTP can be set up by calling the `setUpTOTP` and `verifyTOTPSetup` APIs in the `Auth` category.
+
+Invoke the `setUpTOTP` API to generate a `TOTPSetupDetails` object which should be used to configure an Authenticator app like Microsoft Authenticator or Google Authenticator. `TOTPSetupDetails` provides a helper method called `getSetupURI` which generates a URI that can be used, for example, in a button to open the user's installed Authenticator app. For more advanced use cases, `TOTPSetupDetails` also contains a `sharedSecret` which can be used to either generate a QR code or be manually entered into an Authenticator app.
+
+that contains the `sharedSecret` which will be used to either to generate a QR code or can be manually entered into an Authenticator app.
+
+```typescript
+
+async function handleTOTPSetup()  catch (error) 
+}
+```
+
+</InlineFilter>
+
+```dart
+Future<void> setUpTotp() async  on AuthException catch (e) 
+}
+```
+</InlineFilter>
+
+Once the Authenticator app is set up, the user must generate a TOTP code and provide it to the library. Pass the code to `verifyTOTPSetup` to complete the TOTP setup process.
+
+```ts
+
+async function handleTOTPVerification(totpCode: string) );
+  } catch (error) 
+}
+```
+
+</Block>
+
+```js
+
+async function handleTOTPVerification(totpCode) );
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> verifyTotpSetup(String totpCode) async  on AuthException catch (e) 
+}
+```
+</InlineFilter>
+
+After TOTP setup is complete, call `updateMFAPreference` to record the MFA type as enabled for the user and optionally set it as preferred so that subsequent logins default to using this MFA type.
+
+```ts
+
+async function handleUpdateMFAPreference() );
+  } catch (error) 
+}
+```
+
+</InlineFilter>
+
+### Recovering from a lost TOTP device
+
+> **Note**: 
+
+If a user loses access to their TOTP device, they would need to contact an administrator to help get access to their account. Based on the Cognito user pool configuration, the administrator can use the [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html) to either change the MFA preference to a different MFA method or to disable MFA for the user.
+
+In a scenario where MFA is marked as **Required** in your user pool and another MFA method is not set up, the administrator would need to first initiate an [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) call and update the user’s phone number attribute. Once this is complete, the administrator can continue changing the MFA preference to SMS as suggested above.
+
+## Setting a user's preferred MFA option
+
+### Fetch the current user's MFA preferences
+
+Invoke the following API to get the current MFA preference and enabled MFA types, if any, for the current user.
+
+```ts
+
+async function handleFetchMFAPreference() `);
+    console.log(`Preferred MFA type for the user: $`);
+  } catch (error) 
+}
+```
+
+</InlineFilter>
+
+```dart
+Future<void> getCurrentMfaPreference() async ');
+  safePrint('Preferred MFA type for user: $');
+}
+```
+</InlineFilter>
+
+### Update the current user's MFA preferences
+
+Invoke the following API to update the MFA preference for the current user.
+
+> **Note**: 
+
+Only one MFA method can be marked as preferred at a time. If the user has multiple MFA methods enabled and tries to mark more than one MFA method as preferred, the API will throw an error.
+
+```ts
+
+async function handleUpdateMFAPreference() );
+  } catch (error) 
+}
+```
+
+</InlineFilter>
+
+```dart
+Future<void> updateMfaPreferences() async 
+```
+</InlineFilter>
+
+If multiple MFA methods are enabled for the user, the `signIn` API will return `CONTINUE_SIGN_IN_WITH_MFA_SELECTION` as the next step in the auth flow. During this scenario, the user should be prompted to select the MFA method they want to use to sign in and their preference should be passed to `confirmSignIn`.
+</InlineFilter>
+
+If multiple MFA methods are enabled for the user, the signIn API will return continueSignInWithMFASelection as the next step in the auth flow. During this scenario, the user should be prompted to select the MFA method they want to use to sign in and their preference should be passed to confirmSignIn.
+
+The MFA types which are currently supported by Amplify Auth are:
+
+- `MfaType.sms`
+- `MfaType.totp`
+</InlineFilter>
+
+```ts
+
+function handleSignInNextSteps(output: SignInOutput)  = output;
+  switch (nextStep.signInStep) 
+}
+
+function promptUserForMFAType(
+  allowedMFATypes?: ('SMS' | 'TOTP')[]
+): 'SMS' | 'TOTP' 
+
+async function handleMFASelection(mfaType: 'SMS' | 'TOTP') );
+    handleSignInNextSteps(output);
+  } catch (error) 
+}
+```
+
+</Block>
+
+```js
+function handleSignInNextSteps(output)  = output;
+  switch (nextStep.signInStep) 
+}
+
+function promptUserForMFAType(allowedMFATypes) 
+
+async function handleMFASelection(mfaType) );
+    handleSignInNextSteps(output);
+  } catch (error) 
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+</InlineFilter>
+
+```dart
+Future<void> _handleSignInResult(SignInResult result) async 
+}
+
+Future _promptUserPreference(Set allowedTypes) async 
+
+Future<void> _handleMfaSelection(MfaType selection) async  on AuthException catch (e) ');
+  }
+}
+```
+</InlineFilter>
+
+
+---
+
+## 📚 Related Topics
+- [[Authentication/]]
+
+## 📖 Source
+Original: `fragments/lib-v1/auth/common/mfa/flows.mdx`

@@ -1,0 +1,45 @@
+---
+title: Documentation
+topics: ['Maps & Location', 'Getting Started']
+primary_topic: Maps & Location
+source: fragments/lib/geo/ios/getting_started/20_cli_resources.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, maps-&-location, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Maps & Location/]] • [[Getting Started/]]
+**Primary**: [[Maps & Location/]]
+
+---
+
+
+# Documentation
+
+> Prerequisite: [Install and configure the Amplify CLI](/gen1/[platform]/tools/cli/start/set-up-cli/)
+
+To start provisioning Geo resources in the backend, go to your project directory and execute the command:
+
+```sh
+amplify add geo
+```
+
+The CLI will prompt configuration options for the Geo category for what type of capability you want to add and default or advanced settings. The `add` command automatically creates the backend configuration. Once all your configuration is complete run the following:
+
+```sh
+amplify push
+```
+
+Upon completion, `amplifyconfiguration.json` should be updated to reference provisioned backend geo resources. Note that this file should already be a part of your project if you followed the Project setup walkthrough.
+
+
+---
+
+## 📚 Related Topics
+- [[Maps & Location/]]
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/lib/geo/ios/getting_started/20_cli_resources.mdx`

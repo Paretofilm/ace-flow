@@ -1,0 +1,16 @@
+---
+title: Documentation
+source: fragments/lib-v1/datastore/js/data-access/query-predicate-or-snippet.mdx
+---
+
+# Documentation
+
+If you wanted this to be an `or` statement you would wrap your combined predicates with `c => c.or(...)`
+
+```js
+const posts = await DataStore.query(Post, (c) =>
+  c.or(c => [
+    c.rating.gt(4),
+    c.status.eq(PostStatus.ACTIVE)
+  ]));
+```

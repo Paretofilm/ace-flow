@@ -1,0 +1,72 @@
+---
+title: Documentation
+topics: ['Getting Started']
+primary_topic: Getting Started
+source: fragments/lib/restapi/ios/getting-started/30_initapi.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Getting Started/]]
+**Primary**: [[Getting Started/]]
+
+---
+
+
+# Documentation
+
+To initialize the Amplify API and Authentication categories, you are required to use the `Amplify.addPlugin()` method for each category you want.  When you are done calling `addPlugin()` on each category, you finish configuring Amplify by calling `Amplify.configure()`.
+
+In your `App` scene, configure Amplify in the initializer:
+
+```swift
+@main
+struct MyAmplifyApp: App 
+    }
+
+    init()  catch 
+    }
+}
+```
+
+</Block>
+
+Add the following imports to the top of your `AppDelegate.swift` file:
+```swift
+import Amplify
+import AWSAPIPlugin
+```
+
+Add the following code to the `application:didFinishLaunchingWithOptions` method:
+
+```swift
+func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+) -> Bool  catch 
+
+    return true
+}
+```
+
+</Block>
+
+</BlockSwitcher>
+
+Upon building and running this application you should see the following in your console window:
+
+```console
+Amplify configured with API and Auth plugin
+```
+
+
+---
+
+## 📚 Related Topics
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/lib/restapi/ios/getting-started/30_initapi.mdx`

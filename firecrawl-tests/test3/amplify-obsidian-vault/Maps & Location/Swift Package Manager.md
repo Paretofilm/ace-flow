@@ -1,0 +1,41 @@
+---
+title: Swift Package Manager
+topics: ['Maps & Location', 'Getting Started']
+primary_topic: Maps & Location
+source: fragments/lib/geo/ios/getting_started/30_install_lib.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, maps-&-location, getting-started]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[Maps & Location/]] • [[Getting Started/]]
+**Primary**: [[Maps & Location/]]
+
+---
+
+
+# Swift Package Manager
+
+The Geo plugin is dependent on Cognito Auth.
+
+#### Swift Package Manager
+
+1. To install Amplify Geo and Authentication to your application, open your project in Xcode and select **File > Add Packages...**.
+
+1. Enter the **Amplify Library for Swift** GitHub repo URL (`https://github.com/aws-amplify/amplify-swift`) into the search bar and and hit **Enter** Wait for the result to load. You'll see the repository rules for which version of amplify-ios-mapLibre you want Swift Package Manager to install.
+
+1. Choose the dependency rule **Up to Next Major Version**, as it will use the latest compatible version of the dependency, then click **Add Package**.
+
+1. Lastly, choose **AWSLocationGeoPlugin**, **AWSCognitoAuthPlugin**, and **Amplify**. Then click Finish.
+
+
+---
+
+## 📚 Related Topics
+- [[Maps & Location/]]
+- [[Getting Started/]]
+
+## 📖 Source
+Original: `fragments/lib/geo/ios/getting_started/30_install_lib.mdx`

@@ -1,0 +1,47 @@
+---
+title: Documentation
+source: fragments/lib/geo/ios/getting_started/40_init_geo.mdx
+---
+
+# Documentation
+
+To initialize the Amplify Geo, use the `Amplify.addPlugin()` method to add the AWSLocationGeoPlugin. Next, finish configuring Amplify by calling `Amplify.configure()`.
+
+Open the main file of the application - `AppDelegate.swift` or `App.swift` depending on the app's life cycle - and **add the following** import statements at the top of the file:
+
+```swift
+import Amplify
+import AWSLocationGeoPlugin
+```
+
+In the same file, **create a function** to configure Amplify:
+```swift
+func configureAmplify()  catch 
+}
+```
+
+Now **call the `configureAmplify()` function** in the starting point of your application.
+
+```swift
+@main
+struct App: App 
+}
+```
+
+</Block>
+
+```swift
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate 
+    // ...
+}
+```
+
+</Block>
+</BlockSwitcher>
+
+Upon building and running this application you should see the following in your console window:
+
+```console
+Initialized Amplify
+```

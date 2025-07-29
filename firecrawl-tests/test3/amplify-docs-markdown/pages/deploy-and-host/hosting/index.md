@@ -1,0 +1,15 @@
+---
+title: Frontend hosting
+source: pages/deploy-and-host/hosting/index.mdx
+---
+
+# Frontend hosting
+
+}
+
+AWS Amplify Hosting is a fully managed CI/CD and hosting service for fast, secure, and reliable static and server-side rendered apps that scale with your business. This service supports modern web frameworks such as React, Angular, Vue, Next.js, Nuxt.js, Gatsby, and more.
+
+Because AWS Amplify Hosting is a fully managed service, its documentation lives on the AWS Documentation site. To learn about hosting features such as custom domains, redirects, and more, please visit the Hosting documentation.
+
+  View Hosting Docs
+</ExternalLinkButton>

@@ -1,0 +1,42 @@
+---
+title: Tools
+topics: ['AI & Machine Learning']
+primary_topic: AI & Machine Learning
+source: pages/ai/concepts/tools/index.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, ai-&-machine-learning]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[AI & Machine Learning/]]
+**Primary**: [[AI & Machine Learning/]]
+
+---
+
+
+# Tools
+
+Large language models (LLMs) are stateless text generators, they have no knowledge of the real world and can't access data on their own. For example, if you asked an LLM "what is the weather in San Jose?" it would not be able to tell you because it does not know what the weather is today. Tools (sometimes referred to as function calling) are functions/APIs that LLMs can choose to invoke to get information about the world. This allows the LLM to answer questions with information not included in their training data like the weather, application-specific, and even user-specific data. 
+
+When an LLM is prompted with tools, it can choose to respond by saying that it wants to call a tool to get some data or take an action on the user's behalf. That data is then added to the conversation history so the LLM can see what data was returned. Here is a simplified flow of what happens:
+
+1. User: "what is the weather in san jose?"
+2. Code: Call LLM with this message: "what is the weather in san jose?", and let it know it has access to a tool called `getWeather` that takes an input like ``
+3. LLM: "I want to call the 'getWeather' tool with the input ``"
+4. Code: Run `getWeather()` and append the results to the conversation history so far and call the LLM again
+5. LLM: "In san jose it is 72 degrees and sunny"
+
+> **Note**: 
+
+Note: the LLM itself is not actually executing any function or code. It responds with a special message saying that it wants to call that tool with specific input. That tool then needs to called and the results returned to the LLM in a message history. For more information on tools, see the [Bedrock docs on tool use](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html)
+
+
+---
+
+## 📚 Related Topics
+- [[AI & Machine Learning/]]
+
+## 📖 Source
+Original: `pages/ai/concepts/tools/index.mdx`

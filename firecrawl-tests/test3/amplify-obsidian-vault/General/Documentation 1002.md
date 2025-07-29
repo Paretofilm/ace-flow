@@ -1,0 +1,87 @@
+---
+title: Documentation
+topics: ['General']
+primary_topic: General
+source: fragments/lib/project-setup/android/async/async.mdx
+type: aws-amplify-docs
+platform: next.js
+tags: [aws, amplify, general]
+---
+
+
+## 🧭 Navigation
+**Topics**: [[General/]]
+**Primary**: [[General/]]
+
+---
+
+
+# Documentation
+
+Most functionalities in Amplify Android are exposed as asynchronous functions. These functions return immediately, returning a result at a later time:
+
+```kotlin
+val post = Post.builder()
+    .title("My First Post")
+    .build()
+
+// Time 0: save() is called.
+Amplify.DataStore.save(post,
+    ,
+    
+)
+// Time 1: save() yields execution to following lines,
+// but no result available, yet.
+
+```
+
+This is a familiar pattern to many Android developers, and so is the default way of interacting with Amplify Android.
+
+However, this development model has some challenges. Let's say you need to wait for an operation to complete, so that you can perform additional logic that depends on its result. This can quickly become unmaintainable, resulting in a situation known as "callback hell":
+
+Consider a relational model where the creation of a `Post` also requires the creation of a `User` for the editor, and a `PostEditor` object to link the two together:
+
+```java
+Post post = Post.builder()
+    .title("My First Post")
+    .build();
+
+User editor = User.builder()
+    .username("Nadia")
+    .build();
+
+PostEditor postEditor = PostEditor.builder()
+    .post(post)
+    .user(editor)
+    .build();
+```
+
+Using callbacks, you can save these objects via:
+
+```kotlin
+Amplify.DataStore.save(post,
+    ,
+                    
+                )
+            },
+            
+        )
+    },
+    
+)
+```
+
+After three calls, you're no longer writing down the page, you're writing down-and-right. As your program grows, this may become difficult to scale.
+
+There are a variety of different technologies that aim to solve this particular problem: Promises/Futures, RxJava, Kotlin Coroutines, and more.
+
+Amplify Android includes optional support for **[Kotlin Coroutines](/gen1/[platform]/start/project-setup/kotlin-coroutines/)** and **[RxJava](/gen1/[platform]/start/project-setup/rxjava/)**.
+
+
+---
+
+## 📚 Related Topics
+- [[General/]]
+
+## 📖 Source
+Original: `fragments/lib/project-setup/android/async/async.mdx`
