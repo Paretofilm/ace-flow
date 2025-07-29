@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
   animateElements.forEach(el => observer.observe(el));
 
   // Mobile documentation navigation
-  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle') || document.querySelector('.menu-icon');
   const mobileNavClose = document.querySelector('.mobile-nav-close');
   const mobileNavBackdrop = document.querySelector('.mobile-nav-backdrop');
   const docsSidebar = document.querySelector('.docs-sidebar');
@@ -54,7 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   if (mobileNavToggle && docsSidebar) {
-    mobileNavToggle.addEventListener('click', openMobileNav);
+    mobileNavToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      openMobileNav();
+    });
   }
   
   if (mobileNavClose) {
@@ -91,11 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Header mobile menu toggle (existing functionality)
+  // Header mobile menu toggle (existing functionality) - disabled on docs pages
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const siteNav = document.querySelector('.site-nav');
   
-  if (mobileMenuToggle && siteNav) {
+  if (mobileMenuToggle && siteNav && !docsSidebar) {
     mobileMenuToggle.addEventListener('click', function() {
       siteNav.classList.toggle('active');
     });
